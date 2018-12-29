@@ -4,6 +4,7 @@ import java.util.List;
 
 /**
  * The root interface in the graph hierarchy
+ * https://github.com/mihneadb/Graphs/blob/master/Graph.java
  *
  * @param <V> the graph vertex type
  * @param <E> the graph edge type

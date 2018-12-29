@@ -36,6 +36,7 @@ public class FsmConfig extends EnumStateMachineConfigurerAdapter<OrderStates, Or
             throws Exception {
         states.withStates()
                 .initial(OrderStates.WAIT_PAYMENT)
+                .end(OrderStates.FINISH)
                 .states(EnumSet.allOf(OrderStates.class));
     }
 
