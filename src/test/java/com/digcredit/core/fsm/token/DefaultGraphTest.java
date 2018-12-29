@@ -40,7 +40,7 @@ public class DefaultGraphTest {
         WeightEdgeContext poolToIssuer1Proxy = new WeightEdgeContext(0.003, "代理商奖励");
 
         // Build graph
-        Graph<UserVertexContext, WeightEdgeContext> graph = new DefaultGraph();
+        Graph<UserVertexContext, WeightEdgeContext> graph = new DefaultGraph<>();
         graph.addVertex(payeeContext);
         graph.addVertex(payerContext);
         graph.addVertex(poolContext);

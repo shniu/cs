@@ -58,6 +58,9 @@ public class DefaultGraph<V extends VertexContext, E extends EdgeContext> implem
                     edge.getContext().getType(),
                     edge.getTarget().getLabel(),
                     edge.getContext().getWeight() * total);
+
+            // Todo 生成清单
+            // Todo 生成记账单
         }
 
     }
