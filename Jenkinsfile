@@ -1,5 +1,7 @@
 pipeline {
-    
+    agent {
+        label 'default'
+    }
     stages {
         stage('build') {
             steps {
