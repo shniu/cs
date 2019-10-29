@@ -1,6 +1,7 @@
 ## Cumputer Science
 
 计算机科学是系统性研究信息与计算的理论基础以及它们在计算机系统中如何实现与应用的实用技术的学科；涵盖的内容非常多，但是最核心最基础的学科是计算机科学的基石，包括：
+0. 数据结构与算法
 1. 计算机组成原理（计算机体系结构与计算机工程）
 2. 操作系统
 3. 计算机网络
@@ -16,6 +17,7 @@
 
 ```
 cs/
+ - algorithm (Data Structure & Algothrim 数据结构与算法)
  - ccp (Computer composition principle 计算机组成原理)
  - os (Operating System 操作系统)
  - network (Computer Network 计算机网络)
