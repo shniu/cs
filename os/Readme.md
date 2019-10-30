@@ -26,6 +26,7 @@ OS 的前置知识
 ### 内容
 
 - [01 系统初始化](01-系统初始化.md)
+- [中断和异常](https://chyyuu.gitbooks.io/ucore_os_docs/content/lab1/lab1_3_3_2_interrupt_exception.html)
 
 ### 参考文献
 
@@ -39,9 +40,11 @@ x86架构导读 http://www.cs.virginia.edu/~evans/cs216/guides/x86.html
 动手试验
 
 ```
+https://github.com/chyyuu/os_course_info 清华大学操作系统课程(2019)
 OS kernel labs for operating systems course in Tsinghua University https://github.com/chyyuu/ucore_os_lab
 uCore OS实验指导书和源码网址 (2019)  https://chyyuu.gitbooks.io/ucore_os_docs/content/
 http://www.xuetangx.com/courses/course-v1:TsinghuaX+30240243X+sp/courseware/be5b8d4fec0c4c329d19845020bc67b2/
+试验环境 https://www.shiyanlou.com/courses/221/learning/?id=710
 ```
 
 video
