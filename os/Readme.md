@@ -32,6 +32,21 @@ OS 的前置知识
 ```
 Linux 内核手册 https://www.kernel.org/doc/html/latest/
 Glibc https://www.gnu.org/software/libc/started.html
+
+x86架构导读 http://www.cs.virginia.edu/~evans/cs216/guides/x86.html
+```
+
+动手试验
+
+```
+OS kernel labs for operating systems course in Tsinghua University https://github.com/chyyuu/ucore_os_lab
+uCore OS实验指导书和源码网址 (2019)  https://chyyuu.gitbooks.io/ucore_os_docs/content/
+```
+
+video
+
+```
+汇编从零开始到C语言: https://study.163.com/course/introduction.htm?courseId=1640004#/courseDetail?tab=1
 ```
 
 #### OS 相关的书
@@ -70,4 +85,6 @@ Glibc https://www.gnu.org/software/libc/started.html
 《Linux内核源代码情景分析》
 《UNIX/Linux系统管理技术手册》
 Operating Systems: Three Easy Pieces http://pages.cs.wisc.edu/~remzi/OSTEP/
+一个64位操作系统的设计与实现
+从实模式到保护模式
 ```
