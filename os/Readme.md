@@ -41,6 +41,7 @@ x86架构导读 http://www.cs.virginia.edu/~evans/cs216/guides/x86.html
 ```
 OS kernel labs for operating systems course in Tsinghua University https://github.com/chyyuu/ucore_os_lab
 uCore OS实验指导书和源码网址 (2019)  https://chyyuu.gitbooks.io/ucore_os_docs/content/
+http://www.xuetangx.com/courses/course-v1:TsinghuaX+30240243X+sp/courseware/be5b8d4fec0c4c329d19845020bc67b2/
 ```
 
 video
