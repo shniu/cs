@@ -18,12 +18,17 @@
 ## LeetCode
 
 - [155.最小栈](https://leetcode-cn.com/problems/min-stack/)
+- [641.设计循环双端队列](https://leetcode-cn.com/problems/design-circular-deque)
 - [20.有效的括号](https://leetcode-cn.com/problems/valid-parentheses/)
 - [84.柱状图中最大的矩形](https://leetcode-cn.com/problems/largest-rectangle-in-histogram)
 - [239.滑动窗口最大值](https://leetcode-cn.com/problems/sliding-window-maximum/)
 - [50.Pow(x,n)](https://leetcode-cn.com/problems/powx-n/)
 - [78.子集](https://leetcode-cn.com/problems/subsets/)
 - [169.求众数](https://leetcode-cn.com/problems/majority-element)  有很多种解法
+- [17.电话号码的字母组合](https://leetcode-cn.com/problems/letter-combinations-of-a-phone-number/)
+- [51.N皇后](https://leetcode-cn.com/problems/n-queens/)
+- [200.岛屿数量](https://leetcode-cn.com/problems/number-of-islands)
+- [36.有效的数独](https://leetcode-cn.com/problems/valid-sudoku/)
 - [102.二叉树的层次遍历](https://leetcode-cn.com/problems/binary-tree-level-order-traversal) [英文站](https://leetcode.com/problems/binary-tree-level-order-traversal)
 
 要点：二叉树的层次遍历，思想接近图的BFS。实现方式1，使用queue做辅助进行遍历；实现方式2，使用递归，将层次信息和结果信息做追踪
