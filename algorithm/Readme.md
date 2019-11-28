@@ -18,9 +18,15 @@
 
 // todo 怎么一点点的积累
 
+1. 递归详解
+2. 回溯算法详解
+3. 二分查找思想
+4. 动态规划
+5. 图和图算法
+
 ## 算法题
 
-详细请查看[算法题汇总整合](algothrim-excercises.md).
+详细请查看[算法题汇总整合](99-常见题目列表.md).
 
 推荐阅读的书籍
 
@@ -47,6 +53,7 @@
 - [一些经典的算法题解](https://github.com/Dev-XYS/Algorithms) 这里有各种算法的C++代码，任何人可以在自己的任何程序中使用
 - [正确的姿势，学习的态度来刷 LeetCode：高效的代码、简洁的注释、精炼的总结。](https://github.com/selfboot/LeetCode)
 - [LeetCode 算法题解](https://leetcode.wang/)  <https://windliang.cc/>
+- [数据结构与算法之美专栏](https://github.com/wangzheng0822/algo)
 
 ## 参考资源
 
@@ -64,6 +71,8 @@
 
 ### 博客
 
+- [GeeksForGeeks: Graph Data Structure And Algorithms](https://www.geeksforgeeks.org/graph-data-structure-and-algorithms/) & [GeeksForGeeks 编程练习题，各大公司面试题](https://practice.geeksforgeeks.org/company-tags)
+- [GeeksForGeeks: Greedy Algothrim](https://www.geeksforgeeks.org/greedy-algorithms/)
 - [labuladong 的原创算法思考系列文章](https://labuladong.gitbook.io/algo/)  分析的非常好
 - [为什么算法这么难？](http://mindhacks.cn/2011/07/10/the-importance-of-knowing-why-part3/)
 - [正确的姿势，学习的态度来刷 LeetCode：高效的代码、简洁的注释、精炼的总结](https://github.com/selfboot/LeetCode)

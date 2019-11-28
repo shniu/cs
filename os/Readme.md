@@ -57,6 +57,12 @@ nasm https://cs.lmu.edu/~ray/notes/nasmtutorial/  http://www.nasm.us/
 汇编语言论坛 http://www.asmedu.net/bbs/forum.jsp
 ```
 
+### 博客专栏
+
+#### 汇编相关
+
+- [x86 Assembly Guide](http://www.cs.virginia.edu/~evans/cs216/guides/x86.html)
+
 ### OS 相关的书
 
 ```text
