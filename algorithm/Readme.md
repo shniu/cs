@@ -54,6 +54,7 @@
 - [正确的姿势，学习的态度来刷 LeetCode：高效的代码、简洁的注释、精炼的总结。](https://github.com/selfboot/LeetCode)
 - [LeetCode 算法题解](https://leetcode.wang/)  <https://windliang.cc/>
 - [数据结构与算法之美专栏](https://github.com/wangzheng0822/algo)
+- [Java : Algorithms and Data Structure](https://github.com/phishman3579/java-algorithms-implementation)
 
 ## 参考资源
 
@@ -79,6 +80,7 @@
 - [知其所以然之永不遗忘的算法](https://selfboot.cn/2015/11/03/howto_find_algorithm/#%E4%B8%80%E4%B8%AA%E6%80%9D%E7%BB%B4%E5%8E%86%E7%A8%8B)
 - [为什么算法这么难](http://mindhacks.cn/topics/algorithms/)
 - [位运算](https://github.com/selfboot/LeetCode/tree/master/BitManipulation)
+- [图论](https://coding.imooc.com/class/chapter/370.html) [Code on Github](https://github.com/liuyubobobo/Play-with-Graph-Algorithms)
 
 ### 动画演示
 
