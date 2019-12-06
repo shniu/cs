@@ -18,6 +18,8 @@
 
 代码实现：[shniu/java-eco](https://github.com/shniu/java-eco)
 
+- [动态规划](01-动态规划.md)
+
 ### 数组
 
 - 定义及特点
@@ -115,6 +117,7 @@
 - [LeetCode 算法题解](https://leetcode.wang/)  <https://windliang.cc/>
 - [数据结构与算法之美专栏](https://github.com/wangzheng0822/algo)
 - [Java : Algorithms and Data Structure](https://github.com/phishman3579/java-algorithms-implementation)
+- [玩儿转算法面试](https://github.com/liuyubobobo/Play-with-Algorithm-Interview) 在慕课网上的课程《玩儿转算法面试》示例代码。课程的更多更新内容及辅助练习也将逐步添加进这个代码仓。
 
 ## 参考资源
 
@@ -141,6 +144,7 @@
 - [为什么算法这么难](http://mindhacks.cn/topics/algorithms/)
 - [位运算](https://github.com/selfboot/LeetCode/tree/master/BitManipulation)
 - [图论](https://coding.imooc.com/class/chapter/370.html) [Code on Github](https://github.com/liuyubobobo/Play-with-Graph-Algorithms)
+- [结构之法 算法之道](https://blog.csdn.net/v_july_v?t=1)
 
 ### 动画演示
 

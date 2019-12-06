@@ -26,3 +26,34 @@ Software Design：
 5. 设计技术实现方案
 6. 设计测试方案，可能会调整对应的设计
 7. 遇到问题解决问题
+
+## 参考资料
+
+- [OODesign.com](https://www.oodesign.com/)
+- [System design primer](https://github.com/donnemartin/system-design-primer)  Learn how to design large-scale systems. Prep for the system design interview. Includes Anki flashcards.
+- 架构师之路
+- [Design Systems Gallery](https://designsystemsrepo.com/design-systems/)
+
+A comprehensive and curated list of design systems, style guides and pattern libraries that you can use for inspiration.
+
+- [Top 10 System Design Interview Questions for Software Engineers](https://hackernoon.com/top-10-system-design-interview-questions-for-software-engineers-8561290f0444)
+- [OODesign Interview Questions](https://www.educative.io/courses/grokking-the-object-oriented-design-interview/RMlM3NgjAyR)
+- [OODesign 的完整例子 - 设计一个 ATM 系统](http://www.math-cs.gordon.edu/courses/cs211/ATMExample/) 非常详细
+- [ATM 设计详细分析 - ATM Case Study](https://pdfs.semanticscholar.org/f1b1/7b54bee524e449d481294555e13da14cb83c.pdf)
+
+### Books
+
+- 设计模式之禅
+- 设计模式：可复用面向对象的基础
+- 重构
+- 架构整洁之道
+- Head First 设计模式
+- Java 与模式
+- 深入浅出面向对象分析与设计
+- 代码大全
+- 代码整洁之道
+- 编写可读代码的艺术
+- 重构与模式
+- 修改代码的艺术
+- 演进式架构设计
+- 敏捷软件开发：原则模式与实践
