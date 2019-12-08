@@ -118,6 +118,7 @@
 - [数据结构与算法之美专栏](https://github.com/wangzheng0822/algo)
 - [Java : Algorithms and Data Structure](https://github.com/phishman3579/java-algorithms-implementation)
 - [玩儿转算法面试](https://github.com/liuyubobobo/Play-with-Algorithm-Interview) 在慕课网上的课程《玩儿转算法面试》示例代码。课程的更多更新内容及辅助练习也将逐步添加进这个代码仓。
+- [Provide all my solutions and explanations in Chinese for all the Leetcode coding problems.](https://github.com/grandyang/leetcode)
 
 ## 参考资源
 
