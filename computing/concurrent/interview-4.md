@@ -74,7 +74,7 @@ public class MonitorSystemProxy {
 ```java
 public class MonitorSystemProxyOpt {
     // 自定义的中断标识位
-    private boolean terminated = false;
+    private volatile boolean terminated = false;
     // 启动标识
     private boolean started = false;
     // 采集上报线程
@@ -115,4 +115,8 @@ public class MonitorSystemProxyOpt {
     }
 }
 ```
+
+### 线程池的终止和退出
+
+线程池提供了 shutdown() 和 shutdownNow().
 
