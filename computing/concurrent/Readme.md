@@ -7,3 +7,4 @@
 - [互斥锁保护共享资源：单进程内账户转账的例子](interview.md)
 - [例子：三个线程交替打印A、B、C](interview-2.md)
 - [例子：两个线程交替打印奇数和偶数](interview-3.md)
+- [如何安全的终止线程？](interview-4.md)
