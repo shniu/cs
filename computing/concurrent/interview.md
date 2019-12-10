@@ -337,3 +337,61 @@ class PThread implements Runnable {
     }
 }
 ```
+
+#### 思路3 可以利用 Lock 和 Condition 交替打印
+
+这种方式本质上还是等待-通知机制，也非常棒。
+
+```java
+public class PrintEvenOdd3 {
+    private static volatile int number = 1;
+    private static int MAX = 100;
+    
+    public static void main(String[] args) {
+        Lock lock = new ReentrantLock();
+        // 奇数 Condition
+        Condition oddCond = lock.newCondition();
+        // 偶数 Condition
+        Condition evenCond = lock.newCondition();
+        
+        Runnable runnable = () -> {
+            while (true) {
+                lock.lock();
+                
+                if (number > MAX) {
+                    oddCond.signalAll();
+                    evenCond.signalAll();
+                    lock.unlock();
+                    return;
+                }
+                
+                // odd
+                if (number % 2 == 1) {
+                    System.out.println(Thread.currentThread().getName() + number);
+                    number++;
+                    // notify 偶数 Condition
+                    evenCond.notifyAll();
+                    try {
+                        oddCond.await();
+                    } catch (Exception e) {}
+                } else {  // even
+                    System.out.println(Thread.currentThread().getName() + number);
+                    number++;
+                    // notify 奇数 Condtion
+                    oddCond.notifyAll();
+                    try {
+                        evenCond.await();
+                    } catch (Exception e) {}
+                }
+                
+                lock.unlock();
+            }
+        };
+        
+        // start odd thread
+        new Thread(runnable, "odd").start();
+        // start even thread
+        new Thread(runnable, "even").start();
+    }
+}
+```
