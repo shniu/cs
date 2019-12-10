@@ -250,8 +250,8 @@ public class Account {
 // 互斥资源：要打印的数字
 // 互斥锁：共享一把锁即可，如 Object lock = new Object();
 // 线程要求的条件：两个线程交替执行
-// 何时等待：
-// 何时通知：
+// 何时等待：打印完自己的数字等待对方打印
+// 何时通知：打印安自己的数字通知对方打印
 public class PrintEvenOdd {
     private static volatile int number = 1;
     private static int MAX = 100;
@@ -283,3 +283,57 @@ public class PrintEvenOdd {
 }
 ```
 
+#### 思路2 利用 synchronized 或者 Lock 接口结合判断奇偶的方式
+
+思路1 利用了等待-通知机制，是我认为的最优秀的解决方法了。判断奇偶的思路更容易理解。
+
+```java
+public class PrintEvenOdd {
+    
+    public static void main(String[] args) {
+        Lock lock = new ReentrantLock();
+        
+        // 奇数线程
+        new Thread(new PThread(lock, 0)).start();
+        
+        // 偶数线程
+        new Thread(new PThread(lock, 1)).start();
+    }
+}
+
+class PThread implements Runnable {
+    private Lock lock;
+    private int flag;
+    
+    private PThread() {
+    }
+    
+    public PThread(Lock lock, int flag) {
+        this.lock = lock;
+        this.flag = flag;
+    }
+    
+    // 共享资源
+    private static int number = 0;
+    private static int MAX = 100;
+
+    @Override
+    public void run() {
+        while (true) {
+            lock.lock();
+            if (number > MAX) {
+                lock.unlock();
+                return;
+            }
+            
+            // 判断奇偶
+            if (number % 2 == flag) {
+                System.out.println(number);
+                number++;
+            }
+            
+            lock.unlock();
+        }
+    }
+}
+```
