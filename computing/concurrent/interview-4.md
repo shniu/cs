@@ -64,3 +64,5 @@ public class MonitorSystemProxy {
     }
 }
 ```
+
+以上实现已经能基本工作了，但是有一个隐患，在于采集上报的逻辑里可能会有代码捕获 InterruptedException 异常，导致状态位被清空，Thread.currentThread().isInterrupted() 判断失效，因为我们可能用了第三方库，无法修改，所以为代码埋
