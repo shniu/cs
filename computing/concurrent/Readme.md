@@ -8,4 +8,4 @@
 - [例子：三个线程交替打印A、B、C](interview-2.md)
 - [例子：两个线程交替打印奇数和偶数](interview-3.md)
 - [如何安全的终止线程？](interview-4.md)
-- [jstack/jps/jstat/jar/jinfo/jconsole/jvisualvm等命令](interview-5.md)
+- [最佳实践：等待-通知机制](interview-5.md)
