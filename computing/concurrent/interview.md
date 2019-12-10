@@ -92,7 +92,9 @@ public void transfer(Account target, int amt) {
 public class Allocator {
     private Set<Object> als = new HashSet<>();
     
+    // todo 缺少单例的实现 ...
     private Allocator() {}
+    
     // 申请资源
     public synchronized boolean apply(Object from, Object to) {
         if (als.contains(from) || als.contains(to)) return false;
@@ -114,6 +116,7 @@ public class Account {
     private int balance;
     
     public void transfer(Account target, int amt) {
+        // 利用循环检测资源是否就绪，一次性申请所有资源
         while (!allocator.apply(this, target) ;
         
         try {
@@ -133,5 +136,96 @@ public class Account {
 }
 ```
 
+当然，这种方案是可行的，但是也存在缺点，稍后分析。
 
+- 破坏不可抢占条件修复 bug
 
+产生死锁的另一个原因是获取资源后，其他线程不能强行占有这个资源。那么我们可以考虑释放掉已经占有的资源。`synchronized` 并发原语并不能支持，因为它一旦申请不到资源就进入了阻塞状态，稍后做分析来找其他解决方案。
+
+- 破坏循环等待条件修复 bug
+
+产生死锁的另一个原因是循环等待，那么可以为资源进行编号，按序获取资源。
+
+```java
+public class Account {
+    private int id;
+    private int balance;
+    
+    public void transfer(Account target, int amt) {
+        Account left = this;
+        Account right = target;
+        if (this.id > target.id) {
+            left = target;
+            right = this;
+        }
+        
+        synchronized (left) {
+            synchronized (right) {
+                if (this.balance > amt) {
+                    this.balance -= amt;
+                    target.balance += amt;
+                }
+            }
+        }
+    }
+}
+```
+
+#### 改进3: 继续优化性能
+
+在 `破坏占用且等待的条件来修复 bug` 那一部分我们用了循环检测资源的就绪状态，但是这个方案并不完美，试想如果并发量大，转账账户重叠多的时候，就会耗费大量的CPU时间，这是空耗，浪费了资源。比较好的方式是等待-通知机制，当没有足够资源时就等待，有足够资源时就收到通知触发执行。
+
+```java
+public class Allocator {
+    private Set<Object> als = new HashSet<>();
+    
+    // todo 缺少单例的实现 ...
+    private Allocator() {}
+    
+    // 申请资源
+    public synchronized boolean apply(Object from, Object to) {
+        while (als.contains(from) || als.contains(to)) {
+            try {
+                wait();
+            } catch(Exception e) {}
+        }
+        
+        als.add(from);
+        als.add(to);
+    }
+    
+    // 释放资源
+    public synchronzied void free(Object from, Object to) {
+        als.remove(from);
+        als.remove(to);
+        notifyAll();
+    }
+}
+
+public class Account {
+    private Allocator allocator；
+    private int balance;
+    
+    public void transfer(Account target, int amt) {
+        // 利用等待通知机制，一次性申请所有资源，防止死锁
+        allocator.apply(this, target);
+        
+        try {
+            synchronized (this) {
+                synchronized (target) {
+                    if (this.balance > amt) {
+                        this.balance -= amt;
+                        target.balance += amt;
+                    }
+                }
+            }
+        } finally {
+            // 释放资源
+            allocator.free(this, target);
+        }
+        
+    }
+}
+```
+
+利用等待-通知机制，我们很好的解决了死循环检测空耗CPU的问题。
