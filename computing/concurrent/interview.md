@@ -235,5 +235,51 @@ public class Account {
 > 问题描述：
 > 有两个线程分别输出奇数和偶数，编写程序使得输出顺序是1, 2, 3, 4, 5, 6, 7, 8, 9, 一直到 100
 
-这是一道笔试题，经常出现，能非常好的考察对并发编程的掌握程度，当然实现方式也是多样的
+这是一道笔试题，经常出现，能非常好的考察对并发编程的掌握程度，当然实现方式也是多样的。
+
+#### 思路1 用 synchronized 以及等待通知机制解决
+
+分析如下：
+
+1. 需要启动两个线程A和B
+2. 共享资源是要打印的数字
+3. 线程A打印奇数，线程B打印偶数，线程A打印完之后通知线程B并等待线程B打印完
+4. 线程A或者B能够收到对方的通知，并继续打印自己的数字
+
+```java
+// 互斥资源：要打印的数字
+// 互斥锁：共享一把锁即可，如 Object lock = new Object();
+// 线程要求的条件：两个线程交替执行
+// 何时等待：
+// 何时通知：
+public class PrintEvenOdd {
+    private static volatile int number = 1;
+    private static int MAX = 100;
+    
+    public static void main(String[] args) {
+        // 互斥锁
+        Object lock = new Object();
+        
+        Runnable runnable = () -> {
+            synchronized (lock) {
+                while (number <= MAX) {
+                    System.out.println(number++);
+                    lock.notifyAll();
+                    try {
+                        lock.wait();
+                    } catch (InterruptedException e) {}
+                }
+                
+                lock.notifyAll();
+            }
+        };
+        
+        // 启动奇数线程
+        new Thread(runnable, "奇数线程").start();
+        
+        // 启动偶数线程
+        new Thread(runnable, "偶数线程").start();
+    }
+}
+```
 
