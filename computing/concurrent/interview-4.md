@@ -14,7 +14,7 @@
 1. 线程A向线程B发送终止命令
 2. 线程B响应终止命令
 
-在 Java 中，线程的状态有 Runnable, Waiting, Timed_Waiting, 当要终止一个程序时，线程有可能处在等待状态，需要有一种能力将线程从等待状态转换到Runnable状态，让线程能继续运行，Java 中提供了 interrupt(); 等到线程回复运行后，一种方式是等待run()运行完毕，一般是提供一个线程标识位，用来标识该线程已经被中断，检测到后就可以处理中断程序。所以，Java 中的两阶段终止模式是：interrupt() 方法和线程终止状态位
+在 Java 中，线程的状态有 Runnable, Waiting, Timed_Waiting, 当要终止一个程序时，线程有可能处在等待状态，需要有一种能力将线程从等待状态转换到Runnable状态，让线程能继续运行，Java 中提供了 interrupt(); 等到线程恢复运行后，一种方式是等待run()运行完毕，一般是提供一个线程标识位，用来标识该线程已经被中断，检测到后就可以处理中断程序。所以，Java 中的两阶段终止模式是：interrupt() 方法和线程终止状态位
 
 ### 一个实际例子
 
@@ -65,4 +65,54 @@ public class MonitorSystemProxy {
 }
 ```
 
-以上实现已经能基本工作了，但是有一个隐患，在于采集上报的逻辑里可能会有代码捕获 InterruptedException 异常，导致状态位被清空，Thread.currentThread().isInterrupted() 判断失效，因为我们可能用了第三方库，无法修改，所以为代码埋
+以上实现已经能基本工作了，但是有一个隐患，在于采集上报的逻辑里可能会有代码捕获 InterruptedException 异常，导致状态位被清空，Thread.currentThread().isInterrupted() 判断失效，因为我们可能用了第三方库，无法修改，所以为代码埋下了隐患。
+
+- 更加好的实现方式
+
+由于线程自身的状态标识位有可能出问题，只能我们自己独立维护一个是否中断的状态位。代码如下：
+
+```java
+public class MonitorSystemProxyOpt {
+    // 自定义的中断标识位
+    private boolean terminated = false;
+    // 启动标识
+    private boolean started = false;
+    // 采集上报线程
+    private Thread rptThread;
+
+    // 开启采集功能
+    public synchronized void start() {
+        if (started) {
+            return;
+        }
+
+        started = true;
+        terminated = false;
+        rptThread = new Thread(() -> {
+            while (!terminated) {
+                // 采集上报的逻辑实现
+                // report();
+
+                try {
+                    Thread.sleep(2000);
+                } catch (InterruptedException e) {
+                    // 重新设置状态位
+                    Thread.currentThread().interrupt();
+                }
+            }
+
+            started = false;
+        });
+        rptThread.start();
+    }
+
+    // 终止采集功能
+    public synchronized void stop() {
+        // 设置中断
+        terminated = true;
+        // 中断线程
+        rptThread.interrupt();
+    }
+}
+```
+
