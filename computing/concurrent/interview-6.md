@@ -286,6 +286,8 @@ consumer () {          // 消费者进程
 }
 ```
 
+![信号量和管程实现](https://zhanghuimeng.github.io/post/os-mooc-lecture-18-summary/sem-vs-monitor.png)
+
 ### 2. 读者-写者问题
 
 // todo
@@ -298,3 +300,6 @@ consumer () {          // 消费者进程
 
 // todo
 
+## 参考
+
+- [《操作系统》第18讲：“信号量与管程”总结](https://zhanghuimeng.github.io/post/os-mooc-lecture-18-summary/)
