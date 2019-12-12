@@ -58,8 +58,9 @@ abstract class Print implements Runnable {
                 self.await();
             } catch (InterruptedException e) {
                 e.printStackTrace();
+            } finally {
+                lock.unlock();
             }
-            lock.unlock();
         }
     }
 
