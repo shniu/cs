@@ -189,7 +189,7 @@ Java 中的管程模型是采用的 MESA 模型，而 synchronized 的管程实�
 > 问题描述:
 > 一组生产者进程和一组消费者进程共享一个初始为空、大小为n的缓冲区，只有缓冲区没满时，生产者才能把消息放入到缓冲区，否则必须等待；只有缓冲区不空时，消费者才能从中取出消息，否则必须等待。由于缓冲区是临界资源，它只允许一个生产者放入消息，或者一个消费者从中取出消息。
 
-使用管程来解决生产者和消费者问题：
+- 使用管程来解决生产者和消费者问题：
 
 1. monitor 提供 wait，signal 操作
 2. 条件变量 notFull 和 条件变量 notEmpty
@@ -256,7 +256,45 @@ void consumer() {
 }
 ```
 
+- 用信号量实现
+
+```c
+semaphore mutex = 1;  // 临界区互斥信号量
+semaphore empty = n;  // 空闲缓冲区
+semaphore full = 0;   // 缓冲区初始化为空
+buffer buffer[];
+
+producer () {         // 生产者进程
+    while(true){
+        produce an item in nextp;  // 生产数据
+        P(empty);                  // 获取空缓冲区单元, empty-1
+        P(mutex);                  // 进入临界区
+        add nextp to buffer;       // 将数据放入缓冲区
+        V(mutex);                  // 离开临界区, 释放互斥信号量
+        V(full);                   // 满缓冲区数加1, full+1
+    }
+}
+consumer () {          // 消费者进程
+    while(true){
+        P(full);                   // 获取满缓冲区单元, full-1
+        P(mutex);                  // 进入临界区
+        remove an item from buffer;  // 从缓冲区中取出数据
+        V (mutex);                 // 离开临界区，释放互斥信号量
+        V (empty) ;                // 空缓冲区数加1, empty+1
+        consume the item;          // 消费数据
+    }
+}
+```
+
 ### 2. 读者-写者问题
+
+// todo
+
 ### 3. 哲学家进餐问题
+
+// todo
+
 ### 4. 吸烟者问题
+
+// todo
 
