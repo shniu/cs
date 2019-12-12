@@ -182,5 +182,70 @@ Java 中的管程模型是采用的 MESA 模型，而 synchronized 的管程实�
 
 综上所述，信号量和管程实现了相同的功能，在功能上是等价的。但是管程比信号量机制更易用，更不容易出bug，所以我们优先选择管程。
 
+## 几个并发领域的经典问题
 
+### 1. 生产者-消费者问题
+
+> 问题描述:
+> 一组生产者进程和一组消费者进程共享一个初始为空、大小为n的缓冲区，只有缓冲区没满时，生产者才能把消息放入到缓冲区，否则必须等待；只有缓冲区不空时，消费者才能从中取出消息，否则必须等待。由于缓冲区是临界资源，它只允许一个生产者放入消息，或者一个消费者从中取出消息。
+
+使用管程来解决生产者和消费者问题：
+
+1. monitor 提供 wait，signal 操作
+2. 条件变量 notFull 和 条件变量 notEmpty
+3. 缓冲区 buf，最大为 n
+4. 定义 count 记录当前数量
+5. 提供生产者和消费者的入口
+
+```java
+class Buffer {
+    Lock lock;
+    int count = 0;
+    Condition notFull, notEmpty;
+    int MAX = n;
+    
+    void add(c) {
+        lock.acquire();
+        while (count == MAX)
+            notFull.wait(lock);
+            
+        Add c to the buffer;
+        count++;
+        notEmpty.signal();
+        lock.release();
+    }
+    
+    Item get() {
+        lock.acquire();
+        while (count == 0)
+            notEmpty.wait(lock);
+            
+        Remove c from buffer;
+        count--;
+        notFull.signal();
+        lock.release();
+    }
+}
+
+Buffer buffer;
+
+// 生产者
+void producer() {
+    while (true) {
+        item = produce();
+        buffer.add(item);
+    }
+}
+
+// 消费者
+void consumer() {
+    while (true) {
+        item = buffer.get();
+    }
+}
+```
+
+### 2. 读者-写者问题
+### 3. 哲学家进餐问题
+### 4. 吸烟者问题
 
