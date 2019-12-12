@@ -198,6 +198,17 @@ Java 中的管程模型是采用的 MESA 模型，而 synchronized 的管程实�
 5. 提供生产者和消费者的入口
 
 ```java
+class Lock {
+    void acquire();  // enqueue
+    void release();   // dequeue
+}
+
+class Condition {
+    void wait();
+    void signal();
+    void signalAll();
+}
+
 class Buffer {
     Lock lock;
     int count = 0;
