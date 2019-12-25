@@ -32,6 +32,7 @@ cs/
  - computing (Parallel Computing & Distributed Computing 并行计算&分布式计算)
  - compilation (Compilation Principle 编译原理)
  - design (Software Design 软件设计)
+ - application
 
  - resource/  资源文件
    - img 图片文件
