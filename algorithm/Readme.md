@@ -16,7 +16,11 @@
 
 ## 梳理数据结构和算法知识体系
 
-代码实现：[shniu/java-eco](https://github.com/shniu/java-eco)
+代码实现：
+1. [shniu/java-eco](https://github.com/shniu/java-eco)
+2. [Golang 实现](https://github.com/shniu/gostuff/leetcode)
+
+### 较难的知识点
 
 - [动态规划](01-动态规划.md)
 
@@ -127,12 +131,14 @@
 ## 参考资源
 
 - [常见算法复杂度分析](https://www.bigocheatsheet.com/)
+
 - [极客时间算法训练营资料](https://pan.baidu.com/disk/home?#/all?vmode=list&path=%2F%E8%AF%BE%E7%A8%8B%2F%E7%AE%97%E6%B3%95%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84)
 - [我的印象笔记](https://app.yinxiang.com/fx/1cd152b8-dc5d-44e8-b1e4-3fa2d2f4dfb0)
 - LeetCode
 - [北大题库](http://poj.org/problemlist)
 - [hihocoder.com](http://hihocoder.com)
 - 算法训练营课程
+- 数据结构与算法之美
 - [coursera 普林斯顿算法课 Part1](https://www.coursera.org/learn/algorithms-part1) 难度相对低
 - [coursera 普林斯顿算法课 Part2](https://www.coursera.org/learn/algorithms-part2) 难度相对低
 - [斯坦福 算法 专项课程](https://www.coursera.org/specializations/algorithms) 难度相对中
