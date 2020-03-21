@@ -29,6 +29,17 @@ OS 的前置知识
 - [01 系统初始化](01-系统初始化.md)
 - [中断和异常](https://chyyuu.gitbooks.io/ucore_os_docs/content/lab1/lab1_3_3_2_interrupt_exception.html)
 
+- 关于内存
+
+1. [The 10 Operating System Concepts Software Developers Need to Remember](https://medium.com/cracking-the-data-science-interview/the-10-operating-system-concepts-software-developers-need-to-remember-480d0734d710)
+2. [每个程序员都应该了解的内存知识 Part1](https://www.oschina.net/translate/what-every-programmer-should-know-about-memory-part1)
+3. [每个程序员都应该了解的内存知识 Part2 CPU 高速缓存](https://www.oschina.net/translate/what-every-programmer-should-know-about-cpu-cache-part2)
+4. [每个程序员都应该了解的内存知识 Part 3 虚拟内存](https://www.oschina.net/translate/what-every-programmer-should-know-about-virtual-memory-part3)
+5. [What Every programmer should know about memory](https://lwn.net/Articles/250967/)
+6. [Memory Barriers: a Hardware View for Software Hackers](http://irl.cs.ucla.edu/~yingdi/web/paperreading/whymb.2010.06.07c.pdf)
+
+[Operating System Concepts 10th](https://codex.cs.yale.edu/avi/os-book/OS10/index.html)
+
 ## 参考资料
 
 ```text
