@@ -6,11 +6,11 @@
 
 * [computing](computing/README.md)
   * [Untitled](computing/untitled.md)
-  * [concurrent](computing/concurrent.md)
+  * [concurrent](computing/concurrent/README.md)
+    * [并发编程](computing/concurrent/interview.md)
 
 ## System Design
 
-* [并发编程](system-design/interview.md)
 * [分布式锁](system-design/fen-bu-shi-suo/README.md)
   * [无锁方案 CAS](system-design/fen-bu-shi-suo/interview-8.md)
   * [限流器](system-design/fen-bu-shi-suo/interview-7.md)
