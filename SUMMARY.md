@@ -2,10 +2,9 @@
 
 * [Cumputer Science](README.md)
 
-## Algorithm <a id="data-structure-and-algorithm"></a>
+## CS
 
 * [computing](computing/README.md)
-  * [Untitled](computing/untitled.md)
   * [concurrent](computing/concurrent/README.md)
     * [并发编程](computing/concurrent/interview.md)
 
