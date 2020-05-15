@@ -4,14 +4,40 @@
 
 ## CS 基础
 
-* [computing](computing/README.md)
-  * [concurrent](computing/concurrent/README.md)
-    * [并发编程](computing/concurrent/interview.md)
+* [操作系统](os/README.md)
+  * [操作系统基础知识](os/00-cao-zuo-xi-tong-ji-chu-zhi-shi.md)
+  * [系统初始化](os/01-xi-tong-chu-shi-hua.md)
+  * [进程管理](os/02-jin-cheng-guan-li.md)
 
-## System Design
+* [计算机网络](network/readme.md)
 
-* [分布式锁](system-design/fen-bu-shi-suo/README.md)
-* [design](design/README.md)
+* [数据结构与算法](algorithm/algorithm.md)
+  * [字符串](algorithm/02-zi-fu-chuan.md)
+  * [位运算](algorithm/wei-yun-suan.md)
+  * [动态规划](algorithm/01-dong-tai-gui-hua.md)
+  * [树](algorithm/03-shu.md)
+  * [题目列表](algorithm/99-chang-jian-ti-mu-lie-biao.md)
+
+  * [一些总结](algorithm/algotrain/README.md)
+    * [01-关于复杂度分析和渐进式优化](algorithm/algotrain/01-guan-yu-fu-za-du-fen-xi-he-jian-jin-shi-you-hua.md)
+    * [02-由一般化到特殊化演变的树](algorithm/algotrain/02-you-yi-ban-hua-dao-te-shu-hua-yan-bian-de-shu.md)
+    * [03-第一次全方位认识贪心算法](algorithm/algotrain/03-di-yi-ci-quan-fang-wei-ren-shi-tan-xin-suan-fa.md)
+    * [05-分治、回溯、贪心和动态规划](algorithm/algotrain/05-fen-zhi-hui-su-tan-xin-he-dong-tai-gui-hua.md)
+    * [06-Trie与并查集与高级搜索](algorithm/algotrain/06trie-yu-bing-cha-ji-yu-gao-ji-sou-suo.md)
+    * [07-排序算法总结](algorithm/algotrain/07-pai-xu-suan-fa-zong-jie.md)
+    * [08-字符串算法总结](algorithm/algotrain/08-zi-fu-chuan-suan-fa-zong-jie.md)
+    * [毕业总结](algorithm/algotrain/bi-ye-zong-jie.md)
+
+## 系统设计
+
+* [软件设计](design/design.md)
+  * [软件架构](design/jia-gou/jia-gou.md)
+  * [编程范式](design/01-bian-cheng-fan-shi.md)
+  * [系统设计题](design/99-she-ji-ti.md)
+  * [设计原则](design/02-she-ji-yuan-ze.md)
+  * [计算机程序的构造和解释 SICP](design/98-ji-suan-ji-cheng-xu-de-gou-zao-he-jie-shi.md)
+
+* [分布式系统](distributed/distributed.md)
 
 * [综合](system-design/case-study/readme.md)
   * [分布式锁](system-design/case-study/distributed-lock.md)
@@ -43,49 +69,15 @@
 
 ## 中间件
 
+* [MQ](application/mq/mq.md)
+  * [Kafka](application/mq/kafka.md)
+
 ## devops
 
 ## 其他
 
-* [分布式锁](system-design/fen-bu-shi-suo/README.md)
+* [application](application/application.md)
+  * [服务端开发](application/server/server.md)
+  * [Reactor 模型](application/server/reactor.md)
   
-* [algorithm](algorithm/README.md)
-  * [algoTrain](algorithm/algotrain/README.md)
-    * [01-关于复杂度分析和渐进式优化](algorithm/algotrain/01-guan-yu-fu-za-du-fen-xi-he-jian-jin-shi-you-hua.md)
-    * [07-排序算法总结](algorithm/algotrain/07-pai-xu-suan-fa-zong-jie.md)
-    * [03-第一次全方位认识贪心算法](algorithm/algotrain/03-di-yi-ci-quan-fang-wei-ren-shi-tan-xin-suan-fa.md)
-    * [毕业总结](algorithm/algotrain/bi-ye-zong-jie.md)
-    * [06-Trie与并查集与高级搜索](algorithm/algotrain/06trie-yu-bing-cha-ji-yu-gao-ji-sou-suo.md)
-    * [02-由一般化到特殊化演变的树](algorithm/algotrain/02-you-yi-ban-hua-dao-te-shu-hua-yan-bian-de-shu.md)
-    * [08-字符串算法总结](algorithm/algotrain/08-zi-fu-chuan-suan-fa-zong-jie.md)
-    * [05-分治、回溯、贪心和动态规划](algorithm/algotrain/05-fen-zhi-hui-su-tan-xin-he-dong-tai-gui-hua.md)
-  * [题目列表](algorithm/99-chang-jian-ti-mu-lie-biao.md)
-  * [字符串](algorithm/02-zi-fu-chuan.md)
-  * [位运算](algorithm/wei-yun-suan.md)
-  * [动态规划](algorithm/01-dong-tai-gui-hua.md)
-  * [数据结构与算法](algorithm/algorithm.md)
-  * [树](algorithm/03-shu.md)
-  * [总结](algorithm/xun-lian-ying-zong-jie.md)
-* [os](os/README.md)
-  * [系统初始化](os/01-xi-tong-chu-shi-hua.md)
-  * [操作系统基础知识](os/00-cao-zuo-xi-tong-ji-chu-zhi-shi.md)
-  * [操作系统 Operating System](os/os.md)
-  * [进程管理](os/02-jin-cheng-guan-li.md)
-* [design](design/README.md)
-  * [软件设计](design/design.md)
-  * [架构](design/jia-gou/README.md)
-    * [软件架构](design/jia-gou/jia-gou.md)
-  * [计算机程序的构造和解释 SICP](design/98-ji-suan-ji-cheng-xu-de-gou-zao-he-jie-shi.md)
-  * [编程范式](design/01-bian-cheng-fan-shi.md)
-  * [系统设计题](design/99-she-ji-ti.md)
-  * [设计原则](design/02-she-ji-yuan-ze.md)
-* [application](application/README.md)
-  * [server](application/server/README.md)
-    * [服务端开发](application/server/server.md)
-    * [Reactor 模型](application/server/reactor.md)
-  * [MQ](application/mq/README.md)
-    * [消息队列](application/mq/mq.md)
-  * [应用领域](application/application.md)
-* [distributed](distributed/README.md)
-  * [分布式系统](distributed/distributed.md)
 
