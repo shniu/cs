@@ -13,14 +13,25 @@
 * [分布式锁](system-design/fen-bu-shi-suo/README.md)
 * [design](design/README.md)
 
+* [综合](system-design/case-study/readme.md)
+  * [分布式锁](system-design/case-study/distributed-lock.md)
+
 ## 编程语言
 
 * [编程语言](language/README.md)
 
 * [Java](language/java/README.md)
   * [Java 核心技术](language/java/core-tech.md)
+  * [并发编程](language/java/concurrent/readme.md)
+    * [三个线程交替打印](language/java/concurrent/interview-2.md)
+    * [两个线程交替打印奇偶](language/java/concurrent/interview-3.md)
+    * [优雅终止线程](language/java/concurrent/interview-4.md)
+    * [等待通知机制](language/java/concurrent/interview-5.md)
+    * [万能钥匙：管程](language/java/concurrent/interview-6.md)
+    * [限流器](language/java/concurrent/interview-7.md)
+    * [无锁方案 CAS](language/java/concurrent/interview-8.md)
 
-* [Golang](language/golang.md)
+* [Golang](language/golang/golang.md)
 
 ## 大数据
 
@@ -37,14 +48,7 @@
 ## 其他
 
 * [分布式锁](system-design/fen-bu-shi-suo/README.md)
-  * [无锁方案 CAS](system-design/fen-bu-shi-suo/interview-8.md)
-  * [限流器](system-design/fen-bu-shi-suo/interview-7.md)
-  * [万能钥匙：管程](system-design/fen-bu-shi-suo/interview-6.md)
-  * [并发编程](system-design/fen-bu-shi-suo/interview-5.md)
-  * [并发编程](system-design/fen-bu-shi-suo/interview-4.md)
-  * [并发编程](system-design/fen-bu-shi-suo/concurrent.md)
-  * [并发编程](system-design/fen-bu-shi-suo/interview-3.md)
-  * [并发编程](system-design/fen-bu-shi-suo/interview-2.md)
+  
 * [algorithm](algorithm/README.md)
   * [algoTrain](algorithm/algotrain/README.md)
     * [01-关于复杂度分析和渐进式优化](algorithm/algotrain/01-guan-yu-fu-za-du-fen-xi-he-jian-jin-shi-you-hua.md)
