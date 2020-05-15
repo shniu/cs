@@ -17,11 +17,8 @@
 
 * [编程语言](language/README.md)
 
-### Java
-
-* [Java](language/java.md)
-
-### Golang
+* [Java](language/java/README.md)
+  * [Java 核心技术](language/java/core-tech.md)
 
 * [Golang](language/golang.md)
 
