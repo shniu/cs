@@ -1,4 +1,4 @@
-# 并发编程
+# 等待通知机制
 
 ## 等待通知机制
 
@@ -34,7 +34,6 @@ syncronized (对象lock) {
 ### Guarded Suspension 模式
 
 todo
-
 
 ## 经典问题
 

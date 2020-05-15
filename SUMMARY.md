@@ -25,32 +25,32 @@
     * [08-字符串算法总结](cs-ji-chu/algorithm/algotrain/08-zi-fu-chuan-suan-fa-zong-jie.md)
     * [毕业总结](cs-ji-chu/algorithm/algotrain/bi-ye-zong-jie.md)
 
-## 系统设计
+## 系统设计 <a id="system-design"></a>
 
-* [软件设计](xi-tong-she-ji/design/README.md)
-  * [软件架构](xi-tong-she-ji/design/jia-gou.md)
-  * [编程范式](xi-tong-she-ji/design/01-bian-cheng-fan-shi.md)
-  * [系统设计题](xi-tong-she-ji/design/99-she-ji-ti.md)
-  * [设计原则](xi-tong-she-ji/design/02-she-ji-yuan-ze.md)
-  * [计算机程序的构造和解释 SICP](xi-tong-she-ji/design/98-ji-suan-ji-cheng-xu-de-gou-zao-he-jie-shi.md)
-* [分布式系统](xi-tong-she-ji/distributed.md)
-* [综合](xi-tong-she-ji/case-study/README.md)
-  * [分布式锁](xi-tong-she-ji/case-study/distributed-lock.md)
+* [软件设计](system-design/design/README.md)
+  * [软件架构](system-design/design/jia-gou.md)
+  * [编程范式](system-design/design/01-bian-cheng-fan-shi.md)
+  * [系统设计题](system-design/design/99-she-ji-ti.md)
+  * [设计原则](system-design/design/02-she-ji-yuan-ze.md)
+  * [计算机程序的构造和解释 SICP](system-design/design/98-ji-suan-ji-cheng-xu-de-gou-zao-he-jie-shi.md)
+* [分布式系统](system-design/distributed.md)
+* [综合](system-design/case-study/README.md)
+  * [分布式锁](system-design/case-study/distributed-lock.md)
 
-## 编程语言
+## 编程语言 <a id="language"></a>
 
-* [编程语言](bian-cheng-yu-yan/language.md)
-* [Java](bian-cheng-yu-yan/java/README.md)
-  * [Java 核心技术](bian-cheng-yu-yan/java/core-tech.md)
-  * [并发编程](bian-cheng-yu-yan/java/concurrent/README.md)
-    * [三个线程交替打印](bian-cheng-yu-yan/java/concurrent/interview-2.md)
-    * [两个线程交替打印奇偶](bian-cheng-yu-yan/java/concurrent/interview-3.md)
-    * [优雅终止线程](bian-cheng-yu-yan/java/concurrent/interview-4.md)
-    * [等待通知机制](bian-cheng-yu-yan/java/concurrent/interview-5.md)
-    * [万能钥匙：管程](bian-cheng-yu-yan/java/concurrent/interview-6.md)
-    * [限流器](bian-cheng-yu-yan/java/concurrent/interview-7.md)
-    * [无锁方案 CAS](bian-cheng-yu-yan/java/concurrent/interview-8.md)
-* [Golang](bian-cheng-yu-yan/golang.md)
+* [编程语言](language/language.md)
+* [Java](language/java/README.md)
+  * [Java 核心技术](language/java/core-tech.md)
+  * [并发编程](language/java/concurrent/README.md)
+    * [三个线程交替打印](language/java/concurrent/interview-2.md)
+    * [两个线程交替打印奇偶](language/java/concurrent/interview-3.md)
+    * [优雅终止线程](language/java/concurrent/interview-4.md)
+    * [等待通知机制](language/java/concurrent/interview-5.md)
+    * [万能钥匙：管程](language/java/concurrent/interview-6.md)
+    * [限流器](language/java/concurrent/interview-7.md)
+    * [无锁方案 CAS](language/java/concurrent/interview-8.md)
+* [Golang](language/golang.md)
 
 ## 中间件
 
