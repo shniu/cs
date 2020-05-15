@@ -2,28 +2,28 @@
 
 * [Introduction](README.md)
 
-## CS 基础
+## CS 基础 <a id="cs"></a>
 
-* [操作系统](cs-ji-chu/os/README.md)
-  * [操作系统基础知识](cs-ji-chu/os/00-cao-zuo-xi-tong-ji-chu-zhi-shi.md)
-  * [系统初始化](cs-ji-chu/os/01-xi-tong-chu-shi-hua.md)
-  * [进程管理](cs-ji-chu/os/02-jin-cheng-guan-li.md)
-* [计算机网络](cs-ji-chu/network.md)
-* [数据结构与算法](cs-ji-chu/algorithm/README.md)
-  * [字符串](cs-ji-chu/algorithm/02-zi-fu-chuan.md)
-  * [位运算](cs-ji-chu/algorithm/wei-yun-suan.md)
-  * [动态规划](cs-ji-chu/algorithm/01-dong-tai-gui-hua.md)
-  * [树](cs-ji-chu/algorithm/03-shu.md)
-  * [题目列表](cs-ji-chu/algorithm/99-chang-jian-ti-mu-lie-biao.md)
-  * [一些总结](cs-ji-chu/algorithm/algotrain/README.md)
-    * [01-关于复杂度分析和渐进式优化](cs-ji-chu/algorithm/algotrain/01-guan-yu-fu-za-du-fen-xi-he-jian-jin-shi-you-hua.md)
-    * [02-由一般化到特殊化演变的树](cs-ji-chu/algorithm/algotrain/02-you-yi-ban-hua-dao-te-shu-hua-yan-bian-de-shu.md)
-    * [03-第一次全方位认识贪心算法](cs-ji-chu/algorithm/algotrain/03-di-yi-ci-quan-fang-wei-ren-shi-tan-xin-suan-fa.md)
-    * [05-分治、回溯、贪心和动态规划](cs-ji-chu/algorithm/algotrain/05-fen-zhi-hui-su-tan-xin-he-dong-tai-gui-hua.md)
-    * [06-Trie与并查集与高级搜索](cs-ji-chu/algorithm/algotrain/06trie-yu-bing-cha-ji-yu-gao-ji-sou-suo.md)
-    * [07-排序算法总结](cs-ji-chu/algorithm/algotrain/07-pai-xu-suan-fa-zong-jie.md)
-    * [08-字符串算法总结](cs-ji-chu/algorithm/algotrain/08-zi-fu-chuan-suan-fa-zong-jie.md)
-    * [毕业总结](cs-ji-chu/algorithm/algotrain/bi-ye-zong-jie.md)
+* [操作系统](cs/os/README.md)
+  * [操作系统基础知识](cs/os/00-cao-zuo-xi-tong-ji-chu-zhi-shi.md)
+  * [系统初始化](cs/os/01-xi-tong-chu-shi-hua.md)
+  * [进程管理](cs/os/02-jin-cheng-guan-li.md)
+* [计算机网络](cs/network.md)
+* [数据结构与算法](cs/algorithm/README.md)
+  * [字符串](cs/algorithm/02-zi-fu-chuan.md)
+  * [位运算](cs/algorithm/wei-yun-suan.md)
+  * [动态规划](cs/algorithm/01-dong-tai-gui-hua.md)
+  * [树](cs/algorithm/03-shu.md)
+  * [题目列表](cs/algorithm/99-chang-jian-ti-mu-lie-biao.md)
+  * [一些总结](cs/algorithm/algotrain/README.md)
+    * [01-关于复杂度分析和渐进式优化](cs/algorithm/algotrain/01-guan-yu-fu-za-du-fen-xi-he-jian-jin-shi-you-hua.md)
+    * [02-由一般化到特殊化演变的树](cs/algorithm/algotrain/02-you-yi-ban-hua-dao-te-shu-hua-yan-bian-de-shu.md)
+    * [03-第一次全方位认识贪心算法](cs/algorithm/algotrain/03-di-yi-ci-quan-fang-wei-ren-shi-tan-xin-suan-fa.md)
+    * [05-分治、回溯、贪心和动态规划](cs/algorithm/algotrain/05-fen-zhi-hui-su-tan-xin-he-dong-tai-gui-hua.md)
+    * [06-Trie与并查集与高级搜索](cs/algorithm/algotrain/06trie-yu-bing-cha-ji-yu-gao-ji-sou-suo.md)
+    * [07-排序算法总结](cs/algorithm/algotrain/07-pai-xu-suan-fa-zong-jie.md)
+    * [08-字符串算法总结](cs/algorithm/algotrain/08-zi-fu-chuan-suan-fa-zong-jie.md)
+    * [毕业总结](cs/algorithm/algotrain/bi-ye-zong-jie.md)
 
 ## 系统设计 <a id="system-design"></a>
 
@@ -52,17 +52,17 @@
     * [无锁方案 CAS](language/java/concurrent/interview-8.md)
 * [Golang](language/golang.md)
 
-## 中间件
+## 中间件 <a id="middleware"></a>
 
-* [MQ](zhong-jian-jian/mq/README.md)
-  * [Kafka](zhong-jian-jian/mq/kafka.md)
+* [MQ](middleware/mq/README.md)
+  * [Kafka](middleware/mq/kafka.md)
 
-## 其他
+## 其他 <a id="other"></a>
 
-* [读书](qi-ta/reading.md)
-* [论文](qi-ta/papers.md)
-* [工程博客](qi-ta/blog.md)
-* [application](qi-ta/application/README.md)
-  * [服务端开发](qi-ta/application/server.md)
-  * [Reactor 模型](qi-ta/application/reactor.md)
+* [读书](other/reading.md)
+* [论文](other/papers.md)
+* [工程博客](other/blog.md)
+* [application](other/application/README.md)
+  * [服务端开发](other/application/server.md)
+  * [Reactor 模型](other/application/reactor.md)
 
