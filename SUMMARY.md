@@ -59,7 +59,8 @@
 
 ## 其他 <a id="other"></a>
 
-* [读书](other/reading.md)
+* [读书](other/reading/README.md)
+  * [设计数据密集型应用](other/reading/ddia.md)
 * [论文](other/papers.md)
 * [工程博客](other/blog.md)
 * [application](other/application/README.md)
