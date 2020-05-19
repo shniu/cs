@@ -42,6 +42,7 @@
 * [编程语言](language/language.md)
 * [Java](language/java/README.md)
   * [Java 核心技术](language/java/core-tech.md)
+  * [Java 8 新特性](language/java/java8.md)
   * [并发编程](language/java/concurrent/README.md)
     * [三个线程交替打印](language/java/concurrent/interview-2.md)
     * [两个线程交替打印奇偶](language/java/concurrent/interview-3.md)
@@ -51,6 +52,20 @@
     * [限流器](language/java/concurrent/interview-7.md)
     * [无锁方案 CAS](language/java/concurrent/interview-8.md)
 * [Golang](language/golang.md)
+
+## 框架/组件/类库 <a id="framework"></a>
+
+* [Guava](framework/guava.md)
+* [RxJava](framework/rxjava.md)
+* [Apache MINA](framework/apache-mina.md)
+* [Netty](framework/netty.md)
+* [Dubbo](framework/dubbo.md)
+* [Apache Tomcat](framework/apache-tomcat.md)
+* [Spring Framework](framework/spring-framework.md)
+* [Spring Boot](framework/spring-boot.md)
+* [Spring Cloud Netflix](framework/spring-cloud-netflix.md)
+* [Spring Cloud Alibaba](framework/spring-cloud-alibaba.md)
+* [FixJ](framework/fixj.md)
 
 ## 中间件 <a id="middleware"></a>
 
@@ -63,6 +78,7 @@
   * [设计数据密集型应用](other/reading/ddia.md)
 * [论文](other/papers.md)
 * [工程博客](other/blog.md)
+* [阅读源码](other/yue-du-yuan-ma.md)
 * [application](other/application/README.md)
   * [服务端开发](other/application/server.md)
   * [Reactor 模型](other/application/reactor.md)
