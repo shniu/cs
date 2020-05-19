@@ -36,6 +36,7 @@
 * [分布式系统](system-design/distributed.md)
 * [综合](system-design/case-study/README.md)
   * [分布式锁](system-design/case-study/distributed-lock.md)
+  * [交易引擎](system-design/case-study/exchange-engine.md)
 
 ## 编程语言 <a id="language"></a>
 
@@ -63,14 +64,21 @@
 * [Apache Tomcat](framework/apache-tomcat.md)
 * [Spring Framework](framework/spring-framework.md)
 * [Spring Boot](framework/spring-boot.md)
-* [Spring Cloud Netflix](framework/spring-cloud-netflix.md)
-* [Spring Cloud Alibaba](framework/spring-cloud-alibaba.md)
+* [Spring Cloud](framework/spring-cloud-netflix/README.md)
+  * [Feign & OpenFeign](framework/spring-cloud-netflix/feign-and-openfeign.md)
+  * [Ribbon](framework/spring-cloud-netflix/ribbon.md)
+  * [Eurake](framework/spring-cloud-netflix/eurake.md)
+  * [Spring Cloud Alibaba](framework/spring-cloud-netflix/spring-cloud-alibaba.md)
 * [FixJ](framework/fixj.md)
 
 ## 中间件 <a id="middleware"></a>
 
 * [MQ](middleware/mq/README.md)
   * [Kafka](middleware/mq/kafka.md)
+
+## 区块链 <a id="blockchain"></a>
+
+* [数字货币钱包](blockchain/shu-zi-huo-bi-qian-bao.md)
 
 ## 其他 <a id="other"></a>
 
