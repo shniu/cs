@@ -48,4 +48,6 @@ description: 如何阅读别人的代码，如何阅读一些开源软件的代�
 
 * [如何阅读别人的代码](https://time.geekbang.org/column/article/186399)
 * [大牛是如何阅读源码的？](http://blog.itpub.net/31545684/viewspace-2653724/)
+* [学习开源代码该如何入手？](https://time.geekbang.org/column/article/115519)
+* [高效学习：如何学习和阅读代码](https://time.geekbang.org/column/article/14380)
 
