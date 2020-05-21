@@ -36,6 +36,7 @@
 * [分布式系统](system-design/distributed.md)
 * [综合](system-design/case-study/README.md)
   * [分布式锁](system-design/case-study/distributed-lock.md)
+  * [分布式ID生成算法](system-design/case-study/distribute-id.md)
   * [通用的幂等设计](system-design/case-study/idempotent.md)
   * [交易系统](system-design/case-study/exchange-engine.md)
 
@@ -91,6 +92,7 @@
 * [工程博客](other/blog.md)
 * [阅读源码](other/yue-du-yuan-ma.md)
 * [面试](other/interview.md)
+* [软技能](other/soft-skill.md)
 * [application](other/application/README.md)
   * [服务端开发](other/application/server.md)
   * [Reactor 模型](other/application/reactor.md)

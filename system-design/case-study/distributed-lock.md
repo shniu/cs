@@ -38,3 +38,7 @@ Redisson
 
 
 
+* [如何设计更优的分布式锁](https://time.geekbang.org/column/article/125983)
+
+
+
