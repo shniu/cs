@@ -36,7 +36,8 @@
 * [分布式系统](system-design/distributed.md)
 * [综合](system-design/case-study/README.md)
   * [分布式锁](system-design/case-study/distributed-lock.md)
-  * [交易引擎](system-design/case-study/exchange-engine.md)
+  * [通用的幂等设计](system-design/case-study/idempotent.md)
+  * [交易系统](system-design/case-study/exchange-engine.md)
 
 ## 编程语言 <a id="language"></a>
 
@@ -68,8 +69,10 @@
   * [Feign & OpenFeign](framework/spring-cloud-netflix/feign-and-openfeign.md)
   * [Ribbon](framework/spring-cloud-netflix/ribbon.md)
   * [Eurake](framework/spring-cloud-netflix/eurake.md)
+  * [Spring Cloud Config](framework/spring-cloud-netflix/spring-cloud-config.md)
   * [Spring Cloud Alibaba](framework/spring-cloud-netflix/spring-cloud-alibaba.md)
 * [FixJ](framework/fixj.md)
+* [Metrics](framework/metrics.md)
 
 ## 中间件 <a id="middleware"></a>
 
@@ -87,6 +90,7 @@
 * [论文](other/papers.md)
 * [工程博客](other/blog.md)
 * [阅读源码](other/yue-du-yuan-ma.md)
+* [面试](other/interview.md)
 * [application](other/application/README.md)
   * [服务端开发](other/application/server.md)
   * [Reactor 模型](other/application/reactor.md)

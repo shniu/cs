@@ -1,5 +1,7 @@
 # 设计数据密集型应用
 
+[书籍在线地址](https://github.com/Vonng/ddia/blob/master/ch1.md)
+
 ## 数据系统的基石
 
 怎么理解数据密集型？

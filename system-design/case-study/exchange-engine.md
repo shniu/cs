@@ -2,23 +2,66 @@
 description: 关于交易引擎
 ---
 
-# 交易引擎
+# 交易系统
 
-证券交易系统通过买卖双方各自的报价，按照价格优先、时间优先的顺序，对买卖双方进行撮合，实现每秒成千上万的交易量，可以为市场提供高度的流动性和价格发现机制。
+交易系统通过买卖双方各自的报价，按照价格优先、时间优先的顺序，对买卖双方进行撮合，实现每秒成千上万的交易量，可以为市场提供高度的流动性和价格发现机制。
 
-### 撮合引擎
+一个交易系统包含的最核心的几个组件：
+
+#### 用户服务
+
+基本的用户鉴权、KYC、安全设置等
+
+#### 账户服务
+
+用户的数字资产账户的管理（应该指在交易所的虚拟资产账户），比如充值、提币、冻结、转帐、解冻等
+
+#### 订单服务
+
+Place an Order，用户可以下各种类型各种交易对的委托单（Order），委托单管理
+
+#### 定序服务
+
+交易系统的所有订单是一个有序队列。不同的用户在同一时刻下单，也必须由定序系统确定先后顺序。
+
+#### 撮合引擎
 
 撮合引擎是所有撮合交易系统的核心组件，不管是股票交易系统——包括现货交易、期货交易、期权交易等，还是数字货币交易系统——包括币币交易、合约交易、杠杆交易等，以及各种不同的贵金属交易系统、大宗商品交易系统等，虽然各种不同交易系统的交易标的不同，但只要都是采用撮合交易模式，都离不开撮合引擎。
 
-撮合引擎的设计目标是通用性，设计要遵循 SRP 原则（也就是说保证撮合引擎的通用，应当采取 SRP，撮合引擎应该只负责撮合订单）
+撮合引擎的设计目标是通用性，设计要遵循 SRP 原则（也就是说保证撮合引擎的通用，应当采取 SRP，撮合引擎应该只负责撮合订单）。
 
+撮合引擎可以说是交易所的最核心的东西，撮合引擎可以根据交易对的不同分别处理；撮合引擎包含两个主要的队列：卖单队列和买单队列，通过定序服务后，对每个委托单执行撮合
 
+数字资产交易所一般采用连续竞价的方式，采用高性能的内存撮合技术。
 
-术语
+#### 清算服务
 
-1. [Order Book](https://www.investopedia.com/terms/o/order-book.asp) \(可以理解为交易委托账本\)
+把撮合后的结果进行清算，包括 taker 和 maker 的资产账户对应的币的增减、根据费率收取手续费、更新订单状态，通知用户
 
-参考
+#### 行情服务
+
+撮合结果同步给行情服务，为用户提供市场的成交价、成交量等信息，并输出实时价格、K线图等技术数据，提供查询
+
+#### 钱包服务
+
+可以做成一个抽象的钱包服务网关，针对不同的区块链主网有不同的具体实现
+
+#### 做市商服务（Market Making）
+
+做市商（Market maker）为交易所增加了流动性，缩小了买卖价差，同时也为交易委托账本增加了深度，这些因素同时也会更加吸引交易人的加入。
+
+一个基本的做市策略包括同时挂买单和卖单，这样当两方的订单都被市场吃掉后就挣到了买卖价差。由于加密货币的价格剧烈不稳定性，当市场价格向一个方向持续运动时，使用这种策略的做市商有可 能损失惨重。例如，做市商挂买单以300 USDT的价格买1 ETH，同时挂另一个卖单以301 USDT的价格卖1 ETH。如果这两个订单都成交了，那么做市商就赚了1 USDT。如果卖单成交，价格继续上涨至310USDT，那么做市商的买单就没有机会在短期内成交，这导致做市商面临一个潜在的9 USDT的亏损。
+
+#### 其他服务
+
+监控系统，风控系统等
+
+#### 术语
+
+1. [Order Book](https://www.investopedia.com/terms/o/order-book.asp) \(交易委托账本\)
+2. [Spot Trade](https://investinganswers.com/dictionary/s/spot-trade) \(现货交易，A **spot trade** is an [asset](https://investinganswers.com/dictionary/a/asset) or [commodity](https://investinganswers.com/dictionary/c/commodity) transacted and delivered immediately\)
+
+#### 参考
 
 * [证券交易系统设计与开发](https://www.liaoxuefeng.com/article/1185272483766752)
 * [高性能交易系统设计原理](https://www.liaoxuefeng.com/article/1341133393231906)
@@ -36,6 +79,8 @@ description: 关于交易引擎
 * [Cryptocurrency Exchange Architecture with Akka Microservices - Part 1](https://www.linkedin.com/pulse/cryptocurrency-exchange-architecture-akka-part-1-jim-yang?articleId=6453307976605323264#comments-6453307976605323264&trk=public_profile_article_view)
 * [Cryptocurrency Exchange Architecture with Akka Microservices - Part 2](https://www.linkedin.com/pulse/cryptocurrency-exchange-architecture-akka-part-2-jim-yang?articleId=6453460455888289792#comments-6453460455888289792&trk=public_profile_article_view)
 * [Cryptocurrency Exchange Architecture with Akka Microservices - Part 3](https://www.linkedin.com/pulse/cryptocurrency-exchange-architecture-akka-part-3-jim-yang-1c?articleId=6456366788652392448#comments-6456366788652392448&trk=public_profile_article_view)
+* 开源撮合引擎：[mzheravin/exchange-core](https://github.com/mzheravin/exchange-core)
+* 开源撮合引擎：[enewhuis/liquibook](https://github.com/enewhuis/liquibook)
 
 
 
