@@ -47,4 +47,5 @@ description: 如何设计一个具有通用性的幂等处理框架
 * [幂等性设计](https://time.geekbang.org/column/article/4050)
 * [如何处理消息消费过程中的消息重复](https://time.geekbang.org/column/article/111552)
 * [如何处理消息消费](https://time.geekbang.org/column/article/158277)
+* [RocketMQ 的消费幂等](https://mp.weixin.qq.com/s/hM8T3Z2i3dS9Ecxrs8t2Aw)
 

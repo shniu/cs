@@ -2,6 +2,10 @@
 
 > 学习不是为了找到答案，而是为了找到方法。
 
+### 必看
+
+* [jwasham](https://github.com/jwasham)/[**coding-interview-university**](https://github.com/jwasham/coding-interview-university) A complete computer science study plan to become a software engineer. 116K star
+
 计算机科学是系统性研究信息与计算的理论基础以及它们在计算机系统中如何实现与应用的实用技术的学科；涵盖的内容非常多，但是最核心最基础的学科是计算机科学的基石，包括：
 
 1. 数据结构与算法

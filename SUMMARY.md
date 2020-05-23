@@ -33,8 +33,11 @@
   * [系统设计题](system-design/design/99-she-ji-ti.md)
   * [设计原则](system-design/design/02-she-ji-yuan-ze.md)
   * [计算机程序的构造和解释 SICP](system-design/design/98-ji-suan-ji-cheng-xu-de-gou-zao-he-jie-shi.md)
+* [领域驱动设计](system-design/ddd.md)
+* [微服务](system-design/wei-fu-wu.md)
 * [分布式系统](system-design/distributed.md)
 * [综合](system-design/case-study/README.md)
+  * [开发实践](system-design/case-study/kai-fa-shi-jian.md)
   * [分布式锁](system-design/case-study/distributed-lock.md)
   * [分布式ID生成算法](system-design/case-study/distribute-id.md)
   * [通用的幂等设计](system-design/case-study/idempotent.md)
@@ -46,6 +49,8 @@
 * [Java](language/java/README.md)
   * [Java 核心技术](language/java/core-tech.md)
   * [Java 8 新特性](language/java/java8.md)
+  * [Java 集合框架](language/java/java-collection.md)
+  * [Java NIO](language/java/java-nio.md)
   * [并发编程](language/java/concurrent/README.md)
     * [三个线程交替打印](language/java/concurrent/interview-2.md)
     * [两个线程交替打印奇偶](language/java/concurrent/interview-3.md)
@@ -64,6 +69,7 @@
 * [Netty](framework/netty.md)
 * [Dubbo](framework/dubbo.md)
 * [Apache Tomcat](framework/apache-tomcat.md)
+* [MyBatis](framework/mybatis.md)
 * [Spring Framework](framework/spring-framework.md)
 * [Spring Boot](framework/spring-boot.md)
 * [Spring Cloud](framework/spring-cloud-netflix/README.md)
@@ -77,8 +83,15 @@
 
 ## 中间件 <a id="middleware"></a>
 
+* [Redis](middleware/redis.md)
 * [MQ](middleware/mq/README.md)
   * [Kafka](middleware/mq/kafka.md)
+  * [Pulsar](middleware/mq/pulsar.md)
+
+## 大数据 <a id="bigdata"></a>
+
+* [流计算](bigdata/stream.md)
+* [Flink](bigdata/flink.md)
 
 ## 区块链 <a id="blockchain"></a>
 
@@ -86,8 +99,10 @@
 
 ## 其他 <a id="other"></a>
 
+* [工具](other/tools.md)
 * [读书](other/reading/README.md)
   * [设计数据密集型应用](other/reading/ddia.md)
+  * [实现领域驱动设计](other/reading/ddd-impl.md)
 * [论文](other/papers.md)
 * [工程博客](other/blog.md)
 * [阅读源码](other/yue-du-yuan-ma.md)
