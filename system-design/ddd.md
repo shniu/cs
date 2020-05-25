@@ -26,6 +26,8 @@
 
 **DDD其实就是面向对象的一套“方言”，提供了一种基于业务领域的对象划分和分类方法，其最大的价值就在于对于软件开发过程全生命周期使用语言的统一！**
 
+EventStorming: 
+
 \*\*\*\*
 
 ### 文章
@@ -41,6 +43,7 @@
 * [ ] [事件驱动架构EDA编码实践](https://zhuanlan.zhihu.com/p/79095599)
 * [ ] [识别领域事件](https://zhuanlan.zhihu.com/p/43776403)
 * [ ] DDD 实践案例：[e-commerce-sample](https://github.com/e-commerce-sample)
+* [ ] [DDD 战术模型之聚合](https://gitbook.cn/books/5b481d2f3ba8652852051915/index.html)
 
 参考读书笔记：[实现领域驱动设计](../other/reading/ddd-impl.md)
 

@@ -2,12 +2,13 @@
 
 ### Git
 
-* [Learn Git Branching](https://github.com/pcottle/learnGitBranching)
+* [Learn Git Branching](https://github.com/pcottle/learnGitBranching)，含有动画演示，非常生动
 * [卧槽！小姐姐用动画图解 Git 命令，这也太秀了吧？！](http://mp.weixin.qq.com/s?__biz=MzAxOTcxNTIwNQ==&mid=2457919169&idx=2&sn=7514209811adbd09b6161093e8ae3eb4&chksm=8cb6bb2bbbc1323dc0cd1c9110fcc6a2a06774040586fc21a01db98129a03ece8ee4cdb73960&scene=21#wechat_redirect)
 * [Linus 在 Google 分享了 Git 的设计思路，顺带怼了一大波人（视频）](https://mp.weixin.qq.com/s?__biz=MzAxOTcxNTIwNQ==&mid=2457915907&idx=1&sn=7f39b7943bf0e9ba4a2b12b47d4a70d7&scene=21#wechat_redirect)
 * [用好这几个工具，能大幅提升你的 Git/GitHub 操作效率！](https://mp.weixin.qq.com/s?__biz=MzAxOTcxNTIwNQ==&mid=2457915558&idx=1&sn=de0cdcb9fb199162ffe565e371b3dbf4&scene=21#wechat_redirect)
 * [强烈推荐下 GitHub 官方的这个教程](https://mp.weixin.qq.com/s?__biz=MzAxOTcxNTIwNQ==&mid=2457914680&idx=1&sn=0061f76dbd0e33468216a460c624c2b4&scene=21#wechat_redirect)
 * [收好这份 Git 命令应急手册，关键时刻可保你一命](https://mp.weixin.qq.com/s?__biz=MzAxOTcxNTIwNQ==&mid=2457914802&idx=1&sn=a8d2cb9b626da84d94d8b2ebd9e85c24&scene=21#wechat_redirect)
+* [Git Book](https://git-scm.com/book/zh/v2/%E8%B5%B7%E6%AD%A5-%E5%85%B3%E4%BA%8E%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6) 关于 Git 的书
 
 ### Gradle
 

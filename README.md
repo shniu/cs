@@ -5,6 +5,9 @@
 ### 必看
 
 * [jwasham](https://github.com/jwasham)/[**coding-interview-university**](https://github.com/jwasham/coding-interview-university) A complete computer science study plan to become a software engineer. 116K star
+* [技术雷达第 22 期](https://assets.thoughtworks.com/assets/technology-radar-vol-22-cn.pdf)
+
+## 关于 CS
 
 计算机科学是系统性研究信息与计算的理论基础以及它们在计算机系统中如何实现与应用的实用技术的学科；涵盖的内容非常多，但是最核心最基础的学科是计算机科学的基石，包括：
 
