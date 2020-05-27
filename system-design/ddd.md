@@ -1,3 +1,7 @@
+---
+description: DDD
+---
+
 # 领域驱动设计
 
 ### 概念
@@ -26,9 +30,17 @@
 
 **DDD其实就是面向对象的一套“方言”，提供了一种基于业务领域的对象划分和分类方法，其最大的价值就在于对于软件开发过程全生命周期使用语言的统一！**
 
-EventStorming: 
+EventStorming 是一种新型的工作坊模式，它可以帮助我们协作探索复杂的业务领域。
 
-\*\*\*\*
+**EventStorming** is a flexible workshop format for collaborative exploration of complex business domains.
+
+**EventStorming 资源**
+
+1. [EventStorming resource](https://www.eventstorming.com/resources/)
+2. [https://blog.avanscoperta.it/it/tag/event-storming-it/](https://blog.avanscoperta.it/it/tag/event-storming-it/)
+3. [http://exploreddd.com/](http://exploreddd.com/)
+4. [https://github.com/mariuszgil/awesome-eventstorming](https://github.com/mariuszgil/awesome-eventstorming)
+5. [ ] [EventStorming and Spring with a Splash of DDD](https://spring.io/blog/2018/04/11/event-storming-and-spring-with-a-splash-of-ddd) 介绍 DDD 和 Spring 的结合，principles for building Spring applications with DDD
 
 ### 文章
 

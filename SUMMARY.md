@@ -103,6 +103,7 @@
 * [读书](other/reading/README.md)
   * [设计数据密集型应用](other/reading/ddia.md)
   * [实现领域驱动设计](other/reading/ddd-impl.md)
+  * [精通比特币](other/reading/jing-tong-bi-te-bi.md)
 * [论文](other/papers.md)
 * [工程博客](other/blog.md)
 * [阅读源码](other/yue-du-yuan-ma.md)
