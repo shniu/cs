@@ -18,6 +18,49 @@
 2. [Spring Boot Gradle Plugin Reference Guide](https://docs.spring.io/spring-boot/docs/current/gradle-plugin/reference/html/)
 3. [Spring Dependency Gradle Plugin](https://plugins.gradle.org/plugin/io.spring.dependency-management)
 
+```text
+// https://www.jianshu.com/p/01588c396a29
+// buildscript
+buildscript {
+    repositories {
+        maven {
+            // url 'https://repo.spring.io/libs-milestone'
+            url "https://plugins.gradle.org/m2/"
+        }
+    }
+    dependencies {
+        classpath("io.spring.gradle:dependency-management-plugin:1.0.9.RELEASE")
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+        classpath("gradle.plugin.com.gorylenko.gradle-git-properties:gradle-git-properties:1.4.17")
+        classpath("gradle.plugin.com.palantir.gradle.docker:gradle-docker:0.13.0")
+    }
+}
+apply plugin: 'org.springframework.boot'
+// 会提供 bootJar task
+apply plugin: 'java'
+apply plugin: 'groovy'
+// 当使用了该插件，Spring Boot的插件会自动地从你使用的Spring Boot
+// 版本里导入spring-boot-dependencies bom
+// 在声明依赖时，不需要带版本号
+apply plugin: 'io.spring.dependency-management'
+
+// ---
+// ext 可以用来扩展属性
+ext['slf4j.version'] = '1.7.20'
+// or
+ext {
+    slf4jVersion = '1.7.20'
+}
+
+// bootJar
+// springBoot
+// maven 插件发布
+// maven-publish 发布
+
+```
+
+
+
 ### Maven
 
 

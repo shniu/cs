@@ -27,6 +27,7 @@ Todo
 #### 隔离见证
 
 * [https://www.chainnews.com/articles/311102570532.htm](https://www.chainnews.com/articles/311102570532.htm)
+* [精通比特币里对隔离见证的解释](https://wizardforcel.gitbooks.io/masterbitcoin2cn/content/appdx4.html)
 
 ### 资料
 
