@@ -16,7 +16,7 @@ Todo
 
 #### BIP 32
 
-![HD Wallet](../.gitbook/assets/image%20%281%29.png)
+![HD Wallet](../.gitbook/assets/image%20%284%29.png)
 
 
 
