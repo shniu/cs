@@ -6,3 +6,5 @@ description: >-
 
 # 应用: library
 
+参考：[https://github.com/ddd-by-examples/library](https://github.com/ddd-by-examples/library)
+

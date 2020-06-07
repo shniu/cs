@@ -44,6 +44,8 @@
   * [分布式锁](system-design/case-study/distributed-lock.md)
   * [分布式ID生成算法](system-design/case-study/distribute-id.md)
   * [通用的幂等设计](system-design/case-study/idempotent.md)
+  * [分布式任务调度](system-design/case-study/task-scheduler/README.md)
+    * [Timer](system-design/case-study/task-scheduler/timer.md)
   * [交易系统](system-design/case-study/exchange-engine.md)
 
 ## 编程语言 <a id="language"></a>
@@ -87,6 +89,7 @@
 ## 中间件 <a id="middleware"></a>
 
 * [Redis](middleware/redis.md)
+* [MySQL](middleware/mysql.md)
 * [MQ](middleware/mq/README.md)
   * [Kafka](middleware/mq/kafka.md)
   * [Pulsar](middleware/mq/pulsar.md)
@@ -109,11 +112,13 @@
   * [设计数据密集型应用](other/reading/ddia.md)
   * [实现领域驱动设计](other/reading/ddd-impl.md)
   * [精通比特币](other/reading/jing-tong-bi-te-bi.md)
+  * [提问的智慧](other/reading/how-to-ask-question.md)
 * [论文](other/papers.md)
 * [工程博客](other/blog.md)
 * [阅读源码](other/yue-du-yuan-ma.md)
 * [面试](other/interview.md)
 * [软技能](other/soft-skill.md)
+* [Todo](other/todo.md)
 * [application](other/application/README.md)
   * [服务端开发](other/application/server.md)
   * [Reactor 模型](other/application/reactor.md)
