@@ -97,13 +97,13 @@ User: 审批人
 // 3. 微服务内的对象清单
 ```
 
-![&#x5FAE;&#x670D;&#x52A1;&#x9886;&#x57DF;&#x8BBE;&#x8BA1;](../../.gitbook/assets/image%20%287%29.png)
+![&#x5FAE;&#x670D;&#x52A1;&#x9886;&#x57DF;&#x8BBE;&#x8BA1;](../../.gitbook/assets/image%20%289%29.png)
 
 * 设计代码结构
 
-![&#x5E94;&#x7528;&#x5C42;&#x4EE3;&#x7801;&#x7ED3;&#x6784;](../../.gitbook/assets/image%20%288%29.png)
+![&#x5E94;&#x7528;&#x5C42;&#x4EE3;&#x7801;&#x7ED3;&#x6784;](../../.gitbook/assets/image%20%2810%29.png)
 
-![&#x9886;&#x57DF;&#x5C42;&#x4EE3;&#x7801;&#x7ED3;&#x6784;](../../.gitbook/assets/image%20%283%29.png)
+![&#x9886;&#x57DF;&#x5C42;&#x4EE3;&#x7801;&#x7ED3;&#x6784;](../../.gitbook/assets/image%20%284%29.png)
 
 
 

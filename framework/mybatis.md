@@ -24,6 +24,7 @@
 * [ ] 分析 MyBatis 的初始化流程
 * [ ] 分析 MyBatis 的 SQL 执行流程
 * [ ] 分析 MyBatis 和 Spring 的集成
+* [ ] 总结 MyBatis 的设计模式和设计思想，有哪些可以借鉴的地方
 
 ### JDBC 规范
 
@@ -31,19 +32,72 @@
 2. [JTA 规范](https://download.oracle.com/otn-pub/jcp/jta-1.1-spec-oth-JSpec/jta-1_1-spec.pdf?AuthParam=1591492792_9b9e886a24a5d84c67f5c44a204e2bbd)
 3. [JNDI 规范](https://docs.oracle.com/cd/E17802_01/products/products/jndi/javadoc/)
 
+想要学好 MyBatis，JDBC 规范是必备的。
+
 ### MyBatis 框架设计
 
+![MyBatis &#x5206;&#x5C42;&#x67B6;&#x6784;](../.gitbook/assets/image%20%285%29.png)
 
+1. API接口层
+2. 数据处理层：负责具体的SQL查找、SQL解析、SQL执行和执行结果映射处理等。它主要的目的是根据调用的请求完成一次数据库操作。
+3. 框架支撑层：包括连接管理、事务管理、配置加载和缓存处理，这些都是共用的东西，将他们抽取出来作为最基础的组件。
 
 ### MyBatis 的常用配置
 
-
+* [MyBatis 常用 API 及 注解](https://mybatis.org/mybatis-3/java-api.html)
 
 ### MyBatis 的设计思想和设计原则
 
 
 
+### MyBatis 小技巧
+
+* MyBatis 插入数据时返回自增主键
+
+开发过程中，我们往往需要在插入数据后获取当前记录自增后的id，可以使用 `select last_insert_id();` 来获取到；但是用了 MyBatis 之后怎么做呢？需要配合 `useGeneratedKeys` 和 `keyProperty` ,  keyProperty的值为传入参数的属性名，Mybatis会自动把自增id的值赋给该属性， 而返回值仍为影响行数：
+
+> useGeneratedKeys: insert and update only, This tells MyBatis to use the JDBC getGeneratedKeys method to retrieve keys generated internally by the database, default is false
+>
+> keyProperty: insert and update only, Identifies a property into which MyBatis will set the key value returned by getGeneratedKeys, or by a selectKey child element of the insert statement. Default: unset. Can be a comma separated list of property names if multiple generated columns are expected.
+
+```text
+// xml 的方式
+<insert id="insertAuthor" keyProperty="id" useGeneratedKeys="true">
+  insert into Author (id,username,password,email,bio)
+  values (#{id},#{username},#{password},#{email},#{bio})
+</insert>
+
+// or
+<selectKey
+  keyProperty="id"
+  resultType="int"
+  order="BEFORE"
+  statementType="PREPARED">
+  ......
+</selectKey>
+
+/// ---
+// 实现原理参考：https://cofcool.github.io/tech/2017/11/06/Mybatis-insert-get-id
+// 可见 MyBatis 帮我们处理了这种场景
+```
+
+* MyBatis Plus
+
+Todo 探索 MyBatis Plus 的增强
+
+{% embed url="https://www.cnblogs.com/wunian7yulian/p/10276642.html" %}
+
+```text
+// MyBatis 的 BaseMapper 接口
+com.baomidou.mybatisplus.core.enums.SqlMethod 定义了很多的 SQL 模版，根据模版来自动
+生成 SQL 语句
+```
+
+{% embed url="https://github.com/baomidou/mybatis-plus" %}
+
 ### MyBatis 源码分析
+
+#### MyBatis 初始化流程分析
 
 
 
