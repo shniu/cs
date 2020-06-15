@@ -99,5 +99,14 @@ com.baomidou.mybatisplus.core.enums.SqlMethod 定义了很多的 SQL 模版，�
 
 #### MyBatis 初始化流程分析
 
+```text
+// SqlSessionFactoryBuilder
+// 核心功能：
+//  1. XML(XMLConfigBuilder) -> org.apache.ibatis.session.Configuration
+//  2. Configuration -> SqlSessionFactory (DefaultSqlSessionFactory)
+
+Configuration 是 Mybatis 的配置类，Mybatis 支持的所有配置都定义在这里
+```
+
 
 

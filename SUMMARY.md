@@ -43,6 +43,7 @@
   * [开发实践](system-design/case-study/kai-fa-shi-jian.md)
   * [分布式锁](system-design/case-study/distributed-lock.md)
   * [分布式ID生成算法](system-design/case-study/distribute-id.md)
+  * [限流设计](system-design/case-study/rate-limiter-design.md)
   * [通用的幂等设计](system-design/case-study/idempotent.md)
   * [分布式任务调度](system-design/case-study/task-scheduler/README.md)
     * [Timer](system-design/case-study/task-scheduler/timer.md)
@@ -52,6 +53,7 @@
 
 * [编程语言](language/language.md)
 * [Java](language/java/README.md)
+  * [JVM](language/java/jvm.md)
   * [Java 核心技术](language/java/core-tech.md)
   * [Java 8 新特性](language/java/java8.md)
   * [Java 集合框架](language/java/java-collection.md)
@@ -75,6 +77,7 @@
 * [Dubbo](framework/dubbo.md)
 * [Apache Tomcat](framework/apache-tomcat.md)
 * [MyBatis](framework/mybatis.md)
+* [限流框架](framework/rate-limiter.md)
 * [Spring Framework](framework/spring-framework.md)
 * [Spring Boot](framework/spring-boot.md)
 * [Spring Cloud](framework/spring-cloud-netflix/README.md)

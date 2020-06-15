@@ -39,3 +39,11 @@ timer.schedule(task1, 0, 1000);
 
 可见，Timer 的方案并不可靠，在生成中不推荐使用。
 
+
+
+#### xxl-job
+
+文档：[https://www.xuxueli.com/xxl-job](https://www.xuxueli.com/xxl-job)， Github: [https://github.com/xuxueli/xxl-job](https://github.com/xuxueli/xxl-job)
+
+
+
