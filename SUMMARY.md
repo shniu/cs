@@ -38,6 +38,7 @@
   * [应用: library](system-design/ddd/ying-yong-library.md)
 * [微服务](system-design/wei-fu-wu.md)
 * [分布式系统](system-design/distributed.md)
+* [CI/CD](system-design/ci-cd.md)
 * [设计最佳实践](system-design/design-best-practice.md)
 * [综合](system-design/case-study/README.md)
   * [开发实践](system-design/case-study/kai-fa-shi-jian.md)

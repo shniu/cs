@@ -12,3 +12,7 @@ description: Todo list
 * [ ] 数字货币钱包的设计，对数字货币钱包的理解（看下hd中数字货币钱包怎么对接的各个链）
 * [ ] DDD 实践总结
 
+
+
+* [ ] [Kubernetes 和微服务监控体系](https://space.bilibili.com/518029478?spm_id_from=333.788.b_765f7570696e666f.2) 杨波老师
+
