@@ -49,6 +49,7 @@
   * [通用的幂等设计](system-design/case-study/idempotent.md)
   * [分布式任务调度](system-design/case-study/task-scheduler/README.md)
     * [Timer](system-design/case-study/task-scheduler/timer.md)
+    * [ScheduledExecutorService](system-design/case-study/task-scheduler/scheduledexecutorservice.md)
   * [交易系统](system-design/case-study/exchange-engine.md)
 
 ## 编程语言 <a id="language"></a>
