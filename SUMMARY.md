@@ -14,6 +14,7 @@
   * [位运算](cs/algorithm/wei-yun-suan.md)
   * [动态规划](cs/algorithm/01-dong-tai-gui-hua.md)
   * [树](cs/algorithm/03-shu.md)
+  * [数据结构 - 堆](cs/algorithm/heap.md)
   * [题目列表](cs/algorithm/99-chang-jian-ti-mu-lie-biao.md)
   * [一些总结](cs/algorithm/algotrain/README.md)
     * [01-关于复杂度分析和渐进式优化](cs/algorithm/algotrain/01-guan-yu-fu-za-du-fen-xi-he-jian-jin-shi-you-hua.md)
