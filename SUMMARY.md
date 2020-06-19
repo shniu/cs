@@ -44,12 +44,15 @@
 * [综合](system-design/case-study/README.md)
   * [开发实践](system-design/case-study/kai-fa-shi-jian.md)
   * [分布式锁](system-design/case-study/distributed-lock.md)
+  * [分布式计数服务](system-design/case-study/distributed-counting.md)
   * [分布式ID生成算法](system-design/case-study/distribute-id.md)
   * [限流设计](system-design/case-study/rate-limiter-design.md)
   * [通用的幂等设计](system-design/case-study/idempotent.md)
   * [分布式任务调度](system-design/case-study/task-scheduler/README.md)
     * [Timer](system-design/case-study/task-scheduler/timer.md)
     * [ScheduledExecutorService](system-design/case-study/task-scheduler/scheduledexecutorservice.md)
+    * [Spring Task](system-design/case-study/task-scheduler/spring-task.md)
+    * [Quartz](system-design/case-study/task-scheduler/quartz.md)
   * [交易系统](system-design/case-study/exchange-engine.md)
 
 ## 编程语言 <a id="language"></a>

@@ -45,6 +45,14 @@ timer.schedule(task1, 0, 1000);
 
 不足是：只能根据任务的延迟来进行调度，无法满足基于绝对时间和日历调度的需求；而且只能满足单机调度，提供了基本的调度功能。具体分析见：[ScheduledExecutorService](scheduledexecutorservice.md)
 
+#### Spring Task
+
+Spring Task 是 Spring 提供的轻量级任务调度框架，配置和使用都比较简单；但是缺点是Task 本身不支持持久化，不支持集群调度，需要开发人员自己解决，此外不支持可视化配置等；具体分析见：[Spring Task](spring-task.md)
+
+#### Quartz
+
+
+
 #### xxl-job
 
 文档：[https://www.xuxueli.com/xxl-job](https://www.xuxueli.com/xxl-job)， Github: [https://github.com/xuxueli/xxl-job](https://github.com/xuxueli/xxl-job)
