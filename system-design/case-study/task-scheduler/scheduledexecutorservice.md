@@ -68,5 +68,5 @@ public interface ScheduledExecutorService extends ExecutorService {
 
 而 `ScheduledThreadPoolExecutor` 是 `ScheduledExecutorService` 的线程池版本的实现，所以可以从两个方面来理解：线程池的实现和基于线程池的任务调度的实现。
 
-// Todo
+// Todo 需要分析 `ScheduledThreadPoolExecutor`  的内部实现
 
