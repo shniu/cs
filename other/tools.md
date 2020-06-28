@@ -61,6 +61,13 @@ ext {
 
 
 
+### OpenAPI Site
+
+* [Public APIs](https://public-apis.xyz/)
+* [Github Public APIs](https://github.com/public-apis/public-apis)
+* Open API [any-api](https://any-api.com/)
+* [API List ](https://apilist.fun/)
+
 ### Maven
 
 
