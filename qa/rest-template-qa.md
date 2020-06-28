@@ -46,3 +46,12 @@ public class TemplateConfig {
 
 
 
+### 参考资源
+
+* [记一次 httpclient 死锁问题](http://blog.kail.xyz/post/2019-04-21/tools/httpclient-lock.html)
+* [httpclient 连接池配置](https://www.jianshu.com/p/6a41c95855e3)
+* [httpclient 连接管理](https://www.iteye.com/blog/study121007-2304274)
+* [httpclient 的踩坑总结](https://www.cnblogs.com/nuccch/p/10611877.html)
+
+
+

@@ -48,7 +48,7 @@ MySQL、Redis、ElasticSearch、HBase、Hive、MongoDB、RocksDB、CockroachDB�
 
 [https://static001.geekbang.org/resource/image/01/ad/0134f4cd9e0d6e8d57ebe35eb28c32ad.jpg](https://static001.geekbang.org/resource/image/01/ad/0134f4cd9e0d6e8d57ebe35eb28c32ad.jpg)
 
-![](../../.gitbook/assets/image%20%2816%29.png)
+![](../../.gitbook/assets/image%20%2817%29.png)
 
 
 
