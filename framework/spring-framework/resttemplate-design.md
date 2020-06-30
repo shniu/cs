@@ -75,8 +75,6 @@ RestTemplate 提供了定制化的能力，比如可以定制 `ClientHttpRequest
 
 可以把 RestTemplate 看成分为两层，第一层是面向应用程序的，第二层是 RestTemplate 提供一些抽象来屏蔽底层 Http Client 的差异的。第一层是使用层面的，主要还是看编程接口，我们主要来看第二层是如何实现的（从设计原则、设计思想、设计模式等方面来分析）
 
-
-
 * Http Request 的抽象
 
 ![Client Http Request &#x62BD;&#x8C61;](../../.gitbook/assets/image%20%2818%29.png)
@@ -110,7 +108,27 @@ public interface HttpMessage {
 }
 ```
 
-`ClientHttpRequest` 抽象出了一个 http 请求最关键的四个部分：URL, Method, Header, Body
+`ClientHttpRequest` 抽象出了一个 http 请求最关键的四个部分：URL, Method, Header, Body；这几部分正是每一个 http 请求关注的部分，`execute` 方法提供了调用的抽象，具体使用什么库，如何执行，交给具体的实现。
+
+`ClientHttpRequest` 的创建使用了工厂模式: `ClientHttpRequestFactory` , 在这里就非常适合，因为每个http请求都是相互隔离的，需要实时创建。
+
+```java
+public interface ClientHttpRequestFactory {
+
+	/**
+	 * Create a new {@link ClientHttpRequest} for the specified URI and HTTP method.
+	 * <p>The returned request can be written to, and then executed by calling
+	 * {@link ClientHttpRequest#execute()}.
+	 * @param uri the URI to create a request for
+	 * @param httpMethod the HTTP method to execute
+	 * @return the created request
+	 * @throws IOException in case of I/O errors
+	 */
+	ClientHttpRequest createRequest(URI uri, HttpMethod httpMethod) throws IOException;
+}
+```
+
+
 
 ### 总结
 
