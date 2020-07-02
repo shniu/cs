@@ -12,7 +12,7 @@ Timer 在 JDK 中的解释是：它是一个线程调度工具类，以后台线
 
 JDK 中的 Timer 调度设计，编程入口是 Timer 和 TimerTask
 
-![Timer &#x7684;&#x8BBE;&#x8BA1;](../../../.gitbook/assets/image%20%2817%29.png)
+![Timer &#x7684;&#x8BBE;&#x8BA1;](../../../.gitbook/assets/image%20%2820%29.png)
 
 Timer 的设计是线程安全的，多个线程可以共用一个 Timer 而不需要使用额外的同步控制；但是 Timer 并不保证严格的实时保证，它是使用 `object.wait(long timeout)` 来调度任务的；Java 的 JUC 包中提供了`ScheduledThreadPoolExecutor` 来替代 `Timer` , 它提供了更多的能力。
 

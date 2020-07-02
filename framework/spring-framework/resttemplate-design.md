@@ -16,7 +16,7 @@ Note: 在 Spring Framework 5.0 以后，推荐使用 `org.springframework.web.re
 
 #### RestTemplate 类和接口的结构
 
-![RestTemplate](../../.gitbook/assets/image%20%2816%29.png)
+![RestTemplate](../../.gitbook/assets/image%20%2819%29.png)
 
 RestTemplate 的模型：在需要发起 Http 调用的场景，让使用者可以使用统一的编程模型，而无须花费过多的精力在处理请求准备、序列化反序列化、连接池管理等事情上，屏蔽更多的 http 调用的编程细节；同时，RestTemplate 支持动态切换底层的 http client 类库。RestTemplate 提供了一些模版方法，方便我们使用它进行 Http 调用，并处理调用过程中的请求头、请求体、序列化、响应体、响应结果等
 
@@ -77,7 +77,7 @@ RestTemplate 提供了定制化的能力，比如可以定制 `ClientHttpRequest
 
 * Http Request 的抽象
 
-![Client Http Request &#x62BD;&#x8C61;](../../.gitbook/assets/image%20%2818%29.png)
+![Client Http Request &#x62BD;&#x8C61;](../../.gitbook/assets/image%20%2821%29.png)
 
 ```java
 public interface ClientHttpRequest extends HttpRequest, HttpOutputMessage {
