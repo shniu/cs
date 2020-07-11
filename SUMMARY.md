@@ -50,6 +50,7 @@
   * [开发实践](system-design/case-study/kai-fa-shi-jian.md)
   * [分布式锁](system-design/case-study/distributed-lock.md)
   * [分布式计数服务](system-design/case-study/distributed-counting.md)
+  * [消息队列设计](system-design/case-study/message-queue.md)
   * [分布式ID生成算法](system-design/case-study/distribute-id.md)
   * [限流设计](system-design/case-study/rate-limiter-design.md)
   * [通用的幂等设计](system-design/case-study/idempotent.md)
