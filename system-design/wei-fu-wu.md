@@ -3,6 +3,23 @@
 * [ ] [搞懂什么是微服务](https://xie.infoq.cn/article/83386f6d764984f3b64b760fb?y=qun0522)
 * [ ] [https://medium.com/@madhukaudantha/microservice-architecture-and-design-patterns-for-microservices-e0e5013fd58a](https://medium.com/@madhukaudantha/microservice-architecture-and-design-patterns-for-microservices-e0e5013fd58a)
 * [ ] 微服务架构设计模式
+* [ ] [https://microservices.io/](https://microservices.io/)
+
+### 微服务
+
+[微服务的难题](https://eventuate.io/whyeventdriven.html)之一：分布式数据管理；每个服务都有自己的私有数据库，这样就可以做到服务的松耦合，所以保证多个服务的数据一致性是一个挑战，查询也是一个挑战（因为要将多个服务的数据做聚合）
+
+通常的解决办法：服务间使用异步通信，比如领域事件、命令/回复消息。
+
+> #### The problem of atomically updating the database and publishing messages: <a id="the-problem-of-atomically-updating-the-database-and-publishing-messages"></a>
+>
+> #### You can use an asynchronous architecture to solve the distributed data management challenges in a microservices architecture. However, one major challenge with implementing an asynchronous architecture is atomically updating the database and sending a message. <a id="the-problem-of-atomically-updating-the-database-and-publishing-messages"></a>
+
+
+
+#### Event Sourcing
+
+事件溯源是原子性的更新状态和发布事件的好方法。业务对象通过存储一系列的状态改变事件来持久化
 
 #### EDA \(事件驱动架构\)
 
@@ -73,4 +90,12 @@
 * 单体系统解耦拆分
 
 单体系统是最开始的服务架构模式，但是到达一定
+
+
+
+### 参考资源
+
+* [https://eventuate.io/](https://eventuate.io/)
+
+Solving distributed data management problems in a microservice architecture
 
