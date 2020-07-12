@@ -1,6 +1,73 @@
 # 数据结构与算法
 
-这是 CS 的一个核心课程，非常重要。
+> 引用编程珠玑： 
+>
+> 程序员的主要问题与其说是技术问题，还不如说是心理问题，他不能解决问题，是因为他在企图解决错误问题，问题的最终解决， 是通过打破他的概念壁垒，进而去解决一个较简单的问题而实现的。 简单的设计是：设计者确定其设计已经达到了完美的标准不是不能再增加任何东西，而是不能再减少任何东西。
+
+#### Todo List
+
+* [ ] [滑动窗口类问题解题思路](https://labuladong.gitbook.io/algo/di-ling-zhang-bi-du-xi-lie/hua-dong-chuang-kou-ji-qiao)
+* [ ] 刷题方法，刷题后写总结，多遍刷题，总结套路和思路，代码实现的常用模式
+* [ ] 对算法与数据结构做知识分类和思维导图
+* [ ] 阅读[如何刷 《剑指 offer 》](https://www.toutiao.com/i6795063003059323404/)
+* [ ] 阅读 程序员面试金典 Cracking the code interview
+* [ ] [https://shimo.im/docs/KKvkRRhddqJXvxd8](https://shimo.im/docs/KKvkRRhddqJXvxd8) 爬楼梯变种 [爬楼梯](https://leetcode-cn.com/problems/climbing-stairs/), [爬楼梯问题变种](https://shimo.im/docs/KKvkRRhddqJXvxd8) （动态规划的入门题目，记忆化递归）
+* [ ] 如何实现LRU算法？[实现代码在 Github 上](https://github.com/shniu/java-eco/blob/master/notes/arts/src/main/java/io/github/shniu/arts/algothrim/leetcode/lruCache/LRUCache.java)，[分析在这里](https://labuladong.gitbook.io/algo/gao-pin-mian-shi-xi-lie/lru-suan-fa)
+* [ ] [二叉树常见操作](https://labuladong.gitbook.io/algo/shu-ju-jie-gou-xi-lie/er-cha-sou-suo-shu-cao-zuo-ji-jin)
+* [ ] 内部排序算法和外部排序算法，[参考1](http://c.biancheng.net/data_structure/sort/)
+* [ ] [二叉搜索树的最近公共祖先](https://leetcode-cn.com/problems/er-cha-sou-suo-shu-de-zui-jin-gong-gong-zu-xian-lcof/) \(2.29\)
+* [ ] [二叉树的最近公共祖先](https://leetcode-cn.com/problems/er-cha-shu-de-zui-jin-gong-gong-zu-xian-lcof/) 多解法 \(2.29\)
+* [ ] [合并两个有序链表](https://leetcode-cn.com/problems/merge-two-sorted-lists/) （2.29）想想用递归怎么实现
+* [ ] [两数相加](https://leetcode-cn.com/problems/add-two-numbers/) \(2.29\)
+* [ ] [删除链表的倒数第N个节点](https://leetcode-cn.com/problems/remove-nth-node-from-end-of-list/) （2.29）
+* [ ] [合并k个排序链表](https://leetcode-cn.com/problems/merge-k-sorted-lists/) （2.29） 有些难度 利用小顶堆实现了，想一下啊用递归怎么实现
+* [ ] [两两交换链表里的节点](https://leetcode-cn.com/problems/swap-nodes-in-pairs/) （2.29）想递归怎么实现
+* [ ] [旋转链表](https://leetcode-cn.com/problems/rotate-list/) （2.29）
+* [ ] [返回倒数第k个节点](https://leetcode-cn.com/problems/kth-node-from-end-of-list-lcci/) （3.1）想递归怎么实现
+* [ ] [链表中倒数第k个节点](https://leetcode-cn.com/problems/lian-biao-zhong-dao-shu-di-kge-jie-dian-lcof/)（3.1） 和上面这个题是一样的
+* [ ] [用两个栈实现队列](https://leetcode-cn.com/problems/yong-liang-ge-zhan-shi-xian-dui-lie-lcof/) （3.1）
+* [ ] [用队列实现栈](https://leetcode-cn.com/problems/implement-stack-using-queues/) （3.1）
+* [ ] [反转链表](https://leetcode-cn.com/problems/reverse-linked-list/) （3.1） 想递归写法
+* [ ] [删除排序链表中的重复元素](https://leetcode-cn.com/problems/remove-duplicates-from-sorted-list/) （3.1）curr 和 curr.next
+* [ ] [删除排序链表中的重复元素II](https://leetcode-cn.com/problems/remove-duplicates-from-sorted-list-ii/) （3.1）
+* [ ] [反转链表](https://leetcode-cn.com/problems/reverse-linked-list/) （3.1） 迭代+递归两种方法实现
+* [ ] [反转链表II](https://leetcode-cn.com/problems/reverse-linked-list-ii/) （3.1） 相比上面增加了反转位置的查找
+* [ ] [如何去除有序数组中的重复元素](https://labuladong.gitbook.io/algo/gao-pin-mian-shi-xi-lie/ru-he-qu-chu-you-xu-shu-zu-de-zhong-fu-yuan-su) （3.1）
+* [ ] [二叉树中和为某一值的路径](https://leetcode-cn.com/problems/er-cha-shu-zhong-he-wei-mou-yi-zhi-de-lu-jing-lcof/) （3.1） 引申一下如何求root到指定节点的路径
+* [ ] 二叉搜索树与双向链表
+* [ ] 复杂链表的复制
+* [ ] 数值的整数次方
+* [ ] 青蛙跳台阶问题
+* [ ] 机器人的运动范围
+* [ ] [对称二叉树](https://leetcode-cn.com/problems/symmetric-tree/) 或者 [镜像二叉树](https://leetcode-cn.com/problems/er-cha-shu-de-jing-xiang-lcof/) （3.1）
+* [ ] [数组中重复的数字](https://leetcode-cn.com/problems/shu-zu-zhong-zhong-fu-de-shu-zi-lcof/) （3.2） 有种思路不好想到，你知道是什么吗？
+* [ ] [二维数组中的查找](https://leetcode-cn.com/problems/er-wei-shu-zu-zhong-de-cha-zhao-lcof/) （3.2） 有两种比较好的思路：二分和搜索范围缩小
+* [ ] [动态规划基础详解](https://labuladong.gitbook.io/algo/di-ling-zhang-bi-du-xi-lie/dong-tai-gui-hua-xiang-jie-jin-jie#yi-fei-bo-na-qi-shu-lie) （3.2） 可以多度几遍，包含了斐波那契数列和凑硬币
+* [ ] [无重复字符的最长子串](https://leetcode-cn.com/problems/longest-substring-without-repeating-characters) （3.17）
+* [ ] 如何使用栈实现队列？[参考这里](https://labuladong.gitbook.io/algo/shu-ju-jie-gou-xi-lie/dui-lie-shi-xian-zhan-zhan-shi-xian-dui-lie)
+
+  基本思路：使用两个栈，s1和s2，元素压入s1，取的时候从s2取，如果s2为空，就把s1的元素出栈压入s2，再从s2取数据
+
+* [ ] 如何使用队列实现栈？[参考这里](https://labuladong.gitbook.io/algo/shu-ju-jie-gou-xi-lie/dui-lie-shi-xian-zhan-zhan-shi-xian-dui-lie)
+
+  基本思路：使用一个队列就能搞定，记录队尾元素（也就是栈顶元素），push的时候直接入队列更新队尾元素即可；出栈时，将队首元素依次插入队列尾部，将尾部元素弹出即可，有个循环，复杂度O\(n\); 也可以考虑使用两个队列（始终保持一个队列是空的）
+
+* [ ] [二叉树操作](https://labuladong.gitbook.io/algo/shu-ju-jie-gou-xi-lie/er-cha-sou-suo-shu-cao-zuo-ji-jin)
+
+**必知必会**
+
+* 手写二叉树的前中后遍历（分别使用递归和非递归方式实现）
+* 手写二叉树的层次遍历（使用非递归和递归方式）
+* 手写冒泡排序、插入排序、选择排序、归并排序、快速排序，了解堆排序的原理（二叉堆）
+* 手写栈和队列的实现，用栈实现队列和队列实现栈
+* 实现广度优先搜索和深度优先搜索（基于图）
+* 将两个有序数组合并为一个有序数组（done）
+* 散列表的核心设计和原理，常见的问题如何解决，并能分析Java的HashMap的实现
+* 实现[反转链表](https://leetcode-cn.com/problems/reverse-linked-list) 和 [反转链表II](https://leetcode-cn.com/problems/reverse-linked-list-ii/)，参考[官方题解](https://leetcode-cn.com/problems/reverse-linked-list-ii/solution/fan-zhuan-lian-biao-ii-by-leetcode/)
+
+**刷题节奏**
+
+剑指 offer -&gt; leetcode dp -&gt; leetcode 至少再刷 300 题
 
 ## 如何能学好
 
@@ -16,6 +83,36 @@
 ## 梳理数据结构和算法知识体系
 
 代码实现： 1. [shniu/java-eco](https://github.com/shniu/java-eco) 2. [Golang 实现](https://github.com/shniu/gostuff/leetcode)
+
+![&#x5E38;&#x89C1;&#x7B97;&#x6CD5;&#x548C;&#x6570;&#x636E;&#x7ED3;&#x6784;&#x590D;&#x6742;&#x5EA6;](../../.gitbook/assets/image%20%2825%29.png)
+
+三位一体学习法
+
+1. 快速过所有算法知识点，串成知识体系
+2. 反复过遍数：遍数 &gt; 每次时长
+3. 背诵、记忆、默写：算法模版
+4. 学以致用，马上开始做题，刷 leetcode
+5. 按照知识体系有组织、系统性的做题
+6. 刷题过遍数：遍数 &gt; 每题时长
+7. 五遍刷题法
+
+五遍刷题法
+
+* 刷题第一遍
+
+1. 5 ～ 10 分钟，读题 + 思考
+2. 直接看解法
+3. 背诵、默写好的解法
+4. 多解法，比较解法优劣
+
+* 刷题第二遍
+
+1. 马上自己写，提交leetcode
+2. 多种解法比较，体会优化
+
+* 刷题第三遍（过一天，再来刷一次）
+* 刷题第四遍（过一周，再来刷一遍）
+* 刷题第五遍（面试提前一个月反复复习）
 
 ### 较难的知识点
 
@@ -77,6 +174,8 @@
 * 如果一个省的考生有100万，如何通过成绩快速排序得出名次？（提示：计数排序）
 * 假设有10万个手机号码，希望将这10万个号码从小到大排序，如何快速的进行排序？（提示：基数排序。快排可以做到 O\(nlogn\)，使用基数排序可以做到O\(n\)）
 
+[外部排序](pai-xu-suan-fa.md#wai-bu-pai-xu)
+
 #### 参考链接
 
 * [十大经典算法](https://www.cnblogs.com/onepixel/p/7674659.html)
@@ -125,6 +224,12 @@
 
 * [常见算法复杂度分析](https://www.bigocheatsheet.com/)
 * [极客时间算法训练营资料](https://pan.baidu.com/disk/home?#/all?vmode=list&path=%2F%E8%AF%BE%E7%A8%8B%2F%E7%AE%97%E6%B3%95%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84)
+* 积累资源
+  1. 精彩题解 [https://labuladong.gitbook.io/algo/](https://labuladong.gitbook.io/algo/)
+  2. 期末考试题解 [https://shimo.im/docs/G69VxxH6KcW99TW9/read](https://shimo.im/docs/G69VxxH6KcW99TW9/read)
+  3. 训练营每周分享 [https://shimo.im/docs/hdx98DVvVwDC6PyC/read](https://shimo.im/docs/hdx98DVvVwDC6PyC/read)
+  4. 训练营每周总结：[https://github.com/shniu/cs/tree/master/algorithm/algoTrain](https://github.com/shniu/cs/tree/master/algorithm/algoTrain)
+  5. [怎样才算掌握了一个数据结构和算法？](https://mp.weixin.qq.com/s/t8z4KQMrTrR3NljtWJm2zg)
 * [我的印象笔记](https://app.yinxiang.com/fx/1cd152b8-dc5d-44e8-b1e4-3fa2d2f4dfb0)
 * LeetCode
 * [北大题库](http://poj.org/problemlist)

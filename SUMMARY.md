@@ -17,6 +17,7 @@
   * [动态规划](cs/algorithm/dp.md)
   * [树](cs/algorithm/tree.md)
   * [数据结构 - 堆](cs/algorithm/heap.md)
+  * [排序算法](cs/algorithm/pai-xu-suan-fa.md)
   * [题目列表](cs/algorithm/99-chang-jian-ti-mu-lie-biao.md)
   * [一些总结](cs/algorithm/algotrain/README.md)
     * [01-关于复杂度分析和渐进式优化](cs/algorithm/algotrain/01-guan-yu-fu-za-du-fen-xi-he-jian-jin-shi-you-hua.md)

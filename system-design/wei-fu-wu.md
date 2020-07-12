@@ -35,7 +35,7 @@
 
 一份数据要在多个系统中使用，如何解决一致性是关键。
 
-![&#x6570;&#x636E;&#x5206;&#x53D1;](../.gitbook/assets/image%20%2825%29.png)
+![&#x6570;&#x636E;&#x5206;&#x53D1;](../.gitbook/assets/image%20%2826%29.png)
 
 数据分发技术是解决数据一致性、构建大规模分布式系统、异步事件驱动架构的关键。数据分发一般会借助消息队列，但是既保更新本地数据库成功，又保证发送消息成功，就会涉及到分布式事务问题，一般意义上的双写会存在很大问题，如何解决事务性双写是关键。
 
@@ -43,7 +43,7 @@
 
 **模式1 事务性发件箱 \(transactional outbox\)**
 
-![Transactional Outbox](../.gitbook/assets/image%20%2826%29.png)
+![Transactional Outbox](../.gitbook/assets/image%20%2827%29.png)
 
 事务发件箱的一个实现：[killbill/killbill-commons/queue](https://github.com/killbill/killbill-commons/tree/master/queue)
 
