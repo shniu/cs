@@ -108,6 +108,7 @@
 
 * [Redis](middleware/redis.md)
 * [MySQL](middleware/mysql.md)
+* [State Machine](middleware/state-machine.md)
 * [MQ](middleware/mq/README.md)
   * [Kafka](middleware/mq/kafka.md)
   * [Pulsar](middleware/mq/pulsar.md)
