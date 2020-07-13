@@ -76,6 +76,7 @@ EventStorming 是一种新型的工作坊模式，它可以帮助我们协作探
 * [ ] DDD 实践案例：[e-commerce-sample](https://github.com/e-commerce-sample)
 * [ ] [DDD 战术模型之聚合](https://gitbook.cn/books/5b481d2f3ba8652852051915/index.html)
 * [ ] [https://zhuanlan.zhihu.com/c\_137428247](https://zhuanlan.zhihu.com/c_137428247)
+* [ ] [https://tech.meituan.com/2017/12/22/ddd-in-practice.html](https://tech.meituan.com/2017/12/22/ddd-in-practice.html) DDD 在美团的实践
 
 #### Book
 

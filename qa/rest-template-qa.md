@@ -52,6 +52,8 @@ public class TemplateConfig {
 * [httpclient 连接池配置](https://www.jianshu.com/p/6a41c95855e3)
 * [httpclient 连接管理](https://www.iteye.com/blog/study121007-2304274)
 * [httpclient 的踩坑总结](https://www.cnblogs.com/nuccch/p/10611877.html)
+* [https://tech.asimio.net/2016/12/27/Troubleshooting-Spring-RestTemplate-Requests-Timeout.html](https://tech.asimio.net/2016/12/27/Troubleshooting-Spring-RestTemplate-Requests-Timeout.html)
+* [https://www.rectcircle.cn/posts/spring-resttemplate%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/](https://www.rectcircle.cn/posts/spring-resttemplate%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/)
 
 
 

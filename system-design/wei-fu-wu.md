@@ -4,6 +4,8 @@
 * [ ] [https://medium.com/@madhukaudantha/microservice-architecture-and-design-patterns-for-microservices-e0e5013fd58a](https://medium.com/@madhukaudantha/microservice-architecture-and-design-patterns-for-microservices-e0e5013fd58a)
 * [ ] 微服务架构设计模式
 * [ ] [https://microservices.io/](https://microservices.io/)
+* [ ] [https://github.com/iambowen/cloud-design-patterns/](https://github.com/iambowen/cloud-design-patterns/) 云设计模式
+* [ ] [https://docs.microsoft.com/en-us/azure/architecture/](https://docs.microsoft.com/en-us/azure/architecture/)
 
 ### 微服务
 
@@ -19,7 +21,18 @@
 
 #### Event Sourcing
 
-事件溯源是原子性的更新状态和发布事件的好方法。业务对象通过存储一系列的状态改变事件来持久化
+事件溯源是原子性的更新状态和发布事件的好方法。业务对象通过存储一系列的状态改变事件来持久化。
+
+1. [如何理解事件溯源？](https://www.infoq.cn/article/2017/09/How-understand-event-traceabilit)
+2. [Event Sourcing and Concurrent Updates](https://medium.com/@teivah/event-sourcing-and-concurrent-updates-32354ec26a4c)
+3. [https://stitcher.io/blog/combining-event-sourcing-and-stateful-systems](https://stitcher.io/blog/combining-event-sourcing-and-stateful-systems)
+4. [事件溯源模式](https://iambowen.gitbooks.io/cloud-design-pattern/content/patterns/event-sourcing.html)
+5. Microsoft: [Introducing event sourcing](https://docs.microsoft.com/en-us/previous-versions/msp-n-p/jj591559%28v=pandp.10%29?redirectedfrom=MSDN)
+6. [CQRS 和事件溯源](https://www.jdon.com/49501)
+
+> 确保对应用程序状态的所有更改动作都存储为一系列事件。这意味着我们不存储对象的状态，相反，我们存储影响其状态的所有事件；然后，为了检索一个对象状态，我们必须读取与这个对象相关的不同事件，并逐一应用它们。
+
+
 
 #### EDA \(事件驱动架构\)
 
@@ -98,4 +111,8 @@
 * [https://eventuate.io/](https://eventuate.io/)
 
 Solving distributed data management problems in a microservice architecture
+
+* [https://github.com/eventuate-tram](https://github.com/eventuate-tram)
+* [https://eventuate.io/exampleapps.html](https://eventuate.io/exampleapps.html)
+* [https://microservices.io/patterns/](https://microservices.io/patterns/)
 
