@@ -12,6 +12,7 @@
 * [数据结构与算法](cs/algorithm/README.md)
   * [复杂度分析](cs/algorithm/complex-analysis.md)
   * [常见数据结构](cs/algorithm/data-struct.md)
+  * [剑指 Offer 题解](cs/algorithm/offer.md)
   * [字符串](cs/algorithm/string.md)
   * [位运算](cs/algorithm/bitmap.md)
   * [动态规划](cs/algorithm/dp.md)
