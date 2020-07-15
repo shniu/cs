@@ -109,7 +109,9 @@
 ## 中间件 <a id="middleware"></a>
 
 * [Redis](middleware/redis.md)
-* [MySQL](middleware/mysql.md)
+* [MySQL](middleware/mysql/README.md)
+  * [索引分析](middleware/mysql/index.md)
+  * [MySQL 实操命令](middleware/mysql/in-action.md)
 * [State Machine](middleware/state-machine.md)
 * [MQ](middleware/mq/README.md)
   * [Kafka](middleware/mq/kafka.md)
