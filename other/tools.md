@@ -83,6 +83,10 @@ ext {
 
 * [后端开发实践系列——开发者的第0个迭代](https://mp.weixin.qq.com/s/uMB0nYc_c_lA0CHSqy3q4w)
 
+### UML
+
+* [UML 各种图总结](https://zhuanlan.zhihu.com/p/44518805)
+
 
 
 

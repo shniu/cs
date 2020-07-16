@@ -31,6 +31,42 @@ description: 剑指 Offer 是一本关于程序员面试的书，从编程语言
 
 参考代码：[替换空格](https://github.com/shniu/java-eco/blob/master/eco-algorithm/src/main/java/io/github/shniu/algorithm/offer/ReplaceSpace.java)
 
+* 06 - [从尾到头打印链表](https://leetcode-cn.com/problems/cong-wei-dao-tou-da-yin-lian-biao-lcof/)
+
+> 输入一个链表的头节点，从尾到头反过来返回每个节点的值（用数组返回）。
+
+思路：
+
+1. 遍历，现在直到链表的头节点，而且要求从后向前输出，符合先进后出的特性，可以联想到栈，自然我们就可以借助栈来实现；基本思路：先创建一个栈，遍历链表，把元素放入栈中，链表遍历完成后，栈里的数据依次出栈，生成数组，并返回；时间复杂度 O\(n\), 空间复杂度 O\(n\)
+2. 递归，思路1是使用了显式栈的方式，当然我们也可以使用隐式栈的方式，那就是利用递归的特性
+
+参考代码：[Reverse Print](https://github.com/shniu/java-eco/blob/master/eco-algorithm/src/main/java/io/github/shniu/algorithm/offer/ReversePrint.java)
+
+```java
+// 递归实现
+public int[] reversePrint(ListNode head) {
+    List<Integer> print = new ArrayList<>();
+    reverse(head, print);
+    
+    int[] res = new int[print.size()];
+    for (int i = 0; i < print.size(); i++) {
+        res[i] = print.get(i);
+    }
+    
+    return res;
+}
+
+private void reverse(ListNode head, List<Integer> print) {
+    if (head == null) {
+        return;
+    }
+    
+    reverse(head.next, print);
+    
+    print.add(head.val);
+}
+```
+
 ### 关于编程语言
 
 ### 基本的面试流程
