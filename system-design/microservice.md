@@ -60,7 +60,10 @@
 
 事务发件箱的一个实现：[killbill/killbill-commons/queue](https://github.com/killbill/killbill-commons/tree/master/queue)
 
-参考：[Transactional Outbox Pattern](https://pradeeploganathan.com/patterns/transactional-outbox-pattern/)
+参考：
+
+1. [Transactional Outbox Pattern](https://pradeeploganathan.com/patterns/transactional-outbox-pattern/)
+2. [通过 Kafka 分布式事务实现微服务数据交换与发件箱模式](https://zhuanlan.zhihu.com/p/61641543)
 
 **模式2 变更数据捕获 \(Change Data Capture, CDC\)**
 
