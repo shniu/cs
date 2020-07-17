@@ -12,6 +12,8 @@ description: Todo list
   * [ ] xxl-job
 * [ ] RestTemplate
 * [ ] 通用幂等设计
+* [ ] 消息队列设计
+  * [ ] bigqueue 分析与实现
 * [ ] 分布式限流设计
   * [ ] 实现分布式限流，[https://www.infoq.cn/article/Qg2tX8fyw5Vt-f3HH673](https://www.infoq.cn/article/Qg2tX8fyw5Vt-f3HH673)
   * [ ] 单机限流，Hyxtri , Sentinel, resillence4j, Redis + lua

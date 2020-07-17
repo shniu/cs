@@ -25,3 +25,25 @@ MQ 是现代微服务架构和云原生架构的基础服务组件，主要用�
 4. [四个架构设计案例及其思维方式](https://mp.weixin.qq.com/s/5e-yC0r18FZ04vMvGxIL-w)
 5. [PMQ 设计](https://github.com/ppdaicorp/pmq/wiki/PMQ%E8%AE%BE%E8%AE%A1)
 
+
+
+### Big Queue
+
+一个基于内存映射文件的大型、快速且持久的队列。
+
+应用场景
+
+1. 大数据场景下的日志收集
+2. 大数据场景下的排序和搜索
+3. 作为分布式消息队列的基础组件
+
+前置知识
+
+* 什么是 Memory-Mapped file？（[内存映射文件原理探索](https://blog.csdn.net/mg0832058/article/details/5890688)，[认真分析mmap](https://www.cnblogs.com/huxiao-tee/p/4660352.html)，[图文详解内存映射](https://www.jianshu.com/p/719fc4758813)）
+* 数据结构：队列
+* In message-oriented middleware solutions, fan-out is a messaging pattern used to model an information exchange that implies the delivery \(or spreading\) of a message to one or multiple destinations possibly in parallel, and not halting the process that executes the messaging to wait for any response to that message
+
+设计
+
+整体架构设计（模型） / 接口设计 / 使用和实现
+
