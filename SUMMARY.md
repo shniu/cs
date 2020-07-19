@@ -110,6 +110,7 @@
 
 * [Redis](middleware/redis.md)
 * [MySQL](middleware/mysql/README.md)
+  * [MySQL 基础](middleware/mysql/mysql-ji-chu.md)
   * [索引分析](middleware/mysql/index.md)
   * [MySQL 实操命令](middleware/mysql/in-action.md)
 * [State Machine](middleware/state-machine.md)
@@ -144,6 +145,7 @@
 * [工程博客](other/blog.md)
 * [阅读源码](other/yue-du-yuan-ma.md)
 * [面试](other/interview.md)
+* [分享](other/share.md)
 * [软技能](other/soft-skill.md)
 * [Todo](other/todo.md)
 * [application](other/application/README.md)

@@ -24,3 +24,14 @@
 
 [https://tech.meituan.com/2014/06/30/mysql-index.html](https://tech.meituan.com/2014/06/30/mysql-index.html) 重点看
 
+
+
+### MySQL 资源列表
+
+* [MySQL 技术内幕：InnoDB 存储引擎](https://weread.qq.com/web/reader/611329b059346e611427f1ckc81322c012c81e728d9d180)
+* 数据库索引设计与优化 （网盘和本地）
+* 高性能 MySQL
+* [MySQL 官方手册](https://dev.mysql.com/doc/refman/5.7/en/)
+* [How to analyze and tune MySQL query for better performance](https://www.mysql.com/cn/why-mysql/presentations/tune-mysql-queries-performance/)
+* MySQL Internals Manual
+
