@@ -7,6 +7,7 @@
 分布式限流
 
 * [分布式服务限流实战](https://www.infoq.cn/article/Qg2tX8fyw5Vt-f3HH673)，主要基于 Redis + Lua 的方式
+* [基于 Redis 的分布式限流](https://segmentfault.com/a/1190000012947169) todo
 
 
 
