@@ -10,6 +10,7 @@
 $ cd mysql-master
 
 # Init the data dir first
+# bin/mysqld --defaults-file=./my.cnf --initialize --user=mysql
 $ bin/mysqld --initialize --user=mysql
 A temporary password is generated for root@localhost: r_/(wD0p3;Im
 
@@ -55,6 +56,12 @@ mysql> grant REPLICATION SLAVE, REPLICATION CLIENT on *.* to 'slave'@'%';
 # Get File and Position
 mysql> show master status; 
 
+# 备份数据
+$ bin/mysqldump -h 127.0.0.1 -P 3306 -u root -p --databases test > test.dump
+
+# 恢复数据
+$ bin/mysql -h 127.0.0.1 -P 3308 -u root -p < test.dump
+
 ### Slave1
 # edit my.cnf
 [mysqld]
@@ -65,7 +72,9 @@ relay-log = mysql-relay-bin
 # Restart MySQL server
 # bind Master-Slave
 # --get-server-public-key
-mysql> change master to master_host='127.0.0.1', master_user='slave', master_password='123456', master_port=3308, master_log_file='mysql-bin.000001', master_log_pos=712, master_connect_retry=30, get_master_public_key=1;
+mysql> change master to master_host='127.0.0.1', master_user='slave', master_password='123456', master_port=3308, master_log_file='mysql-bin.000001', master_log_pos=712, master_connect_retry=30;
 
 ```
+
+**Note:** MySQL 8.0 配置主从同步和之前的版本有些区别，需要特别注意。 
 
