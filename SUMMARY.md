@@ -112,7 +112,7 @@
 * [MySQL](middleware/mysql/README.md)
   * [MySQL 基础](middleware/mysql/mysql-ji-chu.md)
   * [索引分析](middleware/mysql/index.md)
-  * [MySQL 实操命令](middleware/mysql/in-action.md)
+  * [MySQL 命令](middleware/mysql/mysql-command.md)
 * [State Machine](middleware/state-machine.md)
 * [MQ](middleware/mq/README.md)
   * [Kafka](middleware/mq/kafka.md)
