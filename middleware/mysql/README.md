@@ -16,15 +16,7 @@
 
 ### MySQL 的基础架构与日志系统
 
-
-
-[https://www.cnblogs.com/wxw16/p/6105624.html](https://www.cnblogs.com/wxw16/p/6105624.html) in 查询为什么慢
-
-[https://juejin.im/post/5c2c53396fb9a04a053fc7fe](https://juejin.im/post/5c2c53396fb9a04a053fc7fe)
-
-[https://tech.meituan.com/2014/06/30/mysql-index.html](https://tech.meituan.com/2014/06/30/mysql-index.html) 重点看
-
-
+MySQL 的事务隔离级别如何实现的？
 
 ### MySQL 资源列表
 
@@ -34,4 +26,10 @@
 * [MySQL 官方手册](https://dev.mysql.com/doc/refman/5.7/en/)
 * [How to analyze and tune MySQL query for better performance](https://www.mysql.com/cn/why-mysql/presentations/tune-mysql-queries-performance/)
 * MySQL Internals Manual
+* 博客
+  * [https://www.cnblogs.com/wxw16/p/6105624.html](https://www.cnblogs.com/wxw16/p/6105624.html) in 查询为什么慢
+  * [https://juejin.im/post/5c2c53396fb9a04a053fc7fe](https://juejin.im/post/5c2c53396fb9a04a053fc7fe)
+  * [https://tech.meituan.com/2014/06/30/mysql-index.html](https://tech.meituan.com/2014/06/30/mysql-index.html) 重点看
+
+
 
