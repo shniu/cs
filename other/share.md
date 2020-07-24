@@ -32,6 +32,28 @@
 
 锁机制，对于热点数据的更新，如何提高并发能力？举例：平台账户的 trader 和 普通用户之间，就会形成热点账户，很容易造成锁等待，降低了系统整体的并发能力，可以将平台账户拆成很多个子账户，来增加并发度
 
+幻读问题是如何被解决的？
+
+解决更新丢失的方式：使用一致性锁定读的方式和使用乐观锁的方式
+
+```text
+///// 一致性锁定读
+begin;
+select id, name, balance from account where id = 2 for update;
+
+update account set balance = balance - 10 where id = 2;
+commit;
+
+///// 乐观锁
+begin;
+select id, name, balance, version from account where id = 2;
+
+// 假设 balance = 100, version = 1
+// 应用代码：balance += 10;  balance = 110
+update account set balance = 110, version = version + 1 where id = 2 and version = 1;
+commit;
+```
+
 一些结论：
 
 1. 隔离级别的设置对当前连接有效，比如 JDBC，每个 Connection 都可以设置自己的事务隔离级别，而不会影响其他的连接；其实也是针对每个 Session 都可以独立设置自己的隔离级别；MySQL 提供了全局的隔离级别配置，在创建连接或者Session时不指定隔离级别，默认就是全局的隔离级别（MySQL 默认 REPEATABLE-READ
