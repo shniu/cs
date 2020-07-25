@@ -30,18 +30,20 @@
 
 在系统设计时，面对普通用户的索引选择和面对管理后台的索引选择有时候是冲突的，如果混在一起，索引建立的过多，也会影响主站的性能，因为建立索引的过程需要花费时间，一般做法是使用数据分发的方式，根据不同的聚合需求建立不同的索引机制，如主从复制做数据同步，使用一个slave库来解决；也可以使用es来解决
 
-锁机制，对于热点数据的更新，如何提高并发能力？举例：平台账户的 trader 和 普通用户之间，就会形成热点账户，很容易造成锁等待，降低了系统整体的并发能力，可以将平台账户拆成很多个子账户，来增加并发度
+锁机制，对于热点数据的更新，如何提高并发能力？举例：平台账户的 trader 和 普通用户之间，就会形成热点账户，很容易造成锁等待，降低了系统整体的并发能力，可以将平台账户拆成很多个子账户，来增加并发度；MySQL 的锁可以理解为有两类：隐式锁\(一致性非锁定读\)和显式锁\(一致性锁定读\)
 
 幻读问题是如何被解决的？
 
 解决更新丢失的方式：使用一致性锁定读的方式和使用乐观锁的方式
 
+![](../.gitbook/assets/image%20%2828%29.png)
+
 ```text
 ///// 一致性锁定读
 begin;
 select id, name, balance from account where id = 2 for update;
-
-update account set balance = balance - 10 where id = 2;
+// 应用代码：balance += 10;  balance = 110
+update account set balance = 110 where id = 2;
 commit;
 
 ///// 乐观锁
@@ -51,6 +53,12 @@ select id, name, balance, version from account where id = 2;
 // 假设 balance = 100, version = 1
 // 应用代码：balance += 10;  balance = 110
 update account set balance = 110, version = version + 1 where id = 2 and version = 1;
+commit;
+
+///// 利用 MySQL 的一致性非锁定读
+begin;
+select id, balance from account where id = 2;
+update account set balance = balance + 10 where id = 2;
 commit;
 ```
 
