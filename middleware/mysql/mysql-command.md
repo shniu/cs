@@ -1,5 +1,12 @@
 # MySQL 命令
 
+* DDL and DML
+
+```bash
+// 建库语句
+CREATE DATABASE mydatabase CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
+```
+
 * MySQL 命令行
 
 ```bash
