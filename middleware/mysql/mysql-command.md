@@ -88,6 +88,14 @@ mysql> show processlist;
 ###
 # 查看 Innodb 的状态
 mysql> show engine innodb status \G;
+
+# 查看 undo 信息
+mysql> show varibales like 'innodb_undo%';
+
+### innodb 的一些参数
+
+# purge 相关
+innodb_purge_batch_size
 ```
 
 * 主从相关
