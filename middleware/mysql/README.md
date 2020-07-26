@@ -12,8 +12,6 @@
 
 宏观层面：数据持久层怎么应对高并发和海量数据存储，这是数据库架构层面的考量，可以使用读写分离的数据库架构，也可以使用分库分表的数据库架构，还可以使用缓存+数据库的架构，这个时候数据不再是单机处理了，就引入了分布式技术（也意味着引入了分布式的优点和缺点）
 
-
-
 ### MySQL 的基础架构与日志系统
 
 MySQL 的事务隔离级别如何实现的？
@@ -33,6 +31,7 @@ MySQL 的事务隔离级别如何实现的？
 * [How to analyze and tune MySQL query for better performance](https://www.mysql.com/cn/why-mysql/presentations/tune-mysql-queries-performance/)
 * MySQL Internals Manual
 * [MySQL 官方提供的示例数据 Employees](https://dev.mysql.com/doc/employee/en/employees-installation.html), 以及 [Employees 数据库的表结构关系](https://dev.mysql.com/doc/employee/en/sakila-structure.html)
+* [数据库内核月报 - 淘宝](http://mysql.taobao.org/monthly/)
 * 博客
   * [https://www.cnblogs.com/wxw16/p/6105624.html](https://www.cnblogs.com/wxw16/p/6105624.html) in 查询为什么慢
   * [https://juejin.im/post/5c2c53396fb9a04a053fc7fe](https://juejin.im/post/5c2c53396fb9a04a053fc7fe)
