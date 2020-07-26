@@ -96,6 +96,11 @@ mysql> show varibales like 'innodb_undo%';
 
 # purge 相关
 innodb_purge_batch_size
+
+# 控制重做日志（redo log）的写盘和落盘策略, 推荐设置为 1
+#  http://mysql.taobao.org/monthly/2014/08/02/
+innodb_flush_log_at_trx_commit
+innodb_use_global_flush_log_at_trx_commit
 ```
 
 * 主从相关
