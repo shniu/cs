@@ -3,6 +3,12 @@
 * MySQL 命令行
 
 ```bash
+### mysqld
+# 初始化 mysql server 数据目录
+$ bin/mysqld --defaults-file=./my.cnf --initialize --user=dfg
+# 后台启动 mysql server
+$ bin/mysqld --defaults-file=./my.cnf &
+
 ### mysql
 # 连接 MySQL Server
 $ bin/mysql -h 127.0.0.1 -P 3306 -u root -p
@@ -34,6 +40,9 @@ mysql> start transaction with consistent snapshot;
 mysql> show variables like 'transaction_isolation';
 
 mysql> select @@tx_isolation;
+
+# 设置事务隔离级别
+mysql> SET session TRANSACTION ISOLATION LEVEL READ COMMITTED;
 ```
 
 * 锁相关
@@ -47,5 +56,58 @@ mysql> select * from user where uid = 101 for update;
 
 # 对当前记录加 S 锁
 mysql> select * from user where uid = 101 lock in share mode;
+
+# 关闭 Gap lock 的方式
+# 1. 事务隔离级别设置为 READ COMMITED
+# 2. 参数 innodb_locks_unsafe_for_binlog 设置为 1，但是这种方式不推荐，在未来的版本这个参数被废弃了
+
+
+```
+
+* mysqld 相关
+
+```bash
+### 查看状态
+# 查看表的详细信息
+mysql> show table status like 'account' \G;
+
+### 查看进程信息
+mysql> show processlist;
+```
+
+* Innodb 相关
+
+```bash
+###
+# 查看 Innodb 的状态
+mysql> show engine innodb status \G;
+```
+
+* 主从相关
+
+```bash
+# 查看 Master 状态
+mysql> show master status;
+
+# 查看 Slave 状态
+mysql> show slave status;
+
+# 查看 Slave 主机
+mysql> show slave hosts;
+
+# 查看 binlog 文件
+mysql> show binary logs;
+
+# 查看第一个 binlog 中的内容
+mysql> show binlog events;
+
+# 查看指定文件的 binlog 内容
+mysql> show binlog events in 'mysql-bin.000001';
+
+# 启动复制
+mysql> start slave;
+
+# 停止复制
+mysql> stop slave;
 ```
 
