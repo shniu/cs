@@ -14,6 +14,10 @@
 
 ### MySQL 的基础架构与日志系统
 
+![MySQL &#x903B;&#x8F91;&#x67B6;&#x6784;](../../.gitbook/assets/image%20%2830%29.png)
+
+
+
 MySQL 的事务隔离级别如何实现的？
 
 ### 高性能 MySQL
