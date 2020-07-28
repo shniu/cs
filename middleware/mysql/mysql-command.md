@@ -94,6 +94,16 @@ mysql> show varibales like 'innodb_undo%';
 
 ### innodb 的一些参数
 
+# innodb 缓冲区大小，如 1G
+innodb_buffer_pool_size
+
+# 每个表都是使用1个独立的表空间，默认是 1
+innodb_file_per_table
+
+# redo log
+innodb_log_file_size
+innodb_log_files_in_group
+
 # purge 相关
 innodb_purge_batch_size
 
