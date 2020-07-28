@@ -46,7 +46,7 @@ InnoDB 如何使用 B+ Tree 来组织数据，又是如何结合磁盘的局部�
 
 ### 索引选择与优化
 
-
+使用的表和数据是 MySQL 官方提供的 [employees 示例数据](https://github.com/datacharmer/test_db)
 
 
 
