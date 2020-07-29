@@ -24,6 +24,7 @@ MQ 是现代微服务架构和云原生架构的基础服务组件，主要用�
 3. [bigqueue](https://github.com/bulldog2011/bigqueue) A big, fast and persistent queue based on memory mapped file.
 4. [四个架构设计案例及其思维方式](https://mp.weixin.qq.com/s/5e-yC0r18FZ04vMvGxIL-w)
 5. [PMQ 设计](https://github.com/ppdaicorp/pmq/wiki/PMQ%E8%AE%BE%E8%AE%A1)
+6. [killbill-commons/queue](https://github.com/killbill/killbill-commons/tree/master/queue)  Notification Queue: persistent job queue, used for jobs scheduling
 
 
 
