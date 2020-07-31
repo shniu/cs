@@ -55,7 +55,197 @@ InnoDB 如何使用 B+ Tree 来组织数据，又是如何结合磁盘的局部�
 * explain 执行计划
 * [trace 分析工具](http://mysql.taobao.org/monthly/2019/11/03/)
 
-参考资料：
+
+
+结论：
+
+尽量在InnoDB上采用自增字段做主键
+
+关于索引最左前缀，我们会建立多列的联合索引
+
+* 全列匹配，就是精确查找联合索引中的所有列
+* 最左前缀匹配（和where条件中列出现的顺序无关），精确匹配联合索引中最左前缀
+* 查询条件没有指定索引第一列，不会命中索引
+* 匹配前缀字符串，比如索引中使用了 like 'abc%'，可以命中索引，但是 like '%abc', 无法命中索引
+* 范围查询，可以命中最左前缀的索引，范围后面的列无法命中索引
+* 查询条件中有函数或表达式无法命中索引
+
+索引选择性
+
+> 既然索引可以加快查询速度，那么是不是只要是查询语句需要，就建上索引？答案是否定的。因为索引虽然加快了查询速度，但索引也是有代价的：索引文件本身要消耗存储空间，同时索引会加重插入、删除和修改记录时的负担，另外，MySQL在运行时也要消耗资源维护索引，因此索引并不是越多越好
+
+1. 记录数非常少的表可以考虑不建立索引，做全表扫描也没有多大问题，比如经验值 2000
+2. 选择性比较低的列，可以考虑不建索引；选择性是指不重复的索引值，基数和表记录数的比值（Index Selectivity = Cardinality / \#T）
+
+一个例子，`employees` 表
+
+![employees&#x7684;&#x8868;&#x7ED3;&#x6784;](../../.gitbook/assets/image%20%2833%29.png)
+
+
+
+![employees &#x7684;&#x7D22;&#x5F15;](../../.gitbook/assets/image%20%2837%29.png)
+
+
+
+```text
+mysql> EXPLAIN SELECT * FROM employees.employees WHERE first_name='Eric' AND last_name='Anido';
++----+-------------+-----------+------------+------+---------------+------+---------+------+--------+----------+-------------+
+| id | select_type | table     | partitions | type | possible_keys | key  | key_len | ref  | rows   | filtered | Extra       |
++----+-------------+-----------+------------+------+---------------+------+---------+------+--------+----------+-------------+
+|  1 | SIMPLE      | employees | NULL       | ALL  | NULL          | NULL | NULL    | NULL | 299556 |     1.00 | Using where |
++----+-------------+-----------+------------+------+---------------+------+---------+------+--------+----------+-------------+
+1 row in set, 1 warning (0.00 sec)
+```
+
+![&#x4F7F;&#x7528; first\_name &#x548C; last\_name &#x67E5;&#x8BE2;](../../.gitbook/assets/image%20%2831%29.png)
+
+使用选择性来决定怎么建索引
+
+```text
+mysql> select count(distinct(first_name)) / count(1) as Selectivity from employees;
++-------------+
+| Selectivity |
++-------------+
+|      0.0042 |
++-------------+
+1 row in set (0.20 sec)
+```
+
+![first\_name &#x7684;&#x9009;&#x62E9;&#x6027;](../../.gitbook/assets/image%20%2834%29.png)
+
+
+
+```text
+mysql> select count(distinct(concat(first_name,last_name))) / count(1) as Selectivity from employees;
++-------------+
+| Selectivity |
++-------------+
+|      0.9313 |
++-------------+
+1 row in set (0.60 sec)
+```
+
+![first\_name &#x548C; last\_name &#x7684;&#x9009;&#x62E9;&#x6027;](../../.gitbook/assets/image%20%2836%29.png)
+
+first\_name 和 last\_name 的长度之和为 30，索引长度能不能小一点？
+
+取 last\_name 的前缀
+
+```text
+mysql> select count(distinct(concat(first_name,left(last_name,3)))) / count(1) as Selectivity from employees;
++-------------+
+| Selectivity |
++-------------+
+|      0.7879 |
++-------------+
+1 row in set (0.54 sec)
+```
+
+![](../../.gitbook/assets/image%20%2835%29.png)
+
+```text
+alter table employees add index `idx_first_last4` (`first_name`, last_name(4));
+
+mysql> explain SELECT * FROM employees.employees WHERE first_name='Eric' AND last_name='Anido';
++----+-------------+-----------+------------+------+-----------------+-----------------+---------+-------------+------+----------+-------------+
+| id | select_type | table     | partitions | type | possible_keys   | key             | key_len | ref         | rows | filtered | Extra       |
++----+-------------+-----------+------------+------+-----------------+-----------------+---------+-------------+------+----------+-------------+
+|  1 | SIMPLE      | employees | NULL       | ref  | idx_first_last4 | idx_first_last4 | 76      | const,const |    1 |   100.00 | Using where |
++----+-------------+-----------+------------+------+-----------------+-----------------+---------+-------------+------+----------+-------------+
+1 row in set, 1 warning (0.00 sec)
+
+-- 加索引前
+mysql> SELECT * FROM employees.employees WHERE first_name='Eric' AND last_name='Anido';
++--------+------------+------------+-----------+--------+------------+
+| emp_no | birth_date | first_name | last_name | gender | hire_date  |
++--------+------------+------------+-----------+--------+------------+
+|  18454 | 1955-02-28 | Eric       | Anido     | M      | 1988-07-18 |
++--------+------------+------------+-----------+--------+------------+
+1 row in set (0.09 sec)
+
+-- 加索引后
+mysql> SELECT * FROM employees.employees WHERE first_name='Eric' AND last_name='Anido';
++--------+------------+------------+-----------+--------+------------+
+| emp_no | birth_date | first_name | last_name | gender | hire_date  |
++--------+------------+------------+-----------+--------+------------+
+|  18454 | 1955-02-28 | Eric       | Anido     | M      | 1988-07-18 |
++--------+------------+------------+-----------+--------+------------+
+1 row in set (0.00 sec)
+```
+
+```sql
+-- profiling 是否开启
+mysql> show variables like 'profiling';
++---------------+-------+
+| Variable_name | Value |
++---------------+-------+
+| profiling     | OFF   |
++---------------+-------+
+1 row in set (0.00 sec)
+
+-- 开启
+set profiling = 1;
+
+-- 执行sql
+
+-- 查看执行时间
+mysql> show profiles;
++----------+------------+---------------------------------------------------------------------------------+
+| Query_ID | Duration   | Query                                                                           |
++----------+------------+---------------------------------------------------------------------------------+
+|        1 | 0.00047900 | SELECT * FROM employees.employees WHERE first_name='Eric' AND last_name='Anido' |
++----------+------------+---------------------------------------------------------------------------------+
+1 row in set, 1 warning (0.00 sec)
+
+-- 查看某个sql的 cpu/io/memory/swaps/context switch/source 等使用情况
+mysql> show profile cpu, block io, memory,swaps,context switches,source for query 1;
++----------------------+----------+----------+------------+-------------------+---------------------+--------------+---------------+-------+-----------------------+----------------------+-------------+
+| Status               | Duration | CPU_user | CPU_system | Context_voluntary | Context_involuntary | Block_ops_in | Block_ops_out | Swaps | Source_function       | Source_file          | Source_line |
++----------------------+----------+----------+------------+-------------------+---------------------+--------------+---------------+-------+-----------------------+----------------------+-------------+
+| starting             | 0.000087 | 0.000055 |   0.000008 |                 0 |                   0 |            0 |             0 |     0 | NULL                  | NULL                 |        NULL |
+| checking permissions | 0.000007 | 0.000004 |   0.000003 |                 0 |                   0 |            0 |             0 |     0 | check_access          | sql_authorization.cc |         809 |
+| Opening tables       | 0.000014 | 0.000013 |   0.000001 |                 0 |                   0 |            0 |             0 |     0 | open_tables           | sql_base.cc          |        5781 |
+| init                 | 0.000035 | 0.000030 |   0.000006 |                 0 |                   0 |            0 |             0 |     0 | handle_query          | sql_select.cc        |         128 |
+| System lock          | 0.000015 | 0.000008 |   0.000005 |                 0 |                   0 |            0 |             0 |     0 | mysql_lock_tables     | lock.cc              |         330 |
+| optimizing           | 0.000014 | 0.000011 |   0.000004 |                 0 |                   0 |            0 |             0 |     0 | optimize              | sql_optimizer.cc     |         158 |
+| statistics           | 0.000128 | 0.000084 |   0.000036 |                 0 |                   2 |            0 |             0 |     0 | optimize              | sql_optimizer.cc     |         374 |
+| preparing            | 0.000017 | 0.000013 |   0.000004 |                 0 |                   0 |            0 |             0 |     0 | optimize              | sql_optimizer.cc     |         482 |
+| executing            | 0.000003 | 0.000002 |   0.000002 |                 0 |                   0 |            0 |             0 |     0 | exec                  | sql_executor.cc      |         126 |
+| Sending data         | 0.000062 | 0.000048 |   0.000014 |                 0 |                   0 |            0 |             0 |     0 | exec                  | sql_executor.cc      |         202 |
+| end                  | 0.000005 | 0.000003 |   0.000002 |                 0 |                   0 |            0 |             0 |     0 | handle_query          | sql_select.cc        |         206 |
+| query end            | 0.000007 | 0.000006 |   0.000001 |                 0 |                   0 |            0 |             0 |     0 | mysql_execute_command | sql_parse.cc         |        4956 |
+| closing tables       | 0.000007 | 0.000005 |   0.000002 |                 0 |                   0 |            0 |             0 |     0 | mysql_execute_command | sql_parse.cc         |        5009 |
+| freeing items        | 0.000040 | 0.000023 |   0.000016 |                 0 |                   0 |            0 |             0 |     0 | mysql_parse           | sql_parse.cc         |        5622 |
+| cleaning up          | 0.000038 | 0.000015 |   0.000020 |                 0 |                   1 |            0 |             0 |     0 | dispatch_command      | sql_parse.cc         |        1931 |
++----------------------+----------+----------+------------+-------------------+---------------------+--------------+---------------+-------+-----------------------+----------------------+-------------+
+15 rows in set, 1 warning (0.00 sec)
+
+mysql> show profile for query 1;
++----------------------+----------+
+| Status               | Duration |
++----------------------+----------+
+| starting             | 0.000087 |
+| checking permissions | 0.000007 |
+| Opening tables       | 0.000014 |
+| init                 | 0.000035 |
+| System lock          | 0.000015 |
+| optimizing           | 0.000014 |
+| statistics           | 0.000128 |
+| preparing            | 0.000017 |
+| executing            | 0.000003 |
+| Sending data         | 0.000062 |
+| end                  | 0.000005 |
+| query end            | 0.000007 |
+| closing tables       | 0.000007 |
+| freeing items        | 0.000040 |
+| cleaning up          | 0.000038 |
++----------------------+----------+
+15 rows in set, 1 warning (0.00 sec)
+```
+
+#### 
+
+#### 参考资料
 
 * [MySQL 索引背后的数据结构和算法原理](http://blog.codinglabs.org/articles/theory-of-mysql-index.html)
 * [MySQL 索引原理及查询优化](https://tech.meituan.com/2014/06/30/mysql-index.html)
