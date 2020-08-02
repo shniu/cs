@@ -7,6 +7,25 @@
 * [jwasham](https://github.com/jwasham)/[**coding-interview-university**](https://github.com/jwasham/coding-interview-university) A complete computer science study plan to become a software engineer. 116K star
 * [技术雷达第 22 期](https://assets.thoughtworks.com/assets/technology-radar-vol-22-cn.pdf)
 
+
+
+```text
+// 各种访问方式花费的时间
+L1 cache reference 0.5 ns
+Branch mispredict 5 ns
+L2 cache reference 7 ns
+Mutex lock/unlock 100 ns
+Main memory reference 100 ns
+Compress 1K bytes with Zippy 10,000 ns
+Send 2K bytes over 1 Gbps network 20,000 ns
+Read 1 MB sequentially from memory 250,000 ns
+Round trip within same datacenter 500,000 ns
+Disk seek 10,000,000 ns
+Read 1 MB sequentially from network 10,000,000 ns
+Read 1 MB sequentially from disk 30,000,000 ns
+Send packet CA->Netherlands->CA 150,000,000 ns
+```
+
 ## 关于 CS
 
 计算机科学是系统性研究信息与计算的理论基础以及它们在计算机系统中如何实现与应用的实用技术的学科；涵盖的内容非常多，但是最核心最基础的学科是计算机科学的基石，包括：

@@ -2,9 +2,25 @@
 
 * DDL and DML
 
-```bash
+```sql
 // 建库语句
 CREATE DATABASE mydatabase CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
+```
+
+* 表相关
+
+```sql
+-- 查看索引信息
+show index from t;
+
+-- 查看表
+desc user;
+
+-- 
+show table status like 'user';
+
+-- 更新表的索引统计信息
+analyze table
 ```
 
 * MySQL 命令行
@@ -111,6 +127,12 @@ innodb_purge_batch_size
 #  http://mysql.taobao.org/monthly/2014/08/02/
 innodb_flush_log_at_trx_commit
 innodb_use_global_flush_log_at_trx_commit
+
+# 在准备刷一个脏页的时候，如果这个数据页旁边的数据页刚好是脏页，就会把这个“邻居”也带着一起刷掉；
+# 而且这个把“邻居”拖下水的逻辑还可以继续蔓延，也就是对于每个邻居数据页，
+# 如果跟它相邻的数据页也还是脏页的话，也会被放到一起刷。
+# 当使用 IOPS 较高的 SSD 盘时，可以考虑关掉，设置为 0
+innodb_flush_neighbors
 ```
 
 * 主从相关
