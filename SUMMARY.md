@@ -114,6 +114,7 @@
   * [索引分析](middleware/mysql/index.md)
   * [MySQL 命令](middleware/mysql/mysql-command.md)
   * [MySQL 最佳实践](middleware/mysql/mysql-best.md)
+  * [分析工具](middleware/mysql/fen-xi-gong-ju.md)
 * [State Machine](middleware/state-machine.md)
 * [MQ](middleware/mq/README.md)
   * [Kafka](middleware/mq/kafka.md)

@@ -66,7 +66,9 @@ MySQL 的事务隔离级别如何实现的？
   * [https://tech.meituan.com/2014/06/30/mysql-index.html](https://tech.meituan.com/2014/06/30/mysql-index.html) 重点看
 
 * 分析工具
-  * [innodb\_ruby](https://github.com/jeremycole/innodb_ruby/wiki)  A parser for InnoDB file formats 
+  * [innodb\_ruby](https://github.com/jeremycole/innodb_ruby/wiki)  A parser for InnoDB file formats , [innodb\_ruby wiki](https://github.com/jeremycole/innodb_ruby/wiki)
+* InnoDB
+  * [InnoDB internal](https://blog.jcole.us/innodb/)
 
 
 
