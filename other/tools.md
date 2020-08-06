@@ -60,11 +60,7 @@ ext {
 
 ```
 
-* 更新 gradle 的版本
 
-```bash
-$ ./gradlew wrapper --gradle-version=6.2.1 --distribution-type=all
-```
 
 ### OpenAPI Site
 
