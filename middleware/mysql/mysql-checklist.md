@@ -2,7 +2,7 @@
 description: 可以用作开发过程中的数据库的 Checklist 的实践
 ---
 
-# MySQL 最佳实践
+# MySQL Checklist
 
 #### **关于连接**
 
