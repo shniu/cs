@@ -1,7 +1,5 @@
 # MySQL 基础
 
-
-
 * MySQL Install on MacOS 
 
 使用可解压的二进制安装包，安装 MySQL \([Installing MySQL](https://dev.mysql.com/doc/refman/8.0/en/binary-installation.html#binary-installation-createsysuser)\)，第一次启动需要初始化数据目录，参考这里：[Init the data directory ](https://dev.mysql.com/doc/refman/8.0/en/data-directory-initialization.html)on MySQL Document

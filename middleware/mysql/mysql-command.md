@@ -59,13 +59,33 @@ mysql> begin;
 # 一致性视图是在执行 start transaction with consistent snapshot 时创建的
 mysql> start transaction with consistent snapshot;
 
+```
+
+* 隔离级别
+
+```bash
 # 查看隔离级别
 mysql> show variables like 'transaction_isolation';
 
+# 查询 session 级别的变量值
 mysql> select @@tx_isolation;
 
-# 设置事务隔离级别
+# 查询 global 级别的变量值
+mysql> select @@global.tx_isolation;
+
+# 设置事务隔离级别 （会话级别）
 mysql> SET session TRANSACTION ISOLATION LEVEL READ COMMITTED;
+# or
+mysql> set @@session.tx_isolation = 'READ-COMMITTED';
+# or
+mysql> set transaction isolation level read committed;
+
+# 设置全局的隔离级别
+mysql> set @@global.tx_isolation = 'READ-COMMITTED';
+mysql> set global transaction isolation level read committed;
+
+# 通过sql查询事务隔离级别
+mysql> select * from information_schema.INNODB_TRX \G;
 ```
 
 * 锁相关
