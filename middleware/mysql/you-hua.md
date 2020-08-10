@@ -45,11 +45,25 @@ explain select city, name, age from user_profile where city = '上海' order by 
 +----+-------------+--------------+------------+------+---------------+------+---------+-------+------+----------+---------------------------------------+
 ```
 
+* 简单条件的 order by
+
 `select city, name, age from user_profile where city = '上海' order by name limit 1000` 是如何工作的？
 
 ![Order by](../../.gitbook/assets/image%20%2842%29.png)
 
 ![&#x4F18;&#x5316;&#x65B9;&#x5411;](../../.gitbook/assets/image%20%2838%29.png)
 
+如果内存够，就要多利用内存，尽量减少磁盘访问。在 sort\_buffer\_size 足够的情况下，会避免使用外部排序（外部排序是借助多个临时的磁盘文件进行排序，把排好序的数据放入多个临时的小文件，然后将有序的小文件依次按序放入内存，直到满足条件为止）
 
+* 稍微复杂一点
+
+ 在 city, name 上建立一个联合索引，`select city, name, age from user_profile where city in ('杭州','上海') order by name limit 100` 该如何工作？又该怎么优化呢？ 
+
+这个语句是需要排序的，也就是 using filesort，工作方式和上图是类似的。如何避免呢？需要把这个SQL拆成两部分：
+
+`select city, name, age from user_profile where city = '杭州' order by name limit 100` 和
+
+`select city, name, age from user_profile where city = '上海' order by name limit 100` 
+
+然后使用归并排序，取出前 100
 
