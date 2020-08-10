@@ -53,6 +53,8 @@ explain select city, name, age from user_profile where city = '上海' order by 
 
 ![&#x4F18;&#x5316;&#x65B9;&#x5411;](../../.gitbook/assets/image%20%2838%29.png)
 
+要点：max\_length\_for\_sort\_data / sort\_buffer\_size / number\_of\_tmp\_files / examined rows / using filesort / 归并排序 / 快速排序 / 堆排序 / sort mode
+
 如果内存够，就要多利用内存，尽量减少磁盘访问。在 sort\_buffer\_size 足够的情况下，会避免使用外部排序（外部排序是借助多个临时的磁盘文件进行排序，把排好序的数据放入多个临时的小文件，然后将有序的小文件依次按序放入内存，直到满足条件为止）
 
 * 稍微复杂一点
@@ -65,5 +67,15 @@ explain select city, name, age from user_profile where city = '上海' order by 
 
 `select city, name, age from user_profile where city = '上海' order by name limit 100` 
 
-然后使用归并排序，取出前 100
+然后使用归并排序，取出前 100。
+
+或者
+
+```sql
+select * from (
+  select * from t where city = '杭州' limit 100
+  union all
+  select * from t where city = '苏州' limit 100
+) as tt order by name limit 100
+```
 
