@@ -6,7 +6,6 @@
 
 * 在保证逻辑正确的前提下，尽量减少扫描的数据量，是数据库系统设计的通用法则之一。
 * 快速、精确和实现简单，三者永远只能满足其二，必须舍掉其中一个。
-* 如果内存够，就要多利用内存，尽量减少磁盘访问。
 
 ### 为什么需要数据库？
 
@@ -94,7 +93,6 @@ MySQL 的事务隔离级别如何实现的？
   * [https://juejin.im/post/5c2c53396fb9a04a053fc7fe](https://juejin.im/post/5c2c53396fb9a04a053fc7fe)
   * [https://tech.meituan.com/2014/06/30/mysql-index.html](https://tech.meituan.com/2014/06/30/mysql-index.html) 重点看
   * [解决死锁之路 - 学习事务与隔离级别](https://www.aneasystone.com/archives/2017/10/solving-dead-locks-one.html)
-  * [解决死锁之路 - 锁的类型](https://www.aneasystone.com/archives/2017/11/solving-dead-locks-two.html)
 
 * 分析工具
   * [innodb\_ruby](https://github.com/jeremycole/innodb_ruby/wiki)  A parser for InnoDB file formats , [innodb\_ruby wiki](https://github.com/jeremycole/innodb_ruby/wiki)

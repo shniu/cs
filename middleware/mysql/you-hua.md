@@ -10,12 +10,16 @@
 
 更进一步的计数优化，需要在架构上做更多的设计
 
+
+
 ![](../../.gitbook/assets/image%20%2840%29.png)
 
 参考：
 
 1. [select count 底层做了什么？](https://zhuanlan.zhihu.com/p/71333492)
 2. [https://www.zhihu.com/question/34781415](https://www.zhihu.com/question/34781415)
+
+
 
 
 
