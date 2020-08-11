@@ -83,8 +83,15 @@ Place an Order，用户可以下各种类型各种交易对的委托单（Order�
 * [Cryptocurrency Exchange Architecture with Akka Microservices - Part 1](https://www.linkedin.com/pulse/cryptocurrency-exchange-architecture-akka-part-1-jim-yang?articleId=6453307976605323264#comments-6453307976605323264&trk=public_profile_article_view)
 * [Cryptocurrency Exchange Architecture with Akka Microservices - Part 2](https://www.linkedin.com/pulse/cryptocurrency-exchange-architecture-akka-part-2-jim-yang?articleId=6453460455888289792#comments-6453460455888289792&trk=public_profile_article_view)
 * [Cryptocurrency Exchange Architecture with Akka Microservices - Part 3](https://www.linkedin.com/pulse/cryptocurrency-exchange-architecture-akka-part-3-jim-yang-1c?articleId=6456366788652392448#comments-6456366788652392448&trk=public_profile_article_view)  [中文版](https://blog.csdn.net/chimigaipangsh8139/article/details/101064387)
-* 开源撮合引擎：[mzheravin/exchange-core](https://github.com/mzheravin/exchange-core)
+* 开源撮合引擎：[mzheravin/exchange-core](https://github.com/mzheravin/exchange-core) 这个可以研究一下
 * 开源撮合引擎：[enewhuis/liquibook](https://github.com/enewhuis/liquibook)
+* [https://github.com/gitbitex/gitbitex-spot](https://github.com/gitbitex/gitbitex-spot) An Open Source Cryptocurrency Exchange
+
+![gitbitex spot](../../.gitbook/assets/image%20%2841%29.png)
+
+* [https://github.com/saniales/golang-crypto-trading-bot](https://github.com/saniales/golang-crypto-trading-bot)
+* [https://github.com/jammy928/CoinExchange\_CryptoExchange\_Java](https://github.com/jammy928/CoinExchange_CryptoExchange_Java)
+* [https://github.com/bmoscon/cryptostore](https://github.com/bmoscon/cryptostore) A storage engine for cryptocurrency data
 
 
 

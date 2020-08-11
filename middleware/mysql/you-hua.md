@@ -4,7 +4,7 @@
 
 #### count 优化
 
-![count &#x7684;&#x5DE5;&#x4F5C;&#x8FC7;&#x7A0B;&#xFF08;&#x7B80;&#x7248;&#xFF09;](../../.gitbook/assets/image%20%2841%29.png)
+![count &#x7684;&#x5DE5;&#x4F5C;&#x8FC7;&#x7A0B;&#xFF08;&#x7B80;&#x7248;&#xFF09;](../../.gitbook/assets/image%20%2842%29.png)
 
 在使用 count 需要注意的是：一个优化点是在数据量大的时候，可以找一个字段长度相对较小的列做一个二级索引，这样 mysql 在统计的时候加载的数据量更小，IO需要的时间就更少；count 不计算 NULL 值
 
@@ -49,7 +49,7 @@ explain select city, name, age from user_profile where city = '上海' order by 
 
 `select city, name, age from user_profile where city = '上海' order by name limit 1000` 是如何工作的？
 
-![Order by](../../.gitbook/assets/image%20%2842%29.png)
+![Order by](../../.gitbook/assets/image%20%2843%29.png)
 
 ![&#x4F18;&#x5316;&#x65B9;&#x5411;](../../.gitbook/assets/image%20%2838%29.png)
 
