@@ -113,6 +113,7 @@
   * [MySQL 基础](middleware/mysql/mysql-ji-chu.md)
   * [索引分析](middleware/mysql/index.md)
   * [优化](middleware/mysql/you-hua.md)
+  * [InnoDB](middleware/mysql/innodb.md)
   * [MySQL 命令](middleware/mysql/mysql-command.md)
   * [MySQL Checklist](middleware/mysql/mysql-checklist.md)
   * [MySQL - Analysis Tool](middleware/mysql/analysis-tool.md)

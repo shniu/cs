@@ -49,7 +49,7 @@ explain select city, name, age from user_profile where city = '上海' order by 
 
 `select city, name, age from user_profile where city = '上海' order by name limit 1000` 是如何工作的？
 
-![Order by](../../.gitbook/assets/image%20%2843%29.png)
+![Order by](../../.gitbook/assets/image%20%2844%29.png)
 
 ![&#x4F18;&#x5316;&#x65B9;&#x5411;](../../.gitbook/assets/image%20%2838%29.png)
 
