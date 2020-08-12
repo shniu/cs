@@ -94,6 +94,7 @@ MySQL 的事务隔离级别如何实现的？
   * [https://juejin.im/post/5c2c53396fb9a04a053fc7fe](https://juejin.im/post/5c2c53396fb9a04a053fc7fe)
   * [https://tech.meituan.com/2014/06/30/mysql-index.html](https://tech.meituan.com/2014/06/30/mysql-index.html) 重点看
   * [解决死锁之路 - 学习事务与隔离级别](https://www.aneasystone.com/archives/2017/10/solving-dead-locks-one.html)
+  * [https://github.com/aneasystone/mysql-deadlocks](https://github.com/aneasystone/mysql-deadlocks) MySQL 死锁案例
 
 * 分析工具
   * [innodb\_ruby](https://github.com/jeremycole/innodb_ruby/wiki)  A parser for InnoDB file formats , [innodb\_ruby wiki](https://github.com/jeremycole/innodb_ruby/wiki)
