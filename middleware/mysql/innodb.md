@@ -20,9 +20,12 @@ Page Type: 页被分配给文件空间管理、范围管理、事务系统、数
 
 1个空间文件是许多页的连接。为了更有效的管理，页被分组成为 1MB 的块（64个连续页面，默认页大小16KB），并称为 extent \(区\), 很多结构就只引用extents来分配空间内的页面；InnoDB需要做一些记账工作来跟踪所有的页面、extents和空间本身，所以一个空间文件有一些强制性的上层结构
 
-系统表空间
+#### 系统表空间
+
+
 
 ### InnoDB 相关资料
 
 * [The basics of InnoDB space file layout](https://blog.jcole.us/2013/01/03/the-basics-of-innodb-space-file-layout/)
+* MySQL 文档：[InnoDB 存储引擎](https://dev.mysql.com/doc/refman/5.7/en/innodb-storage-engine.html)
 
