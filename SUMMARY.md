@@ -8,6 +8,7 @@
   * [操作系统基础知识](cs/os/00-cao-zuo-xi-tong-ji-chu-zhi-shi.md)
   * [系统初始化](cs/os/01-xi-tong-chu-shi-hua.md)
   * [进程管理](cs/os/02-jin-cheng-guan-li.md)
+  * [文件系统](cs/os/file-system.md)
 * [计算机网络](cs/network.md)
 * [数据结构与算法](cs/algorithm/README.md)
   * [复杂度分析](cs/algorithm/complex-analysis.md)
