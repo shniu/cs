@@ -72,7 +72,7 @@ struct stat {
 
 
 
-![&#x6587;&#x4EF6;&#x7CFB;&#x7EDF;&#x4E0E;&#x78C1;&#x76D8;](../../.gitbook/assets/image%20%2844%29.png)
+![&#x6587;&#x4EF6;&#x7CFB;&#x7EDF;&#x4E0E;&#x78C1;&#x76D8;](../../.gitbook/assets/image%20%2845%29.png)
 
 
 
@@ -114,7 +114,7 @@ struct ext4_inode {
 
 ![ext2 / ext3 &#x683C;&#x5F0F;&#x7684;&#x6570;&#x636E;&#x5757;](../../.gitbook/assets/image%20%2842%29.png)
 
-![ext4 &#x683C;&#x5F0F;&#x7684;&#x6570;&#x636E;&#x5757;](../../.gitbook/assets/image%20%2850%29.png)
+![ext4 &#x683C;&#x5F0F;&#x7684;&#x6570;&#x636E;&#x5757;](../../.gitbook/assets/image%20%2852%29.png)
 
 ext4 引入了块组，一个块组包含一系列连续的块，以4KB的数据块为例，一个块组可以包含32768个数据块，也就是128MB, 这也是说 ext4 中的一个 extent 最大可以表示 128MB
 
@@ -161,20 +161,47 @@ struct ext4_extent_idx {
 
 
 
-![&#x8F6F;&#x8FDE;&#x63A5;&#x548C;&#x786C;&#x8FDE;&#x63A5;](../../.gitbook/assets/image%20%2843%29.png)
+目录存储
+
+![&#x76EE;&#x5F55;&#x683C;&#x5F0F;](../../.gitbook/assets/image%20%2843%29.png)
+
+```c
+
+struct ext4_dir_entry {
+  __le32  inode;      /* Inode number */
+  __le16  rec_len;    /* Directory entry length */
+  __le16  name_len;    /* Name length */
+  char  name[EXT4_NAME_LEN];  /* File name */
+};
+struct ext4_dir_entry_2 {
+  __le32  inode;      /* Inode number */
+  __le16  rec_len;    /* Directory entry length */
+  __u8  name_len;    /* Name length */
+  __u8  file_type;
+  char  name[EXT4_NAME_LEN];  /* File name */
+};
+```
 
 
 
-![inode &#x548C; &#x6570;&#x636E;&#x5757;](../../.gitbook/assets/image%20%2848%29.png)
+![&#x8F6F;&#x8FDE;&#x63A5;&#x548C;&#x786C;&#x8FDE;&#x63A5;](../../.gitbook/assets/image%20%2844%29.png)
 
 
 
-### 虚拟文件系统
+![inode &#x548C; &#x6570;&#x636E;&#x5757;](../../.gitbook/assets/image%20%2850%29.png)
 
 
+
+### 虚拟文件系统 （VFS）
+
+VFS 定义了一组所有文件系统都支持的数据结构和标准接口。这样，用户进程和内核中的其他子系统，就只需要跟 VFS 提供的统一接口进行交互。为了降低慢速磁盘对性能的影响，文件系统又通过页缓存、目录项缓存以及索引节点缓存，缓和磁盘延迟对应用程序的影响。
+
+![](../../.gitbook/assets/image%20%2847%29.png)
 
 ### 资料参考
 
 * [理解 Inode](https://www.ruanyifeng.com/blog/2011/12/inode.html)
 * [Ext4 文件系统架构分析1](https://www.cnblogs.com/alantu2018/p/8461272.html)
+* [Ext4 文件系统架构分析2](https://www.cnblogs.com/wuchanming/p/3737758.html)
+* [Ext4 文件系统架构分析3](https://www.cnblogs.com/alantu2018/p/8461598.html)
 
