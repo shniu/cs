@@ -87,7 +87,7 @@ Place an Order，用户可以下各种类型各种交易对的委托单（Order�
 * 开源撮合引擎：[enewhuis/liquibook](https://github.com/enewhuis/liquibook)
 * [https://github.com/gitbitex/gitbitex-spot](https://github.com/gitbitex/gitbitex-spot) An Open Source Cryptocurrency Exchange
 
-![gitbitex spot](../../.gitbook/assets/image%20%2846%29.png)
+![gitbitex spot](../../.gitbook/assets/image%20%2848%29.png)
 
 * [https://github.com/saniales/golang-crypto-trading-bot](https://github.com/saniales/golang-crypto-trading-bot)
 * [https://github.com/jammy928/CoinExchange\_CryptoExchange\_Java](https://github.com/jammy928/CoinExchange_CryptoExchange_Java)

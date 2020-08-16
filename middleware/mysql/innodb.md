@@ -12,7 +12,7 @@ InnoDB 的存储模型使用的是表空间（也被称做文件空间）；空�
 
 页的大致组成：
 
-![Page Overview](../../.gitbook/assets/image%20%2849%29.png)
+![Page Overview](../../.gitbook/assets/image%20%2851%29.png)
 
 Page Type: 页被分配给文件空间管理、范围管理、事务系统、数据字典、撤销日志、blobs，当然还有索引（表数据）
 
