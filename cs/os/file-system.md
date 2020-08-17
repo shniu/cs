@@ -1,5 +1,7 @@
 # 文件系统
 
+> 文件系统是对存储设备上的文件，进行组织管理的一种机制。而 Linux 在各种文件系统实现上，又抽象了一层虚拟文件系统 VFS，它定义了一组，所有文件系统都支持的，数据结构和标准接口。
+
 ### 文件系统功能规划
 
 1. 文件系统要有严格的组织形式，使得文件能够以块为单位进行存储
@@ -109,7 +111,7 @@ struct stat {
 
 
 
-![&#x6587;&#x4EF6;&#x7CFB;&#x7EDF;&#x4E0E;&#x78C1;&#x76D8;](../../.gitbook/assets/image%20%2847%29.png)
+![&#x6587;&#x4EF6;&#x7CFB;&#x7EDF;&#x4E0E;&#x78C1;&#x76D8;](../../.gitbook/assets/image%20%2848%29.png)
 
 
 
@@ -149,9 +151,9 @@ struct ext4_inode {
 
 
 
-![ext2 / ext3 &#x683C;&#x5F0F;&#x7684;&#x6570;&#x636E;&#x5757;](../../.gitbook/assets/image%20%2843%29.png)
+![ext2 / ext3 &#x683C;&#x5F0F;&#x7684;&#x6570;&#x636E;&#x5757;](../../.gitbook/assets/image%20%2844%29.png)
 
-![ext4 &#x683C;&#x5F0F;&#x7684;&#x6570;&#x636E;&#x5757;](../../.gitbook/assets/image%20%2854%29.png)
+![ext4 &#x683C;&#x5F0F;&#x7684;&#x6570;&#x636E;&#x5757;](../../.gitbook/assets/image%20%2855%29.png)
 
 ext4 引入了块组，一个块组包含一系列连续的块，以4KB的数据块为例，一个块组可以包含32768个数据块，也就是128MB, 这也是说 ext4 中的一个 extent 最大可以表示 128MB
 
@@ -200,7 +202,7 @@ struct ext4_extent_idx {
 
 目录存储
 
-![&#x76EE;&#x5F55;&#x683C;&#x5F0F;](../../.gitbook/assets/image%20%2844%29.png)
+![&#x76EE;&#x5F55;&#x683C;&#x5F0F;](../../.gitbook/assets/image%20%2845%29.png)
 
 ```c
 
@@ -221,11 +223,11 @@ struct ext4_dir_entry_2 {
 
 
 
-![&#x8F6F;&#x8FDE;&#x63A5;&#x548C;&#x786C;&#x8FDE;&#x63A5;](../../.gitbook/assets/image%20%2845%29.png)
+![&#x8F6F;&#x8FDE;&#x63A5;&#x548C;&#x786C;&#x8FDE;&#x63A5;](../../.gitbook/assets/image%20%2846%29.png)
 
 
 
-![inode &#x548C; &#x6570;&#x636E;&#x5757;](../../.gitbook/assets/image%20%2852%29.png)
+![inode &#x548C; &#x6570;&#x636E;&#x5757;](../../.gitbook/assets/image%20%2853%29.png)
 
 
 
@@ -233,7 +235,7 @@ struct ext4_dir_entry_2 {
 
 VFS 定义了一组所有文件系统都支持的数据结构和标准接口。这样，用户进程和内核中的其他子系统，就只需要跟 VFS 提供的统一接口进行交互。为了降低慢速磁盘对性能的影响，文件系统又通过页缓存、目录项缓存以及索引节点缓存，缓和磁盘延迟对应用程序的影响。
 
-![](../../.gitbook/assets/image%20%2849%29.png)
+![](../../.gitbook/assets/image%20%2850%29.png)
 
 文件
 
@@ -255,7 +257,7 @@ struct files_struct {
 
 
 
-![VFS](../../.gitbook/assets/image%20%2846%29.png)
+![VFS](../../.gitbook/assets/image%20%2847%29.png)
 
 对于每一个进程，打开的文件都有一个文件描述符，在 files\_struct 里面会有文件描述符数组。每个一个文件描述符是这个数组的下标，里面的内容指向一个 file 结构，表示打开的文件。这个结构里面有这个文件对应的 inode，最重要的是这个文件对应的操作 file\_operation。如果操作这个文件，就看这个 file\_operation 里面的定义了。
 
@@ -273,6 +275,14 @@ struct files_struct {
 2. 磁盘在执行文件系统格式化时，会被分成三个存储区域，超级块、索引节点区和数据块区
 
 
+
+### 文件缓存
+
+
+
+![&#x6587;&#x4EF6;&#x7CFB;&#x7EDF;&#x8BFB;&#x5199;&#x8FC7;&#x7A0B;](../../.gitbook/assets/image%20%2842%29.png)
+
+在系统调用层调用 read 和 write，在 VFS 层调用的是 vfs\_read 和 vfs\_write 并且调用 file\_operation。在 ext4 层调用的是 ext4\_file\_read\_iter 和 ext4\_file\_write\_iter。接下来就是分叉：缓存 I/O 和直接 I/O。直接 I/O 读写的流程是一样的，调用 ext4\_direct\_IO，再往下就调用块设备层了。缓存 I/O 读写的流程不一样。对于读，从块设备读取到缓存中，然后从缓存中拷贝到用户态。对于写，从用户态拷贝到缓存，设置缓存页为脏，然后启动一个线程写入块设备。
 
 
 
