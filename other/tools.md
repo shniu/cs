@@ -12,6 +12,29 @@
 * [Git 工作流，如何正确的合并自己的代码到某个分支](https://blog.wj2015.com/2019/07/23/git%E5%B7%A5%E4%BD%9C%E6%B5%81%EF%BC%8C%E5%A6%82%E4%BD%95%E6%AD%A3%E7%A1%AE%E7%9A%84%E5%90%88%E5%B9%B6%E8%87%AA%E5%B7%B1%E7%9A%84%E4%BB%A3%E7%A0%81%E5%88%B0%E6%9F%90%E4%B8%AA%E5%88%86%E6%94%AF/)
 * [git-scm: git 分支](https://git-scm.com/book/zh/v2/Git-%E5%88%86%E6%94%AF-%E5%88%86%E6%94%AF%E7%AE%80%E4%BB%8B)
 
+```bash
+// --- 回退 merge
+// 查看 操作记录，找到要回退的版本号
+$ git reflog
+3973c178 (HEAD -> test, origin/test) HEAD@{0}: merge feature-34: Merge made by the 'recursive' strategy.
+58ed7d9b HEAD@{1}: checkout: moving from feature-34 to test
+09140632 (origin/feature-34, feature-34) HEAD@{2}: commit:
+....
+
+// 执行 git reset
+$ git reset --hard HEAD^
+// or
+$ git reset --hard HEAD@{2}
+// or
+$ git reset --hard 09140632
+
+//// 另外还可以使用 git revert
+
+// ---
+git merge
+git rebase
+```
+
 ### Gradle
 
 使用 Gradle 构建 Spring 的项目，关于 Spring 的配置依赖
