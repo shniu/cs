@@ -10,6 +10,7 @@
 * [收好这份 Git 命令应急手册，关键时刻可保你一命](https://mp.weixin.qq.com/s?__biz=MzAxOTcxNTIwNQ==&mid=2457914802&idx=1&sn=a8d2cb9b626da84d94d8b2ebd9e85c24&scene=21#wechat_redirect)
 * [Git Book](https://git-scm.com/book/zh/v2/%E8%B5%B7%E6%AD%A5-%E5%85%B3%E4%BA%8E%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6) 关于 Git 的书
 * [Git 工作流，如何正确的合并自己的代码到某个分支](https://blog.wj2015.com/2019/07/23/git%E5%B7%A5%E4%BD%9C%E6%B5%81%EF%BC%8C%E5%A6%82%E4%BD%95%E6%AD%A3%E7%A1%AE%E7%9A%84%E5%90%88%E5%B9%B6%E8%87%AA%E5%B7%B1%E7%9A%84%E4%BB%A3%E7%A0%81%E5%88%B0%E6%9F%90%E4%B8%AA%E5%88%86%E6%94%AF/)
+* [git-scm: git 分支](https://git-scm.com/book/zh/v2/Git-%E5%88%86%E6%94%AF-%E5%88%86%E6%94%AF%E7%AE%80%E4%BB%8B)
 
 ### Gradle
 
