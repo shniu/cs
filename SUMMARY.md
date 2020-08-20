@@ -115,7 +115,7 @@
   * [MySQL Index](middleware/mysql/index.md)
   * [MySQL Transaction](middleware/mysql/mysql-transaction.md)
   * [MySQL 优化](middleware/mysql/you-hua.md)
-  * [MySQL InnoDB](middleware/mysql/innodb.md)
+  * [MySQL 内核](middleware/mysql/innodb.md)
   * [MySQL Command](middleware/mysql/mysql-command.md)
   * [MySQL Checklist](middleware/mysql/mysql-checklist.md)
   * [MySQL Analysis Tool](middleware/mysql/analysis-tool.md)
