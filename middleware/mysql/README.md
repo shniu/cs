@@ -2,7 +2,7 @@
 
 > 数据库需要完成两个基本的能力：把数据存储起来和读已经存储的数据。
 
-### 数据库的设计思想
+### 数据库设计思想
 
 * 在保证逻辑正确的前提下，尽量减少扫描的数据量，是数据库系统设计的通用法则之一。
 * 快速、精确和实现简单，三者永远只能满足其二，必须舍掉其中一个。
@@ -20,6 +20,10 @@
 
 宏观层面：数据持久层怎么应对高并发和海量数据存储，这是数据库架构层面的考量，可以使用读写分离的数据库架构，也可以使用分库分表的数据库架构，还可以使用缓存+数据库的架构，这个时候数据不再是单机处理了，就引入了分布式技术（也意味着引入了分布式的优点和缺点）
 
+### 单机数据库需要应对的问题
+
+单机数据库重点要解决几大问题：**存储、事务、查询、复制、连接、数据库管理等**，查询和事务是业务开发过程中最经常使用的数据库的两个核心能力；其次就是复制，解决了扩展性、提高可用性和并发能力的主要武器。
+
 如何学习 MySQL
 
 理解主线：MySQL 事务如何实现，MySQL 索引如何加速查询（SQL 查询流程和 SQL 更新流程）；数据增长和访问并发增长带来的问题，以及怎么解决（复制技术/分片技术）
@@ -28,12 +32,8 @@
 
 内核：
 
-&lt;&lt;&lt;&lt;&lt; 在这里开始
-
 1. 事务的ACID特性
 2. 事务并发引起的问题：脏读/不可重复读/幻读/丢失更新等问题
-
-&gt;&gt;&gt;&gt;&gt; 在这里结束
 
 ### MySQL 的基础架构与日志系统
 
@@ -94,6 +94,7 @@ MySQL 的事务隔离级别如何实现的？
   * [https://juejin.im/post/5c2c53396fb9a04a053fc7fe](https://juejin.im/post/5c2c53396fb9a04a053fc7fe)
   * [https://tech.meituan.com/2014/06/30/mysql-index.html](https://tech.meituan.com/2014/06/30/mysql-index.html) 重点看
   * [解决死锁之路 - 学习事务与隔离级别](https://www.aneasystone.com/archives/2017/10/solving-dead-locks-one.html)
+  * [解决死锁 - 了解锁类型](https://www.aneasystone.com/archives/2017/11/solving-dead-locks-two.html)
   * [https://github.com/aneasystone/mysql-deadlocks](https://github.com/aneasystone/mysql-deadlocks) MySQL 死锁案例
 
 * 分析工具

@@ -1,4 +1,4 @@
-# MySQL - Analysis Tool
+# MySQL Analysis Tool
 
 
 

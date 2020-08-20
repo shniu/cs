@@ -1,4 +1,4 @@
-# MySQL 命令
+# MySQL Command
 
 * 插入数据的存储过程
 
