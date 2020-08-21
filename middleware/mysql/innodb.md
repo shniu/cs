@@ -3,7 +3,11 @@
 ## 内核
 
 * \*\*\*\*[**MySQL · 引擎特性 · InnoDB 崩溃恢复过程**](http://mysql.taobao.org/monthly/2015/06/01/)\*\*\*\*
+* \*\*\*\*[**MySQL · 引擎特性 · InnoDB 事务子系统介绍**](http://mysql.taobao.org/monthly/2015/12/01/)\*\*\*\*
 * \*\*\*\*[**MySQL · 引擎特性 · The design of mysql8.0 redolog**](http://mysql.taobao.org/monthly/2019/02/05/)\*\*\*\*
+* \*\*\*\*[**MySQL · 引擎特性 · Innodb change buffer介绍**](http://mysql.taobao.org/monthly/2015/07/01/)\*\*\*\*
+* \*\*\*\*[**MySQL · 引擎特性 · InnoDB 文件系统之文件物理结构**](http://mysql.taobao.org/monthly/2016/02/01/)\*\*\*\*
+* \*\*\*\*[**MySQL · 引擎特性 · InnoDB 文件系统之IO系统和内存管理**](http://mysql.taobao.org/monthly/2016/02/02/)\*\*\*\*
 * \*\*\*\*[**MySQL · 原理介绍 · 再议MySQL的故障恢复**](http://mysql.taobao.org/monthly/2018/12/04/) **要读**
 * \*\*\*\*[**Database · 原理介绍 · 数据库的事务与复制**](http://mysql.taobao.org/monthly/2018/12/01/)\*\*\*\*
 * \*\*\*\*[**Database · 原理介绍 · Snapshot Isolation 综述**](http://mysql.taobao.org/monthly/2019/02/03/)\*\*\*\*
@@ -11,6 +15,12 @@
 * \*\*\*\*[**MySQL · 最佳实践 · MySQL多队列线程池优化**](http://mysql.taobao.org/monthly/2019/02/09/)\*\*\*\*
 * \*\*\*\*[**MtSQL Redo log**](http://mysql.taobao.org/monthly/2019/03/03/)\*\*\*\*
 * \*\*\*\*[**MySQL 事务锁概述**](http://mysql.taobao.org/monthly/2016/01/01/)\*\*\*\*
+* \*\*\*\*[**MySQL · 答疑解惑 · 物理备份死锁分析**](http://mysql.taobao.org/monthly/2016/01/05/)\*\*\*\*
+* \*\*\*\*[**MySQL · 答疑解惑 · MySQL 锁问题最佳实践**](http://mysql.taobao.org/monthly/2016/03/10/)\*\*\*\*
+* \*\*\*\*[**MySQL · 答疑解惑 · 备库Seconds\_Behind\_Master计算**](http://mysql.taobao.org/monthly/2016/03/09/)\*\*\*\*
+* \*\*\*\*[**MySQL · TokuDB · Cachetable 的工作线程和线程池**](http://mysql.taobao.org/monthly/2016/01/06/)\*\*\*\*
+* \*\*\*\*[**MySQL · 特性分析 · 线程池**](http://mysql.taobao.org/monthly/2016/02/09/)\*\*\*\*
+* \*\*\*\*
 
 ## InnoDB
 
