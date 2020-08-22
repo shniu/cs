@@ -120,6 +120,7 @@
   * [MySQL Checklist](middleware/mysql/mysql-checklist.md)
   * [MySQL Analysis Tool](middleware/mysql/analysis-tool.md)
 * [State Machine](middleware/state-machine.md)
+* [Kubernetes 体系](middleware/kubernetes.md)
 * [MQ](middleware/mq/README.md)
   * [Kafka](middleware/mq/kafka.md)
   * [Pulsar](middleware/mq/pulsar.md)
