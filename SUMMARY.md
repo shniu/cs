@@ -154,7 +154,4 @@
 * [分享](other/share.md)
 * [软技能](other/soft-skill.md)
 * [Todo](other/todo.md)
-* [application](other/application/README.md)
-  * [服务端开发](other/application/server.md)
-  * [Reactor 模型](other/application/reactor.md)
 
