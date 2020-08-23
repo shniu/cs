@@ -1,6 +1,8 @@
 # MySQL Command
 
-* 插入数据的存储过程
+每个MySQL程序都有许多不同的选项。大多数程序提供了一个--help选项，你可以查看该程序支持的全部启动选项以及它们的默认值。例如，使用`mysql --help`可以看到`mysql`程序支持的启动选项，`mysqld_safe --help`可以看到`mysqld_safe`程序支持的启动选项。查看`mysqld`支持的启动选项有些特别，需要使用`mysqld --verbose --help`。
+
+### 插入数据的存储过程
 
 ```sql
 CREATE TABLE `words` (
@@ -24,14 +26,14 @@ delimiter ;
 call idata();
 ```
 
-* DDL and DML
+### DDL and DML
 
 ```sql
 // 建库语句
 CREATE DATABASE mydatabase CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
 ```
 
-* 表相关
+### 表相关
 
 ```sql
 -- 查看索引信息
@@ -45,9 +47,12 @@ show table status like 'user';
 
 -- 更新表的索引统计信息
 analyze table
+
+-- 
+show create table test;
 ```
 
-* MySQL 命令行
+### MySQL 命令行
 
 ```bash
 ### mysqld
@@ -68,7 +73,7 @@ $ bin/mysql -h 127.0.0.1 -P 3306 -u root -p < test.dump
 ### mysqldump
 ```
 
-* 事务相关
+### 事务相关
 
 ```bash
 # 登录MySQL后执行
@@ -85,7 +90,7 @@ mysql> start transaction with consistent snapshot;
 
 ```
 
-* 隔离级别
+#### 隔离级别
 
 ```bash
 # 查看隔离级别
@@ -112,7 +117,7 @@ mysql> set global transaction isolation level read committed;
 mysql> select * from information_schema.INNODB_TRX \G;
 ```
 
-* 锁相关
+#### 锁相关
 
 ```bash
 ### 锁
@@ -131,7 +136,7 @@ mysql> select * from user where uid = 101 lock in share mode;
 
 ```
 
-* mysqld 相关
+### mysqld 相关
 
 ```bash
 ### 查看状态
@@ -142,7 +147,7 @@ mysql> show table status like 'account' \G;
 mysql> show processlist;
 ```
 
-* Innodb 相关
+### Innodb 相关
 
 ```bash
 ###
@@ -179,7 +184,7 @@ innodb_use_global_flush_log_at_trx_commit
 innodb_flush_neighbors
 ```
 
-* 主从相关
+### 主从相关
 
 ```bash
 # 查看 Master 状态

@@ -80,3 +80,61 @@ mysql> change master to master_host='127.0.0.1', master_user='slave', master_pas
 
 ### MySQL 特性
 
+#### 字符集与比较规则
+
+字符集：ASCII / ISO 8859-1\(latin1\) / GB2312 / GBK / utf8
+
+```text
+// 查看支持的字符集
+show charset;
+show CHARACTER SET;
+
+// 查看比较规则
+show collation [like 匹配模式];
+show collation like 'utf8\_%';
+```
+
+使用的这个`MySQL`版本一共支持`41`种字符集，其中的`Default collation`列表示这种字符集中一种默认的`比较规则`。
+
+* 比较规则名称以与其关联的字符集的名称开头。如上图的查询结果的比较规则名称都是以`utf8`开头的。
+* 后边紧跟着该比较规则主要作用于哪种语言，比如`utf8_polish_ci`表示以波兰语的规则比较，`utf8_spanish_ci`是以西班牙语的规则比较，`utf8_general_ci`是一种通用的比较规则。
+* 名称后缀意味着该比较规则是否区分语言中的重音、大小写; 
+
+| 后缀 | 英文释义 | 描述 |
+| :--- | :--- | :--- |
+
+
+| `_ai` | `accent insensitive` | 不区分重音 |
+| :--- | :--- | :--- |
+
+
+| `_as` | `accent sensitive` | 区分重音 |
+| :--- | :--- | :--- |
+
+
+| `_ci` | `case insensitive` | 不区分大小写 |
+| :--- | :--- | :--- |
+
+
+| `_cs` | `case sensitive` | 区分大小写 |
+| :--- | :--- | :--- |
+
+
+| `_bin` | `binary` | 以二进制方式比较 |
+| :--- | :--- | :--- |
+
+
+每种字符集对应若干种比较规则，每种字符集都有一种默认的比较规则，`SHOW COLLATION`的返回结果中的`Default`列的值为`YES`的就是该字符集的默认比较规则，比方说`utf8`字符集默认的比较规则就是`utf8_general_ci`。
+
+```text
+// 查看默认字符集
+show variables like 'character_set_server';
+
+// 查看默认排序规则
+show variables like 'collation_server';
+
+
+```
+
+字符集支持各种级别的配置：服务器级别 -&gt; 数据库级别 -&gt; 表级别 -&gt; 列级别
+

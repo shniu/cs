@@ -48,6 +48,12 @@ description: MySQL 事务
 
 1. 在删除数据的时候尽量加 limit, 不仅可以控制删除数据的条数，让操作更安全，还可以减小加锁的范围
 
+#### 事务锁类型
+
+* 行锁
+
+MySQL 的行锁有：行锁 \(LOCK\_REC\_NOT\_GAP\)、间隙锁\(LOCK\_GAP\)、Next-Key Lock
+
 ### 事务持久性
 
 ### 事务一致性
