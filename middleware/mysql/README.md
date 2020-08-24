@@ -72,8 +72,7 @@ MySQL 的事务隔离级别如何实现的？
 
 案例：
 
-* 死锁案例：[https://github.com/aneasystone/mysql-deadlocks](https://github.com/aneasystone/mysql-deadlocks)，[系列文章](https://www.aneasystone.com/archives/2018/04/solving-dead-locks-four.html)
-
+* 
 要看懂死锁需要了解：Session，事务，ACID，多事务并发存在的问题（脏读/不可重复读/幻读/丢失更新），事务隔离级别，MySQL 的锁类型，死锁日志分析
 
 
@@ -96,6 +95,7 @@ MySQL 的事务隔离级别如何实现的？
   * [解决死锁之路 - 学习事务与隔离级别](https://www.aneasystone.com/archives/2017/10/solving-dead-locks-one.html)
   * [解决死锁 - 了解锁类型](https://www.aneasystone.com/archives/2017/11/solving-dead-locks-two.html)
   * [https://github.com/aneasystone/mysql-deadlocks](https://github.com/aneasystone/mysql-deadlocks) MySQL 死锁案例
+  * 死锁案例：[系列文章](https://www.aneasystone.com/archives/2018/04/solving-dead-locks-four.html)
   * [Some study on database storage internals](https://medium.com/@kousiknath/data-structures-database-storage-internals-1f5ed3619d43)
 
 * 分析工具
