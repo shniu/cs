@@ -17,7 +17,7 @@ MQ 是现代微服务架构和云原生架构的基础服务组件，主要用�
 
 
 
-资源参考
+### 资源参考
 
 1. [美团技术 - 消息队列设计精要](https://tech.meituan.com/2016/07/01/mq-design.html)
 2. [去哪儿消息队列架构设计](https://github.com/qunarcorp/qmq/blob/master/docs/cn/arch.md)
@@ -52,4 +52,15 @@ MQ 是现代微服务架构和云原生架构的基础服务组件，主要用�
 设计
 
 整体架构设计（模型） / 接口设计 / 使用和实现
+
+
+
+### 内存队列
+
+* [Disruptor](https://lmax-exchange.github.io/disruptor/)
+
+1. [你应该知道的高性能无锁队列 Disruptor](https://juejin.im/post/5b5f10d65188251ad06b78e3)
+2. [The LAMX Architecture](https://martinfowler.com/articles/lmax.html) by Martin Fowler
+3. [https://github.com/shniu/disruptor.git](https://github.com/shniu/disruptor.git)
+4. Introduction to the Disruptor
 

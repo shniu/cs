@@ -76,6 +76,8 @@ Place an Order，用户可以下各种类型各种交易对的委托单（Order�
 
 1. [Order Book](https://www.investopedia.com/terms/o/order-book.asp) \(交易委托账本\)
 2. [Spot Trade](https://investinganswers.com/dictionary/s/spot-trade) \(现货交易，A **spot trade** is an [asset](https://investinganswers.com/dictionary/a/asset) or [commodity](https://investinganswers.com/dictionary/c/commodity) transacted and delivered immediately\)
+3. [Tick ](https://www.investopedia.com/terms/t/tick.asp)
+4. LTP is Last Traded Price, and [what is LTP in share market](https://www.angelbroking.com/knowledge-center/share-market/what-is-ltp-in-share-market), [LTP in stock market](https://pocketsense.com/ltp-stock-market-6687864.html)
 
 ### 参考
 
