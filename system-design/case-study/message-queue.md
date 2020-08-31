@@ -25,6 +25,7 @@ MQ 是现代微服务架构和云原生架构的基础服务组件，主要用�
 4. [四个架构设计案例及其思维方式](https://mp.weixin.qq.com/s/5e-yC0r18FZ04vMvGxIL-w)
 5. [PMQ 设计](https://github.com/ppdaicorp/pmq/wiki/PMQ%E8%AE%BE%E8%AE%A1)
 6. [killbill-commons/queue](https://github.com/killbill/killbill-commons/tree/master/queue)  Notification Queue: persistent job queue, used for jobs scheduling
+7. 消息队列性能分析 [chrome-extension://ikhdkkncnoglghljlkmcimlnlhkeamad/pdf-viewer/web/viewer.html?file=https%3A%2F%2Fdigitalscholarship.unlv.edu%2Fcgi%2Fviewcontent.cgi%3Farticle%3D4749%26context%3Dthesesdissertations](chrome-extension://ikhdkkncnoglghljlkmcimlnlhkeamad/pdf-viewer/web/viewer.html?file=https%3A%2F%2Fdigitalscholarship.unlv.edu%2Fcgi%2Fviewcontent.cgi%3Farticle%3D4749%26context%3Dthesesdissertations)
 
 博客
 
@@ -65,4 +66,5 @@ MQ 是现代微服务架构和云原生架构的基础服务组件，主要用�
 4. Introduction to the Disruptor
 5. [高性能 Disruptor - 美团技术](https://tech.meituan.com/2016/11/18/disruptor.html)
 6. [Disruptor wiki](https://github.com/LMAX-Exchange/disruptor/wiki/Introduction)
+7. [极客专栏 - 队列](https://time.geekbang.org/column/article/41330)
 
