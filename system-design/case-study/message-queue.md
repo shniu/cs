@@ -58,6 +58,7 @@ MQ 是现代微服务架构和云原生架构的基础服务组件，主要用�
 
 ### 内存队列
 
+* JUC
 * [Disruptor](https://lmax-exchange.github.io/disruptor/)
 
 1. [你应该知道的高性能无锁队列 Disruptor](https://juejin.im/post/5b5f10d65188251ad06b78e3)
