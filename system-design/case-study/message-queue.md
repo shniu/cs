@@ -63,4 +63,6 @@ MQ 是现代微服务架构和云原生架构的基础服务组件，主要用�
 2. [The LAMX Architecture](https://martinfowler.com/articles/lmax.html) by Martin Fowler
 3. [https://github.com/shniu/disruptor.git](https://github.com/shniu/disruptor.git)
 4. Introduction to the Disruptor
+5. [高性能 Disruptor - 美团技术](https://tech.meituan.com/2016/11/18/disruptor.html)
+6. [Disruptor wiki](https://github.com/LMAX-Exchange/disruptor/wiki/Introduction)
 
