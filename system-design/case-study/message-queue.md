@@ -69,6 +69,12 @@ MQ 是现代微服务架构和云原生架构的基础服务组件，主要用�
 6. [Disruptor wiki](https://github.com/LMAX-Exchange/disruptor/wiki/Introduction)
 7. [极客专栏 - 队列](https://time.geekbang.org/column/article/41330)
 
+#### Disruptor
+
+Disruptor 是一个高性能的有界内存队列。
+
+
+
 ### 延迟队列
 
 [延迟队列](https://medium.com/@cheukfung/redis%E5%BB%B6%E8%BF%9F%E9%98%9F%E5%88%97-c940850a264f)的主要特性是进入队列的消息会被推迟到指定的时间才出队被消费。
