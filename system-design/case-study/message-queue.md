@@ -68,6 +68,9 @@ MQ 是现代微服务架构和云原生架构的基础服务组件，主要用�
 5. [高性能 Disruptor - 美团技术](https://tech.meituan.com/2016/11/18/disruptor.html)
 6. [Disruptor wiki](https://github.com/LMAX-Exchange/disruptor/wiki/Introduction)
 7. [极客专栏 - 队列](https://time.geekbang.org/column/article/41330)
+8. [Low latency Trading Architecture at LMAX Exchange](https://www.infoq.com/presentations/lmax-trading-architecture/)
+9. [Building Scalable Architecture](https://medium.com/koinex-crunch/building-scalable-architecture-85ea199aec67)
+10. [LSM Tree](https://medium.com/swlh/log-structured-merge-trees-9c8e2bea89e8)
 
 #### Disruptor
 
