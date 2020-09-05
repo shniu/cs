@@ -66,15 +66,16 @@ MQ 是现代微服务架构和云原生架构的基础服务组件，主要用�
 
 1. [你应该知道的高性能无锁队列 Disruptor](https://juejin.im/post/5b5f10d65188251ad06b78e3)
 2. [The LAMX Architecture](https://martinfowler.com/articles/lmax.html) by Martin Fowler
-3. [https://github.com/shniu/disruptor.git](https://github.com/shniu/disruptor.git)
-4. Introduction to the Disruptor
-5. [高性能 Disruptor - 美团技术](https://tech.meituan.com/2016/11/18/disruptor.html)
-6. [Disruptor wiki](https://github.com/LMAX-Exchange/disruptor/wiki/Introduction)
-7. [极客专栏 - 队列](https://time.geekbang.org/column/article/41330)
-8. [Low latency Trading Architecture at LMAX Exchange](https://www.infoq.com/presentations/lmax-trading-architecture/)
-9. [Building Scalable Architecture](https://medium.com/koinex-crunch/building-scalable-architecture-85ea199aec67)
-10. [Sharing data between threads without contention](http://ifeve.com/sharing-data-among-threads-without-contention-2/)
-11. [LSM Tree](https://medium.com/swlh/log-structured-merge-trees-9c8e2bea89e8)
+3. [https://lmax-exchange.github.io/disruptor/](https://lmax-exchange.github.io/disruptor/)
+4. [https://github.com/shniu/disruptor.git](https://github.com/shniu/disruptor.git)
+5. Introduction to the Disruptor
+6. [高性能 Disruptor - 美团技术](https://tech.meituan.com/2016/11/18/disruptor.html)
+7. [Disruptor wiki](https://github.com/LMAX-Exchange/disruptor/wiki/Introduction)
+8. [极客专栏 - 队列](https://time.geekbang.org/column/article/41330)
+9. [Low latency Trading Architecture at LMAX Exchange](https://www.infoq.com/presentations/lmax-trading-architecture/)
+10. [Building Scalable Architecture](https://medium.com/koinex-crunch/building-scalable-architecture-85ea199aec67)
+11. [Sharing data between threads without contention](http://ifeve.com/sharing-data-among-threads-without-contention-2/)
+12. [LSM Tree](https://medium.com/swlh/log-structured-merge-trees-9c8e2bea89e8)
 
 #### Disruptor
 
