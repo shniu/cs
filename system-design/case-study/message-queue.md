@@ -58,7 +58,10 @@ MQ 是现代微服务架构和云原生架构的基础服务组件，主要用�
 
 ### 内存队列
 
-* JUC
+* JUC ArrayBlockingQueue
+
+
+
 * [Disruptor](https://lmax-exchange.github.io/disruptor/)
 
 1. [你应该知道的高性能无锁队列 Disruptor](https://juejin.im/post/5b5f10d65188251ad06b78e3)
@@ -70,7 +73,8 @@ MQ 是现代微服务架构和云原生架构的基础服务组件，主要用�
 7. [极客专栏 - 队列](https://time.geekbang.org/column/article/41330)
 8. [Low latency Trading Architecture at LMAX Exchange](https://www.infoq.com/presentations/lmax-trading-architecture/)
 9. [Building Scalable Architecture](https://medium.com/koinex-crunch/building-scalable-architecture-85ea199aec67)
-10. [LSM Tree](https://medium.com/swlh/log-structured-merge-trees-9c8e2bea89e8)
+10. [Sharing data between threads without contention](http://ifeve.com/sharing-data-among-threads-without-contention-2/)
+11. [LSM Tree](https://medium.com/swlh/log-structured-merge-trees-9c8e2bea89e8)
 
 #### Disruptor
 
