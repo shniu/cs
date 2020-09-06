@@ -75,7 +75,8 @@ MQ 是现代微服务架构和云原生架构的基础服务组件，主要用�
 9. [Low latency Trading Architecture at LMAX Exchange](https://www.infoq.com/presentations/lmax-trading-architecture/)
 10. [Building Scalable Architecture](https://medium.com/koinex-crunch/building-scalable-architecture-85ea199aec67)
 11. [Sharing data between threads without contention](http://ifeve.com/sharing-data-among-threads-without-contention-2/)
-12. [LSM Tree](https://medium.com/swlh/log-structured-merge-trees-9c8e2bea89e8)
+12. [Single Writer Principle](https://mechanical-sympathy.blogspot.com/2011/09/single-writer-principle.html)
+13. [LSM Tree](https://medium.com/swlh/log-structured-merge-trees-9c8e2bea89e8)
 
 #### Disruptor
 
