@@ -31,7 +31,16 @@ description: Todo list
   * [ ] 分布式一致性hash实现
   * [ ] 分布式案例分析
   * [ ] 分布式经典问题和资料
-* [ ] * [ ] [Kubernetes 和微服务监控体系](https://space.bilibili.com/518029478?spm_id_from=333.788.b_765f7570696e666f.2) 杨波老师
+* [ ] MySQL
+  * [ ] [https://juejin.im/post/5b82e0196fb9a019f47d1823\#heading-17](https://juejin.im/post/5b82e0196fb9a019f47d1823#heading-17)
+  * [ ] [https://github.com/aneasystone/mysql-deadlocks](https://github.com/aneasystone/mysql-deadlocks) 死锁
+  * [ ] [https://www.aneasystone.com/archives/2017/11/solving-dead-locks-two.html](https://www.aneasystone.com/archives/2017/11/solving-dead-locks-two.html)
+  * [ ] [https://zhuanlan.zhihu.com/p/72855648](https://zhuanlan.zhihu.com/p/72855648)
+  * [ ] [https://zhuanlan.zhihu.com/p/62025900](https://zhuanlan.zhihu.com/p/62025900)
+  * [ ] [https://zhuanlan.zhihu.com/p/62251242](https://zhuanlan.zhihu.com/p/62251242)
+* [ ] Java
+  * [ ] 数据结构 - TreeMap [https://www.jianshu.com/p/2dcff3634326](https://www.jianshu.com/p/2dcff3634326)
+* [ ] [Kubernetes 和微服务监控体系](https://space.bilibili.com/518029478?spm_id_from=333.788.b_765f7570696e666f.2) 杨波老师
 * [ ] 阅读
   * [ ] [DDIA](https://github.com/Vonng/ddia/blob/master/ch1.md)
   * [ ] 精通比特币
