@@ -77,6 +77,11 @@ MQ 是现代微服务架构和云原生架构的基础服务组件，主要用�
 11. [Sharing data between threads without contention](http://ifeve.com/sharing-data-among-threads-without-contention-2/)
 12. [Single Writer Principle](https://mechanical-sympathy.blogspot.com/2011/09/single-writer-principle.html)
 13. [LSM Tree](https://medium.com/swlh/log-structured-merge-trees-9c8e2bea89e8)
+14. [Disruptor 为什么这么快？](http://ifeve.com/locks-are-bad/)[汇总](https://coolshell.cn/articles/9169.html)
+15. [https://juejin.im/post/6844903976924610574](https://juejin.im/post/6844903976924610574)
+16. [https://juejin.im/post/6844903609591660552](https://juejin.im/post/6844903609591660552)
+17. [Disruptor 源码阅读](https://coderbee.net/index.php/open-source/20130812/400)
+18. [https://wiki.jikexueyuan.com/project/disruptor-getting-started/lmax-framework.html](https://wiki.jikexueyuan.com/project/disruptor-getting-started/lmax-framework.html)
 
 #### Disruptor
 
