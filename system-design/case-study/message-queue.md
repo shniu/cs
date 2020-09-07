@@ -56,6 +56,13 @@ MQ 是现代微服务架构和云原生架构的基础服务组件，主要用�
 
 
 
+### Messaging
+
+* [Spring-messaging](https://github.com/spring-projects/spring-framework/tree/master/spring-messaging)
+* [Spring Message](https://docs.spring.io/spring-integration/reference/html/message.html) and  [Core Message](https://docs.spring.io/spring-integration/reference/html/core.html#spring-integration-core-messaging)
+* [Spring 集成](https://docs.spring.io/spring-integration/reference/html/index.html)
+* [统一的消息模型和spring 集成在 Spring Cloud Stream 的应用](https://fangjian0423.github.io/2019/04/03/spring-cloud-stream-intro/)
+
 ### 内存队列
 
 * JUC ArrayBlockingQueue
