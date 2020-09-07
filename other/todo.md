@@ -5,6 +5,7 @@ description: Todo list
 # Todo
 
 * [ ] @Transactional 的原理，[使用注意事项](https://blog.csdn.net/qq_20597727/article/details/84900994)，并由此探索一下 Spring 的事务管理
+* [ ] spring 核心思想与源码阅读，spring boot （[https://fangjian0423.github.io/2017/06/05/springboot-source-analysis-summary/](https://fangjian0423.github.io/2017/06/05/springboot-source-analysis-summary/)）
 * [ ] MyBatis 的[注解使用](https://blog.csdn.net/wfq784967698/article/details/78786001)，动态 SQL 等 
 * [ ] 探索 MyBatis 的基本使用和源码分析，重点学习它的设计思想、模型、接口、实现等
 * [ ] 学习常见的任务调度方式和设计，[重点搞定各种分布式任务框架](https://my.oschina.net/vivotech/blog/3190348#h3_16)（分解几步）
