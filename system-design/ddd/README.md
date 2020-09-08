@@ -83,3 +83,7 @@ EventStorming 是一种新型的工作坊模式，它可以帮助我们协作探
 
 1. [实现领域驱动设计](../../other/reading/ddd-impl.md)
 
+DDD 实践案例
+
+* [聊一聊聚合的持久化](https://zhuanlan.zhihu.com/p/87074950?utm_source=wechat_session&utm_medium=social&s_r=0)
+
