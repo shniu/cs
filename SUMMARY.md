@@ -122,6 +122,7 @@
 * [State Machine](middleware/state-machine.md)
 * [Kubernetes 体系](middleware/kubernetes.md)
 * [MQ](middleware/mq/README.md)
+  * [高性能内存队列 Disruptor](middleware/mq/disruptor.md)
   * [Kafka](middleware/mq/kafka.md)
   * [Pulsar](middleware/mq/pulsar.md)
   * [RocketMQ](middleware/mq/rocketmq.md)
