@@ -41,7 +41,7 @@
 
 ### 资源
 
-* 有关 Redis 做缓存请参考 [中间件/Redis](../../middleware/redis.md)
+* 有关 Redis 做缓存请参考 [中间件/Redis](../../middleware/redis/)
 * 书籍：[深入分布式缓存：从原理到实践](https://weread.qq.com/web/reader/98a323b05e0b5e98afa107ckc81322c012c81e728d9d180)
 
 

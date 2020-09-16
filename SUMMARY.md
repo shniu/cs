@@ -109,7 +109,8 @@
 
 ## 中间件 <a id="middleware"></a>
 
-* [Redis](middleware/redis.md)
+* [Redis](middleware/redis/README.md)
+  * [Redis 基础](middleware/redis/redis-ji-chu.md)
 * [MySQL](middleware/mysql/README.md)
   * [MySQL 基础](middleware/mysql/mysql-ji-chu.md)
   * [MySQL Index](middleware/mysql/index.md)
