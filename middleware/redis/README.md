@@ -21,3 +21,27 @@
 
 ### Redis Checklist
 
+--
+
+### Redis Resource
+
+#### Command
+
+* [Redis 命令备忘录](https://cheatography.com/tasjaevan/cheat-sheets/redis/)
+
+#### In Action
+
+* [数据库攻略](https://time.geekbang.org/column/article/10301)
+* \*\*\*\*[How Twitter Uses Redis To Scale - 105TB RAM, 39MM QPS, 10,000+ Instances ](http://highscalability.com/blog/2014/9/8/how-twitter-uses-redis-to-scale-105tb-ram-39mm-qps-10000-ins.html)
+* [Awesome redis](https://github.com/JamzyWang/awesome-redis)
+
+#### 案例
+
+* [Redis 响应变慢，如何解决](https://time.geekbang.org/column/article/78984)
+
+#### Book
+
+* [Redis 使用手册](https://weread.qq.com/web/reader/75732070719551157574079)
+
+
+

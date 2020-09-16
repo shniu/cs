@@ -111,6 +111,8 @@
 
 * [Redis](middleware/redis/README.md)
   * [Redis 基础](middleware/redis/redis-ji-chu.md)
+  * [应用案例 - Redis 缓存应用](middleware/redis/redis-cache.md)
+  * [应用案例 - Redis 集群](middleware/redis/ying-yong-an-li-redis-ji-qun.md)
 * [MySQL](middleware/mysql/README.md)
   * [MySQL 基础](middleware/mysql/mysql-ji-chu.md)
   * [MySQL Index](middleware/mysql/index.md)
