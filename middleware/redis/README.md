@@ -19,10 +19,6 @@
 
 根据这张全局的图，在遇到问题时就可以按图索骥进行分析，问题 -&gt; 主线 -&gt; 技术点，可以继续丰富这张图。
 
-### Redis Checklist
-
---
-
 ### Redis Resource
 
 #### Command

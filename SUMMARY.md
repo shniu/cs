@@ -111,6 +111,7 @@
 
 * [Redis](middleware/redis/README.md)
   * [Redis 基础](middleware/redis/redis-ji-chu.md)
+  * [Redis checklist](middleware/redis/redis-checklist.md)
   * [应用案例 - Redis 数据结构](middleware/redis/redis-data-struct.md)
   * [应用案例 - Redis 缓存应用](middleware/redis/redis-cache.md)
   * [应用案例 - Redis 集群](middleware/redis/redis-cluster.md)
