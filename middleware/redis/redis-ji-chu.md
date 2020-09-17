@@ -74,6 +74,8 @@ Redis 为了节约存储空间，对 encoding 字段进行了相当复杂的设�
 
 如果 ziplist 占据内存太大，重新分配内存和拷贝内存就会有很大的消耗。所以 ziplist 不适合存储大型字符串，存储的元素也不宜过多。
 
+关于 ziplist 更多的源码细节，可参考 [Redis5 设计与源码分析的压缩列表章节](https://weread.qq.com/web/reader/d36322207190b923d368a9ak1ff325f02181ff1de7742fc)
+
 * 哈希表
 * 跳表
 * 整数数组
