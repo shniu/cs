@@ -270,4 +270,6 @@ mysql> show profile for query 1;
 
 * [MySQL 索引背后的数据结构和算法原理](http://blog.codinglabs.org/articles/theory-of-mysql-index.html)
 * [MySQL 索引原理及查询优化](https://tech.meituan.com/2014/06/30/mysql-index.html)
+* [关系型数据库索引设计原则](https://wingsxdu.com/post/database/mysql/index-design/#gsc.tab=0)
+* \*\*\*\*[**MySQL 与 InnoDB 存储引擎总结**](https://wingsxdu.com/post/database/mysql/innodb/#gsc.tab=0)\*\*\*\*
 
