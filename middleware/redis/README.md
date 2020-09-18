@@ -35,6 +35,12 @@
 
 * [Redis: under the hood](https://www.pauladamsmith.com/articles/redis-under-the-hood.html#redis-under-the-hood)
 
+#### 源码阅读
+
+* [Redis 源码分析](http://bbs.redis.cn/forum.php?mod=viewthread&tid=545)
+* [oss-study/redis](https://github.com/oss-study/redis)
+* [Redis 数据结构与实现](https://wingsxdu.com/post/database/redis/struct/#gsc.tab=0)
+
 #### 案例
 
 * [Redis 响应变慢，如何解决](https://time.geekbang.org/column/article/78984)
