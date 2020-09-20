@@ -126,6 +126,7 @@ Redis 正是利用了 IO 多路复用的特性，基于事件驱动实现了高�
 1. [Reactor 模型论文](http://www.dre.vanderbilt.edu/~schmidt/PDF/reactor-siemens.pdf)
 2. [Scalable IO in Java](https://www.cnblogs.com/dafanjoy/p/11217708.html)
 3. Linux select / epoll
+4. \*\*\*\*[**高性能Server---Reactor模型**](https://www.jianshu.com/p/2461535c38f3)\*\*\*\*
 
 ### Redis 持久化：AOF 和 RDB
 
