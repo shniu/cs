@@ -83,6 +83,8 @@ Place an Order，用户可以下各种类型各种交易对的委托单（Order�
 7. Market maker 做市商，Price taker 价格接受者 （trader）
 8. Ask price 卖价 （也就是 Sell）；Bid price 买价 （也就是 Buy）
 9. [Trailing Stop](https://www.investopedia.com/terms/t/trailingstop.asp)
+10. [市场深度](https://zhuanlan.zhihu.com/p/31870077)
+11. [现货交易 spot trading](https://wiki.mbalib.com/wiki/%E7%8E%B0%E8%B4%A7%E4%BA%A4%E6%98%93)
 
 ### 参考
 
