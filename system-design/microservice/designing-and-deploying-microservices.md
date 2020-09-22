@@ -42,3 +42,60 @@ API 网关还可以为每个客户端提供一个定制 API。它通常会为移
 
 服务可以使用基于同步请求/响应的通信机制，比如基于 HTTP 的 REST 或 Thrift。或者，可以使用异步、基于消息的通信机制，如 AMQP 或 STOMP。
 
+* 基于消息的通信机制，一般需要借助第三方组件，如 Kafka / RocketMQ / Plusar 等
+* 基于请求响应的通信机制，一般有：REST / Thrift / Protocol Buffers \(gRPC\)；REST 的成熟度模型，做到 HATEOAS 是最高级别的
+
+此外，消息格式也非常重要，消息格式有两种：文本和二进制。基于文本格式的例子有 JSON 和 XML。这些格式的优点在于，它们不仅是人类可读的，而且是自描述的。在 JSON 中，对象的属性由一组键值对表示。类似地，在 XML 中，属性由命名元素和值表示。这使得消息消费者能够挑选其感兴趣的值并忽略其余的值。因此，稍微修改消息格式就可以轻松地向后兼容。使用基于文本的消息格式的缺点是消息往往是冗长的，特别是 XML。因为消息是自描述的，每个消息除了它们的值之外还包含属性的名称。另一个缺点是解析文本的开销。因此，你可能需要考虑使用二进制格式。
+
+有几种二进制格式可供选择。如果你使用的是 Thrift RPC，你可以使用 Thrift 的二进制格式。如果你可以选择消息格式，比较流行的有 [Protocol Buffers](https://developers.google.com/protocol-buffers/docs/overview) 和 [Apache Avro](https://avro.apache.org/)。这两种格式都提供了一种类型化的 IDL 用于定义消息结构。然而，一个区别是 Protocol Buffers 使用标记字段，而 Avro 消费者需要知道模式才能解释消息。因此，Protocol Buffers 的 API 演化比 Avro 更容易使用，这篇[博客](http://martin.kleppmann.com/2012/12/05/schema-evolution-in-avro-protocol-buffers-thrift.html)做了比较。
+
+微服务必须使用进程间通信机制进行通信。在设计服务如何进行通信时，你需要考虑各种问题：服务如何交互、如何为每个服务指定 API、如何演变 API 以及如何处理局部故障。
+
+
+
+### 服务发现
+
+[服务发现](http://microservices.io/patterns/service-registry.html)的关键部分是服务注册中心。服务注册中心是一个可用服务实例的数据库。服务注册中心提供了管理 API 和查询 API 的功能。服务实例通过使用管理 API 从服务注册中心注册或者注销。系统组件使用查询 API 来发现可用的服务实例。
+
+有两种主要的服务发现模式：客户端发现与服务端发现。在使用了客户端服务发现的系统中，客户端查询服务注册中心，选择一个可用实例并发出请求。在使用了服务端发现的系统中，客户端通过路由进行请求，路由将查询服务注册中心，并将请求转发到可用实例。
+
+服务实例在服务注册中心中注册与注销有两种主要方式。一个是服务实例向服务注中心自我注册，即[自注册模式](http://microservices.io/patterns/self-registration.html)。另一个是使用其他系统组件代表服务完成注册与注销，即[第三方注册模式](http://microservices.io/patterns/3rd-party-registration.html)。
+
+在某些部署环境中，你需要使用如 [Netflix Eureka](https://github.com/Netflix/eureka) 、ectd 或 [Apache ZooKeeper](http://zookeeper.apache.org/) 等服务注册中心来设置你自己的服务发现基础设施。在其他部署环境中，服务发现是内置的，例如，[Kubernetes](https://kubernetes.io/) 和 [Marathon](https://mesosphere.github.io/marathon/docs/service-discovery-load-balancing.html)，可以处理服务实例的注册与注销。他们还在每一个扮演服务端发现路由角色的集群主机上运行一个代理。
+
+一个 HTTP 反向代理和负载均衡器（如 NGINX）也可以作为服务端发现负载均衡器。服务注册中心可以将路由信息推送给 NGINX，并调用优雅配置更新，例如，你可以使用 [Consul Template](https://www.hashicorp.com/blog/introducing-consul-template/)。NGINX Plus 支持[额外的动态重新配置机制](https://www.nginx.com/products/on-the-fly-reconfiguration/) — 它可以使用 DNS 从注册中心中提取有关服务实例的信息，并为远程重新配置提供一个 API。
+
+
+
+### 事件驱动数据管理
+
+很不幸的是，当我们转向微服务架构时，数据访问将变得非常复杂。因为每个微服务所拥有的数据[对当前微服务来说是私有的](http://microservices.io/patterns/data/database-per-service.html)，只能通过其提供的 API 进行访问。封装数据可确保微服务松耦合、独立演进。如果多个服务访问相同的数据，当模式（schema）更新时，需要耗时协调更新所有服务。
+
+微服务的分布式数据管理存在挑战：第一个挑战是如何实现维护多个服务间的业务事务一致性。第二个挑战是如何实现从多个服务中检索数据。
+
+大部分应用使用的解决方案是事件驱动架构。实现事件驱动架构的一个挑战是如何以原子的方式更新状态以及如何发布事件。有几种方法可以实现这点，包括了将数据库作为消息队列、事务日志挖掘和事件溯源。核心思想是使用更弱的事务保证，如[最终一致性](https://en.wikipedia.org/wiki/Eventual_consistency)。该事务模型称为 [BASE 模型](http://queue.acm.org/detail.cfm?id=1394128)。
+
+第二个挑战，一般使用物化视图，使用一个专门的 Query Service 来收集聚合所有的数据，利用缓存等来提供可靠查询；还有就是利用 [命令查询责任分离](https://github.com/cer/event-sourcing-examples/wiki)（CQRS） 的思想
+
+
+
+### 重构单体应用为微服务
+
+一个不要使用的策略是「爆炸式」重写。就是你将所有的开发工作都集中在从头开始构建新的基于微服务的应用。虽然这听起来很吸引人，但非常危险，有可能会失败。[据 Martin Fowler 讲到](http://www.randyshoup.com/evolutionary-architecture)：「爆炸式重写的唯一保证就是大爆炸！」（"the only thing a Big Bang rewrite guarantees is a Big Bang!"）。
+
+你应该逐步重构单体应用，而不是通过爆炸式重写来实现。你可以逐渐添加新功能，并以微服务的形式创建现有功能的扩展 —— 以互补的形式修改单体应用，并且与单体应用共同运行。随着时间推移，单体应用实现的功能量会慢慢减少，直到它完全消失或变成另一个微服务。这种策略类似于在 70 公里/小时的高速公路上维修一辆汽车，很有挑战性，但至少比尝试爆炸式重写的风险要小得多。
+
+我们将围绕遗留应用来构建一个由微服务组成的新应用，遗留应用将慢慢缩小最终消亡。
+
+* 停止挖掘：将新功能实现为微服务
+
+[洞穴定律](https://en.wikipedia.org/wiki/Law_of_holes)讲到，当你身处在一个洞穴中时，你应该停止挖掘。当你的单体应用变得难以管理时，这是一个不错的建议。换句话说，你应该停止扩张，避免使单体变得更大。这意味着当你要实现新功能时，你就不应该向单体添加更多的代码。相反，这一策略的主要思想是将新代码放到独立的微服务中。
+
+* 前后端分离：从业务组件和数据访问组件中分离出表现组件
+
+初步分解单体应用，以这种方式拆分单体应用有两个主要优点。它使你能够独立于彼此开发、部署和扩展这两个应用。特别是它允许表现层开发人员在用户界面上快速迭代，并且可以轻松执行 A/B 测试。这种方法的另一个优点是它暴露了可以被微服务调用的远程 API。
+
+* 提取服务：将单体中的现有模块转换为服务
+
+第三个重构策略是将庞大的现有模块转变为独立的微服务。每次提取一个模块并将其转换成微服务时，单体就会缩小。一旦你转换了足够多的模块，单体应用将不再是问题。它将完全消失，或者变得小到可以被当做一个服务看待。
+
