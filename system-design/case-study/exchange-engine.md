@@ -87,6 +87,7 @@ Place an Order，用户可以下各种类型各种交易对的委托单（Order�
 11. [现货交易 spot trading](https://wiki.mbalib.com/wiki/%E7%8E%B0%E8%B4%A7%E4%BA%A4%E6%98%93)
 12. [Order Book Level 1 and Level 2 Market Data](https://www.thebalance.com/order-book-level-2-market-data-and-depth-of-market-1031118)
 13. [流动性 market liquidity](https://www.investopedia.com/terms/l/liquidity.asp)
+14. [Stop Limit](https://www.investopedia.com/terms/s/stop-limitorder.asp)
 
 ### 参考
 
