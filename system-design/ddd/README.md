@@ -86,4 +86,5 @@ EventStorming 是一种新型的工作坊模式，它可以帮助我们协作探
 DDD 实践案例
 
 * [聊一聊聚合的持久化](https://zhuanlan.zhihu.com/p/87074950?utm_source=wechat_session&utm_medium=social&s_r=0)
+* [https://app.gitbook.com/@fuinorg/s/ddd-4-java/](https://app.gitbook.com/@fuinorg/s/ddd-4-java/)
 
