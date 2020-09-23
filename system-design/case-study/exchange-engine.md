@@ -113,7 +113,8 @@ Place an Order，用户可以下各种类型各种交易对的委托单（Order�
 ![gitbitex spot](../../.gitbook/assets/image%20%2849%29.png)
 
 * [https://github.com/saniales/golang-crypto-trading-bot](https://github.com/saniales/golang-crypto-trading-bot)
-* [https://github.com/jammy928/CoinExchange\_CryptoExchange\_Java](https://github.com/jammy928/CoinExchange_CryptoExchange_Java)
+* [~~https://github.com/jammy928/CoinExchange\_CryptoExchange\_Java~~](https://github.com/jammy928/CoinExchange_CryptoExchange_Java)~~~~
+* [https://github.com/sengeiou/ZTuoExchange\_framework](https://github.com/sengeiou/ZTuoExchange_framework)
 * [https://github.com/bmoscon/cryptostore](https://github.com/bmoscon/cryptostore) A storage engine for cryptocurrency data
 
 其他资源
