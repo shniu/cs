@@ -49,3 +49,23 @@ description: Todo list
   * [ ] DDD 与 实现 DDD
   * [ ] 技术的本质
 
+#### Learning Plan
+
+系统性的学习某个知识，需要理论和实践并行。
+
+* 学习关系型数据库
+
+计划：基于 MySQL 的核心思想，实现一个简版的 mysql-java / mysql-go
+
+* 学习内存数据库
+
+计划：基于 Redis 的核心思想，实现一个简版的 redis-java / redis-go
+
+* 学习分布式存储和分布式数据库
+
+计划：在原有的 mysql-java / redis-java 的基础之上增加分布式存储的支持
+
+* 学习交易系统的开发
+
+计划：实现一个 MVP 版本的撮合引擎，然后再迭代新的功能
+
