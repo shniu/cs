@@ -73,7 +73,11 @@
 3. Zendesk Maxwell
 4. SpinalTap
 
-[Eventuate CDC Services ](https://eventuate.io/docs/manual/eventuate-tram/latest/cdc-configuration.html)支持两种事务性消息的实现：Polling table or log tailing，但是目前并不推荐应用在生产环境中，但是可以用来学习。
+[Eventuate CDC Services ](https://eventuate.io/docs/manual/eventuate-tram/latest/cdc-configuration.html)支持两种事务性消息的实现：Polling table or log tailing，但是目前并不推荐应用在生产环境中，但是可以用来学习。实现的基本架构：
+
+![Transactional outbox and CDC](../../.gitbook/assets/image%20%2862%29.png)
+
+
 
 数据分发需要遵循一个原则：Single Source of Truth, 某一个服务是某些数据的唯一主人，其他的数据拷贝都是只读的。
 

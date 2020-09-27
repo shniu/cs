@@ -11,7 +11,7 @@
   * [https://www.shuzhiduo.com/A/amd0ljb1dg/](https://www.shuzhiduo.com/A/amd0ljb1dg/)
   * [Multi-ART](https://zhuanlan.zhihu.com/p/65414186)， [Github 上的实现](https://github.com/UncP/aili)
 
-![Radix Tree vs. Adaptive Radix Tree](../../.gitbook/assets/image%20%2863%29.png)
+![Radix Tree vs. Adaptive Radix Tree](../../.gitbook/assets/image%20%2864%29.png)
 
 在有序数据结构的空间中，Radix树特别有趣，因为它们的高度和时间复杂度取决于 key 长度（k），而不是树中已经存在的 key 数量（n）。在极度庞大的数据集时代，当n比k增长得更快时，拥有一个与n无关的时间复杂度是非常有吸引力的。
 
