@@ -73,6 +73,8 @@
 3. Zendesk Maxwell
 4. SpinalTap
 
+[Eventuate CDC Services ](https://eventuate.io/docs/manual/eventuate-tram/latest/cdc-configuration.html)支持两种事务性消息的实现：Polling table or log tailing，但是目前并不推荐应用在生产环境中，但是可以用来学习。
+
 数据分发需要遵循一个原则：Single Source of Truth, 某一个服务是某些数据的唯一主人，其他的数据拷贝都是只读的。
 
 还有一种模式，**RocketMQ 提供了事务消息**，在出现异常时，通过反查业务服务的接口来补偿，但是会带来更严重的耦合。
