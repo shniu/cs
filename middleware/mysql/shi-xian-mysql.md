@@ -13,6 +13,18 @@
 3. 需要可靠的数据恢复机制
 4. 需要支持事务特性
 
+技术 Spike
+
+* SQL Parser 引擎
+
+参考 [阿里巴巴 druid SQL Parser 引擎](https://github.com/alibaba/druid/wiki/SQL-Parser)
+
+* mysql 服务端实现
+
+使用 Netty 作为网络通信库，实现 mysql 协议
+
+* B+ Tree 实现
+
 
 
 参考：
