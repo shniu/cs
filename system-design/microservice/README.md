@@ -53,7 +53,7 @@
 
 数据分发技术是解决数据一致性、构建大规模分布式系统、异步事件驱动架构的关键。数据分发一般会借助消息队列，但是既保更新本地数据库成功，又保证发送消息成功，就会涉及到分布式事务问题，一般意义上的双写会存在很大问题，如何解决事务性双写是关键。
 
-事务性双写的解决方案
+事务性双写的解决方案, [如何解决微服务的数据一致性分发问题](https://blog.csdn.net/hellozhxy/article/details/108369406)
 
 **模式1 事务性发件箱 \(transactional outbox\)**
 
@@ -77,7 +77,7 @@
 
 ![Transactional outbox and CDC](../../.gitbook/assets/image%20%2862%29.png)
 
-
+其他 eventuate 资料：[documentation](https://eventuate.io/docs/manual/eventuate-tram/latest/), [configure cdc service](https://eventuate.io/docs/manual/eventuate-tram/latest/cdc-configuration.html), [https://microservices.io/index.html](https://microservices.io/index.html)
 
 数据分发需要遵循一个原则：Single Source of Truth, 某一个服务是某些数据的唯一主人，其他的数据拷贝都是只读的。
 
