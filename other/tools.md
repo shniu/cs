@@ -100,10 +100,15 @@ $ ./gradlew wrapper --gradle-version=6.2.1 --distribution-type=all
 
 ### Maven
 
+### Java Libs
 
+#### Lombok
 
-[阿里巴巴程序员常用的开发工具](https://mp.weixin.qq.com/s/D7TpMYgcpZh5FA2qzv-vTA)  
+* [Lombok Log Annotations](http://www.javabyexamples.com/lombok-log4j-slf4j-and-other-log-annotations)
 
+#### 开发工具
+
+[阿里巴巴程序员常用的开发工具](https://mp.weixin.qq.com/s/D7TpMYgcpZh5FA2qzv-vTA)
 
 * Arthas: Java 线上诊断工具
 * Java 代码规约，[alibaba/p3c](https://github.com/alibaba/p3c)
