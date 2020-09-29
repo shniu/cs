@@ -30,4 +30,6 @@
 参考：
 
 * [自己动手写 SQL 执行引擎](https://github.com/chaintechinfo/Freedom)
+* [实现自己的数据库驱动](https://github.com/CallMeJiaGu/MySQL-Protocol) 
+* [MySQL Protocol](https://github.com/sea-boat/mysql-protocol)
 
