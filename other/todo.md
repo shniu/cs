@@ -41,6 +41,7 @@ description: Todo list
 * [ ] Java
   * [ ] 数据结构 - TreeMap [https://www.jianshu.com/p/2dcff3634326](https://www.jianshu.com/p/2dcff3634326)
 * [ ] [Kubernetes 和微服务监控体系](https://space.bilibili.com/518029478?spm_id_from=333.788.b_765f7570696e666f.2) 杨波老师
+* [ ] metrics 深入研究 （dropwizard metrics / alibaba metrics\)
 * [ ] 阅读
   * [ ] [DDIA](https://github.com/Vonng/ddia/blob/master/ch1.md)
   * [ ] 精通比特币
