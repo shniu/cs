@@ -27,11 +27,21 @@
 
 ### 实现自己的 MySQL
 
-#### MySQL 客户端驱动
+#### MySQL 通信协议
 
-```text
+MySQL 基本的通信流程
 
-```
+1. 客户端发起连接，进行 tcp 三次握手
+2. 认证阶段
+   1. 服务端向客户端发送 handshake packet
+   2. 客户端处理 handshake，向服务端发送 auth packet
+   3. 认证结果，OK packet or ERR packet
+3. 命令执行阶段
+   1. 客户端 -&gt; 服务端：发送命令包 \(Command Packet\)
+   2. 服务端 -&gt; 客户端：发送回应包 \(OK Packet, or Error Packet, or Result Set Packet\)
+4. 断开连接
+   1. 客户端 -&gt; 服务端: 发送退出包
+5. 四次握手断开 tcp 连接
 
 #### MySQL 服务端实现
 
@@ -40,4 +50,5 @@
 * [自己动手写 SQL 执行引擎](https://github.com/chaintechinfo/Freedom)
 * [实现自己的数据库驱动](https://github.com/CallMeJiaGu/MySQL-Protocol) 
 * [MySQL Protocol](https://github.com/sea-boat/mysql-protocol)
+* [https://github.com/radondb/radon](https://github.com/radondb/radon)
 
