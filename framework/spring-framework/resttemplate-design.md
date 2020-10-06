@@ -149,5 +149,3 @@ public interface ClientHttpRequestFactory {
 
 {% embed url="https://hc.apache.org/httpcomponents-client-ga/" %}
 
-
-

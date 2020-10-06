@@ -6,12 +6,16 @@ description: Todo list
 
 * [ ] @Transactional 的原理，[使用注意事项](https://blog.csdn.net/qq_20597727/article/details/84900994)，并由此探索一下 Spring 的事务管理
 * [ ] spring 核心思想与源码阅读，spring boot （[https://fangjian0423.github.io/2017/06/05/springboot-source-analysis-summary/](https://fangjian0423.github.io/2017/06/05/springboot-source-analysis-summary/)）
+  * [ ] [https://cloud.tencent.com/developer/article/1661119](https://cloud.tencent.com/developer/article/1661119)
+  * [ ] 
 * [ ] MyBatis 的[注解使用](https://blog.csdn.net/wfq784967698/article/details/78786001)，动态 SQL 等 
 * [ ] 探索 MyBatis 的基本使用和源码分析，重点学习它的设计思想、模型、接口、实现等
 * [ ] 学习常见的任务调度方式和设计，[重点搞定各种分布式任务框架](https://my.oschina.net/vivotech/blog/3190348#h3_16)（分解几步）
   * [ ] Quartz
   * [ ] xxl-job
 * [ ] RestTemplate
+  * [ ] [https://cloud.tencent.com/developer/article/1508714](https://cloud.tencent.com/developer/article/1508714)
+  * [ ] [https://cloud.tencent.com/developer/article/1508723](https://cloud.tencent.com/developer/article/1508723)
 * [ ] 通用幂等设计
 * [ ] 消息队列设计
   * [ ] bigqueue 分析与实现
@@ -40,6 +44,7 @@ description: Todo list
   * [ ] [https://zhuanlan.zhihu.com/p/62251242](https://zhuanlan.zhihu.com/p/62251242)
 * [ ] Java
   * [ ] 数据结构 - TreeMap [https://www.jianshu.com/p/2dcff3634326](https://www.jianshu.com/p/2dcff3634326)
+  * [ ] [https://cloud.tencent.com/developer/article/1610921](https://cloud.tencent.com/developer/article/1610921)
 * [ ] [Kubernetes 和微服务监控体系](https://space.bilibili.com/518029478?spm_id_from=333.788.b_765f7570696e666f.2) 杨波老师
 * [ ] metrics 深入研究 （dropwizard metrics / alibaba metrics\)
 * [ ] 阅读
