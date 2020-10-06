@@ -51,4 +51,7 @@ MySQL 基本的通信流程
 * [实现自己的数据库驱动](https://github.com/CallMeJiaGu/MySQL-Protocol) 
 * [MySQL Protocol](https://github.com/sea-boat/mysql-protocol)
 * [https://github.com/radondb/radon](https://github.com/radondb/radon)
+* MySQL 协议 GO 实现：[https://github.com/pubnative/mysqlproto-go](https://github.com/pubnative/mysqlproto-go)
+* GO MySQL Driver：[https://github.com/go-sql-driver/mysql](https://github.com/go-sql-driver/mysql)
+* MySQL protocol library implementing in Go：[https://github.com/xelabs/go-mysqlstack](https://github.com/xelabs/go-mysqlstack)
 
