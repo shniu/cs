@@ -12,3 +12,10 @@ LMAX 是一个面向全球的交易所，众所周知交易所对延迟是很敏
 4. 使用 CPU 级别的原子操作 CAS，运用无锁算法来提高并发操作的性能，CAS 的无锁操作比内核级别的 Lock 代价要小很多
 5. 模式和框架上的创新，摒弃了传统的并发队列的做法，使用 producer sequencing 和 consumer sequencing, 并且 consumer 之间可以形成 dependency graph
 
+
+
+参考资料：
+
+1. [你应该知道的高性能无锁队列 Disruptor](https://juejin.im/post/6844903648875528206#heading-10)
+2. [Disruptor Github](https://github.com/LMAX-Exchange/disruptor), [Disruptor wiki](https://github.com/LMAX-Exchange/disruptor/wiki)
+

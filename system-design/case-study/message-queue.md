@@ -90,12 +90,6 @@ MQ 是现代微服务架构和云原生架构的基础服务组件，主要用�
 17. [Disruptor 源码阅读](https://coderbee.net/index.php/open-source/20130812/400)
 18. [https://wiki.jikexueyuan.com/project/disruptor-getting-started/lmax-framework.html](https://wiki.jikexueyuan.com/project/disruptor-getting-started/lmax-framework.html)
 
-#### Disruptor
-
-Disruptor 是一个高性能的有界内存队列。
-
-
-
 ### 延迟队列
 
 [延迟队列](https://medium.com/@cheukfung/redis%E5%BB%B6%E8%BF%9F%E9%98%9F%E5%88%97-c940850a264f)的主要特性是进入队列的消息会被推迟到指定的时间才出队被消费。
