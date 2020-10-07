@@ -43,6 +43,15 @@ MySQL 基本的通信流程
    1. 客户端 -&gt; 服务端: 发送退出包
 5. 四次握手断开 tcp 连接
 
+```text
+// MySQL 的通信协议：4 bytes header + n bytes payload(body)
+|--- 3 bytes ---|--- 1 byte ---|--- n bytes ---|
+  length of msg   sequence id       payload
+
+// Server -> Client: Handshake packet
+|--- 1 Byte ---|--- n bytes ---|
+```
+
 #### MySQL 服务端实现
 
 参考：
