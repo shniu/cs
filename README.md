@@ -1,15 +1,26 @@
+---
+description: 简要介绍
+---
+
 # Introduction
 
 > 学习不仅是为了找到答案，更是为了找到方法。
 
+CS 是计算机科学 \(Computer Science\) 的缩写，这个 Project 是一个总结，把自己认为和计算机相关的一些东西放进来（主要是和自己工作相关的一些知识），当然也不仅仅只包含计算机的东西。目前更多的关注在：
 
+1. 计算机基础学科：操作系统、网络、数据结构与算法、编译原理、计算机构造、组成原理等
+2. 架构和系统设计
+3. 编程语言：Java、Golang、C/C++、Rust 等
+4. 常用的组件和中间件，源码级别的探索
+5. 前沿方向：云计算、云原生、大数据、区块链、AI 等
+6. 其他一些杂谈，如技术管理、软技能、工具等
 
 ### 必看
 
 * [jwasham](https://github.com/jwasham)/[**coding-interview-university**](https://github.com/jwasham/coding-interview-university) A complete computer science study plan to become a software engineer. 116K star
 * [技术雷达第 22 期](https://assets.thoughtworks.com/assets/technology-radar-vol-22-cn.pdf)
 
-
+#### [每个程序员都应该知道的延迟数](https://github.com/donnemartin/system-design-primer/blob/master/README-zh-Hans.md#%E6%AF%8F%E4%B8%AA%E7%A8%8B%E5%BA%8F%E5%91%98%E9%83%BD%E5%BA%94%E8%AF%A5%E7%9F%A5%E9%81%93%E7%9A%84%E5%BB%B6%E8%BF%9F%E6%95%B0)
 
 ```text
 // 各种访问方式花费的时间
@@ -26,6 +37,31 @@ Disk seek 10,000,000 ns
 Read 1 MB sequentially from network 10,000,000 ns
 Read 1 MB sequentially from disk 30,000,000 ns
 Send packet CA->Netherlands->CA 150,000,000 ns
+
+===
+Latency Comparison Numbers
+--------------------------
+L1 cache reference                           0.5 ns
+Branch mispredict                            5   ns
+L2 cache reference                           7   ns                      14x L1 cache
+Mutex lock/unlock                           25   ns
+Main memory reference                      100   ns                      20x L2 cache, 200x L1 cache
+Compress 1K bytes with Zippy            10,000   ns       10 us
+Send 1 KB bytes over 1 Gbps network     10,000   ns       10 us
+Read 4 KB randomly from SSD*           150,000   ns      150 us          ~1GB/sec SSD
+Read 1 MB sequentially from memory     250,000   ns      250 us
+Round trip within same datacenter      500,000   ns      500 us
+Read 1 MB sequentially from SSD*     1,000,000   ns    1,000 us    1 ms  ~1GB/sec SSD, 4X memory
+Disk seek                           10,000,000   ns   10,000 us   10 ms  20x datacenter roundtrip
+Read 1 MB sequentially from 1 Gbps  10,000,000   ns   10,000 us   10 ms  40x memory, 10X SSD
+Read 1 MB sequentially from disk    30,000,000   ns   30,000 us   30 ms 120x memory, 30X SSD
+Send packet CA->Netherlands->CA    150,000,000   ns  150,000 us  150 ms
+
+Notes
+-----
+1 ns = 10^-9 seconds
+1 us = 10^-6 seconds = 1,000 ns
+1 ms = 10^-3 seconds = 1,000 us = 1,000,000 ns
 ```
 
 ## 关于 CS
