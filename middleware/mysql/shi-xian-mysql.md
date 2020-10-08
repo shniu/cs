@@ -77,6 +77,7 @@ mysql 的包和 OS 层的 TCP 包的关系：MySQL Packet 属于应用层包，�
 
 * [MySQL 通信协议](https://jin-yang.github.io/post/mysql-protocol.html)
 * [Client / Server Communication](https://www.oreilly.com/library/view/understanding-mysql-internals/0596009577/ch04.html)
+* [MySQL 协议 HandShake 握手篇](https://cloud.tencent.com/developer/article/1184391)
 
 #### MySQL 服务端实现
 

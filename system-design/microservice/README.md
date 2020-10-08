@@ -69,7 +69,7 @@
 **模式2 变更数据捕获 \(Change Data Capture, CDC\)**
 
 1. **Canal** 可以用于 CDC 模式的实现 \(推荐使用\)
-2. [Readhat Debezium](https://github.com/debezium/debezium), [tutorial](https://debezium.io/documentation/reference/1.2/tutorial.html)
+2. [Readhat Debezium](https://github.com/debezium/debezium), [tutorial](https://debezium.io/documentation/reference/1.2/tutorial.html) \([mysql connector java](https://github.com/osheroff/mysql-binlog-connector-java)\)
 3. Zendesk Maxwell
 4. SpinalTap
 
