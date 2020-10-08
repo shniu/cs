@@ -47,6 +47,8 @@ description: Todo list
   * [ ] [https://cloud.tencent.com/developer/article/1610921](https://cloud.tencent.com/developer/article/1610921)
 * [ ] [Kubernetes 和微服务监控体系](https://space.bilibili.com/518029478?spm_id_from=333.788.b_765f7570696e666f.2) 杨波老师
 * [ ] metrics 深入研究 （dropwizard metrics / alibaba metrics\)
+* [ ] 性能测试
+  * [ ] [wrk - 轻量级异步性能测试工具](https://sq.163yun.com/blog/article/200008406328934400)
 * [ ] 阅读
   * [ ] [DDIA](https://github.com/Vonng/ddia/blob/master/ch1.md)
   * [ ] 精通比特币

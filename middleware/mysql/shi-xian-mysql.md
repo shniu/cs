@@ -41,16 +41,42 @@ MySQL 基本的通信流程
    2. 服务端 -&gt; 客户端：发送回应包 \(OK Packet, or Error Packet, or Result Set Packet\)
 4. 断开连接
    1. 客户端 -&gt; 服务端: 发送退出包
+   2. 服务端断开连接
 5. 四次握手断开 tcp 连接
+
+MySQL 的客户端和服务端通信使用了 CHAP \(Challenge Handshake Authentication Protocol\) 挑战握手协议，流程如下：
+
+![MySQL &#x5BA2;&#x6237;&#x7AEF;&#x548C;&#x670D;&#x52A1;&#x7AEF;&#x5EFA;&#x7ACB;&#x8FDE;&#x63A5;&#x4E0E;&#x8BA4;&#x8BC1;&#x8FC7;&#x7A0B;](../../.gitbook/assets/image%20%2868%29.png)
+
+什么是挑战握手协议？CHAP 是在网络物理连接后进行连接安全性验证的协议。基本步骤如下：
+
+1. 链路建立阶段结束之后，认证者向对端点发送“challenge”消息。
+2. 对端点用经过单向哈希函数计算出来的值做应答。
+3. 认证者根据它自己计算的哈希值来检查应答，如果值匹配，认证得到承认；否则，连接应该终止。
+4. 经过一定的随机间隔，认证者发送一个新的 challenge 给端点，重复步骤 1 到 3 。
+
+
 
 ```text
 // MySQL 的通信协议：4 bytes header + n bytes payload(body)
 |--- 3 bytes ---|--- 1 byte ---|--- n bytes ---|
   length of msg   sequence id       payload
-
-// Server -> Client: Handshake packet
-|--- 1 Byte ---|--- n bytes ---|
 ```
+
+![HandShake &#x5305;](../../.gitbook/assets/image%20%2867%29.png)
+
+协议包中的 capability flags 有特殊的用途，The capability flags are used by the client and server to indicate which features they support and want to use. MySQL 的 capability : 在认证握手过程中，客户端和服务器交换了关于对方能够或愿意做什么的信息。这使他们能够调整对同行的期望，而不是以某种不支持的格式发送数据。信息的交换是通过包含协议能力的位掩码的字段来完成的。
+
+server status flag: [https://dev.mysql.com/doc/internals/en/status-flags.html](https://dev.mysql.com/doc/internals/en/status-flags.html)
+
+可见，MySQL 的通信包是使用长度前缀法来定位每个包的边界，处理粘包问题时使用长度截取，粘包的本质是在tcp层发送数据时，大于一个包大小的会拆成多个包，小于一个包大小的会组合在一起。
+
+mysql 的包和 OS 层的 TCP 包的关系：MySQL Packet 属于应用层包，会被封装在 TCP 的数据包中，MySQL Packet 有可能被放在一个 TCP 数据包中，也有可能跨多个；有时甚至几个 MySQL Packet 在同一个 TCP 数据包中
+
+参考：
+
+* [MySQL 通信协议](https://jin-yang.github.io/post/mysql-protocol.html)
+* [Client / Server Communication](https://www.oreilly.com/library/view/understanding-mysql-internals/0596009577/ch04.html)
 
 #### MySQL 服务端实现
 
