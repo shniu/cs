@@ -91,6 +91,9 @@ Redis 为了节约存储空间，对 encoding 字段进行了相当复杂的设�
 * bitmap
 * GEO
 * stream
+* pub / sub
+* pipelining
+* transaction
 
 ### Redis 单线程模型和高性能网络模型
 
