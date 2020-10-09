@@ -43,6 +43,8 @@ description: Todo list
   * [ ] [https://zhuanlan.zhihu.com/p/72855648](https://zhuanlan.zhihu.com/p/72855648)
   * [ ] [https://zhuanlan.zhihu.com/p/62025900](https://zhuanlan.zhihu.com/p/62025900)
   * [ ] [https://zhuanlan.zhihu.com/p/62251242](https://zhuanlan.zhihu.com/p/62251242)
+* [ ] Redis
+  * [ ] [https://zhuanlan.zhihu.com/p/93744024](https://zhuanlan.zhihu.com/p/93744024) redis reactor 源码分析
 * [ ] Java
   * [ ] 数据结构 - TreeMap [https://www.jianshu.com/p/2dcff3634326](https://www.jianshu.com/p/2dcff3634326)
   * [ ] [https://cloud.tencent.com/developer/article/1610921](https://cloud.tencent.com/developer/article/1610921)

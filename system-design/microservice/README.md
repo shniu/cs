@@ -30,6 +30,7 @@
 4. [事件溯源模式](https://iambowen.gitbooks.io/cloud-design-pattern/content/patterns/event-sourcing.html)
 5. Microsoft: [Introducing event sourcing](https://docs.microsoft.com/en-us/previous-versions/msp-n-p/jj591559%28v=pandp.10%29?redirectedfrom=MSDN)
 6. [CQRS 和事件溯源](https://www.jdon.com/49501)
+7. [LMAX 和 Event Sourcing 的思考](https://www.jdon.com/45031) LMAX 架构利用 Disruptor 的多消费端的并发处理能力，将 input event 持久化到 log 中，在崩溃重启时可以 replay 这些 input event
 
 > 确保对应用程序状态的所有更改动作都存储为一系列事件。这意味着我们不存储对象的状态，相反，我们存储影响其状态的所有事件；然后，为了检索一个对象状态，我们必须读取与这个对象相关的不同事件，并逐一应用它们。
 
