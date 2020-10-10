@@ -62,6 +62,7 @@ EventStorming 是一种新型的工作坊模式，它可以帮助我们协作探
 
 #### DDD
 
+* [https://www.jdon.com/](https://www.jdon.com/) 软件架构解决之道
 * [DDD、EventStorming与业务中台](https://zhuanlan.zhihu.com/p/120896743)
 * [使用 DDD 指导业务设计的一点思考](https://insights.thoughtworks.cn/ddd-business-design/)
 
@@ -78,6 +79,7 @@ EventStorming 是一种新型的工作坊模式，它可以帮助我们协作探
 * [ ] [https://zhuanlan.zhihu.com/c\_137428247](https://zhuanlan.zhihu.com/c_137428247)
 * [ ] [https://tech.meituan.com/2017/12/22/ddd-in-practice.html](https://tech.meituan.com/2017/12/22/ddd-in-practice.html) DDD 在美团的实践
 * [ ] [https://insights.thoughtworks.cn/backend-development-ddd/\#comment-50693](https://insights.thoughtworks.cn/backend-development-ddd/#comment-50693)
+* [ ] [https://www.jdon.com/55003](https://www.jdon.com/55003)  使用ddd实现单体系统的模块化
 
 #### Book
 
