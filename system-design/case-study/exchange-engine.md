@@ -74,20 +74,26 @@ Place an Order，用户可以下各种类型各种交易对的委托单（Order�
 
 ### 术语
 
-1. [Order Book](https://www.investopedia.com/terms/o/order-book.asp) \(交易委托账本\)
-2. [Spot Trade](https://investinganswers.com/dictionary/s/spot-trade) \(现货交易，A **spot trade** is an [asset](https://investinganswers.com/dictionary/a/asset) or [commodity](https://investinganswers.com/dictionary/c/commodity) transacted and delivered immediately\)
-3. [Tick ](https://www.investopedia.com/terms/t/tick.asp)
-4. LTP is Last Traded Price, and [what is LTP in share market](https://www.angelbroking.com/knowledge-center/share-market/what-is-ltp-in-share-market), [LTP in stock market](https://pocketsense.com/ltp-stock-market-6687864.html)
-5. [Bid Ask Spread](https://www.investopedia.com/terms/b/bid-askspread.asp) 买卖差价
-6. Security  证券
-7. Market maker 做市商，Price taker 价格接受者 （trader）
-8. Ask price 卖价 （也就是 Sell）；Bid price 买价 （也就是 Buy）
-9. [Trailing Stop](https://www.investopedia.com/terms/t/trailingstop.asp)
-10. [市场深度](https://zhuanlan.zhihu.com/p/31870077)
-11. [现货交易 spot trading](https://wiki.mbalib.com/wiki/%E7%8E%B0%E8%B4%A7%E4%BA%A4%E6%98%93)
-12. [Order Book Level 1 and Level 2 Market Data](https://www.thebalance.com/order-book-level-2-market-data-and-depth-of-market-1031118)
-13. [流动性 market liquidity](https://www.investopedia.com/terms/l/liquidity.asp)
-14. [Stop Limit](https://www.investopedia.com/terms/s/stop-limitorder.asp)
+* [Order Book](https://www.investopedia.com/terms/o/order-book.asp) \(交易委托账本\)
+* [Spot Trade](https://investinganswers.com/dictionary/s/spot-trade) \(现货交易，A **spot trade** is an [asset](https://investinganswers.com/dictionary/a/asset) or [commodity](https://investinganswers.com/dictionary/c/commodity) transacted and delivered immediately\)
+* [Tick ](https://www.investopedia.com/terms/t/tick.asp)
+* LTP is Last Traded Price, and [what is LTP in share market](https://www.angelbroking.com/knowledge-center/share-market/what-is-ltp-in-share-market), [LTP in stock market](https://pocketsense.com/ltp-stock-market-6687864.html)
+* [Bid Ask Spread](https://www.investopedia.com/terms/b/bid-askspread.asp) 买卖差价
+* Security  证券
+* Market maker 做市商，Price taker 价格接受者 （trader）
+* Ask price 卖价 （也就是 Sell）；Bid price 买价 （也就是 Buy）
+* [Trailing Stop](https://www.investopedia.com/terms/t/trailingstop.asp)
+* [市场深度](https://zhuanlan.zhihu.com/p/31870077)
+* [现货交易 spot trading](https://wiki.mbalib.com/wiki/%E7%8E%B0%E8%B4%A7%E4%BA%A4%E6%98%93)
+* [Order Book Level 1 and Level 2 Market Data](https://www.thebalance.com/order-book-level-2-market-data-and-depth-of-market-1031118)
+* [流动性 market liquidity](https://www.investopedia.com/terms/l/liquidity.asp)
+* [Stop Limit](https://www.investopedia.com/terms/s/stop-limitorder.asp)  & [Trailing Stop 追踪止损](https://www.interactivebrokers.com/cn/index.php?f=5302)
+
+Stop Limit 和 Trailing Stop 比较有意思，他们是有效的风险控制工具。追踪止损单比止损单更灵活，一旦市场以规定的价格（称为价格距离）对您不利，就会执行。在进行保证金交易时，可以使用尾随止损单来保护利润。 举例说明。如果交易者处于多头仓位，当前市场价格从225快速上涨后为250，交易者可以设置一个价格距离为5的尾随止损单。这将在245点建立一个卖出止损单。与一般的止损单不同，如果市场价格继续上涨到275，那么追踪止损单也会相应上涨，始终保持在市场价格的5后面，在本例中上涨到270。
+
+止损价格落后于市场价格的金额指定为价格距离，如果市场向有利可图的方向移动，止损单可以根据市场进行调整。如果触发了止损，则会下达市场订单。
+
+[止损限价单](https://www.interactivebrokers.com/cn/index.php?f=5122)
 
 ### 参考
 
