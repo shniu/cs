@@ -34,6 +34,10 @@ $ git reset --hard 09140632
 // ---
 git merge
 git rebase
+
+// The error is resolved by toggling the allow-unrelated-histories switch.
+// https://www.educative.io/edpresso/the-fatal-refusing-to-merge-unrelated-histories-git-error
+git pull origin master --allow-unrelated-histories
 ```
 
 ### Gradle
