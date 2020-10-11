@@ -79,6 +79,13 @@ mysql 的包和 OS 层的 TCP 包的关系：MySQL Packet 属于应用层包，�
 * [Client / Server Communication](https://www.oreilly.com/library/view/understanding-mysql-internals/0596009577/ch04.html)
 * [MySQL 协议 HandShake 握手篇](https://cloud.tencent.com/developer/article/1184391)
 
+#### MySQL 客户端
+
+MySQL 客户端实现和服务端的通信，将客户端需要执行的各种操作发给服务端，比较重要的是：
+
+1. 实现 MySQL 的通信协议
+2. 高性能的网络模型，如使用类似于 Netty 的 Reactor 网络模型等
+
 #### MySQL 服务端实现
 
 参考：
