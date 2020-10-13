@@ -15,6 +15,10 @@ CS 是计算机科学 \(Computer Science\) 的缩写，这个 Project 是一个�
 5. 前沿方向：云计算、云原生、大数据、区块链、AI 等
 6. 其他一些杂谈，如技术管理、软技能、工具等
 
+#### 项目
+
+* [Toolbox](https://github.com/shniu/toolbox): Toolboxes often used for daily development, and build my own rapid development toolkit.
+
 ### 必看
 
 * [jwasham](https://github.com/jwasham)/[**coding-interview-university**](https://github.com/jwasham/coding-interview-university) A complete computer science study plan to become a software engineer. 116K star
