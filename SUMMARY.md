@@ -168,3 +168,8 @@
 * [软技能](other/soft-skill.md)
 * [Todo](other/todo.md)
 
+## Blog
+
+* [\#MySQL](blog/mysql/README.md)
+  * [1- MySQL Protocol](blog/mysql/1-mysql-protocol.md)
+
