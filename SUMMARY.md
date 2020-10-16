@@ -170,6 +170,6 @@
 
 ## Blog
 
-* [\#MySQL](blog/mysql/README.md)
-  * [1- MySQL Protocol](blog/mysql/1-mysql-protocol.md)
+* [\#架构](blog/architecture/README.md)
+  * [1- 通信](blog/architecture/1-mysql-protocol.md)
 
