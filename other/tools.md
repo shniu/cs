@@ -104,6 +104,8 @@ $ ./gradlew wrapper --gradle-version=6.2.1 --distribution-type=all
 
 ### Maven
 
+1. [发布自己的 Java 类库到 Maven 中央仓库](https://segmentfault.com/a/1190000018026290)
+
 ### Java Libs
 
 #### Lombok
