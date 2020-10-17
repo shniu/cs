@@ -105,6 +105,8 @@ $ ./gradlew wrapper --gradle-version=6.2.1 --distribution-type=all
 ### Maven
 
 1. [发布自己的 Java 类库到 Maven 中央仓库](https://segmentfault.com/a/1190000018026290)
+2. [https://oss.sonatype.org/](https://oss.sonatype.org/)
+3. [https://issues.sonatype.org/browse/OSSRH-61341](https://issues.sonatype.org/browse/OSSRH-61341)
 
 ### Java Libs
 
