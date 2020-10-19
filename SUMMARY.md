@@ -170,6 +170,9 @@
 
 ## Blog
 
+* [\#算法](blog/algorithm/README.md)
+  * [查找](blog/algorithm/cha-zhao.md)
+  * [位运算](blog/algorithm/wei-yun-suan.md)
 * [\#架构](blog/architecture/README.md)
   * [1- 通信](blog/architecture/1-mysql-protocol.md)
 
