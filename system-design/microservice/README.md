@@ -12,6 +12,14 @@
 
 ### 微服务
 
+> 出自 Martin Fowler 
+>
+> 简而言之，微服务架构风格是一种将单个应用程序开发为一组小型服务的方法，每个服务都跑在一个独立的进程中，并使用一种轻量级的方式进行通信，通常是HTTP资源API。 这些服务围绕业务能力构建，可通过全自动部署机制独立部署；这些服务几乎没有集中管理，而且他们可以用不同的语言编写，使用不同的数据存储技术。
+
+对于微服务的理解，真的需要先看看 Martin Fowler 的 [Microservice Architecture](https://martinfowler.com/articles/microservices.html) , 微服务的开山之作。
+
+微服务架构定义为面向服务的架构，它们由松耦合和具有边界上下文的元素组成。
+
 [微服务的难题](https://eventuate.io/whyeventdriven.html)之一：分布式数据管理；每个服务都有自己的私有数据库，这样就可以做到服务的松耦合，所以保证多个服务的数据一致性是一个挑战，查询也是一个挑战（因为要将多个服务的数据做聚合）
 
 通常的解决办法：服务间使用异步通信，比如领域事件、命令/回复消息。
@@ -118,6 +126,90 @@
 单体系统是最开始的服务架构模式，但是到达一定
 
 
+
+### 云原生
+
+什么是云？云是一个提供资源的平台；云计算的本质是按需分配资源和弹性计算；
+
+什么是云原生？云原生应用即专门为在云平台部署和运行而设计的应用，让应用能够利用云平台实现资源的按需分配和弹性伸缩，是云原生应用被重点关注的地方。云原生还关注规模，分布式系统应该具备将节点扩展到成千上万个的能力，并且这些节点应具有多租户和自愈能力。
+
+从本质上说，云原生是一种设计模式，它要求云原生应用具备可用性和伸缩性，以及自动化部署和管理的能力，可随处运行，并且能够通过持续集成、持续交付工具提升研发、测试与发布的效率。
+
+云原生资料：
+
+1. 未来架构：从服务化到云原生
+2. 云原生模式：设计拥抱变化的软件
+3. [Serverless Handbook：无服务架构实践手册](https://github.com/rootsongjc/serverless-handbook)
+4. 云原生基础架构
+5. 云原生 Java
+6. 云原生 Go
+7. [Kubernetes Handbook](https://github.com/rootsongjc/kubernetes-handbook)
+8. Istio Handbook
+9. [Programming Kubernetes](https://programming-kubernetes.info/), [https://github.com/programming-kubernetes](https://github.com/programming-kubernetes)
+
+#### 服务网格
+
+什么是 Service Mesh？\(what）服务网格是什么呢？服务网格是可配置的、低延迟的基础设施层，旨在使用应用程序编程接口（API）处理应用程序基础设施服务之间的大量基于网络的进程间通信。服务网格提供了关键的能力：服务发现，负载均衡，加密，可观察性，可追溯性，身份验证和授权，以及对断路器模式的支持。  
+服务网格的实现一般是通过一个叫做 sidecar 的代理实例，sidecar 代理来处理服务间的通信、监控和安全等，这种代理方式可以处理从服务中抽象出来的任何东西，可以总结一下服务的要点：
+
+1. 容器编排框架，服务会越来越多的被加入，容器也会越来越多，对容器的编排很有必要，kubernates是未来的方向
+2. 服务和实例
+3. 边车代理模式
+4. 服务发现
+5. 负载均衡
+6. 加解密
+7. 认证和授权
+8. 支持断路器模式
+
+![](../../.gitbook/assets/image%20%2870%29.png)
+
+Service Mesh 这个服务网络专注于处理服务和服务间的通讯。其主要负责构造一个稳定可靠的服务通讯的基础设施，并让整个架构更为的先进和 Cloud Native。在工程中，Service Mesh 基本来说是一组轻量级的服务代理和应用逻辑的服务在一起，并且对于应用服务是透明的。
+
+1. Service Mesh 是一个基础设施
+2. Service Mesh 是一个轻量的服务通讯的网络代理
+3. Service Mesh 对于应用服务来说是透明无侵入的
+4. Service Mesh 用于解耦和分离分布式系统架构中控制层面上的东西
+
+![sidecar &#x6A21;&#x5F0F;&#x89E3;&#x51B3;&#x63A7;&#x5236;&#x903B;&#x8F91;&#x76F8;&#x5173;&#x7684;&#x95EE;&#x9898;&#xFF0C;&#x548C;&#x5E94;&#x7528;&#x903B;&#x8F91;&#x8FDB;&#x884C;&#x5206;&#x79BB;](../../.gitbook/assets/image%20%2869%29.png)
+
+what is a service mesh 系列：
+
+1. [What is a service mesh?](https://www.redhat.com/en/topics/microservices/what-is-a-service-mesh) by read hat
+2. [what is a service mesh?](https://www.nginx.com/blog/what-is-a-service-mesh/) by nginx.com
+3. [What is a service mesh?](https://istio.io/docs/concepts/what-is-istio/) by Istio
+4. [what is a service mesh?](https://jimmysong.io/blog/what-is-a-service-mesh/) by Jimmy song
+
+> 服务网格（Service Mesh）是处理服务间通信的基础设施层。它负责构成现代云原生应用程序的复杂服务拓扑来可靠地交付请求。在实践中，Service Mesh 通常以轻量级网络代理阵列的形式实现，这些代理与应用程序代码部署在一起，对应用程序来说无需感知代理的存在。
+
+[Pattern: Service Mesh](https://philcalcado.com/2017/08/03/pattern_service_mesh.html) 详细介绍了 Service Mesh 的演化，也可以参考 [管理设计篇之服务网格](https://time.geekbang.org/column/article/5920)
+
+#### 服务网格的落地技术
+
+比较成熟的解决方案有 Istio：[https://istio.io/](https://istio.io/)  和 [https://conduit.io/](https://conduit.io/)；Istio 是主流的方案，其核心的 Sidecar 被叫做 Envoy（使者），用来协调服务网格中所有服务的出入站流量，并提供服务发现、负载均衡、限流熔断等能力，还可以收集大量与流量相关的性能指标。在 Service Mesh 控制面上，有一个叫 Mixer 的收集器，用来从 Envoy 收集相关的被监控到的流量特征和性能指标。然后，通过 Pilot 的控制器将相关的规则发送到 Envoy 中，让 Envoy 应用新的规则。最后，还有一个为安全设计的 lstio-Auth 身份认证组件，用来做服务间的访问安全控制。
+
+![Istio &#x6574;&#x4F53;&#x67B6;&#x6784;](../../.gitbook/assets/image%20%2871%29.png)
+
+* [Istio handbook](https://jimmysong.io/istio-handbook/concepts/istio-architecture.html)
+
+#### 边车模式 Sidecar
+
+什么是边车模式（sidecar）？边车模式的主要目的是实现“控制”和“逻辑”的分离。比如我们不需要在服务中实现控制面上的东西，如监视、日志记录、限流、熔断、服务注册、协议适配转换等这些属于控制面上的东西，而只需要专注地做好和业务逻辑相关的代码，然后，由“边车”来实现这些与业务逻辑没有关系的控制功能。  
+Sidecar 模式有点像一个服务的Agent，编程的本质就是将控制和逻辑分离和解耦，而边车模式也是异曲同工。  
+实现方式有两种基本的方式：
+
+* 通过SDK、Lib或Framework等，在开发时与应用进行集成
+* 还有一种是通过类似Sidecar的方式，在运维时与真实应用集成起来
+
+![](../../.gitbook/assets/image%20%2872%29.png)
+
+Sidecar 解决什么问题？主要解决控制和逻辑的分离，服务调用中上下文的问题；熔断、路由、服务发现、计量、流控、监视、重试、幂等、鉴权等控制面上的功能，很大程度上和应用逻辑的关系并不大，而且和逻辑耦合在一起的话，随着系统复杂度的提升，将变得非常难于维护。 Sidecar 的适用场景？把控制和逻辑分离，标准化控制面上的动作和技术，从而提高系统整体的稳定性和可用性；一个比较明显的场景是对老应用系统的改造和扩展；另一个是对由多种语言混合出来的分布式服务系统进行管理和扩展。
+
+Microsoft 关于边车模式的讲解 [Sidecar pattern](https://docs.microsoft.com/en-us/azure/architecture/patterns/sidecar)，使用sidecar的优势：
+
+1. 就运行时环境和编程语言而言Sidecar和主应用之间是相互独立的，所以不需要为每个语言都开发一个sidecar
+2. sidecar 可以访问和主应用程序相同的资源，比如sidecar可以监控由应用和sidecar使用的系统资源
+3. 由于sidecar靠近应用，所以他们在通信时几乎没有延迟
+4. 即使对于不提供扩展机制的应用程序，您也可以使用sidecar来扩展功能，方法是将其作为自己的进程附加到与主应用程序相同的主机或子容器中。
 
 ### 参考资源
 
