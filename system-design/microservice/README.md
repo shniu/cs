@@ -7,6 +7,8 @@
 * [ ] [https://github.com/iambowen/cloud-design-patterns/](https://github.com/iambowen/cloud-design-patterns/) 云设计模式
 * [ ] [https://docs.microsoft.com/en-us/azure/architecture/](https://docs.microsoft.com/en-us/azure/architecture/)
 * [ ] [https://github.com/DocsHome/microservices](https://github.com/DocsHome/microservices) 微服务：从设计到部署
+* [ ] 云原生：[https://jimmysong.io/awesome-cloud-native/](https://jimmysong.io/awesome-cloud-native/)
+* [ ] [https://jimmysong.io/blog/must-read-for-cloud-native-beginner/](https://jimmysong.io/blog/must-read-for-cloud-native-beginner/)
 
 ### 微服务
 

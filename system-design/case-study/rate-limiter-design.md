@@ -52,3 +52,10 @@ description: 设计一个通用的限流框架
 * 重构代码，支持自定义的限流规则配置文件名和路径？可以借鉴 Spring 的设计思路
 * 如何做到和 Spring 的快速方便集成？
 
+### 参考
+
+* [分布式的令牌桶算法实现](https://xiantang.github.io/post/interview/%E5%88%86%E5%B8%83%E5%BC%8F%E7%9A%84%E4%BB%A4%E7%89%8C%E6%A1%B6%E7%AE%97%E6%B3%95%E7%9A%84%E5%AE%9E%E7%8E%B0/)
+* [RedissionRateLimiter.java](https://github.com/redisson/redisson/blob/master/redisson/src/main/java/org/redisson/RedissonRateLimiter.java)
+* [Guava RateLimiter](https://www.jianshu.com/p/86ef43baba83)
+* [Hystrix 技术解析](https://www.jianshu.com/p/3e11ac385c73)
+

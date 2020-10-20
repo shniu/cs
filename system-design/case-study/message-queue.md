@@ -66,6 +66,8 @@ MQ 是现代微服务架构和云原生架构的基础服务组件，主要用�
 ### 内存队列
 
 * JUC ArrayBlockingQueue
+* JUC PriorityBlockingQueue
+* [支持内部晋升的无锁并发优先级队列](https://my.oschina.net/u/2447383/blog/3156042)
 
 
 
