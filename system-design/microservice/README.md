@@ -207,6 +207,8 @@ what is a service mesh 系列：
 
 [Pattern: Service Mesh](https://philcalcado.com/2017/08/03/pattern_service_mesh.html) 详细介绍了 Service Mesh 的演化，也可以参考 [管理设计篇之服务网格](https://time.geekbang.org/column/article/5920)
 
+前沿技术分享：[Kong 公司的 CTO 关于云原生技术的分享，主要是基于服务网格](https://www.youtube.com/watch?v=afO0znHDmj4&list=PL95Ey4rht79-OV_5B_diiCQV61GA25Hoy) （WIP）
+
 #### 服务网格的落地技术
 
 比较成熟的解决方案有 Istio：[https://istio.io/](https://istio.io/)  和 [https://conduit.io/](https://conduit.io/)；Istio 是主流的方案，其核心的 Sidecar 被叫做 Envoy（使者），用来协调服务网格中所有服务的出入站流量，并提供服务发现、负载均衡、限流熔断等能力，还可以收集大量与流量相关的性能指标。在 Service Mesh 控制面上，有一个叫 Mixer 的收集器，用来从 Envoy 收集相关的被监控到的流量特征和性能指标。然后，通过 Pilot 的控制器将相关的规则发送到 Envoy 中，让 Envoy 应用新的规则。最后，还有一个为安全设计的 lstio-Auth 身份认证组件，用来做服务间的访问安全控制。
