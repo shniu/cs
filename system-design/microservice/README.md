@@ -221,7 +221,7 @@ what is a service mesh 系列：
 
 比较成熟的解决方案有 Istio：[https://istio.io/](https://istio.io/)  和 [https://conduit.io/](https://conduit.io/)；Istio 是主流的方案，其核心的 Sidecar 被叫做 Envoy（使者），用来协调服务网格中所有服务的出入站流量，并提供服务发现、负载均衡、限流熔断等能力，还可以收集大量与流量相关的性能指标。在 Service Mesh 控制面上，有一个叫 Mixer 的收集器，用来从 Envoy 收集相关的被监控到的流量特征和性能指标。然后，通过 Pilot 的控制器将相关的规则发送到 Envoy 中，让 Envoy 应用新的规则。最后，还有一个为安全设计的 lstio-Auth 身份认证组件，用来做服务间的访问安全控制。
 
-![Istio &#x6574;&#x4F53;&#x67B6;&#x6784;](../../.gitbook/assets/image%20%2871%29.png)
+![Istio &#x6574;&#x4F53;&#x67B6;&#x6784;](../../.gitbook/assets/image%20%2872%29.png)
 
 * [Istio handbook](https://jimmysong.io/istio-handbook/concepts/istio-architecture.html)
 
@@ -234,7 +234,7 @@ Sidecar 模式有点像一个服务的Agent，编程的本质就是将控制和�
 * 通过SDK、Lib或Framework等，在开发时与应用进行集成
 * 还有一种是通过类似Sidecar的方式，在运维时与真实应用集成起来
 
-![](../../.gitbook/assets/image%20%2872%29.png)
+![](../../.gitbook/assets/image%20%2873%29.png)
 
 Sidecar 解决什么问题？主要解决控制和逻辑的分离，服务调用中上下文的问题；熔断、路由、服务发现、计量、流控、监视、重试、幂等、鉴权等控制面上的功能，很大程度上和应用逻辑的关系并不大，而且和逻辑耦合在一起的话，随着系统复杂度的提升，将变得非常难于维护。 Sidecar 的适用场景？把控制和逻辑分离，标准化控制面上的动作和技术，从而提高系统整体的稳定性和可用性；一个比较明显的场景是对老应用系统的改造和扩展；另一个是对由多种语言混合出来的分布式服务系统进行管理和扩展。
 

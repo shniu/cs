@@ -1,12 +1,50 @@
 # 容器技术
 
+### 容器发展史
 
+via: [容器技术之发展简史](https://mp.weixin.qq.com/s/ccFkJJz97KcuXdO3r5zdXA)
+
+![](../../.gitbook/assets/image%20%2871%29.png)
+
+容器技术需要解决的核心问题之一运行时的环境隔离，目标是给容器构造一个无差别的运行时环境，用以在任意时间、任意位置运行容器镜像。本源：**容器需要运行时隔离技术来保证容器的运行环境符合预期**。习惯上，大家把这种实现容器隔离技术的组件叫做容器运行时。
+
+从另外一个角度看，**容器隔离技术解决的是资源供给问题**。对于软件运行环境的隔离要求，从操作系统出现之初就有了。多任务分时操作系统和进程虚拟地址都是为了解决多个任务运行在同一台主机上的资源共享问题，让每个进程都以为自己独占主机。当然仅仅是进程隔离是远远不够的。
+
+![](../../.gitbook/assets/image%20%2876%29.png)
+
+LXC \(Linux Container\) 是目前 Linux 提供的完整的容器技术实现基础，包括了 Namespace 和 Cgroups 等
+
+Docker真正核心的创新是容器镜像（docker image），一种新型的应用打包、分发和运行机制。容器镜像将应用**运行环境**，包括代码、依赖库、工具、资源文件和元信息等，打包成一种**操作系统发行版无关**的**不可变更**软件包。
+
+* 容器镜像打包了整个容器运行依赖的环境，以避免依赖运行容器的服务器的操作系统，从而实现“build once，run anywhere”。
+* 容器镜像一但构建完成，就变成read only，成为不可变基础设施的一份子。
+* 操作系统发行版无关，核心解决的是容器进程对操作系统包含的库、工具、配置的依赖，但是容器镜像无法解决容器进程对内核特性的特殊依赖。
+
+Docker 的出现解决了最核心的两个问题：**如何发布软件**和**如何运行软件。**Docker作为一个单机软件打包、发布、运行系统，其价值是非常巨大的，它引领了容器技术的腾飞。
+
+虽然 Docker 为我们带来了很大的变革，但容器编排才是未来。Google 的 LXC + Borg 可以说是最早的容器编排框架。站在 Borg 的肩膀上，Google 联合个大云厂商推出了 Kubenetes, 主要用于解决大规模集群的容器部署、运行、管理等问题。Kubernetes 在容器的基础上增加了一层的新的管理抽象 Pod，以便更好地利用容器进行应用的功能模块切分。得益于 Google 在大规模集群基础设施建设的强大积累，脱胎于 Borg 的 K8S 很快成为了行业的标准应用，堪称容器编排的必备工具。
+
+![](../../.gitbook/assets/image%20%2875%29.png)
+
+### 安全容器
+
+**Kata Containers，Firecracker， Google** gVisor 都是安全容器的未来。AWS已经证明了安全容器是公有云落地Serverless的关键技术之一，与之类似，**边缘计算**也将成为安全容器的典型应用场景。
+
+由于操作系统内核漏洞，Docker组件设计缺陷，以及不当的配置都会导致Docker容器发生逃逸，从而获取宿主机权限。由于频发的安全及逃逸漏洞，在公有云环境容器应用不得不也运行在虚拟机中，从而满足多租户安全隔离要求。而分配、管理、运维这些传统虚拟机与容器轻量、灵活、弹性的初衷背道而驰，同时在资源利用率、运行效率上也存浪费。
+
+这就是云原生里面的多租户问题，其本质是容器安全问题。
+
+安全问题的唯一正解在于允许那些（导致安全问题的）Bug发生，但通过额外的隔离层来阻挡住它们。
+
+—— LinuxCon NA 2015, Linus Torvalds
+
+可以持续关注 [https://katacontainers.io/](https://katacontainers.io/)， Kata Containers is an open source container runtime, building lightweight virtual machines that seamlessly plug into the containers ecosystem.
 
 ### rootfs \(Root File System\)
 
 what is rootfs? \(什么是 rootfs ?\)
 
-![rootfs](../../.gitbook/assets/image%20%2873%29.png)
+![rootfs](../../.gitbook/assets/image%20%2874%29.png)
 
 Rootfs is a special instance of ramfs \(or tmpfs, if that's enabled\), which is always present in 2.6 systems. You can't unmount rootfs for approximately the same reason you can't kill the init process; rather than having special code to check for and handle an empty list, it's smaller and simpler for the kernel to just make sure certain lists can't become empty. \(Rootfs是ramfs（或者tmpfs，如果启用的话）的一个特殊实例，它在2.6系统中一直存在。你不能卸载rootfs的原因和你不能杀死init进程的原因大致相同；比起有特殊的代码来检查和处理空列表，内核只需要确保某些列表不能变空就可以了，这更小更简单。\)
 
@@ -79,10 +117,4 @@ Mount points for the other filesystems. Although /proc does not reside on any di
 ```
 
 via: [https://tldp.org/LDP/sag/html/root-fs.html](https://tldp.org/LDP/sag/html/root-fs.html)
-
-
-
-参考：
-
-* [容器技术之发展简史](https://mp.weixin.qq.com/s/ccFkJJz97KcuXdO3r5zdXA) （WIP）
 
