@@ -14,3 +14,11 @@
 10. 案例解析：MQ 设计, e.g. RocketMQ / BigQueue / kibill-commons/queue / Kafka ...
 11. 涉及到哪些计算机底层知识
 
+分布式系统之间的通信是基于计算机网络进行的，也就是说我们自定义的应用协议是跑在 TCP/IP 协议之上的，利用计算机网络协议来设计自己的应用层协议。
+
+TCP/IP 协议
+
+{% hint style="info" %}
+不同的协议层对数据包有不同的称谓，在传输层叫做段\(segment\)，在网络层叫做数据报\(datagram\)，在链路层叫做帧\(frame\)。
+{% endhint %}
+

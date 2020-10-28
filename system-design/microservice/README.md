@@ -129,6 +129,14 @@
 
 ### 云原生
 
+> [官方定义](https://github.com/cncf/toc/blob/master/DEFINITION.md)：
+>
+> 云原生技术有利于各组织在公有云、私有云和混合云等新型动态环境中，构建和运行可弹性扩展的应用。云原生的代表技术包括容器、服务网格、微服务、不可变基础设施和声明式API。
+>
+> 这些技术能够构建容错性好、易于管理和便于观察的松耦合系统。结合可靠的自动化手段，云原生技术使工程师能够轻松地对系统作出频繁和可预测的重大变更。
+>
+> 云原生计算基金会（CNCF）致力于培育和维护一个厂商中立的开源生态系统，来推广云原生技术。我们通过将最前沿的模式民主化，让这些创新为大众所用。
+
 什么是云？云是一个提供资源的平台；云计算的本质是按需分配资源和弹性计算；
 
 什么是云原生？云原生应用即专门为在云平台部署和运行而设计的应用，让应用能够利用云平台实现资源的按需分配和弹性伸缩，是云原生应用被重点关注的地方。云原生还关注规模，分布式系统应该具备将节点扩展到成千上万个的能力，并且这些节点应具有多租户和自愈能力。
@@ -143,7 +151,7 @@
 4. 云原生基础架构
 5. 云原生 Java
 6. 云原生 Go
-7. [Kubernetes Handbook](https://github.com/rootsongjc/kubernetes-handbook)
+7. [Kubernetes Handbook](https://github.com/rootsongjc/kubernetes-handbook), 值得读一下
 8. Istio Handbook
 9. [Programming Kubernetes](https://programming-kubernetes.info/), [https://github.com/programming-kubernetes](https://github.com/programming-kubernetes)
 
