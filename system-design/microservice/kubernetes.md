@@ -35,5 +35,9 @@ Kubernetes 的未来：
 * [Kubernetes 基本概念和应用](https://www.bilibili.com/video/BV1Ja4y1x748)
 * [Kubernetes 编程基础知识](https://cloudnative.to/blog/kubernetes-programming-base/)
 * [Kubernetes 源码精读](https://github.com/cloudnativeto/sig-k8s-source-code)
-* [Kubenetes Handbook](https://jimmysong.io/kubernetes-handbook/cloud-native/play-with-kubernetes.html)
+* [Kubernetes Handbook](https://jimmysong.io/kubernetes-handbook/cloud-native/play-with-kubernetes.html)
+
+环境
+
+* [Play with Kubernetes](https://labs.play-with-k8s.com/)
 
