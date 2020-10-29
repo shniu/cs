@@ -87,6 +87,33 @@ via: [https://github.com/apache/rocketmq/blob/master/docs/cn/design.md](https://
 
 
 
+### Client - Producer 实现
+
+
+
+```text
+org.apache.rocketmq.client.impl.producer.DefaultMQProducerImpl
+ > defaultAsyncSenderExecutor: 创建了一个队列大小为 50000 的线程池，线程数量为cpu核数
+ > asyncSenderExecutor: 还可以自定义线程池
+ 
+ // 默认的异步发送流程
+ 1. getAsyncSenderExecutor() 获取到异步发送线程池
+ 2. 提交任务到线程池，用 Runnable 包裹，注册 callback，判断超时时间等
+ 3. 线程池调度到发送任务后，调用 sendDefaultImpl()
+ 4. 消息发送的核心逻辑
+   - 4.1 判断服务状态是否 RUNNING 等
+   - 4.2 根据 topic 找路由信息
+   - 4.3 org.apache.rocketmq.client.latency.MQFaultStrategy#selectOneMessageQueue 选择一个 MessageQueue
+     a. 默认策略是随机选择一个 MessageQueue，对每个线程维护一个index，每次取的时候+1，最终的效果有点像轮询
+     b.
+```
+
+
+
+[如何保证rocketmq不丢失消息](https://juejin.im/post/6844904102011338760)
+
+[如何保证kafka不丢失消息](https://mp.weixin.qq.com/s/qttczGROYoqSulzi8FLXww)
+
 ### Resource
 
 * [https://rocketmq.apache.org/](https://rocketmq.apache.org/)
