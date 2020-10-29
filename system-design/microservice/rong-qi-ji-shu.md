@@ -64,7 +64,7 @@ With ramfs, there is no backing store. Files written into ramfs allocate dentrie
 
 The amount of code required to implement ramfs is tiny, because all the work is done by the existing Linux caching infrastructure. Basically, you're mounting the disk cache as a filesystem. Because of this, ramfs is not an optional component removable via menuconfig, since there would be negligible space savings. \(实现ramfs所需的代码量很小，因为所有的工作都是由现有的Linux缓存基础设施完成的。基本上，你是把磁盘缓存作为一个文件系统来挂载的。正因为如此，ramfs并不是一个可以通过menuconfig移除的可选组件，因为这样可以节省很多空间。\)
 
-via: [https://www.kernel.org/doc/Documentation/filesystems/ramfs-rootfs-initramfs.txt](https://www.kernel.org/doc/Documentation/filesystems/ramfs-rootfs-initramfs.txt)
+via: [https://www.kernel.org/doc/Documentation/filesystems/ramfs-rootfs-initramfs.txt](https://www.kernel.org/doc/Documentation/filesystems/ramfs-rootfs-initramfs.txt) （包含更多内容\)
 
 -- 
 
@@ -117,4 +117,6 @@ Mount points for the other filesystems. Although /proc does not reside on any di
 ```
 
 via: [https://tldp.org/LDP/sag/html/root-fs.html](https://tldp.org/LDP/sag/html/root-fs.html)
+
+via: [https://blog.csdn.net/LEON1741/article/details/78159754](https://blog.csdn.net/LEON1741/article/details/78159754)
 

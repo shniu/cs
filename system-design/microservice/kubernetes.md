@@ -7,7 +7,7 @@
 
 ### [容器技术及容器发展史](rong-qi-ji-shu.md#rong-qi-fa-zhan-shi)
 
-### 
+详细看：[容器技术发展](rong-qi-ji-shu.md#rong-qi-fa-zhan-shi)
 
 ### Kubernetes 发展史
 
@@ -22,7 +22,9 @@ Kubernetes 的未来：
 1. 从容器管理到集群管理，DCOS 或集群管理是一个更大的概念，容器管理只是其中的一部分，真正要实现如 Google 一样纯粹的容器化数据中心（没有且不需要 IaaS、PaaS 的分层），则需要围绕 Kubernetes 建立一个完整的集群管理体系。
 2. 从自动化到智能化，Google 内部使用的 Borg 真正做到了“**调度一切任务**”，不论是无状态微服务应用，还是大数据、深度学习业务，都通过 Borg 平台统一的管理；而大数据和深度学习业务也正是利用了 Borg 提供的敏捷分布式计算，极大地提升了其自身的性能。
 
-* [ ] [对平台的理解](https://qiankunli.github.io/2020/07/01/container_cloud.html)
+* [x] [对平台的理解](https://qiankunli.github.io/2020/07/01/container_cloud.html)
+
+如果你只是把自动化理解成实现一些几百行代码量的脚本，那么说明你并没有理解什么是真正的自动化，真正的自动化是给出一整套可以提升效率的平台，**这个平台可以集成各式各样的改善效率的工具集合**，而并非单独零散的脚本。当然这些工具也并非几天或几周就可以做完的，而是通过日常的工作中不断地发现问题、解决问题并总结而来的。以我们团队举例，将一些流程化比较固定的工作通过 RPA 来实现自动化，在出现故障时，为了能够第一时间快速响应故障，我们实现了故障自动拉群功能，这样可以减少故障过程中到处找人的问题。
 
 ### etcd
 
@@ -33,4 +35,5 @@ Kubernetes 的未来：
 * [Kubernetes 基本概念和应用](https://www.bilibili.com/video/BV1Ja4y1x748)
 * [Kubernetes 编程基础知识](https://cloudnative.to/blog/kubernetes-programming-base/)
 * [Kubernetes 源码精读](https://github.com/cloudnativeto/sig-k8s-source-code)
+* [Kubenetes Handbook](https://jimmysong.io/kubernetes-handbook/cloud-native/play-with-kubernetes.html)
 
