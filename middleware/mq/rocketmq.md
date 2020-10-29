@@ -89,7 +89,7 @@ via: [https://github.com/apache/rocketmq/blob/master/docs/cn/design.md](https://
 
 ### 基础模块 - remoting
 
-remoting 对服务端和客户端通信做了抽象，提供了 `RemotingClient` 和 `RemotingServer` 两个接口
+remoting 对服务端和客户端通信做了抽象，提供了 `RemotingClient` 和 `RemotingServer` 两个接口，RocketMQ 的网络相关的功能都由该模块承担。
 
 ```java
 // 通信的基础
