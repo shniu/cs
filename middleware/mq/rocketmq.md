@@ -87,6 +87,78 @@ via: [https://github.com/apache/rocketmq/blob/master/docs/cn/design.md](https://
 
 
 
+### 基础模块 - remoting
+
+remoting 对服务端和客户端通信做了抽象，提供了 `RemotingClient` 和 `RemotingServer` 两个接口
+
+```java
+// 通信的基础
+public interface RemotingService {
+    void start();
+
+    void shutdown();
+
+    void registerRPCHook(RPCHook rpcHook);
+}
+
+// Client 的抽象
+public interface RemotingClient extends RemotingService {
+
+    void updateNameServerAddressList(final List<String> addrs);
+
+    List<String> getNameServerAddressList();
+
+    RemotingCommand invokeSync(final String addr, final RemotingCommand request,
+        final long timeoutMillis) throws InterruptedException, RemotingConnectException,
+        RemotingSendRequestException, RemotingTimeoutException;
+
+    void invokeAsync(final String addr, final RemotingCommand request, final long timeoutMillis,
+        final InvokeCallback invokeCallback) throws InterruptedException, RemotingConnectException,
+        RemotingTooMuchRequestException, RemotingTimeoutException, RemotingSendRequestException;
+
+    void invokeOneway(final String addr, final RemotingCommand request, final long timeoutMillis)
+        throws InterruptedException, RemotingConnectException, RemotingTooMuchRequestException,
+        RemotingTimeoutException, RemotingSendRequestException;
+
+    void registerProcessor(final int requestCode, final NettyRequestProcessor processor,
+        final ExecutorService executor);
+
+    void setCallbackExecutor(final ExecutorService callbackExecutor);
+
+    ExecutorService getCallbackExecutor();
+
+    boolean isChannelWritable(final String addr);
+}
+
+// Server 端的抽象
+public interface RemotingServer extends RemotingService {
+
+    void registerProcessor(final int requestCode, final NettyRequestProcessor processor,
+        final ExecutorService executor);
+
+    void registerDefaultProcessor(final NettyRequestProcessor processor, final ExecutorService executor);
+
+    int localListenPort();
+
+    Pair<NettyRequestProcessor, ExecutorService> getProcessorPair(final int requestCode);
+
+    RemotingCommand invokeSync(final Channel channel, final RemotingCommand request,
+        final long timeoutMillis) throws InterruptedException, RemotingSendRequestException,
+        RemotingTimeoutException;
+
+    void invokeAsync(final Channel channel, final RemotingCommand request, final long timeoutMillis,
+        final InvokeCallback invokeCallback) throws InterruptedException,
+        RemotingTooMuchRequestException, RemotingTimeoutException, RemotingSendRequestException;
+
+    void invokeOneway(final Channel channel, final RemotingCommand request, final long timeoutMillis)
+        throws InterruptedException, RemotingTooMuchRequestException, RemotingTimeoutException,
+        RemotingSendRequestException;
+
+}
+```
+
+
+
 ### Client - Producer 实现
 
 
@@ -105,10 +177,10 @@ org.apache.rocketmq.client.impl.producer.DefaultMQProducerImpl
    - 4.2 根据 topic 找路由信息
    - 4.3 org.apache.rocketmq.client.latency.MQFaultStrategy#selectOneMessageQueue 选择一个 MessageQueue
      a. 默认策略是随机选择一个 MessageQueue，对每个线程维护一个index，每次取的时候+1，最终的效果有点像轮询
-     b.
+     b. 容错退避策略
 ```
 
-
+Producer 端的简单负载实现：如果没有 enable latencyFaultTolerance，就用递增取模的方式选择。如果 enable 了，在递增取模的基础上，再过滤掉 not available 的。这里所谓的 latencyFaultTolerance, 是指对之前失败的，按一定的时间做退避，如果上次请求的 latency 超过 550L ms, 就退避 3000L ms；超过 1000L，就退避 60000L. 参考 `org.apache.rocketmq.client.latency.MQFaultStrategy`
 
 [如何保证rocketmq不丢失消息](https://juejin.im/post/6844904102011338760)
 
