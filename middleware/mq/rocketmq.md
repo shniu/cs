@@ -180,15 +180,15 @@ org.apache.rocketmq.client.impl.producer.DefaultMQProducerImpl
      b. 容错退避策略
 ```
 
-Producer 端的简单负载实现：如果没有 enable latencyFaultTolerance，就用递增取模的方式选择。如果 enable 了，在递增取模的基础上，再过滤掉 not available 的。这里所谓的 latencyFaultTolerance, 是指对之前失败的，按一定的时间做退避，如果上次请求的 latency 超过 550L ms, 就退避 3000L ms；超过 1000L，就退避 60000L. 参考 `org.apache.rocketmq.client.latency.MQFaultStrategy`
+消息发送的负载均衡
 
-[如何保证rocketmq不丢失消息](https://juejin.im/post/6844904102011338760)
-
-[如何保证kafka不丢失消息](https://mp.weixin.qq.com/s/qttczGROYoqSulzi8FLXww)
+生产者在发送消息时，会首先查找 `TopicPublishInfo` ，如果本地找不到就去 NameSrv 去请求，最后还是没有找到就会异常退出；`TopicPublishInfo` 包括了 MessageQueue 的列表、是否顺序消息、本地线程的索引计数器、Topic 路由数据等，可以从 `TopicPublishInfo` 来选择一个 MessageQueue，具体选择的策略有两种：一种是如果没有 enable latencyFaultTolerance，就用递增取模的方式选择。一种是如果 enable 了，在递增取模的基础上，再过滤掉 not available 的。这里所谓的 latencyFaultTolerance, 是指对之前失败的，按一定的时间做退避，如果上次请求的 latency 超过 550L ms, 就退避 3000L ms；超过 1000L，就退避 60000L。参考 `org.apache.rocketmq.client.latency.MQFaultStrategy`
 
 ### Resource
 
 * [https://rocketmq.apache.org/](https://rocketmq.apache.org/)
 * [RocketMQ 官方中文架构文档](https://github.com/apache/rocketmq/tree/master/docs/cn)
 * [https://www.jianshu.com/p/7f772c3eccd6](https://www.jianshu.com/p/7f772c3eccd6) consumer 流程
+* [如何保证rocketmq不丢失消息](https://juejin.im/post/6844904102011338760)
+* [如何保证kafka不丢失消息](https://mp.weixin.qq.com/s/qttczGROYoqSulzi8FLXww)
 
