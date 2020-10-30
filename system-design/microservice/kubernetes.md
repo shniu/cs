@@ -34,7 +34,7 @@ Kubernetes 的未来：
 
 1. [Play with Kubernetes](https://labs.play-with-k8s.com/)
 2. [Katacoda 提供的 Kubernetes 环境](https://katacoda.com/kubernetes)：免费的在线学习平台，无需注册，拥有 GitHub 账号即可登录
-3. [Vagrant 搭建 Kubernetes cluster](https://github.com/shniu/kubernetes-vagrant-centos-cluster/blob/master/README-cn.md)
+3. [Vagrant 搭建 Kubernetes cluster](https://github.com/shniu/kubernetes-vagrant-centos-cluster/blob/master/README-cn.md)，安装过程的记录[看这里](https://github.com/shniu/kubernetes-vagrant-centos-cluster/blob/master/installation-procedure-myself.md)
 4. [minikube](https://github.com/kubernetes/minikube)
 5. [kind](https://kind.sigs.k8s.io/)
 6. [kubeadm](https://kubernetes.io/docs/setup/production-environment/tools/kubeadm/create-cluster-kubeadm/)
