@@ -30,6 +30,17 @@ Kubernetes 的未来：
 
 * [ ] \*\*\*\*[**分布式键值存储 etcd 原理与实现 · Analyze**](https://wingsxdu.com/post/database/etcd/#gsc.tab=0)
 
+### 搭建环境
+
+1. [Play with Kubernetes](https://labs.play-with-k8s.com/)
+2. [Katacoda 提供的 Kubernetes 环境](https://katacoda.com/kubernetes)：免费的在线学习平台，无需注册，拥有 GitHub 账号即可登录
+3. [Vagrant 搭建 Kubernetes cluster](https://github.com/shniu/kubernetes-vagrant-centos-cluster/blob/master/README-cn.md)
+4. [minikube](https://github.com/kubernetes/minikube)
+5. [kind](https://kind.sigs.k8s.io/)
+6. [kubeadm](https://kubernetes.io/docs/setup/production-environment/tools/kubeadm/create-cluster-kubeadm/)
+
+* [kube-ladder kubernetes 练级路径](https://github.com/caicloud/kube-ladder) （很不错）
+
 ### 参考
 
 * [Kubernetes 基本概念和应用](https://www.bilibili.com/video/BV1Ja4y1x748)
