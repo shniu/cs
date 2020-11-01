@@ -144,7 +144,21 @@ $ ./gradlew wrapper --gradle-version=6.2.1 --distribution-type=all
 
 * [UML 各种图总结](https://zhuanlan.zhihu.com/p/44518805)
 
+### Vagrant
 
+HashiCorp Vagrant provides the same, easy workflow regardless of your role as a developer, operator, or designer. It leverages a declarative configuration file which describes all your software requirements, packages, operating system configuration, users, and more.
+
+Vagrant 是一个非常好用的工具，仅仅声明一个定义文件就可以获得一个相同的环境；在开发阶段利用 Vagrant 可以获得相同的开发环境，屏蔽不同环境带来的差异；Vagrant 底层是依赖于 VM 虚拟机的能力
+
+* [https://www.vagrantup.com/](https://www.vagrantup.com/)
+* Box: [https://app.vagrantup.com/boxes/search](https://app.vagrantup.com/boxes/search)
+* Introduction: [https://www.vagrantup.com/intro](https://www.vagrantup.com/intro)
+* Doc: [https://www.vagrantup.com/docs](https://www.vagrantup.com/docs)
+* Tutorial: [https://learn.hashicorp.com/vagrant](https://learn.hashicorp.com/vagrant)
+
+#### 使用 Vagrant 时，如何自动映射以及同步宿主机和虚拟机之间的目录和文件？
+
+在 Vagrantfile 中声明 `config.vm.synced_folder ".", "/vagrant", type: "rsync", rsync__exclude: ".git/"` ，rsync 默认开启了 `rsync__auto=true` ，但是如果需要自动双向同步修改后的内容，需要在宿主机上运行 `vagrant rsync-auto` 
 
 
 
