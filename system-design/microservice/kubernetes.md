@@ -37,9 +37,71 @@ Kubernetes 的未来：
 3. [Vagrant 搭建 Kubernetes cluster](https://github.com/shniu/kubernetes-vagrant-centos-cluster/blob/master/README-cn.md)，安装过程的记录[看这里](https://github.com/shniu/kubernetes-vagrant-centos-cluster/blob/master/installation-procedure-myself.md)
 4. [minikube](https://github.com/kubernetes/minikube)
 5. [kind](https://kind.sigs.k8s.io/)
-6. [kubeadm](https://kubernetes.io/docs/setup/production-environment/tools/kubeadm/create-cluster-kubeadm/)
+6. [kubeadm](https://kubernetes.io/docs/setup/production-environment/tools/kubeadm/create-cluster-kubeadm/), [ha](https://kubernetes.io/docs/setup/production-environment/tools/kubeadm/high-availability/)
 
 * [kube-ladder kubernetes 练级路径](https://github.com/caicloud/kube-ladder) （很不错）
+
+### 容器国内外镜像
+
+使用国内的镜像可以加速下载，一般使用 `registry.aliyuncs.com/google_containers` 来替代 `gcr.io/google_containers` 
+
+```text
+// Pause 容器镜像
+gcr.io/google_containers/pause-amd64:3.0
+registry.aliyuncs.com/google_containers/pause-amd64:3.0
+```
+
+### 基础知识
+
+* 进程和线程\([Linux 线程实现机制分析](https://www.ibm.com/developerworks/cn/linux/kernel/l-thread/index.html)\)
+* Linux 的 Namespace 和 Cgroups
+* Linux 的 rootfs
+
+### 基本概念
+
+#### Pod
+
+理解 Kubernetes 中 Pod 非常关键，它是 Kubernetes 创建和管理的最小可部署计算单元，Pod 是一组一个或多个容器，具有共享的存储/网络资源，以及有关如何运行这些容器的规范。它包含了一个或多个相对松耦合的容器，在非云环境中，在同一物理或虚拟机上执行的应用程序类似于在同一逻辑主机上执行的云应用程序。  
+除应用程序容器外，Pod还可包含在Pod启动期间运行的init容器。如果集群提供此功能，则还可以注入临时容器进行调试。
+
+Pod 的共享上下文是一组Linux Namespace，cgroups 和潜在的其他隔离方面-与隔离Docker容器相同。在Pod的上下文中，各个应用程序可能还会应用其他子隔离。
+
+可见 Pod 在 Kubernetes 中非常重要，而且还和底层操作系统关系密切。
+
+为什么需要 Pod ?
+
+Pod 是 Kubernetes 中的原子调度单位。容器的本质是进程；容器，就是未来云计算系统中的进程；容器镜像就是这个系统里的“.exe”安装包。Kubernetes 就是未来云平台中的操作系统。
+
+在真实的操作系统中，我们会发现进程可能并不是独自运行的，而是以进程组的方式运行，有机的组织在一起（进程组中的每个进程都松耦合的做一些自己的事情，彼此之间有关联, 使用 `pstree -g` 可以查看进程组与进程）, Kubernetes 项目所做的，其实就是将“进程组”的概念映射到了容器技术中，并使其成为了这个云计算“操作系统”里的“一等公民”。之所以这么做，是因为在实际的开发和实践过程中，应用之间一般都存在着类似于进程和进程组的关系，也就是这些应用之间有着密切的协作关系，使得它们必须部署在同一台机器上。
+
+总结一下，需要 Pod 的第一个理由是处于资源调度/容器调度的考虑，将有超亲密关系的容器进行成组调度\(gang scheduling\)，超亲密关系的容器被放在一个 Pod 中，调度到同一台 Node 中，它们互相之间会发生直接的文件交换、使用 localhost 或者 Socket 文件进行本地通信、会发生非常频繁的远程调用、需要共享某些 Linux Namespace（比如，一个容器要加入另一个容器的 Network Namespace）等，可见 Kubernetes 项目的调度器，是统一按照 Pod 而非容器的资源需求进行计算的。
+
+除此之外的一个重点是容器设计模式。Pod 实际上是一个逻辑概念，在真是的物理世界中，并不存在一个叫 Pod 的实体，也就是说，Kubernetes 真正处理的，还是宿主机操作系统上 Linux 容器的 Namespace 和 Cgroups，而并不存在一个所谓的 Pod 的边界或者隔离环境。Pod 其实是一组共享了某些资源的容器，Pod 中的所有容器共享的是同一个 Network Namespace, 并且可以声明共享同一个 Volume。
+
+在 Kubernetes 中，Pod 的实现使用了一个中间容器，叫做 Infra 容器，在这个 Pod 中，Infra 容器永远都是第一个被创建的容器，而其他用户定义的容器，则通过 Join Network Namespace 的方式，与 Infra 容器关联在一起。如下图：
+
+![](../../.gitbook/assets/image%20%2880%29.png)
+
+在 Kubernetes 项目里，Infra 容器一定要占用极少的资源，所以它使用的是一个非常特殊的镜像，叫作：k8s.gcr.io/pause（[关于 Pause 容器的介绍](https://github.com/rootsongjc/kubernetes-handbook/blob/master/concepts/pause-container.md)）。这个镜像是一个用汇编语言编写的、永远处于“暂停”状态的容器，解压后的大小也只有 100~200 KB 左右。
+
+对于 Pod 里的容器 A 和容器 B 来说：
+
+1. 它们可以直接使用 localhost 进行通信；
+2. 它们看到的网络设备跟 Infra 容器看到的完全一样；
+3. 一个 Pod 只有一个 IP 地址，也就是这个 Pod 的 Network Namespace 对应的 IP 地址；
+4. 当然，其他的所有网络资源，都是一个 Pod 一份，并且被该 Pod 中的所有容器共享；
+5. Pod 的生命周期只跟 Infra 容器一致，而与容器 A 和 B 无关。
+
+而对于同一个 Pod 里面的所有用户容器来说，它们的进出流量，也可以认为都是通过 Infra 容器完成的。这一点很重要，因为将来如果你要为 Kubernetes 开发一个网络插件时，应该重点考虑的是如何配置这个 Pod 的 Network Namespace，而不是每一个用户容器如何使用你的网络配置，这是没有意义的。
+
+Pod 这种“超亲密关系”容器的设计思想，实际上就是希望，当用户想在一个容器里跑多个功能并不相关的应用时，应该优先考虑它们是不是更应该被描述成一个 Pod 里的多个容器。
+
+> Pod 这个概念，提供的是一种编排思想，而不是具体的技术方案。所以，如果愿意的话，你完全可以使用虚拟机来作为 Pod 的实现，然后把用户容器都运行在这个虚拟机里。
+
+  
+via: [https://kubernetes.io/docs/concepts/workloads/pods/](https://kubernetes.io/docs/concepts/workloads/pods/)
+
+via: [为什么我们需要 Pod ?](https://time.geekbang.org/column/article/40092), [基于容器的分布式系统设计模式](https://www.usenix.org/conference/hotcloud16/workshop-program/presentation/burns)
 
 ### 参考
 
