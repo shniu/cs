@@ -114,6 +114,78 @@ Pause 容器在启动后，永远处于暂停状态，每个 Pod 在启动时，
 1. [Pause container](https://www.ianlewis.org/en/almighty-pause-container)
 2. [Pause 容器 by Kubernetes handbook](https://github.com/rootsongjc/kubernetes-handbook/blob/master/concepts/pause-container.md)
 
+#### Kubernetes 重要组件及命令
+
+1. [Install and set up kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/)
+2. [kubectl Overview](https://kubernetes.io/docs/reference/kubectl/overview/) 
+
+### Kubernetes 基本架构和容器调度流程
+
+#### Node
+
+[What is Node in Kubernetes? ](https://kubernetes.io/docs/concepts/architecture/nodes/)Kubernetes通过将容器放入 Pods 中以在 Node 上运行来运行您的工作负载。取决于群集，Node 可以是虚拟机或物理机。每个 Node 都包含运行 Pod 所需的服务，这些服务由控制平面管理。Node 上的组件包括 kubelet，容器运行时和kube-proxy。
+
+有两种方式将 Node 加入到 Kubernetes Cluster \(api-server\):
+
+1. Node 上的 kubelet 自注册到控制面板
+2. 手动加入，人工执行加入的命令
+
+在加入 Cluster 时，控制面板会检查 Node 的合法性，Kubernetes 在内部创建一个 Node 对象（表示）。 Kubernetes 会检查 kubelet 是否已注册到与 Node 的 metadata.name 字段匹配的 API 服务器。如果 Node 运行状况良好（如果所有必需的服务都在运行），则可以运行 Pod。否则，该 Node 的任何群集活动都将被忽略，直到它变得健康为止。
+
+#### Kubernetes Components
+
+Kubernetes集群由运行容器化应用程序的一组工作机（称为节点）组成。每个群集至少有一个工作节点。 工作节点托管 Pod，这些 Pod 是应用程序工作负载的组成部分。控制平面管理集群中的工作节点和 Pod。在生产环境中，控制平面通常在多台计算机上运行，​​而群集通常在多个节点上运行，从而提供了容错能力和高可用性。
+
+![](../../.gitbook/assets/image%20%2881%29.png)
+
+控制面板组件
+
+* kube-apiserver
+
+API 服务器是公开 Kubernetes API 的 Kubernetes 控制平面的组件。 API服务器是 Kubernetes 控制平面的前端。Kubernetes API 服务器的主要实现是 kube-apiserver。 kube-apiserver 旨在水平扩展，它通过部署更多实例进行扩展。您可以运行 kube-apiserver 的多个实例，并平衡这些实例之间的流量。
+
+* kube-scheduler
+
+控制平面组件，它监视没有分配节点的新创建的 Pod，并选择一个节点以使其运行。调度决策要考虑的因素包括：个人和集体资源需求，硬件/软件/策略约束，亲和力和反亲和力规范，数据局部性，工作间干扰以及截止日期。
+
+* etcd
+
+一致且高度可用的键值存储用作所有集群数据的Kubernetes的后备存储。如果您的Kubernetes集群使用etcd作为其后备存储，请确保您有针对这些数据的备份计划。
+
+* kube-controller-manager
+
+运行控制器进程的控制平面组件。 从逻辑上讲，每个控制器是一个单独的进程，但是为了降低复杂性，它们都被编译为单个二进制文件并在单个进程中运行。包括：
+
+> * Node controller: Responsible for noticing and responding when nodes go down.
+> * Replication controller: Responsible for maintaining the correct number of pods for every replication controller object in the system.
+> * Endpoints controller: Populates the Endpoints object \(that is, joins Services & Pods\).
+> * Service Account & Token controllers: Create default accounts and API access tokens for new namespaces.
+
+* cloud-controller-manager
+
+  
+节点组件，每个节点都会有的
+
+* kubelet
+
+在集群中每个节点上运行的代理。确保容器在Pod中运行。kubelet包含通过各种机制提供的一组PodSpec，并确保这些PodSpec中描述的容器运行正常。 Kubelet不管理不是Kubernetes创建的容器。
+
+* kube-proxy
+
+kube-proxy是一个网络代理，它在集群中的每个节点上运行，实现了Kubernetes Service概念的一部分。kube-proxy维护节点上的网络规则。这些网络规则允许从群集内部或外部的网络会话与Pod进行网络通信。如果有kube-proxy可用，它将使用操作系统数据包过滤层。否则，kube-proxy会转发流量本身。
+
+* 容器运行时
+
+容器运行时是负责运行容器的软件。Kubernetes 支持多种容器运行时：docker, containerd, CRI-O 和任何实现 CRI 接口的容器引擎，CRI：[https://github.com/kubernetes/community/blob/master/contributors/devel/sig-node/container-runtime-interface.md](https://github.com/kubernetes/community/blob/master/contributors/devel/sig-node/container-runtime-interface.md)  
+附加组件
+
+* DNS
+* Web UI \(dashboard\)
+* 容器资源监控
+* 集群级别的日志
+
+via: [https://kubernetes.io/docs/concepts/overview/components/](https://kubernetes.io/docs/concepts/overview/components/)
+
 ### 参考
 
 * [Kubernetes 基本概念和应用](https://www.bilibili.com/video/BV1Ja4y1x748)
