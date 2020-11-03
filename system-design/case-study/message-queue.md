@@ -98,7 +98,7 @@ MQ 是现代微服务架构和云原生架构的基础服务组件，主要用�
 
 1. [你真的了解延迟队列吗](https://juejin.im/post/6844903651685711885) ？ [你真的了解延迟队列吗（一）](https://juejin.im/post/6844903648397525006)
 2. 延迟队列的一个实现：[delay-queue](https://github.com/ouqiang/delay-queue), 参考了[有赞的延迟队列设计](https://tech.youzan.com/queuing_delay/)
-3. JUC 延迟队列实现：DelayQueue, 实现思路是 lock + 优先级队列, \([Leader/Follower 模式](https://blog.csdn.net/goldlevi/article/details/7705180)\)
+3. JUC 延迟队列实现：DelayQueue, 实现思路是 lock + 优先级队列, \([Leader/Follower 模式](https://blog.csdn.net/goldlevi/article/details/7705180)\), [并发模式](https://github.com/robbie-cao/note/blob/master/concurrency-pattern.md)
 4. [https://juejin.im/post/6844904150703013901](https://juejin.im/post/6844904150703013901)
 5. [https://www.cnblogs.com/rickiyang/p/12237612.html](https://www.cnblogs.com/rickiyang/p/12237612.html)
 6. [https://www.jianshu.com/p/8e0886c3c761](https://www.jianshu.com/p/8e0886c3c761)
