@@ -96,6 +96,7 @@ MQ 是现代微服务架构和云原生架构的基础服务组件，主要用�
 
 [延迟队列](https://medium.com/@cheukfung/redis%E5%BB%B6%E8%BF%9F%E9%98%9F%E5%88%97-c940850a264f)的主要特性是进入队列的消息会被推迟到指定的时间才出队被消费。
 
-1. [你真的了解延迟队列吗？](https://juejin.im/post/6844903651685711885)
+1. [你真的了解延迟队列吗](https://juejin.im/post/6844903651685711885) ？ [你真的了解延迟队列吗（一）](https://juejin.im/post/6844903648397525006)
 2. 延迟队列的一个实现：[delay-queue](https://github.com/ouqiang/delay-queue), 参考了[有赞的延迟队列设计](https://tech.youzan.com/queuing_delay/)
+3. JUC 延迟队列实现：DelayQueue, 实现思路是 lock + 优先级队列
 

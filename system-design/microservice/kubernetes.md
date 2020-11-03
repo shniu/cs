@@ -105,6 +105,10 @@ via: [https://kubernetes.io/docs/concepts/workloads/pods/](https://kubernetes.io
 
 via: [为什么我们需要 Pod ?](https://time.geekbang.org/column/article/40092), [基于容器的分布式系统设计模式](https://www.usenix.org/conference/hotcloud16/workshop-program/presentation/burns)\(要读\[TODO\]\)
 
+[https://kubernetes.io/blog/2016/06/container-design-patterns/](https://kubernetes.io/blog/2016/06/container-design-patterns/) \[TODO\]
+
+[https://kubernetes.io/blog/2015/06/the-distributed-system-toolkit-patterns/](https://kubernetes.io/blog/2015/06/the-distributed-system-toolkit-patterns/) \[TODO\]
+
 #### 什么是 Pause 容器，它有什么用处？
 
 Pause 容器在启动后，永远处于暂停状态，每个 Pod 在启动时，Pause 容器是第一个被启动起来的。如何让一个 Pod 里的多个容器之间最高效的共享某些资源和数据。因为容器之间原本是被 Linux Namespace 和 cgroups 隔开的，所以现在实际要解决的是怎么去打破这个隔离，然后共享某些事情和某些信息。这就是 Pod 的设计要解决的核心问题所在：Pause 容器就是为解决 Pod 中的网络问题而生的。
