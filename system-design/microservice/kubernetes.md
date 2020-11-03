@@ -103,7 +103,7 @@ Pod 这种“超亲密关系”容器的设计思想，实际上就是希望，�
   
 via: [https://kubernetes.io/docs/concepts/workloads/pods/](https://kubernetes.io/docs/concepts/workloads/pods/)
 
-via: [为什么我们需要 Pod ?](https://time.geekbang.org/column/article/40092), [基于容器的分布式系统设计模式](https://www.usenix.org/conference/hotcloud16/workshop-program/presentation/burns)
+via: [为什么我们需要 Pod ?](https://time.geekbang.org/column/article/40092), [基于容器的分布式系统设计模式](https://www.usenix.org/conference/hotcloud16/workshop-program/presentation/burns)\(要读\[TODO\]\)
 
 #### 什么是 Pause 容器，它有什么用处？
 
