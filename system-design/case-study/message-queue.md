@@ -104,4 +104,5 @@ MQ 是现代微服务架构和云原生架构的基础服务组件，主要用�
 6. [https://www.jianshu.com/p/8e0886c3c761](https://www.jianshu.com/p/8e0886c3c761)
 7. [https://xiazemin.github.io/MyBlog/web/2020/01/15/DelayQue.html](https://xiazemin.github.io/MyBlog/web/2020/01/15/DelayQue.html)
 8. [你真的知道怎么实现一个延迟队列吗？](https://mp.weixin.qq.com/s/A85ievNNzHDrQv67yBkbtA)
+9. [延迟队列浅析](https://mp.weixin.qq.com/s/xMM8GDNSIDh9ekzYds3YDg)
 
