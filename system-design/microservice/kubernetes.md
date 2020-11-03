@@ -192,6 +192,7 @@ via: [https://kubernetes.io/docs/concepts/overview/components/](https://kubernet
 * [Kubernetes 编程基础知识](https://cloudnative.to/blog/kubernetes-programming-base/)
 * [Kubernetes 源码精读](https://github.com/cloudnativeto/sig-k8s-source-code)
 * [Kubernetes Handbook](https://jimmysong.io/kubernetes-handbook/cloud-native/play-with-kubernetes.html)
+* [https://kubernetes.feisky.xyz/](https://kubernetes.feisky.xyz/) Kubernetes 指南
 
 环境
 
