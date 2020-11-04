@@ -70,6 +70,7 @@ nasm https://cs.lmu.edu/~ray/notes/nasmtutorial/  http://www.nasm.us/
 #### 汇编相关
 
 * [x86 Assembly Guide](http://www.cs.virginia.edu/~evans/cs216/guides/x86.html)
+* bochs
 
 ### OS 相关的书
 
@@ -112,4 +113,8 @@ Operating Systems: Three Easy Pieces http://pages.cs.wisc.edu/~remzi/OSTEP/
 汇编语言第三版
 汇编语言：基于x86处理器
 ```
+
+* 操作系统真象还原
+
+这是一本实战书，从实战中学习操作系统。
 

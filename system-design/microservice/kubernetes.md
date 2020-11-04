@@ -190,6 +190,13 @@ kube-proxy是一个网络代理，它在集群中的每个节点上运行，实�
 
 via: [https://kubernetes.io/docs/concepts/overview/components/](https://kubernetes.io/docs/concepts/overview/components/)
 
+#### Kubernetes 核心原理
+
+* [架构原理](https://kubernetes.feisky.xyz/concepts/architecture)
+* [Kubernetes Design and Architecture](https://github.com/kubernetes/community/blob/master/contributors/design-proposals/architecture/architecture.md)
+* [设计理念](https://kubernetes.feisky.xyz/concepts/concepts)
+* 核心组件
+
 ### 参考
 
 * [Kubernetes 基本概念和应用](https://www.bilibili.com/video/BV1Ja4y1x748)
