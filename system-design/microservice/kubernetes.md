@@ -183,7 +183,7 @@ kube-proxy是一个网络代理，它在集群中的每个节点上运行，实�
 容器运行时是负责运行容器的软件。Kubernetes 支持多种容器运行时：docker, containerd, CRI-O 和任何实现 CRI 接口的容器引擎，CRI：[https://github.com/kubernetes/community/blob/master/contributors/devel/sig-node/container-runtime-interface.md](https://github.com/kubernetes/community/blob/master/contributors/devel/sig-node/container-runtime-interface.md)  
 附加组件
 
-* DNS
+* DNS, 详细介绍了 [DNS and CoreDNS](https://draveness.me/dns-coredns/)
 * Web UI \(dashboard\)
 * 容器资源监控
 * 集群级别的日志
