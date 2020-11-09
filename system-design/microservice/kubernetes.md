@@ -31,6 +31,19 @@ Kubernetes 的未来：
 ### etcd
 
 * [ ] \*\*\*\*[**分布式键值存储 etcd 原理与实现 · Analyze**](https://wingsxdu.com/post/database/etcd/#gsc.tab=0)
+* [ ] [raft 协议动画演示](http://thesecretlivesofdata.com/raft/)
+
+#### raft 协议简单介绍
+
+当我们只有一个节点服务（比如是一个数据库服务）和一个客户端时，我们向服务发送一个数据变更，单节点上的数据很容易达成共识和一致性。但是当有多个节点，又该如何做到一致性共识呢？这个就是分布式共识问题，Raft 就是一个用来实现分布式共识的协议。
+
+Raft 协议将节点分为三类：Leader, Candidate and Follower，而所有节点的初始状态都是 Follower，如果一个节点没有收到来自 Leader 的心跳，就会自动变成 Candidate，Candidate 会向其他节点请求投票，其他节点会返回它们的投票结果，如果 Candidate 获得了半数以上的票，就会成为 Leader，**这个过程就叫 Leader 选举**。此后所有的数据变更都会发给 Leader，Leader 收到的每个变更都会作为一个条目加入到节点的日志中，但是现在的条目处于未提交的状态，所以还不能更新节点的值；在提交之前，还需要把日志发给其他的 Followers，然后 Leader 等待半数以上的节点成功写入日志中，此时 Leader 会提交这个变更修改节点的值，Leader 然后将提交的通知发送给 Followers，这个时候，整个集群的状态就达成了共识。**整个过程可以叫 日志复制**。
+
+可见，Raft 结合了 Leader 选举和日志复制来完成。先来详细看下 Leader 选举
+
+1. Leader 选举有两个控制选举的超时配置：选举超时时间和心跳超时时间
+
+Etcd使用的是raft一致性算法来实现的，是一款分布式的一致性KV存储，主要用于共享配置和服务发现。
 
 ### 搭建环境
 
@@ -196,6 +209,14 @@ via: [https://kubernetes.io/docs/concepts/overview/components/](https://kubernet
 * [Kubernetes Design and Architecture](https://github.com/kubernetes/community/blob/master/contributors/design-proposals/architecture/architecture.md)
 * [设计理念](https://kubernetes.feisky.xyz/concepts/concepts)
 * 核心组件
+
+#### API Server
+
+
+
+#### Etcd
+
+
 
 ### 参考
 
