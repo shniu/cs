@@ -31,7 +31,7 @@ Kubernetes 的未来：
 ### etcd
 
 * [ ] \*\*\*\*[**分布式键值存储 etcd 原理与实现 · Analyze**](https://wingsxdu.com/post/database/etcd/#gsc.tab=0)
-* [ ] [raft 协议动画演示](http://thesecretlivesofdata.com/raft/)
+* [x] [raft 协议动画演示](http://thesecretlivesofdata.com/raft/)
 
 #### raft 协议简单介绍
 
@@ -47,6 +47,10 @@ Raft 协议将节点分为三类：Leader, Candidate and Follower，而所有节
 Raft 的论文：[In Search of an Understandable Consensus Algorithm](https://raft.github.io/raft.pdf)
 
 Raft 的 Website: [https://raft.github.io/](https://raft.github.io/)
+
+Raft 是一种基于消息传递通信模型、用来管理日志复制的一致性协议，它允许一组机器像一个整体一样工作，即使其中的一些机器出现错误也能正常提供服务。在 Raft 被提出来之前，Paxos 协议是第一个被证明的一致性算法，但是 Paxos 的原理理解与工程实现都很困难。Raft 是 Paxos 的一种实现方式，目标是提供更好理解的算法，并被证明可以提供与 Paxos 相同的容错性以及性能。
+
+via: [分布式一致性协议 Raft 原理](https://wingsxdu.com/post/algorithms/raft/#gsc.tab=0)
 
 Etcd使用的是raft一致性算法来实现的，是一款分布式的一致性KV存储，主要用于共享配置和服务发现。
 
