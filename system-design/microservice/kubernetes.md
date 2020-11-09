@@ -41,7 +41,12 @@ Raft 协议将节点分为三类：Leader, Candidate and Follower，而所有节
 
 可见，Raft 结合了 Leader 选举和日志复制来完成。先来详细看下 Leader 选举
 
-1. Leader 选举有两个控制选举的超时配置：选举超时时间和心跳超时时间
+1. Leader 选举有两个控制选举的超时配置：选举超时时间和心跳超时时间；选举超时时间是 Follwer 变为 Candidate 的等待时间，一般是 150ms 到 300ms 的一个随机值，一旦超时，Follower 就会变成 Candidate 进入一个新的选举周期，先投给自己一票，然后向其他节点发送一个投票请求，如果接收到投票请求的节点还没有投票，就会投票给请求的节点，该节点则会充置自己的超时时间，一旦 Candidate 获得了半数以上的票，就会变成 Leader；接着 Leader 就会发送追加消息给其他的 Follower；这些消息以心跳超时指定的时间间隔发送，Follwoer 会响应每一个追加的消息；此选举任期将持续到 Follower 停止接收心跳并成为 Candidate 为止，然后就会进入重新选举的流程。半数机制保证了每轮的选举都最多有一个 Leader 被选出。
+2. 一旦我们有一个 Leader，需要把所有的系统变化复制到所有节点上，通过使用与心跳相同的“添加条目”消息来完成此操作。
+
+Raft 的论文：[In Search of an Understandable Consensus Algorithm](https://raft.github.io/raft.pdf)
+
+Raft 的 Website: [https://raft.github.io/](https://raft.github.io/)
 
 Etcd使用的是raft一致性算法来实现的，是一款分布式的一致性KV存储，主要用于共享配置和服务发现。
 
