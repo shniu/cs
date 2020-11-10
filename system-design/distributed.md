@@ -1,6 +1,20 @@
 # 分布式系统
 
-分布式系统
+### 分布式一致性协议
+
+#### Raft 协议
+
+* [分布式一致性协议 Raft 原理](https://wingsxdu.com/post/algorithms/raft/#gsc.tab=0)
+* Raft 的论文：[In Search of an Understandable Consensus Algorithm](https://raft.github.io/raft.pdf)
+* Raft 的 Website: [https://raft.github.io/](https://raft.github.io/)
+* [寻找一种易于理解的一致性算法（扩展版）](https://github.com/maemual/raft-zh_cn/blob/master/raft-zh_cn.md)
+
+raft 的实现
+
+* [DLedger](https://github.com/openmessaging/openmessaging-storage-dledger): A raft-based java library for building high-available, high-durable, strong-consistent commitlog, which could act as the persistent layer for distributed storage system, i.e. messaging, streaming, kv, db, etc.
+* [https://github.com/hashicorp/raft](https://github.com/hashicorp/raft)
+* [etcd 中 raft 的实现](https://github.com/etcd-io/etcd/tree/master/raft)
+* 蚂蚁金服的 Raft 实现：[sofa-jraft](https://github.com/sofastack/sofa-jraft)
 
 
 
