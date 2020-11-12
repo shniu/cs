@@ -2,6 +2,8 @@
 
 ### 分布式一致性协议
 
+构建数据密集型应用：[一致性与共识](https://github.com/Vonng/ddia/blob/master/ch9.md)
+
 #### Raft
 
 * [分布式一致性协议 Raft 原理](https://wingsxdu.com/post/algorithms/raft/#gsc.tab=0)
