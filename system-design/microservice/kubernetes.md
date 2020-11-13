@@ -32,6 +32,10 @@ Kubernetes 的未来：
 
 * [ ] \*\*\*\*[**分布式键值存储 etcd 原理与实现 · Analyze**](https://wingsxdu.com/post/database/etcd/#gsc.tab=0)
 * [x] [raft 协议动画演示](http://thesecretlivesofdata.com/raft/)
+* etcd: [https://etcd.io/](https://etcd.io/)
+* [https://kubernetes.io/docs/tasks/administer-cluster/configure-upgrade-etcd/](https://kubernetes.io/docs/tasks/administer-cluster/configure-upgrade-etcd/)
+
+etcd 是一个高度一致的分布式键值存储，它提供了一种可靠的方式来存储需要由分布式系统或机器集群访问的数据。它可以优雅地处理网络分区期间的领导者选举，即使在领导者节点中也可以容忍机器故障。\(**etcd** is a strongly consistent, distributed key-value store that provides a reliable way to store data that needs to be accessed by a distributed system or cluster of machines. It gracefully handles leader elections during network partitions and can tolerate machine failure, even in the leader node.\)
 
 #### raft 协议简单介绍
 
@@ -53,6 +57,8 @@ Raft 是一种基于消息传递通信模型、用来管理日志复制的一致
 via: [分布式一致性协议 Raft 原理](https://wingsxdu.com/post/algorithms/raft/#gsc.tab=0)
 
 Etcd使用的是raft一致性算法来实现的，是一款分布式的一致性KV存储，主要用于共享配置和服务发现。
+
+via1:[ Etcd 架构和实现解析](http://jolestar.com/etcd-architecture/)
 
 ### 搭建环境
 
