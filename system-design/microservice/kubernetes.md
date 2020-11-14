@@ -221,7 +221,7 @@ via: [https://kubernetes.io/docs/concepts/overview/components/](https://kubernet
 #### Kubernetes 核心原理
 
 * [架构原理](https://kubernetes.feisky.xyz/concepts/architecture)
-* [Kubernetes Design and Architecture](https://github.com/kubernetes/community/blob/master/contributors/design-proposals/architecture/architecture.md)
+* [Kubernetes Design and Architecture](https://github.com/kubernetes/community/blob/master/contributors/design-proposals/architecture/architecture.md)  kubernetes 项目的设计和架构文档
 * [设计理念](https://kubernetes.feisky.xyz/concepts/concepts)
 * 核心组件
 
