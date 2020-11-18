@@ -227,11 +227,11 @@ via: [https://kubernetes.io/docs/concepts/overview/components/](https://kubernet
 
 #### API Server
 
-
+kube-apiserver 是客户端和系统组件用来保留和检索集群状态的主要接口。
 
 #### Etcd
 
-
+了解其基本原理，如 Raft 算法，选主/日志复制/安全策略，Watch 机制等
 
 ### 参考
 
@@ -240,6 +240,7 @@ via: [https://kubernetes.io/docs/concepts/overview/components/](https://kubernet
 * [Kubernetes 源码精读](https://github.com/cloudnativeto/sig-k8s-source-code)
 * [Kubernetes Handbook](https://jimmysong.io/kubernetes-handbook/cloud-native/play-with-kubernetes.html)
 * [https://kubernetes.feisky.xyz/](https://kubernetes.feisky.xyz/) Kubernetes 指南
+* [kubectl run 背后发生了什么？](https://github.com/jamiehannaford/what-happens-when-k8s/tree/master/zh-cn)
 
 环境
 
