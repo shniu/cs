@@ -233,6 +233,8 @@ kube-apiserver 是客户端和系统组件用来保留和检索集群状态的�
 
 了解其基本原理，如 Raft 算法，选主/日志复制/安全策略，Watch 机制等
 
+
+
 ### 参考
 
 * [Kubernetes 基本概念和应用](https://www.bilibili.com/video/BV1Ja4y1x748)
@@ -241,6 +243,10 @@ kube-apiserver 是客户端和系统组件用来保留和检索集群状态的�
 * [Kubernetes Handbook](https://jimmysong.io/kubernetes-handbook/cloud-native/play-with-kubernetes.html)
 * [https://kubernetes.feisky.xyz/](https://kubernetes.feisky.xyz/) Kubernetes 指南
 * [kubectl run 背后发生了什么？](https://github.com/jamiehannaford/what-happens-when-k8s/tree/master/zh-cn)
+
+![kubectl run &#x521B;&#x5EFA; Pod &#x8FC7;&#x7A0B;](../../.gitbook/assets/image%20%2882%29.png)
+
+ 
 
 环境
 
