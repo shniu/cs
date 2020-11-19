@@ -13,6 +13,9 @@
 * [git-scm: git 分支](https://git-scm.com/book/zh/v2/Git-%E5%88%86%E6%94%AF-%E5%88%86%E6%94%AF%E7%AE%80%E4%BB%8B)
 * [git pull 和 git fetch](https://juejin.im/post/6844903921794859021)
 * [git checkout tags, very detail](https://devconnected.com/how-to-checkout-git-tags/)
+* [https://www.educative.io/edpresso/how-to-delete-remote-branches-in-git](https://www.educative.io/edpresso/how-to-delete-remote-branches-in-git)
+* [https://devconnected.com/how-to-delete-local-and-remote-tags-on-git/](https://devconnected.com/how-to-delete-local-and-remote-tags-on-git/)
+* [github fork 后如何 sync](https://www.jianshu.com/p/199733864fe7)
 
 ```bash
 // --- 回退 merge
@@ -41,7 +44,7 @@ git rebase
 git pull origin master --allow-unrelated-histories
 ```
 
-### Gradle
+### Gradle 
 
 使用 Gradle 构建 Spring 的项目，关于 Spring 的配置依赖
 
