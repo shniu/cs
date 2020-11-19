@@ -106,3 +106,31 @@ MQ 是现代微服务架构和云原生架构的基础服务组件，主要用�
 8. [你真的知道怎么实现一个延迟队列吗？](https://mp.weixin.qq.com/s/A85ievNNzHDrQv67yBkbtA)
 9. [延迟队列浅析](https://mp.weixin.qq.com/s/xMM8GDNSIDh9ekzYds3YDg)
 
+延迟队列场景：
+
+1. 订单在30分钟之内未支付则自动取消。
+2. 重试机制实现,把调用失败的接口放入一个固定延时的队列,到期后再重试。
+3. 新创建的店铺，如果在十天内都没有上传过商品，则自动发送消息提醒。
+4. 用户发起退款，如果三天内没有得到处理则通知相关运营人员。
+5. 预定会议后，需要在预定的时间点前十分钟通知各个与会人员参加会议。
+6. 关闭空闲连接，服务器中，有很多客户端的连接，空闲一段时间之后需要关闭之。
+7. 清理过期数据业务。比如缓存中的对象，超过了空闲时间，需要从缓存中移出。
+8. 多考生考试,到期全部考生必须交卷,要求时间非常准确的场景。
+
+解决方案：
+
+1. 定期轮询（数据库等）
+2. JDK DelayQueue
+3. JDK Timer
+4. ScheduledExecutorService 周期性线程池
+5. 时间轮\(kafka\)
+6. 时间轮\(Netty的HashedWheelTimer\)
+7. Redis有序集合（zset）
+8. zookeeper之curator
+9. RabbitMQ
+10. Quartz,xxljob等定时任务框架
+11. Koala\(考拉\)
+12. JCronTab\(仿crontab的java调度器\)
+13. SchedulerX（阿里）
+14. 有赞延迟队列
+
