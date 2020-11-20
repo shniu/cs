@@ -112,6 +112,10 @@ $ ./gradlew wrapper --gradle-version=6.2.1 --distribution-type=all
 2. [https://oss.sonatype.org/](https://oss.sonatype.org/)
 3. [https://issues.sonatype.org/browse/OSSRH-61341](https://issues.sonatype.org/browse/OSSRH-61341)
 
+### Shell
+
+* [https://linuxcommand.org/lc3\_wss0120.php](https://linuxcommand.org/lc3_wss0120.php)
+
 ### Java Libs
 
 #### Lombok
