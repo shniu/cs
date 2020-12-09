@@ -120,6 +120,7 @@ $ ./gradlew wrapper --gradle-version=6.2.1 --distribution-type=all
 #### awk and sed
 
 * [https://www.ruanyifeng.com/blog/2018/11/awk.html](https://www.ruanyifeng.com/blog/2018/11/awk.html)
+* [https://segmentfault.com/a/1190000020613397](https://segmentfault.com/a/1190000020613397)
 
 ```bash
 # 删除最后一个字段
