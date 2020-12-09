@@ -117,6 +117,36 @@ $ ./gradlew wrapper --gradle-version=6.2.1 --distribution-type=all
 * [https://linuxcommand.org/lc3\_wss0120.php](https://linuxcommand.org/lc3_wss0120.php)
 * [如何编写 shell 脚本](https://linuxcommand.org/lc3_writing_shell_scripts.php#contents)
 
+#### awk and sed
+
+* [https://www.ruanyifeng.com/blog/2018/11/awk.html](https://www.ruanyifeng.com/blog/2018/11/awk.html)
+
+```bash
+# 删除最后一个字段
+$ minikube kubectl -- get pods -l app=redis-cluster -o jsonpath='{range.items[*]}{.status.podIP}:6379 ' | awk '{$NF="";print}'
+
+
+# File Content as below, file.txt:
+$ cat file.txt
+Mike Harrington:[510] 548-1278:250:100 :25
+Christian Dobbins:[408] 538-2358:155:90 :78
+Susan Dalsass:[206] 654-6279:250:60 :49
+Archie McNichol:[206] 548-1348:250:100 :200
+
+$ awk -F: 'OFS=":"{$NF="";print}' file.txt
+Mike Harrington:[510] 548-1278:250:100 :
+Christian Dobbins:[408] 538-2358:155:90 :
+Susan Dalsass:[206] 654-6279:250:60 :
+Archie McNichol:[206] 548-1348:250:100 :
+
+# 删除最后一个分隔符
+$ awk -F: 'OFS=":"{$NF="";print}' file.txt | sed 's/:$//g'
+Mike Harrington:[510] 548-1278:250:100
+Christian Dobbins:[408] 538-2358:155:90
+Susan Dalsass:[206] 654-6279:250:60
+Archie McNichol:[206] 548-1348:250:100
+```
+
 ### Java Libs
 
 #### Lombok
