@@ -122,6 +122,7 @@
   * [应用案例 - Redis 数据结构](middleware/redis/redis-data-struct.md)
   * [应用案例 - Redis 缓存应用](middleware/redis/redis-cache.md)
   * [应用案例 - Redis 集群](middleware/redis/redis-cluster.md)
+  * [Redis 生产案例](middleware/redis/redis-sheng-chan-an-li.md)
 * [MySQL](middleware/mysql/README.md)
   * [MySQL 基础](middleware/mysql/mysql-ji-chu.md)
   * [MySQL Index](middleware/mysql/index.md)
