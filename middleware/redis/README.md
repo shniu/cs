@@ -56,6 +56,7 @@
 * [Redis 使用手册](https://weread.qq.com/web/reader/75732070719551157574079)
 * [Redis 5 设计与源码分析](https://weread.qq.com/web/reader/d36322207190b923d368a9akc81322c012c81e728d9d180)   \(WIP\)
 * [Redis 设计与实现](https://weread.qq.com/web/reader/d35323e0597db0d35bd957bkc81322c012c81e728d9d180)
+* [Redis 开发与运维](https://weread.qq.com/web/reader/439327a0811e1aa5dg0166fd)
 
 
 

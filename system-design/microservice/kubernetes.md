@@ -34,6 +34,7 @@ Kubernetes 的未来：
 * [x] [raft 协议动画演示](http://thesecretlivesofdata.com/raft/)
 * etcd: [https://etcd.io/](https://etcd.io/)
 * [https://kubernetes.io/docs/tasks/administer-cluster/configure-upgrade-etcd/](https://kubernetes.io/docs/tasks/administer-cluster/configure-upgrade-etcd/)
+* [etcd labs](http://play.etcd.io/install)
 
 etcd 是一个高度一致的分布式键值存储，它提供了一种可靠的方式来存储需要由分布式系统或机器集群访问的数据。它可以优雅地处理网络分区期间的领导者选举，即使在领导者节点中也可以容忍机器故障。\(**etcd** is a strongly consistent, distributed key-value store that provides a reliable way to store data that needs to be accessed by a distributed system or cluster of machines. It gracefully handles leader elections during network partitions and can tolerate machine failure, even in the leader node.\)
 
