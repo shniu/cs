@@ -31,9 +31,10 @@
 * \*\*\*\*[How Twitter Uses Redis To Scale - 105TB RAM, 39MM QPS, 10,000+ Instances ](http://highscalability.com/blog/2014/9/8/how-twitter-uses-redis-to-scale-105tb-ram-39mm-qps-10000-ins.html)
 * [Awesome redis](https://github.com/JamzyWang/awesome-redis)
 
-#### 博客
+#### 博客和专栏
 
 * [Redis: under the hood](https://www.pauladamsmith.com/articles/redis-under-the-hood.html#redis-under-the-hood)
+* [Redis 核心技术与实践](https://time.geekbang.org/column/article/268247)
 
 #### 源码阅读
 
@@ -44,10 +45,12 @@
 #### 案例
 
 * [Redis 响应变慢，如何解决](https://time.geekbang.org/column/article/78984)
+* [用 Redis 构建集群的最佳实践](https://time.geekbang.org/column/article/217590)
 
 #### Book
 
 * [Redis 使用手册](https://weread.qq.com/web/reader/75732070719551157574079)
+* [Redis 5 设计与源码分析](https://weread.qq.com/web/reader/d36322207190b923d368a9akc81322c012c81e728d9d180)   \(WIP\)
 
 
 
