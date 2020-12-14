@@ -1,10 +1,5 @@
 # Redis
 
-* [ ] [Redis 的 epoll 模型](https://xie.infoq.cn/article/628ae27da9ccb37d2900e8ef4)
-* [ ] [Redis6 的多线程](https://xie.infoq.cn/article/91ab6a27e9bca957cab2d1819)
-* [ ] [美团针对 Redis Rehash 机制的探索和实践](https://www.cnblogs.com/meituantech/p/9376472.html)
-* [ ] [Redis6 的多线程IO处理过程详解](https://zhuanlan.zhihu.com/p/144805500)
-
 ### Redis 全景图
 
 ![](../../.gitbook/assets/image%20%2859%29.png)
@@ -18,6 +13,13 @@
 ![](../../.gitbook/assets/image%20%2858%29.png)
 
 根据这张全局的图，在遇到问题时就可以按图索骥进行分析，问题 -&gt; 主线 -&gt; 技术点，可以继续丰富这张图。
+
+### Todos
+
+* [ ] [Redis 的 epoll 模型](https://xie.infoq.cn/article/628ae27da9ccb37d2900e8ef4)
+* [ ] [Redis6 的多线程](https://xie.infoq.cn/article/91ab6a27e9bca957cab2d1819)
+* [ ] [美团针对 Redis Rehash 机制的探索和实践](https://www.cnblogs.com/meituantech/p/9376472.html)
+* [ ] [Redis6 的多线程IO处理过程详解](https://zhuanlan.zhihu.com/p/144805500)
 
 ### Redis Resource
 
@@ -35,6 +37,7 @@
 
 * [Redis: under the hood](https://www.pauladamsmith.com/articles/redis-under-the-hood.html#redis-under-the-hood)
 * [Redis 核心技术与实践](https://time.geekbang.org/column/article/268247)
+* [Redis 深度历险](https://juejin.cn/book/6844733724618129422/section/6844733724660072461)
 
 #### 源码阅读
 
@@ -46,11 +49,13 @@
 
 * [Redis 响应变慢，如何解决](https://time.geekbang.org/column/article/78984)
 * [用 Redis 构建集群的最佳实践](https://time.geekbang.org/column/article/217590)
+* [缓存的最佳实践系列](https://time.geekbang.org/column/article/149899)
 
 #### Book
 
 * [Redis 使用手册](https://weread.qq.com/web/reader/75732070719551157574079)
 * [Redis 5 设计与源码分析](https://weread.qq.com/web/reader/d36322207190b923d368a9akc81322c012c81e728d9d180)   \(WIP\)
+* [Redis 设计与实现](https://weread.qq.com/web/reader/d35323e0597db0d35bd957bkc81322c012c81e728d9d180)
 
 
 
