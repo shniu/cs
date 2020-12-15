@@ -23,6 +23,13 @@
 
 ### Redis Resource
 
+#### 环境
+
+* [http://redis.cn/](http://redis.cn/)
+* [Redis Cluster 搭建流程](https://github.com/shniu/cloud-native-infrastructure/tree/master/middleware/redis-cluster)
+* [Redis Cluster on Kubernetes 构建](https://github.com/shniu/cloud-native-infrastructure/tree/master/minikube-dev-env/resources/redis-cluster)
+* [Redis 集群规范](http://redis.cn/topics/cluster-spec.html)
+
 #### Command
 
 * [Redis 命令备忘录](https://cheatography.com/tasjaevan/cheat-sheets/redis/)
