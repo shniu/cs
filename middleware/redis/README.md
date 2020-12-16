@@ -57,6 +57,7 @@
 * [Redis 响应变慢，如何解决](https://time.geekbang.org/column/article/78984)
 * [用 Redis 构建集群的最佳实践](https://time.geekbang.org/column/article/217590)
 * [缓存的最佳实践系列](https://time.geekbang.org/column/article/149899)
+* [https://github.com/JamzyWang/awesome-redis\#use-cases](https://github.com/JamzyWang/awesome-redis#use-cases)
 
 #### Book
 
