@@ -9,6 +9,8 @@
   * [系统初始化](cs/os/01-xi-tong-chu-shi-hua.md)
   * [进程管理](cs/os/02-jin-cheng-guan-li.md)
   * [文件系统](cs/os/file-system.md)
+  * [Linux](cs/os/linux/README.md)
+    * [IO 多路复用](cs/os/linux/io-duo-lu-fu-yong.md)
 * [计算机网络](cs/network/README.md)
   * [评估系统的网络性能](cs/network/ping-gu-xi-tong-de-wang-luo-xing-neng.md)
   * [网络抓包](cs/network/wang-luo-zhua-bao.md)
