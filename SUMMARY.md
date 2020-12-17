@@ -115,6 +115,7 @@
   * [Spring Cloud Alibaba](framework/spring-cloud-netflix/spring-cloud-alibaba.md)
 * [FixJ](framework/fixj.md)
 * [Metrics](framework/metrics.md)
+* [Vert.x](framework/vert.x.md)
 
 ## 中间件 <a id="middleware"></a>
 
