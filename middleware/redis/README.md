@@ -20,6 +20,8 @@
 * [ ] [Redis6 的多线程](https://xie.infoq.cn/article/91ab6a27e9bca957cab2d1819)
 * [ ] [美团针对 Redis Rehash 机制的探索和实践](https://www.cnblogs.com/meituantech/p/9376472.html)
 * [ ] [Redis6 的多线程IO处理过程详解](https://zhuanlan.zhihu.com/p/144805500)
+* [ ] [微博9年Redis优化之路](https://www.infoq.cn/article/bpdipUY0QM4ilMZbjbS1)
+* [ ] 缓存究竟如何运作，才能接住百亿级明星热点的访问？[https://zhuanlan.zhihu.com/p/76394074](https://zhuanlan.zhihu.com/p/76394074)
 
 ### Redis Resource
 
