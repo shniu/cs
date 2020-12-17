@@ -22,6 +22,8 @@
 * [ ] [Redis6 的多线程IO处理过程详解](https://zhuanlan.zhihu.com/p/144805500)
 * [ ] [微博9年Redis优化之路](https://www.infoq.cn/article/bpdipUY0QM4ilMZbjbS1)
 * [ ] 缓存究竟如何运作，才能接住百亿级明星热点的访问？[https://zhuanlan.zhihu.com/p/76394074](https://zhuanlan.zhihu.com/p/76394074)
+* [ ] [https://xie.infoq.cn/article/ffd54759343fe15a54493adab](https://xie.infoq.cn/article/ffd54759343fe15a54493adab)
+* [ ] [https://xie.infoq.cn/article/ee8b2cd973e8ccd0ef239e944](https://xie.infoq.cn/article/ee8b2cd973e8ccd0ef239e944)
 
 ### Redis Resource
 
