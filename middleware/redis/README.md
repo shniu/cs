@@ -48,6 +48,7 @@
 
 #### 源码阅读
 
+* [https://github.com/shniu/redis/tree/5.0](https://github.com/shniu/redis/tree/5.0) by myself, 调试、验证等，一些自己验证某些问题写的 C 代码
 * [Redis 源码分析](http://bbs.redis.cn/forum.php?mod=viewthread&tid=545)
 * [oss-study/redis](https://github.com/oss-study/redis)
 * [Redis 数据结构与实现](https://wingsxdu.com/post/database/redis/struct/#gsc.tab=0)
