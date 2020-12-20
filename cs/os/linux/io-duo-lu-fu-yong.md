@@ -17,6 +17,17 @@ epoll
 * [ ] [https://xie.infoq.cn/article/628ae27da9ccb37d2900e8ef4](https://xie.infoq.cn/article/628ae27da9ccb37d2900e8ef4)
 * [ ] [http://swingseagull.github.io/2016/11/08/epoll-sample/](http://swingseagull.github.io/2016/11/08/epoll-sample/)
 
+**在 IO 过程中，发送和接收数据的过程分为两步**：
+
+1. 对于发送数据流程：
+
+   1. 第一阶段是用户态的应用程序准备好数据，执行系统调用，将用户态的数据 copy 到内核中的缓冲区，每个 Socket 有自己的发送 buffer  \(**Waiting for the data to be ready**\)
+   2. 第二个阶段是数据 copy 到内核完成后，由内核进行调度，交给网卡，将数据发送出去 \(**Copying the data from the process to the kernel**\)
+
+2. 对于接收数据流程：
+   1. 第一阶段内核态下准备数据，网卡收到数据，复制到内核 buffer 中，每个 Socket 都有自己的接收 buffer  \(**Waiting for the data to be ready**\)
+   2. 第二阶段是数据到达或者准备好后，将数据从内核态 copy 到用户态，供应用程序使用 \(**Copying the data from the kernel to the process**\)
+
 
 
 ### QA
@@ -82,4 +93,24 @@ sysctl -p /etc/sysctl.conf
 * 服务器支持1200万连接的案例 \([12 Million Concurrent Connections with MigratoryData WebSocket Server](https://migratorydata.com/2013/06/20/12-million-concurrent-connections-with-migratorydata-websocket-server/)\)
 
 对 1200 万的并发连接在单机服务器上做了基准测试，给出了资源利用率和单机服务器的配置；1200 万连接大概使用了 60% CPU，54G 内存（这个内存是JVM占用的，实际连接占用的内存在36G左右）
+
+* 最大文件句柄数的最大值受另外一个参数控制
+
+```bash
+# 系统限制的最大文件句柄数
+vagrant@ubuntu-bionic:~$ cat /proc/sys/fs/nr_open
+1048576
+
+# 如果超过，就会报错
+vagrant@ubuntu-bionic:~$ ulimit -Hn 9000000
+-bash: ulimit: open files: cannot modify limit: Operation not permitted
+
+# 把值修改的更大一些
+root@ubuntu-bionic:~# sysctl -w fs.nr_open=100000000
+fs.nr_open = 100000000
+```
+
+那这参数最大值，可以到多少呢？2147483584 （即7FFFFFC0，也就是在MAXINT（2147483647）基础上按64字节对齐）
+
+* **linux系统下，一个socket连接一般占用 3K, 所以 100 万连接至少需要 3G，而 1000 万就要 30G 了**
 
