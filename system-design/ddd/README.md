@@ -105,9 +105,15 @@ EventStorming 是一种新型的工作坊模式，它可以帮助我们协作探
 
 1. [实现领域驱动设计](../../other/reading/ddd-impl.md)
 2. [复杂软件设计之道：领域驱动设计全面解析与实战](https://www.jdon.com/54881)  [配套视频](https://pan.baidu.com/disk/home#/all?path=%2FDDD&vmode=list)  [通过JiveJdon入门学习DDD](https://www.jdon.com/ddd/jivejdon/1.html)
+3. 解构领域驱动设计 
+4. 中台架构与实现：基于DDD和微服务
 
 DDD 实践案例
 
 * [聊一聊聚合的持久化](https://zhuanlan.zhihu.com/p/87074950?utm_source=wechat_session&utm_medium=social&s_r=0)
 * [https://app.gitbook.com/@fuinorg/s/ddd-4-java/](https://app.gitbook.com/@fuinorg/s/ddd-4-java/)
+
+#### DDD 会议
+
+* [2020 DDD China](https://scrmtech.gensee.com/webcast/site/vod/play-f548661ed9764816a0b32fdcb053bd32)
 
