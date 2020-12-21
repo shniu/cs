@@ -183,3 +183,7 @@
 * [\#架构](blog/architecture/README.md)
   * [1- 通信](blog/architecture/1-mysql-protocol.md)
 
+## Tiny Project
+
+* [A Simple WeChat-like Instant Messaging Platform](tiny-project/a-simple-wechat-like-instant-messaging-platform.md)
+
