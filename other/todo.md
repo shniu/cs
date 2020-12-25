@@ -4,6 +4,9 @@ description: Todo list
 
 # Todo
 
+* [ ] 数据结构与算法方面
+  * [ ] 复习之前学习的数据结构与算法知识，重做之前的 leetcode 题目
+  * [ ] 复习计划
 * [ ] @Transactional 的原理，[使用注意事项](https://blog.csdn.net/qq_20597727/article/details/84900994)，并由此探索一下 Spring 的事务管理
 * [ ] spring 核心思想与源码阅读，spring boot （[https://fangjian0423.github.io/2017/06/05/springboot-source-analysis-summary/](https://fangjian0423.github.io/2017/06/05/springboot-source-analysis-summary/)）
   * [ ] [https://cloud.tencent.com/developer/article/1661119](https://cloud.tencent.com/developer/article/1661119)
@@ -45,9 +48,14 @@ description: Todo list
   * [ ] [https://zhuanlan.zhihu.com/p/62251242](https://zhuanlan.zhihu.com/p/62251242)
 * [ ] Redis
   * [ ] [https://zhuanlan.zhihu.com/p/93744024](https://zhuanlan.zhihu.com/p/93744024) redis reactor 源码分析
+  * [ ] Redis 客户端 Redisson 使用、原理、架构分析，尤其是对异步编程框架的使用
 * [ ] Java
   * [ ] 数据结构 - TreeMap [https://www.jianshu.com/p/2dcff3634326](https://www.jianshu.com/p/2dcff3634326)
   * [ ] [https://cloud.tencent.com/developer/article/1610921](https://cloud.tencent.com/developer/article/1610921)
+* [ ] 网络模型与线程模型
+  * [ ] 使用 Java NIO 开发一个 简单的 IM 系统
+  * [ ] 使用 Netty 开发一个 IM 系统
+  * [ ] 研究 Netty 的使用，架构和核心源码实现
 * [ ] [Kubernetes 和微服务监控体系](https://space.bilibili.com/518029478?spm_id_from=333.788.b_765f7570696e666f.2) 杨波老师
 * [ ] metrics 深入研究 （dropwizard metrics / alibaba metrics\)
 * [ ] 性能测试
