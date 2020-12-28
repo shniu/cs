@@ -226,4 +226,5 @@ public native void putByte(long address, byte x);
 * [Unsafe source code](http://hg.openjdk.java.net/jdk/jdk/file/a1ee9743f4ee/jdk/src/share/classes/sun/misc/Unsafe.java)
 * [Java Magic. Part 4: sun.misc.Unsafe](http://ifeve.com/sun-misc-unsafe/)
 * [跟我一起剖析 Java 并发源码之 Unsafe](https://juejin.im/post/5921927c44d904006cca9720)
+* [Java 中神奇的双刃剑 - Unsafe](https://www.cnblogs.com/throwable/p/9139947.html)
 
