@@ -6,5 +6,5 @@ Executor 也是一个抽象，它将任务的提交从每个任务应该如何�
 
 Executor 只是任务执行器的一个抽象，并没有直接定义这个执行器必须是异步的，同步执行器也是允许的；通常情况下，执行器中的任务是在其他的线程中执行的，而非调用 Executor 的当前线程；`ExecutorService` 是 Executor 的一个实现，同时 `ThreadPoolExecutor` 提供了一个线程池版本的实现。
 
-
+FutureTask 是一个可取消的异步计算，它提供了 Future 的一个基本实现: 启动和取消一个异步计算
 

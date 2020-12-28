@@ -53,6 +53,7 @@ description: Todo list
   * [ ] 异步编程框架 \(Future, CompletableFuture etc.\)
   * [ ] 数据结构 - TreeMap [https://www.jianshu.com/p/2dcff3634326](https://www.jianshu.com/p/2dcff3634326)
   * [ ] [https://cloud.tencent.com/developer/article/1610921](https://cloud.tencent.com/developer/article/1610921)
+  * [ ] StampedLock 源码分析
 * [ ] 网络模型与线程模型
   * [ ] 使用 Java NIO 开发一个 简单的 IM 系统
   * [ ] [https://www.oreilly.com/library/view/java-nio/0596002882/ch04.html](https://www.oreilly.com/library/view/java-nio/0596002882/ch04.html) NIO selector
