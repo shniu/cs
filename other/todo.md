@@ -55,6 +55,9 @@ description: Todo list
   * [ ] [https://cloud.tencent.com/developer/article/1610921](https://cloud.tencent.com/developer/article/1610921)
 * [ ] 网络模型与线程模型
   * [ ] 使用 Java NIO 开发一个 简单的 IM 系统
+  * [ ] [https://www.oreilly.com/library/view/java-nio/0596002882/ch04.html](https://www.oreilly.com/library/view/java-nio/0596002882/ch04.html) NIO selector
+  * [ ] [https://juejin.cn/post/6844904053294497799\#heading-6](https://juejin.cn/post/6844904053294497799#heading-6)
+  * [ ] [https://www.cnblogs.com/sheng-jie/p/how-much-you-know-about-io-models.html](https://www.cnblogs.com/sheng-jie/p/how-much-you-know-about-io-models.html)
   * [ ] 使用 Netty 开发一个 IM 系统
   * [ ] 研究 Netty 的使用，架构和核心源码实现
 * [ ] [Kubernetes 和微服务监控体系](https://space.bilibili.com/518029478?spm_id_from=333.788.b_765f7570696e666f.2) 杨波老师
