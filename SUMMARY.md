@@ -37,6 +37,9 @@
 * [Data Structure and Algorithm](cs/data-structure-and-algorithm/README.md)
   * [Summarize](cs/data-structure-and-algorithm/summarize/README.md)
     * [算法中的复杂度分析](cs/data-structure-and-algorithm/summarize/suan-fa-zhong-de-fu-za-du-fen-xi.md)
+    * [二分思想](cs/data-structure-and-algorithm/summarize/er-fen-si-xiang.md)
+  * [Data Structure](cs/data-structure-and-algorithm/data-structure/README.md)
+    * [Data Struct - Array](cs/data-structure-and-algorithm/data-structure/data-struct-array.md)
   * [Leetcode](cs/data-structure-and-algorithm/leetcode.md)
 
 ## 系统设计 <a id="system-design"></a>
