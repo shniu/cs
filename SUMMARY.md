@@ -40,6 +40,8 @@
     * [二分思想](cs/data-structure-and-algorithm/summarize/er-fen-si-xiang.md)
   * [Data Structure](cs/data-structure-and-algorithm/data-structure/README.md)
     * [Data Struct - Array](cs/data-structure-and-algorithm/data-structure/data-struct-array.md)
+    * [Tree](cs/data-structure-and-algorithm/data-structure/tree.md)
+    * [Hash](cs/data-structure-and-algorithm/data-structure/hash.md)
   * [Leetcode](cs/data-structure-and-algorithm/leetcode.md)
 
 ## 系统设计 <a id="system-design"></a>
