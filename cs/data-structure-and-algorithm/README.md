@@ -6,6 +6,7 @@ description: '#数据结构 #算法'
 
 ## Data Structure and Algorithm
 
+* Summarize
 * Data Structure
 * Algorithm
   * 滑动窗口

@@ -36,6 +36,8 @@
     * [08-字符串算法总结](cs/algorithm/algotrain/08-zi-fu-chuan-suan-fa-zong-jie.md)
     * [毕业总结](cs/algorithm/algotrain/bi-ye-zong-jie.md)
 * [Data Structure and Algorithm](cs/data-structure-and-algorithm/README.md)
+  * [Summarize](cs/data-structure-and-algorithm/summarize/README.md)
+    * [算法中的复杂度分析](cs/data-structure-and-algorithm/summarize/suan-fa-zhong-de-fu-za-du-fen-xi.md)
   * [Leetcode](cs/data-structure-and-algorithm/leetcode.md)
 
 ## 系统设计 <a id="system-design"></a>
