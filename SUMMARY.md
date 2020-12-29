@@ -35,6 +35,8 @@
     * [07-排序算法总结](cs/algorithm/algotrain/07-pai-xu-suan-fa-zong-jie.md)
     * [08-字符串算法总结](cs/algorithm/algotrain/08-zi-fu-chuan-suan-fa-zong-jie.md)
     * [毕业总结](cs/algorithm/algotrain/bi-ye-zong-jie.md)
+* [Data Structure and Algorithm](cs/data-structure-and-algorithm/README.md)
+  * [Leetcode](cs/data-structure-and-algorithm/leetcode.md)
 
 ## 系统设计 <a id="system-design"></a>
 
