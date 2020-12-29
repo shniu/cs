@@ -15,7 +15,6 @@
   * [评估系统的网络性能](cs/network/ping-gu-xi-tong-de-wang-luo-xing-neng.md)
   * [网络抓包](cs/network/wang-luo-zhua-bao.md)
 * [数据结构与算法](cs/algorithm/README.md)
-  * [复杂度分析](cs/algorithm/complex-analysis.md)
   * [常见数据结构](cs/algorithm/data-struct.md)
   * [剑指 Offer 题解](cs/algorithm/offer.md)
   * [字符串](cs/algorithm/string.md)
