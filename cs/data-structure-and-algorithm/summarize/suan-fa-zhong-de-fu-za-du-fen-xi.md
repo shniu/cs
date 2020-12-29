@@ -29,7 +29,7 @@ description: '#复杂度分析'
 * 嵌套的多层循环，时间复杂度和嵌套层数m有关系，一般是 O\(n^m\), 如冒泡排序O\(n^2\)
 * 有时算法是分多步完成的，例如 Topk 问题可以分解为：新建k个元素的堆；然后遍历 n - k 个元素插入堆中；调整堆；时间复杂度的组合就是：O\(k\) + O\(n-k\)  _O\(logk\) = O\(n_logk\)。需要根据具体算法分清楚是加还是乘
 
-```text
+```java
 // 表示成公式
 如果 T1(N) = O(f(n)), T2(N) = O(g(n)), 那么
 a. T1(N) + T2(N) = max(O(f(n)), O(g(n)))
@@ -42,7 +42,7 @@ b. T1(N) * T2(N) = O(f(n)*g(n))
 
 递归的分析方法相对来讲要复杂一些，需要先找出终止条件、子问题和递归式，然后可以使用一些数学分析方法来求解。
 
-```text
+```java
 // 二分查找的例子
 int binarySearch(int[] arr, int low, int hight, int target) {
     if (low > hight) return -1;
@@ -75,7 +75,7 @@ f(n) = 1 + logn, 所以 T(n) = O(logn)，二分查找的时间复杂度是 O(log
 
 * 例子：归并排序的复杂度分析
 
-```text
+```java
 // 归并排序复杂度分析
 int mergeSort(int[] arr, int low, int high) {
     if (low >= high) return;
@@ -126,4 +126,8 @@ void merge(A[p...r], A[p...q], A[q+1...r]) {
 ```
 
 复杂度分析需要多多练习，需要掌握复杂度分析的一般规则、组合规则、递归求解规则等，其中递归求解是比较复杂的分析方法。
+
+### 空间复杂度
+
+TODO
 
