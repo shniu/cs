@@ -132,7 +132,8 @@
 ## 中间件 <a id="middleware"></a>
 
 * [Redis](middleware/redis/README.md)
-  * [Redis 基础](middleware/redis/redis-ji-chu.md)
+  * [Redis 基础](middleware/redis/redis-ji-chu/README.md)
+    * [Redis 高性能网络模型](middleware/redis/redis-ji-chu/redis-gao-xing-neng-wang-luo-mo-xing.md)
   * [Redis checklist](middleware/redis/redis-checklist.md)
   * [应用案例 - Redis 数据结构](middleware/redis/redis-data-struct.md)
   * [应用案例 - Redis 缓存应用](middleware/redis/redis-cache.md)
