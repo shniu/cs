@@ -29,7 +29,6 @@
     * [03-第一次全方位认识贪心算法](cs/algorithm/algotrain/03-di-yi-ci-quan-fang-wei-ren-shi-tan-xin-suan-fa.md)
     * [05-分治、回溯、贪心和动态规划](cs/algorithm/algotrain/05-fen-zhi-hui-su-tan-xin-he-dong-tai-gui-hua.md)
     * [06-Trie与并查集与高级搜索](cs/algorithm/algotrain/06trie-yu-bing-cha-ji-yu-gao-ji-sou-suo.md)
-    * [07-排序算法总结](cs/algorithm/algotrain/07-pai-xu-suan-fa-zong-jie.md)
     * [08-字符串算法总结](cs/algorithm/algotrain/08-zi-fu-chuan-suan-fa-zong-jie.md)
 * [Data Structure and Algorithm](cs/data-structure-and-algorithm/README.md)
   * [Summarize](cs/data-structure-and-algorithm/summarize/README.md)
