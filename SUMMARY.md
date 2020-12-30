@@ -42,7 +42,9 @@
     * [Data Struct - Array](cs/data-structure-and-algorithm/data-structure/data-struct-array.md)
     * [Tree](cs/data-structure-and-algorithm/data-structure/tree.md)
     * [Hash](cs/data-structure-and-algorithm/data-structure/hash.md)
-  * [Leetcode](cs/data-structure-and-algorithm/leetcode.md)
+  * [Practice Topics](cs/data-structure-and-algorithm/practice-topics/README.md)
+    * [Topic - Tree](cs/data-structure-and-algorithm/practice-topics/topic-tree.md)
+    * [Topic - Graph](cs/data-structure-and-algorithm/practice-topics/topic-graph.md)
 
 ## 系统设计 <a id="system-design"></a>
 

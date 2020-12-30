@@ -34,14 +34,11 @@ description: '#数据结构 #算法'
   * GoLang
 * Case Analysis
   * Big Data
-* Deliberate Practice \(刻意练习\)
-
-### Deliberate Practice \(刻意练习\)
-
-练习题目来自 Leetcode, 剑指 Offer, 编程珠玑等
+* [Deliberate Practice](practice-topics/) \(刻意练习\)
 
 ### Reference
 
 * [华容道题解与算法分析](http://blog.lzh.today/klotski-solver/)  \[Todo\] 
 * [Big-O Cheat Sheet](https://www.bigocheatsheet.com/)  This webpage covers the space and time Big-O complexities of common algorithms used in Computer Science.
+* [怎样才算真正掌握一个数据结构和算法？](https://mp.weixin.qq.com/s/t8z4KQMrTrR3NljtWJm2zg)
 
