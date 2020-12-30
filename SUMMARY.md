@@ -41,6 +41,8 @@
     * [Data Struct - Array](cs/data-structure-and-algorithm/data-structure/data-struct-array.md)
     * [Tree](cs/data-structure-and-algorithm/data-structure/tree.md)
     * [Hash](cs/data-structure-and-algorithm/data-structure/hash.md)
+  * [Algorithm](cs/data-structure-and-algorithm/algorithm/README.md)
+    * [Sorting Algorithm](cs/data-structure-and-algorithm/algorithm/sorting-algorithm.md)
   * [Practice Topics](cs/data-structure-and-algorithm/practice-topics/README.md)
     * [Topic - Tree](cs/data-structure-and-algorithm/practice-topics/topic-tree.md)
     * [Topic - Graph](cs/data-structure-and-algorithm/practice-topics/topic-graph.md)
