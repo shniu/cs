@@ -26,7 +26,7 @@ MySQL 的 InnoDB 存储引擎是使用 B+ Tree 来组织数据的，也就是说
 
 ### [B+ Tree](https://zh.wikipedia.org/wiki/B%2B%E6%A0%91) 
 
-为什么选择使用 B+ Tree 来做数据库存储引擎的索引呢？涉及到：局部性原理，文件系统和磁盘的管理，数据结构的复杂度分析（能够应对高效查询的数据结构有哪些？avl / 红黑树 / hash 表 / 跳表），参考 [一般化到特殊化演变的树](../../cs/algorithm/algotrain/02-you-yi-ban-hua-dao-te-shu-hua-yan-bian-de-shu.md#wei-shen-me-hui-you-na-me-duo-te-shu-hua-de-shu)；B-Tree 和 B+Tree 是结合了磁盘访问特性和平衡二叉搜索树的满足特定需求的树结构，特别适合做大量数据的存储。
+为什么选择使用 B+ Tree 来做数据库存储引擎的索引呢？涉及到：局部性原理，文件系统和磁盘的管理，数据结构的复杂度分析（能够应对高效查询的数据结构有哪些？avl / 红黑树 / hash 表 / 跳表），参考 [一般化到特殊化演变的树](../../cs/data-structure-and-algorithm/summarize/02-you-yi-ban-hua-dao-te-shu-hua-yan-bian-de-shu.md#wei-shen-me-hui-you-na-me-duo-te-shu-hua-de-shu)；B-Tree 和 B+Tree 是结合了磁盘访问特性和平衡二叉搜索树的满足特定需求的树结构，特别适合做大量数据的存储。
 
 B+ Tree 的定义
 

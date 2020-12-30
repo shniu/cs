@@ -27,7 +27,6 @@
   * [Data Struct in SDK](cs/algorithm/data-struct-in-sdk.md)
   * [一些总结](cs/algorithm/algotrain/README.md)
     * [01-关于复杂度分析和渐进式优化](cs/algorithm/algotrain/01-guan-yu-fu-za-du-fen-xi-he-jian-jin-shi-you-hua.md)
-    * [02-由一般化到特殊化演变的树](cs/algorithm/algotrain/02-you-yi-ban-hua-dao-te-shu-hua-yan-bian-de-shu.md)
     * [03-第一次全方位认识贪心算法](cs/algorithm/algotrain/03-di-yi-ci-quan-fang-wei-ren-shi-tan-xin-suan-fa.md)
     * [05-分治、回溯、贪心和动态规划](cs/algorithm/algotrain/05-fen-zhi-hui-su-tan-xin-he-dong-tai-gui-hua.md)
     * [06-Trie与并查集与高级搜索](cs/algorithm/algotrain/06trie-yu-bing-cha-ji-yu-gao-ji-sou-suo.md)
@@ -38,6 +37,7 @@
   * [Summarize](cs/data-structure-and-algorithm/summarize/README.md)
     * [算法中的复杂度分析](cs/data-structure-and-algorithm/summarize/suan-fa-zhong-de-fu-za-du-fen-xi.md)
     * [二分思想](cs/data-structure-and-algorithm/summarize/er-fen-si-xiang.md)
+    * [树的演化](cs/data-structure-and-algorithm/summarize/02-you-yi-ban-hua-dao-te-shu-hua-yan-bian-de-shu.md)
   * [Data Structure](cs/data-structure-and-algorithm/data-structure/README.md)
     * [Data Struct - Array](cs/data-structure-and-algorithm/data-structure/data-struct-array.md)
     * [Tree](cs/data-structure-and-algorithm/data-structure/tree.md)
@@ -103,6 +103,8 @@
 * [Java 源码阅读](language/read-java-source-code/README.md)
   * [Unsafe](language/read-java-source-code/unsafe.md)
   * [异步计算 Future](language/read-java-source-code/future-and-completable-future.md)
+  * [Java Collections](language/read-java-source-code/java-collections/README.md)
+    * [HashMap 分析](language/read-java-source-code/java-collections/hashmap-fen-xi.md)
 * [Golang](language/golang.md)
 
 ## 框架/组件/类库 <a id="framework"></a>
