@@ -18,7 +18,7 @@ Deliberate Practice \(刻意练习\): 练习题目来自 Leetcode, 剑指 Offer,
 
 ### Fixed
 
-* Removed humans, they weren't doing fine with animals.
+* ...
 
 ### Changed
 

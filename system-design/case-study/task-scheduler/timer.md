@@ -20,7 +20,7 @@ Timer 的设计是线程安全的，多个线程可以共用一个 Timer 而不�
 
 `Timer` 的实现主要有三个部分组成：TimerTask 用来定义需要被执行的任务；TaskQueue 用来存储将要被执行的任务，可以添加很多个 TimerTask；TimerThread 是一个单线程，用来处理 TaskQueue 中需要被调度的任务；可见，Timer 的模型是单线程处理所有要被调度的任务，任务按照 Task 的 nextExecutionTime 排序的方式存储在一个优先级队列中，加入任务时，是把任务加入到任务队列中，何时真的被调度由 TimerThread 控制。
 
-注意：这里的 TaskQueue 的实现是基于二叉堆实现的优先级队列，[关于数据结构堆看这里](../../../cs/algorithm/heap.md)
+注意：这里的 TaskQueue 的实现是基于二叉堆实现的优先级队列，[关于数据结构堆看这里]()
 
 ```java
 // Timer.java
