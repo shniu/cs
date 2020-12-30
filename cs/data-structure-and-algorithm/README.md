@@ -4,16 +4,19 @@ description: '#数据结构 #算法'
 
 # Data Structure and Algorithm
 
+{% hint style="info" %}
+程序员的主要问题与其说是技术问题，还不如说是心理问题，他不能解决问题，是因为他在企图解决错误问题，问题的最终解决， 是通过打破他的概念壁垒，进而去解决一个较简单的问题而实现的。    -- 《编程珠玑》
+{% endhint %}
+
+{% hint style="info" %}
+简单的设计是：设计者确定其设计已经达到了完美的标准不是不能再增加任何东西，而是不能再减少任何东西。  -- 《编程珠玑》
+{% endhint %}
+
 ## Data Structure and Algorithm
 
-> 引用编程珠玑： 
->
-> 程序员的主要问题与其说是技术问题，还不如说是心理问题，他不能解决问题，是因为他在企图解决错误问题，问题的最终解决， 是通过打破他的概念壁垒，进而去解决一个较简单的问题而实现的。 
->
-> 简单的设计是：设计者确定其设计已经达到了完美的标准不是不能再增加任何东西，而是不能再减少任何东西。
+> Summarize
 
-* Summarize
-  * [算法中的复杂度分析](summarize/suan-fa-zhong-de-fu-za-du-fen-xi.md)
+* * [算法中的复杂度分析](summarize/suan-fa-zhong-de-fu-za-du-fen-xi.md)
   * [二分思想](summarize/er-fen-si-xiang.md)
 * Data Structure
   * [Array](data-structure/data-struct-array.md)
