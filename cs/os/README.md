@@ -1,4 +1,8 @@
-# 操作系统
+---
+description: '#操作系统'
+---
+
+# Operating System
 
 对 OS 的学习和总结，主要以 Linux 操作系统为主。
 
