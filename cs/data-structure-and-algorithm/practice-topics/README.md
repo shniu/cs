@@ -2,6 +2,8 @@
 
 Deliberate Practice \(刻意练习\): 练习题目来自 Leetcode, 剑指 Offer, 编程珠玑等
 
+刷题：剑指 offer -&gt; leetcode dp -&gt; leetcode 至少再刷 300 题
+
 ## Outline
 
 * [Topic - Tree](topic-tree.md)
