@@ -46,7 +46,13 @@ FutureTask 虽然提供了用来检查任务是否执行完成、等待任务执
 
 ### CompletableFuture
 
-TODO
+CompletableFuture 是一个可以通过编程方式显式地设置计算结果和状态以便让任务结束的 Future，并且其可以作为一个CompletionStage（计算阶段），当它的计算完成时可以触发一个函数或者行为；当多个线程企图调用同一个CompletableFuture的complete、cancel方式时只有一个线程会成功。
+
+* 当CompletableFuture任务完成后，同步使用任务执行线程来执行依赖任务结果的函数或者行为
+* 所有异步的方法在没有显式指定Executor参数的情形下都是复用ForkJoinPool. commonPool\(\)线程池来执行
+* 所有CompletionStage方法的实现都是相互独立的，以便一个方法的行为不会因为重载了其他方法而受影响
+
+RxJava
 
 ### 参考
 
