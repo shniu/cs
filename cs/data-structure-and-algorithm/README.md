@@ -14,10 +14,7 @@ description: '#数据结构 #算法'
 
 ## Data Structure and Algorithm
 
-> Summarize
-
-* * [算法中的复杂度分析](summarize/suan-fa-zhong-de-fu-za-du-fen-xi.md)
-  * [二分思想](summarize/er-fen-si-xiang.md)
+* Summarize
 * Data Structure
   * [Array](data-structure/data-struct-array.md)
   * Linked List
@@ -51,6 +48,8 @@ description: '#数据结构 #算法'
 6. 动手写代码，动手写代码，动手写代码
 
 ### 知识体系
+
+TODO: 完善数据结构和算法的整体关系、分类、联系等。
 
 ![&#x5E38;&#x89C1;&#x7B97;&#x6CD5;&#x548C;&#x6570;&#x636E;&#x7ED3;&#x6784;&#x7684;&#x590D;&#x6742;&#x5EA6; - bigocheatsheet.com](../../.gitbook/assets/image%20%2886%29.png)
 
