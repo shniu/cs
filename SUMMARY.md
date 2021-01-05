@@ -11,6 +11,7 @@
   * [Everything about Memory](cs/os/everything-about-memory.md)
   * [文件系统](cs/os/file-system.md)
   * [Linux](cs/os/linux/README.md)
+    * [CPU](cs/os/linux/cpu.md)
     * [IO 多路复用](cs/os/linux/io-duo-lu-fu-yong.md)
 * [Computer Network](cs/network/README.md)
   * [评估系统的网络性能](cs/network/ping-gu-xi-tong-de-wang-luo-xing-neng.md)
