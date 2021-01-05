@@ -66,6 +66,7 @@ procs -----------memory---------- ---swap-- -----io---- -system-- ------cpu-----
 ```text
 # Terminal 1
 $ sysbench --test=threads --num-threads=20 --max-time=300 --thread-locks=16 run
+$ sysbench --num-threads=10 --max-time=300 --max-requests=10000000 --test=threads run
 
 ```
 
