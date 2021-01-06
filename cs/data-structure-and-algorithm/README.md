@@ -109,6 +109,10 @@ TODO: 完善数据结构和算法的整体关系、分类、联系等。
   * [用动画的形式呈现解LeetCode题目的思路](https://github.com/MisterBooo/LeetCodeAnimation)
   * [https://www.cs.usfca.edu/~galles/visualization/Algorithms.html](https://www.cs.usfca.edu/~galles/visualization/Algorithms.html) 算法的动画演示
 
+#### QA
+
+* [学习了机器学习之后，还需要掌握传统的算法和数据结构吗](https://www.zhihu.com/question/61013864/answer/188160460)
+
 #### Book
 
 * 算法导论 

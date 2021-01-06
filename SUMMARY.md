@@ -105,6 +105,7 @@
     * [PriorityQueue 分析](language/read-java-source-code/java-collections/priorityqueue-fen-xi.md)
     * [HashMap 分析](language/read-java-source-code/java-collections/hashmap-fen-xi.md)
 * [Golang](language/golang.md)
+* [Python](language/python.md)
 
 ## 框架/组件/类库 <a id="framework"></a>
 
@@ -184,7 +185,8 @@
 * [论文](other/papers.md)
 * [工程博客](other/blog.md)
 * [阅读源码](other/yue-du-yuan-ma.md)
-* [面试](other/interview.md)
+* [面试](other/interview/README.md)
+  * [如何在最短的时间里对对方有个全面的了解](other/interview/ru-he-zai-zui-duan-de-shi-jian-li-dui-dui-fang-you-ge-quan-mian-de-le-jie.md)
 * [分享](other/share.md)
 * [软技能](other/soft-skill.md)
 * [Todo](other/todo.md)

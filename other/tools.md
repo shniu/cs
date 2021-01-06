@@ -207,3 +207,7 @@ Vagrant 是一个非常好用的工具，仅仅声明一个定义文件就可以
 
 * [https://seisman.github.io/how-to-write-makefile/introduction.html](https://seisman.github.io/how-to-write-makefile/introduction.html)
 
+### KanBan 看板
+
+kanban 的本质是一个朴素的思想：在制品（work in progress, WIP）必须被限制；
+
