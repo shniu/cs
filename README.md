@@ -4,6 +4,10 @@ description: 简要介绍
 
 # Introduction
 
+{% hint style="info" %}
+Engineers for the cloud native Era.
+{% endhint %}
+
 > 学习不仅是为了找到答案，更是为了找到方法。
 
 CS 是计算机科学 \(Computer Science\) 的缩写，这个 Project 是一个总结，把自己认为和计算机相关的一些东西放进来（主要是和自己工作相关的一些知识），当然也不仅仅只包含计算机的东西。目前更多的关注在：
