@@ -26,13 +26,12 @@ MQ 是现代微服务架构和云原生架构的基础服务组件，主要用�
 5. [PMQ 设计](https://github.com/ppdaicorp/pmq/wiki/PMQ%E8%AE%BE%E8%AE%A1)
 6. [killbill-commons/queue](https://github.com/killbill/killbill-commons/tree/master/queue)  Notification Queue: persistent job queue, used for jobs scheduling
 7. 消息队列性能分析 [chrome-extension://ikhdkkncnoglghljlkmcimlnlhkeamad/pdf-viewer/web/viewer.html?file=https%3A%2F%2Fdigitalscholarship.unlv.edu%2Fcgi%2Fviewcontent.cgi%3Farticle%3D4749%26context%3Dthesesdissertations](chrome-extension://ikhdkkncnoglghljlkmcimlnlhkeamad/pdf-viewer/web/viewer.html?file=https%3A%2F%2Fdigitalscholarship.unlv.edu%2Fcgi%2Fviewcontent.cgi%3Farticle%3D4749%26context%3Dthesesdissertations)  [https://digitalscholarship.unlv.edu/cgi/viewcontent.cgi?article=4749&context=thesesdissertations](https://digitalscholarship.unlv.edu/cgi/viewcontent.cgi?article=4749&context=thesesdissertations)
+8. [https://github.com/obsidiandynamics/meteor](https://github.com/obsidiandynamics/meteor)
 
 博客
 
 1. [金融级别：新一代云原生消息队列在腾讯计费的实践](https://cloud.tencent.com/developer/salon/live-1253?channel=hlwjgs)
 2. [云原生时代消息中间件的演进路线](https://www.infoq.cn/article/XJHaDxGKIRL3AtvWPx5c)
-
-
 
 ### Big Queue
 
