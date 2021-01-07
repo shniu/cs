@@ -4,6 +4,7 @@
 
 ## Computer Science <a id="cs"></a>
 
+* [Computer Organization](cs/computer-organization.md)
 * [Operating System](cs/os/README.md)
   * [操作系统基础知识](cs/os/00-cao-zuo-xi-tong-ji-chu-zhi-shi.md)
   * [系统初始化](cs/os/01-xi-tong-chu-shi-hua.md)
@@ -165,7 +166,7 @@
 
 * [线上 Case](qa/xian-shang-case/README.md)
   * [Request Aborted](qa/xian-shang-case/rest-template-qa.md)
-  * [Java 应用 CPU 100% 排查优化](qa/xian-shang-case/java-ying-yong-cpu-100-pai-cha-you-hua.md)
+  * [Java 应用 CPU 100% 排查优化](qa/xian-shang-case/cpu-high-opt.md)
 
 ## 大数据 <a id="bigdata"></a>
 
