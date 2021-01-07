@@ -165,6 +165,7 @@
 
 * [线上 Case](qa/xian-shang-case/README.md)
   * [Request Aborted](qa/xian-shang-case/rest-template-qa.md)
+  * [Java 应用 CPU 100% 排查优化](qa/xian-shang-case/java-ying-yong-cpu-100-pai-cha-you-hua.md)
 
 ## 大数据 <a id="bigdata"></a>
 
