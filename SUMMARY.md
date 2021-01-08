@@ -1,6 +1,7 @@
 # Table of contents
 
 * [Introduction](README.md)
+* [名词解释](ming-ci-jie-shi.md)
 
 ## Computer Science <a id="cs"></a>
 
