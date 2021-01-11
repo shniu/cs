@@ -89,7 +89,7 @@ Place an Order，用户可以下各种类型各种交易对的委托单（Order�
 * Stop Order 止损单：是指当股票的交易价格达到或超过指定价格（"止损价"）时，按市价买入或卖出股票的订单。如果股票达到止损价，该订单就成为市价订单，并在下一个可用市价成交。如果股票未能达到止损价，则该订单不会被执行。
 * [3 order types: limit order, marker order and stop order](https://www.schwab.com/resource-center/insights/content/3-order-types-market-limit-and-stop-orders)
 
-
+三种类型的订单适用场景是不一样的。
 
 * [Order Book](https://www.investopedia.com/terms/o/order-book.asp) \(交易委托账本\)
 * [Spot Trade](https://investinganswers.com/dictionary/s/spot-trade) \(现货交易，A **spot trade** is an [asset](https://investinganswers.com/dictionary/a/asset) or [commodity](https://investinganswers.com/dictionary/c/commodity) transacted and delivered immediately\)
