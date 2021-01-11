@@ -74,6 +74,23 @@ Place an Order，用户可以下各种类型各种交易对的委托单（Order�
 
 ### 术语
 
+* [Limit Order](https://www.investopedia.com/terms/l/limitorder.asp)
+
+限价单是指以特定价格或更好的价格买入或卖出股票的订单。 买入限价单只能以限价或更低的价格执行，而卖出限价单只能以限价或更高的价格执行。 限价单并不保证会被执行。 只有当股票的市场价格达到限价时，限价单才能被执行。 虽然限价单不保证执行，但它们有助于确保投资者为股票支付的价格不会超过预先确定的价格。
+
+* [Market Order](https://www.investopedia.com/terms/m/marketorder.asp) 市价单：是指以现价或市价尽快执行的交易
+
+市价单是投资者提出的要求--通常是通过经纪人或经纪服务提出的--以当前市场的最佳价格买入或卖出证券。它被广泛认为是进入或退出交易的最快和最可靠的方式，并提供了最有可能快速进入或退出交易的方法。对于许多大盘流通股来说，市场订单几乎是瞬间完成的
+
+市价订单非常适合交易量非常大的证券，如大盘股、期货或ETF。例如，E-迷你标准普尔指数或微软等股票的市价订单往往能迅速完成，不会出现问题。
+
+对于浮动量较低和/或日均成交量极少的股票来说，情况就不同了。由于这些股票的交易量很小，买卖价差往往很大。因此，这些证券的市场订单有时会被缓慢地执行，而且往往以意想不到的价格执行，从而导致有意义的交易成本。
+
+* Stop Order 止损单：是指当股票的交易价格达到或超过指定价格（"止损价"）时，按市价买入或卖出股票的订单。如果股票达到止损价，该订单就成为市价订单，并在下一个可用市价成交。如果股票未能达到止损价，则该订单不会被执行。
+* [3 order types: limit order, marker order and stop order](https://www.schwab.com/resource-center/insights/content/3-order-types-market-limit-and-stop-orders)
+
+
+
 * [Order Book](https://www.investopedia.com/terms/o/order-book.asp) \(交易委托账本\)
 * [Spot Trade](https://investinganswers.com/dictionary/s/spot-trade) \(现货交易，A **spot trade** is an [asset](https://investinganswers.com/dictionary/a/asset) or [commodity](https://investinganswers.com/dictionary/c/commodity) transacted and delivered immediately\)
 * [Tick ](https://www.investopedia.com/terms/t/tick.asp)
@@ -94,6 +111,8 @@ Stop Limit 和 Trailing Stop 比较有意思，他们是有效的风险控制工
 止损价格落后于市场价格的金额指定为价格距离，如果市场向有利可图的方向移动，止损单可以根据市场进行调整。如果触发了止损，则会下达市场订单。
 
 [止损限价单](https://www.interactivebrokers.com/cn/index.php?f=5122)
+
+* 爆仓： 所谓**爆仓**，是指在某些特殊条件下，投资者保证金账户中的客户权益为负值的情形。 在市场行情发生较大变化时，如果投资者保证金账户中资金的绝大部分都被交易保证金占用，而且交易方向又与市场走势相反时，由于保证金交易的杠杆效应，就很容易出现**爆仓**。 如果**爆仓**导致了亏空且由投资者的原因引起，投资者需要将亏空补足，否则会面临法律追索。
 
 ### 参考
 
