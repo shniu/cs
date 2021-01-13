@@ -31,6 +31,104 @@ private static final int INTERRUPTING = 5;
 private static final int INTERRUPTED  = 6;
 ```
 
+state 属性是整个 FutureTask 的核心属性，它代表了任务在运行过程中的状态，随着任务的执行，状态将不断地进行转变；任务的起始状态都是 NEW，中间状态为 COMPLETING / INTERRUPTING，其他为终止状态；任务的中间状态是一个瞬态，它非常的短暂，而且**任务的中间态并不代表任务正在执行，而是任务已经执行完了，正在设置最终的返回结果，所以**只要state不处于 `NEW` 状态，就说明任务已经执行完毕。
+
+#### FutureTask 中的队列
+
+```java
+/** Treiber stack of waiting threads */
+private volatile WaitNode waiters;
+static final class WaitNode {
+    volatile Thread thread;
+    volatile WaitNode next;
+    WaitNode() { thread = Thread.currentThread(); }
+}
+```
+
+队列的实现是一个单向链表，它表示**所有等待任务执行完毕的线程的集合**。当获取结果的线程获取结果，任务还没有执行完成时，获取结果的线程就会在一个等待队列中挂起，直到任务执行完毕被唤醒，waiters 就是这个等待队列。winters 的设计比较有意思，他被设计成为一个单向链表结构，在实际运行中，它的行为表现的像一个 Treiber 栈，如下图：
+
+![](../../.gitbook/assets/image%20%2891%29.png)
+
+#### FutureTask 的 CAS 操作
+
+CAS操作主要针对3个属性，包括`state`、`runner`和`waiters`，说明这3个属性基本是会被多个线程同时访问的。其中`state`属性代表了任务的状态，`waiters`属性代表了指向栈顶节点的指针。`runner`属性代表了执行FutureTask中的“Task”的线程。为什么需要一个属性来记录执行任务的线程呢？这是为了中断或者取消任务做准备的，只有知道了执行任务的线程是谁，我们才能去中断它。
+
+#### 分析 FutureTask 的方法
+
+* get\(\)
+
+```java
+// FutureTask 的获取结果的方法
+public V get() throws InterruptedException, ExecutionException {
+    int s = state;
+    // FutureTask 的初始状态是 NEW，如果任务的状态还处在 NEW 或者 COMPLETING 的状态
+    // 就等待结果
+    if (s <= COMPLETING)
+        // 等待任务处理完成
+        s = awaitDone(false, 0L);
+    return report(s);
+}
+
+private int awaitDone(boolean timed, long nanos)
+    throws InterruptedException {
+    // deadline 用来控制超时时间
+    final long deadline = timed ? System.nanoTime() + nanos : 0L;
+    // 调用 get 时，任务可能还没结束，q 就是表示一个等待任务的线程节点，可能会被
+    // 加入到 Treiber 栈中
+    WaitNode q = null;
+    // 是否已经入队列
+    boolean queued = false;
+    // 自旋
+    for (;;) {
+        // 这里是为了响应调用任务的线程的中断
+        if (Thread.interrupted()) {
+            // 如果触发了中断，如果当前节点已经加入到 treiber stack 中的话，就删除掉
+            removeWaiter(q);
+            throw new InterruptedException();
+        }
+
+        int s = state;
+        // 当前如果已经到了终态，就返回结果
+        if (s > COMPLETING) {
+            if (q != null)
+                q.thread = null;
+            return s;
+        }
+        // 如果任务状态正在设置中的话，说明任务已经执行完成了，这时理论上会非常块到达终态
+        // 此时调用 yield 是获取任务结果的线程主动让出 CPU，然后后续再竞争 CPU，以期任务
+        // 线程已经将结果处理完成
+        else if (s == COMPLETING) // cannot time out yet
+            Thread.yield();
+            // 获取到 CPU 后，继续从这里开始执行
+        else if (q == null)
+            // 说明 q 既没有入队，而且还在等待任务结果，而且是第一次进到这里
+            // 就创建一个新的等待节点，节点里的 thread 是当前等待任务结果的线程
+            // 然后通过自旋进入到下一次循环和判断逻辑里
+            q = new WaitNode();
+        else if (!queued)
+            // 到这里说明已经初始化了 node，但是还没有入队
+            // 执行入队的动作，这里使用了 CAS 操作, 意思是
+            // 将 q 的 next 指向原来的头，把新的头指向新节点 q
+            queued = UNSAFE.compareAndSwapObject(this, waitersOffset,
+                                                 q.next = waiters, q);
+        else if (timed) {
+            // 等待任务的线程是否设置了超时时间
+            nanos = deadline - System.nanoTime();
+            if (nanos <= 0L) {
+                removeWaiter(q);
+                return state;
+            }
+            LockSupport.parkNanos(this, nanos);
+        }
+        else
+            // 如果没有设置超时线程，就一直阻塞，直到任务完成后，调用任务线程调用 unpark
+            LockSupport.park(this);
+    }
+}
+```
+
+* run\(\)
+
 #### FutureTask 的局限
 
 FutureTask 虽然提供了用来检查任务是否执行完成、等待任务执行结果、获取任务执行结果的方法，但是这些特色并不足以让我们写出简洁的并发代码，比如它并不能清楚地表达多个 FutureTask 之间的关系。另外，为了从 Future 获取结果，我们必须调用 get\(\) 方法，而该方法还是会在任务执行完毕前阻塞调用线程，显然这不是我们想要的全部。我们需要：
