@@ -119,6 +119,8 @@ Stop Limit 和 Trailing Stop 比较有意思，他们是有效的风险控制工
 
 都是为了赢利，具体的说，有的是为了投机，有的是套期保值，有的是为了交割现货。
 
+* [OkEx 委托类型说明](https://www.okex.com/support/hc/zh-cn/articles/360003100091)
+
 ### 参考
 
 * [证券交易系统设计与开发](https://www.liaoxuefeng.com/article/1185272483766752)
