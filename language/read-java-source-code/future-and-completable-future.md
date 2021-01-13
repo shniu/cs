@@ -14,8 +14,6 @@ FutureTask 代表了一个可被取消的异步计算任务，该类实现了Fut
 
 FutureTask 任务的结果只有当任务完成后才能获取，并且只能通过 get 系列方法获取，当结果还没出来时，线程调用 get 系列方法会被阻塞。另外，一旦任务被执行完成，任务将不能重启，除非运行时使用了runAndReset 方法。FutureTask 中的任务可以是 Callable 类型，也可以是 Runnable 类型（因为 FutureTask 实现了 Runnable 接口）,  FutureTask 类型的任务可以被提交到线程池执行。
 
-* [ ] 基本使用
-
 Java 在并发编程的实现中有一个固定的模型：状态、队列和 CAS，根据不同的应用场景灵活的使用这些核心元素来达到并发的控制。
 
 #### FutureTask 中的状态
