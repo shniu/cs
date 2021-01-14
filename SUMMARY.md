@@ -94,6 +94,7 @@
   * [Java 集合框架](language/java/java-collection.md)
   * [Java NIO](language/java/java-nio.md)
   * [并发编程](language/java/concurrent/README.md)
+    * [线程生命周期与线程中断](language/java/concurrent/xian-cheng-sheng-ming-zhou-qi-yu-xian-cheng-zhong-duan.md)
     * [三个线程交替打印](language/java/concurrent/interview-2.md)
     * [两个线程交替打印奇偶](language/java/concurrent/interview-3.md)
     * [优雅终止线程](language/java/concurrent/interview-4.md)

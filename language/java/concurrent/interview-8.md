@@ -28,7 +28,7 @@ function add(p : pointer to int, a : int) returns int {
 }
 ```
 
-使用 CAS 需要主要 ABA 问题。
+使用 CAS 需要注意 ABA 问题。
 
 ## 原子类
 
