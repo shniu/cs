@@ -4,7 +4,7 @@
 
 线程的 thread.interrupt\(\) 方法是中断线程，将会设置该线程的中断状态位，即设置为 true，中断的结果线程是死亡、还是等待新的任务或是继续运行至下一步，就取决于这个程序本身。
 
-也就是说当我们调用了 thread.interrupt\(\) 并不意味着我们要终止这个线程，而是要让这个线程活跃起来，可能这个线程已经进入了阻塞状态，比如已经调用了 sleep, join, wait, condition.await 等方法，再调用 interrupt 后，这个线程会从阻塞状态变成就绪状态等待被调度，并且会设置中断标志位为 true；这个时候如果使用了 `try{ ... }catch(InterruptedException e)` 捕获异常，这个中断标志为会被重置为 false，这个一定要注意
+也就是说当我们调用了 thread.interrupt\(\) 并不意味着我们要终止这个线程，而是要让这个线程活跃起来，可能这个线程已经进入了阻塞状态，比如已经调用了 sleep, join, wait, condition.await 等方法，再调用 interrupt 后，这个线程会从阻塞状态变成就绪状态等待被调度，并且会设置中断标志位为 true；这个时候如果使用了 `try{ ... } catch(InterruptedException e)` 捕获异常，这个中断标志为会被重置为 false，这个一定要注意。
 
 ```java
 // 1. 如何判断线程是否被中断：
