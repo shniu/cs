@@ -55,6 +55,7 @@ description: Todo list
   * [ ] [https://cloud.tencent.com/developer/article/1610921](https://cloud.tencent.com/developer/article/1610921)
   * [ ] StampedLock 源码分析
   * [ ] [http://lovestblog.cn/blog/2015/05/12/direct-buffer/](http://lovestblog.cn/blog/2015/05/12/direct-buffer/) 堆外内存
+  * [ ] SynchronousQueue: [源码解析上](https://segmentfault.com/a/1190000020319571)
 * [ ] 网络模型与线程模型
   * [ ] 使用 Java NIO 开发一个 简单的 IM 系统
   * [ ] [https://www.oreilly.com/library/view/java-nio/0596002882/ch04.html](https://www.oreilly.com/library/view/java-nio/0596002882/ch04.html) NIO selector

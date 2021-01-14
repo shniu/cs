@@ -105,6 +105,7 @@
 * [Java 源码阅读](language/read-java-source-code/README.md)
   * [Unsafe](language/read-java-source-code/unsafe.md)
   * [异步计算 Future](language/read-java-source-code/future-and-completable-future.md)
+  * [Java Queue](language/read-java-source-code/java-queue.md)
   * [Java Collections](language/read-java-source-code/java-collections/README.md)
     * [PriorityQueue 分析](language/read-java-source-code/java-collections/priorityqueue-fen-xi.md)
     * [HashMap 分析](language/read-java-source-code/java-collections/hashmap-fen-xi.md)
