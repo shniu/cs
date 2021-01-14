@@ -14,7 +14,70 @@
 > 1. 类运行时 exit\(\) 方法被调用且安全机制允许此 exit\(\) 方法的调用.  
 > 2. 所有非守护类型的线程均已经终止, 或者 run\(\) 方法调用返回或者在 run\(\) 方法外部抛出了一些可传播性的异常.
 
+线程状态
 
+```java
+public enum State {
+    /**
+     * 初始态
+     * 线程创建完毕还未启动，未调用start方法
+     */
+    NEW,
+
+    /**
+     * 包含两种状态
+     * 1.就绪态
+     * 2.运行态
+     */
+    RUNNABLE,
+
+    /**
+     * 阻塞态
+     * synchronized 会导致线程进入 blocked 状态
+     */
+    BLOCKED,
+
+    /**
+     * 
+     * 等待态
+     * 3种情况调用后会导致线程处于这个状态：
+     * 1.Object.wait
+     * 2.Thread.join
+     * 3.LockSupport.park
+     * 
+     * 等待态的线程会等待其他线程执行特定的操作
+     * 
+     * 例如一个线程调用了Object.wait之后进入等待态，另一个线程调用Object.notify或Object.notifyAll可以将其唤醒，被唤醒的线程需要获取对象的锁才能恢复执行
+     * 调用Thread.join会等待指定的线程终止
+     */
+    WAITING,
+
+    /**
+     * 
+     * 超时等待态
+     * 线程等待指定的时间再执行
+     * 5种情况调用后会导致线程处于这个状态：
+     * 1.Thread.sleep
+     * 2.Object.wait 传入等待时长
+     * 3.Thread.join 传入等待时长
+     * 4.LockSupport.parkNanos
+     * 5.LockSupport.parkUntil
+     */
+    TIMED_WAITING,
+
+    /**
+     * 终止态
+     * 线程执行完毕
+     */
+    TERMINATED;
+}
+```
+
+![](../../../.gitbook/assets/image%20%2892%29.png)
+
+参考：
+
+* [线程浅析](https://segmentfault.com/a/1190000021433836)
 
 ### 线程中断
 
