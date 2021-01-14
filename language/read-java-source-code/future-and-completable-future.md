@@ -156,6 +156,65 @@ private void finishCompletion() {
 
 * run\(\)
 
+```java
+// 一般是由线程池中的线程来执行
+public void run() {
+    // 任务在线程池中执行时，状态必须是 NEW
+    // 如果存在多线程竞争执行一个任务，只有竞争成功的才可以去执行任务，这里是通过 CAS 操作实现的
+    if (state != NEW ||
+        !UNSAFE.compareAndSwapObject(this, runnerOffset,
+                                     null, Thread.currentThread()))
+        return;
+    try {
+        Callable<V> c = callable;
+        if (c != null && state == NEW) {
+            V result;
+            boolean ran;
+            try {
+                result = c.call();
+                ran = true;
+            } catch (Throwable ex) {
+                result = null;
+                ran = false;
+                setException(ex);
+            }
+            if (ran)
+                set(result);
+        }
+    } finally {
+        // runner must be non-null until state is settled to
+        // prevent concurrent calls to run()
+        runner = null;
+        // state must be re-read after nulling runner to prevent
+        // leaked interrupts
+        int s = state;
+        if (s >= INTERRUPTING)
+            handlePossibleCancellationInterrupt(s);
+    }
+}
+```
+
+#### FutureTask 的一般用法
+
+```java
+// 我们一般提交异步任务时都会使用线程池
+executor.submit(runnable);
+// 参数是一个 Runnable 任务，在 submit 内部会被封装为一个 FutureTask
+public Future<?> submit(Runnable task) {
+    if (task == null) throw new NullPointerException();
+    // 将 task 转成 FutureTask
+    RunnableFuture<Void> ftask = newTaskFor(task, null);
+    // 交给线程池进行调度执行
+    execute(ftask);
+    return ftask;
+}
+
+protected <T> RunnableFuture<T> newTaskFor(Runnable runnable, T value) {
+     // 将 runnable 实例化为一个 FutureTask
+    return new FutureTask<T>(runnable, value);
+}
+```
+
 #### FutureTask 的局限
 
 FutureTask 虽然提供了用来检查任务是否执行完成、等待任务执行结果、获取任务执行结果的方法，但是这些特色并不足以让我们写出简洁的并发代码，比如它并不能清楚地表达多个 FutureTask 之间的关系。另外，为了从 Future 获取结果，我们必须调用 get\(\) 方法，而该方法还是会在任务执行完毕前阻塞调用线程，显然这不是我们想要的全部。我们需要：
