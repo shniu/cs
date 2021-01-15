@@ -212,4 +212,5 @@ SET GLOBAL innodb_large_prefix = 0;
 
 1. [**RDS 提示 1071 错误**](https://help.aliyun.com/knowledge_detail/41707.html)
 2. [**https://stackoverflow.com/questions/1814532/1071-specified-key-was-too-long-max-key-length-is-767-bytes**](https://stackoverflow.com/questions/1814532/1071-specified-key-was-too-long-max-key-length-is-767-bytes)
+3. [https://www.jianshu.com/p/949eeceff3b4](https://www.jianshu.com/p/949eeceff3b4)
 
