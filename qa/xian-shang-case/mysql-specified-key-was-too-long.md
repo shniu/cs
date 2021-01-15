@@ -62,6 +62,8 @@ MySQL 官方文档的描述：
 >
 > -- via: [**https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html\#sysvar\_innodb\_large\_prefix**](https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html#sysvar_innodb_large_prefix)
 
+至于为什么最大限制是 767 Bytes，为什么和 innodb file format 与 row format 有关，有兴趣的可以再研究一下，和 Innodb 的存储结构、表空间、行记录格式等有关。
+
 ```bash
 # 查看数据库的默认编码配置
 mysql> show variables like 'char%';
