@@ -169,6 +169,7 @@
 
 * [线上 Case](qa/xian-shang-case/README.md)
   * [Request Aborted](qa/xian-shang-case/rest-template-qa.md)
+  * [MySQL - Specified key was too long](qa/xian-shang-case/mysql-specified-key-was-too-long.md)
   * [Java 应用 CPU 100% 排查优化](qa/xian-shang-case/cpu-high-opt.md)
 
 ## 大数据 <a id="bigdata"></a>
