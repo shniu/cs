@@ -15,5 +15,7 @@ description: 一个异步的基于事件驱动的高性能网络应用框架。
 
 ### Reactor 模型
 
+![Netty Reactor](../.gitbook/assets/image%20%2893%29.png)
+
 
 
