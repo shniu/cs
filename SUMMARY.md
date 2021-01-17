@@ -68,6 +68,7 @@
   * [数据库架构设计](system-design/backend-store/database-arch-design.md)
 * [CI/CD](system-design/ci-cd.md)
 * [设计最佳实践](system-design/design-best-practice.md)
+* [安全](system-design/an-quan.md)
 * [综合](system-design/case-study/README.md)
   * [开发实践](system-design/case-study/kai-fa-shi-jian.md)
   * [分布式锁](system-design/case-study/distributed-lock.md)
