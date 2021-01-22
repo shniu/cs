@@ -120,6 +120,12 @@ Stop Limit 和 Trailing Stop 比较有意思，他们是有效的风险控制工
 都是为了赢利，具体的说，有的是为了投机，有的是套期保值，有的是为了交割现货。
 
 * [OkEx 委托类型说明](https://www.okex.com/support/hc/zh-cn/articles/360003100091)
+* [Currency futures](https://www.investopedia.com/terms/c/currencyfuture.asp) 货币期货
+* [Margin Trading](https://academy.binance.com/en/articles/what-is-margin-trading)  保证金交易
+* [Margin Definition](https://www.investopedia.com/terms/m/margin.asp) 保证金的定义
+* [Option](https://www.investopedia.com/terms/o/option.asp)  期权
+* [Limit Move ](https://www.investopedia.com/terms/l/limit-move.asp) 
+* [L2 Market](https://www.investopedia.com/terms/l/level2.asp) 和 [L2 Market Data](https://www.exegy.com/2019/03/level-2-market-data-what-level-supports-your-trading-strategy/)
 
 ### 参考
 
