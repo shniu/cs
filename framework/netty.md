@@ -11,6 +11,8 @@ description: 一个异步的基于事件驱动的高性能网络应用框架。
 | Netty 对 ByteBuffer 的改进和优化 |
 | Netty 开发应用的一般流程 |
 
+### IO 模型
+
 
 
 ### Reactor 模型
