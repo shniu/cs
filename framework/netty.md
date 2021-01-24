@@ -30,6 +30,11 @@ description: 一个异步的基于事件驱动的高性能网络应用框架。
 * 无锁串行化设计思想
 * 支持高性能序列化协议
 * 零拷贝技术\(使用 Java 提供的直接内存和 OS 的 DMA 能力\)
+
+扩展阅读：
+
+1. [搞懂 零拷贝技术](https://www.cnblogs.com/xiaolincoding/p/13719610.html)
+
 * ByteBuf 内存池设计
 * 灵活的 TCP 参数配置能力
 * 并发优化
