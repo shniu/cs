@@ -5,14 +5,14 @@
 
 ## Computer Science <a id="cs"></a>
 
-* [Computer Organization](cs/computer-organization.md)
+* [Computer Organization](cs/computer-organization/README.md)
+  * [IO](cs/computer-organization/io.md)
 * [Operating System](cs/os/README.md)
   * [操作系统基础知识](cs/os/00-cao-zuo-xi-tong-ji-chu-zhi-shi.md)
   * [系统初始化](cs/os/01-xi-tong-chu-shi-hua.md)
   * [进程管理](cs/os/02-jin-cheng-guan-li.md)
   * [Everything about Memory](cs/os/everything-about-memory.md)
   * [文件系统](cs/os/file-system.md)
-  * [IO](cs/os/io.md)
   * [Linux](cs/os/linux/README.md)
     * [CPU](cs/os/linux/cpu.md)
     * [IO 多路复用](cs/os/linux/io-duo-lu-fu-yong.md)
