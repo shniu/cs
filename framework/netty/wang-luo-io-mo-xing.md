@@ -128,6 +128,20 @@ public class NioServer {
 ```
 
 * IO 复用
+
+
+
+用 Java 程序来实现 IO 多路复用：
+
+```java
+
+```
+
+C 代码可以参考：[https://github.com/eliben/code-for-blog/blob/master/2017/async-socket-server/epoll-server.c](https://github.com/eliben/code-for-blog/blob/master/2017/async-socket-server/epoll-server.c)
+
 * 信号驱动 IO
+
+这种 IO 方式在实际应用中非常少见。
+
 * 异步 IO
 
