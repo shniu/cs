@@ -170,6 +170,9 @@ $ jmap -histo 1 > jmap_1_histo.log
 
 # 查询 JVM 的堆信息
 $ jmap -heap 1
+
+# dump 堆内存
+$ jmap -dump:format=b,file=test.hprof 1
 ```
 
 通过堆信息我们可以分析出哪些对象占用了大量内存，进而关联到相关的代码，然后转到对应的代码去分析可能出现问题的地方。
@@ -266,5 +269,28 @@ $ jstat -gccapacity 1
 NGCMN    NGCMX     NGC     S0C   S1C       EC      OGCMN      OGCMX       OGC         OC       MCMN     MCMX      MC     CCSMN    CCSMX     CCSC    YGC    FGC 
      0.0 4194304.0  16384.0    0.0    0.0  16384.0        0.0  4194304.0  4177920.0  4177920.0      0.0 1130496.0  93440.0      0.0 1048576.0  11520.0    268   105
 
+```
+
+* 在排查问题时出现 Can't attach to the process: ptrace\(PTRACE\_ATTACH, ..\) failed for 1: Operation not permitted 的错误
+
+我们使用了 Docker，jmap 等命令是在 Docker 容器内执行的，这是由于 Docker 自 1.10 版本开始加入的安全特性，类似于 jmap 这些 JDK 工具依赖于 Linux 的 PTRACE\_ATTACH，而是 Docker 自 1.10 在默认的 seccomp 配置文件中禁用了 ptrace。解决办法是：
+
+```text
+# 1. run 的时候加上参数 SYS_PTRACE
+docker run --cap-add=SYS_PTRACE ...
+
+# 2. docker-compose.yml 
+version: '2'
+
+services:
+  mysql:
+   ...
+  api:
+   ...
+   cap_add:
+
+    - SYS_PTRACE
+    
+# 3. kubernetes 的 pod 模版上增加对应的 docker 启动参数
 ```
 
