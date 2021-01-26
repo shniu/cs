@@ -176,6 +176,7 @@
   * [Request Aborted](qa/xian-shang-case/rest-template-qa.md)
   * [MySQL - Specified key was too long](qa/xian-shang-case/mysql-specified-key-was-too-long.md)
   * [Java 应用 CPU 100% 排查优化](qa/xian-shang-case/cpu-high-opt.md)
+  * [频繁 GC 导致的 Java 服务不响应](qa/xian-shang-case/pin-fan-gc-dao-zhi-de-java-fu-wu-bu-xiang-ying.md)
 
 ## 大数据 <a id="bigdata"></a>
 
