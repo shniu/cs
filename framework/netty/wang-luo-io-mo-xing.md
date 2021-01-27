@@ -4,6 +4,8 @@ IO 是输入输出，对于计算机来讲，IO 是基本组成，通过 IO 来�
 
 而对于网络，网络的 IO 过程还是比较复杂的，网络处理程序处理网络请求方式的不同可以分为几种 IO 模型，其中 IO 模型需要借助 OS 的能力。
 
+### 基础的 IO 模型
+
 * 阻塞 IO
 
 ![&#x963B;&#x585E; IO](../../.gitbook/assets/image%20%28109%29.png)
@@ -144,4 +146,8 @@ C 代码可以参考：[https://github.com/eliben/code-for-blog/blob/master/2017
 这种 IO 方式在实际应用中非常少见。
 
 * 异步 IO
+
+### 高性能网络 IO 模型
+
+我们需要更加高性能的 IO 模型，可能意味着更加复杂；比如经常听说的 Reactor 模型、Proactor 模型。
 
