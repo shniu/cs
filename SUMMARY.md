@@ -5,8 +5,8 @@
 
 ## Computer Science <a id="cs"></a>
 
-* [Computer Organization](cs/computer-organization.md)
-  * [IO]()
+* [Computer Organization](cs/computer-organization/README.md)
+  * [IO](cs/computer-organization/io.md)
 * [Operating System](cs/os/README.md)
   * [操作系统基础知识](cs/os/00-cao-zuo-xi-tong-ji-chu-zhi-shi.md)
   * [系统初始化](cs/os/01-xi-tong-chu-shi-hua.md)
@@ -75,7 +75,7 @@
   * [开发实践](system-design/case-study/kai-fa-shi-jian.md)
   * [分布式锁](system-design/case-study/distributed-lock.md)
   * [分布式计数服务](system-design/case-study/distributed-counting.md)
-  * [弹幕系统设计]()
+  * [弹幕系统设计](system-design/case-study/tan-mu-xi-tong-she-ji.md)
   * [消息队列设计](system-design/case-study/message-queue.md)
   * [分布式ID生成算法](system-design/case-study/distribute-id.md)
   * [限流设计](system-design/case-study/rate-limiter-design.md)
@@ -121,8 +121,8 @@
 * [Guava](framework/guava.md)
 * [RxJava](framework/rxjava.md)
 * [Apache MINA](framework/apache-mina.md)
-* [Netty](framework/netty.md)
-  * [网络 IO 模型]()
+* [Netty](framework/netty/README.md)
+  * [网络 IO 模型](framework/netty/wang-luo-io-mo-xing.md)
 * [Dubbo](framework/dubbo.md)
 * [Apache Tomcat](framework/apache-tomcat.md)
 * [MyBatis](framework/mybatis.md)
@@ -176,7 +176,7 @@
   * [Request Aborted](qa/xian-shang-case/rest-template-qa.md)
   * [MySQL - Specified key was too long](qa/xian-shang-case/mysql-specified-key-was-too-long.md)
   * [Java 应用 CPU 100% 排查优化](qa/xian-shang-case/cpu-high-opt.md)
-  * [频繁 GC 导致的 Java 服务不响应]()
+  * [频繁 GC 导致的 Java 服务不响应](qa/xian-shang-case/pin-fan-gc-dao-zhi-de-java-fu-wu-bu-xiang-ying.md)
 
 ## 大数据 <a id="bigdata"></a>
 
