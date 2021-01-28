@@ -6,6 +6,8 @@ description: 简要介绍
 
 {% hint style="info" %}
 Engineers for the cloud native Era.
+
+**计算机科学领域的任何问题都可以通过增加一个间接的中间层来解决。**
 {% endhint %}
 
 > 学习不仅是为了找到答案，更是为了找到方法。
