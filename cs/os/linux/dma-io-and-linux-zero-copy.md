@@ -34,6 +34,6 @@ description: Zero Copy 的实现需要依赖于 DMA 技术
 ### 扩展阅读
 
 * [DMA：为什么 Kafka 这么快](https://time.geekbang.org/column/article/118657)
-* [Efficient data transfer through zero copy](https://developer.ibm.com/articles/j-zerocopy/)
+* [Efficient data transfer through zero copy](https://developer.ibm.com/articles/j-zerocopy/) 这篇文章是 IBM 的，详细写了传统 IO 和 DMA IO 的不同，以及如何减少上下文切换次数和数据copy次数，最后给出了两种方式的性能对比，效率提高了 65%，耗时是原来的 1/3，而且 CPU 也得到了释放。
 * [搞懂零拷贝](https://www.cnblogs.com/xiaolincoding/p/13719610.html)
 
