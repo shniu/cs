@@ -6,6 +6,7 @@
 ## Computer Science <a id="cs"></a>
 
 * [Computer Organization](cs/computer-organization/README.md)
+  * [CPU](cs/computer-organization/cpu.md)
   * [IO](cs/computer-organization/io.md)
 * [Operating System](cs/os/README.md)
   * [操作系统基础知识](cs/os/00-cao-zuo-xi-tong-ji-chu-zhi-shi.md)
