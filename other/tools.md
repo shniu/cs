@@ -117,6 +117,44 @@ $ ./gradlew wrapper --gradle-version=6.2.1 --distribution-type=all
 * [https://linuxcommand.org/lc3\_wss0120.php](https://linuxcommand.org/lc3_wss0120.php)
 * [如何编写 shell 脚本](https://linuxcommand.org/lc3_writing_shell_scripts.php#contents)
 * nc: [https://linuxize.com/post/netcat-nc-command-with-examples/](https://linuxize.com/post/netcat-nc-command-with-examples/)
+* [获取某个目录下的所有文件或者目录](https://www.cyberciti.biz/faq/linux-list-just-directories-or-directory-names/)
+* [Google 关于 shell 的规范](https://zh-google-styleguide.readthedocs.io/en/latest/google-shell-styleguide/comments/)
+
+```bash
+# 判断文件目录是否存在
+dir="/tmp/workspace"
+if [ ! -d "$dir" ]; then
+  # mkdir /myfolder
+  # ...
+fi
+
+# 判断文件是否存在并具备可执行权限
+folder="/bin/bash"
+if [ ! -x "$folder" ]; then
+  # exec ...
+fi
+
+# -f 参数判断 $file 是否存在
+file="/tmp/lock"
+if [ ! -f "$file" ]; then
+  touch "$file"
+fi
+
+# -n 判断一个变量是否有值
+var=""
+if [ ! -n "$var" ]; then
+  echo "$var is empty"
+  exit 0
+fi
+
+# 判断两个变量是否相等
+if [ "$var1" = "$var2" ]; then
+  echo '$var1 eq $var2'
+else
+  echo '$var1 not eq $var2'
+fi
+# 更多参考 https://www.cnblogs.com/jjzd/p/6397495.html
+```
 
 #### awk and sed
 
