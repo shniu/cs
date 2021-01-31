@@ -39,7 +39,7 @@ CPU架构是[CPU](https://link.zhihu.com/?target=https%3A//baike.baidu.com/item/
 
 GDT 的作用是用来提供段式存储机制，这种机制是段寄存器和 GDT 中的描述符（段表项）共同支持的。每个描述符在 GDT 中占 8 字节，也就是 2 个双字（一个字等于两个字节，双字等于四个字节），或者说是 64 位。描述符的构成如下图所示：
 
-![](../../.gitbook/assets/image%20%28113%29.png)
+![](../../.gitbook/assets/image%20%28120%29.png)
 
 
 
@@ -92,7 +92,7 @@ via: [CPU 的两种工作模式](https://www.junhaow.com/2018/08/27/037%20%7C%20
 > * IF 中断标志
 > * ······
 
-![&#x6807;&#x5FD7;&#x5BC4;&#x5B58;&#x5668;&#xFF08;&#x7531;CPU&#x81EA;&#x884C;&#x8BBE;&#x7F6E;&#x548C;&#x4FEE;&#x6539;&#xFF09;](../../.gitbook/assets/image%20%28104%29.png)
+![&#x6807;&#x5FD7;&#x5BC4;&#x5B58;&#x5668;&#xFF08;&#x7531;CPU&#x81EA;&#x884C;&#x8BBE;&#x7F6E;&#x548C;&#x4FEE;&#x6539;&#xFF09;](../../.gitbook/assets/image%20%28109%29.png)
 
 ### 指令寄存器
 

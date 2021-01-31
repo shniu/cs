@@ -7,6 +7,7 @@
 
 * [Computer Organization](cs/computer-organization/README.md)
   * [CPU](cs/computer-organization/cpu.md)
+  * [存储器](cs/computer-organization/cun-chu-qi.md)
   * [IO](cs/computer-organization/io.md)
 * [Operating System](cs/os/README.md)
   * [操作系统基础知识](cs/os/00-cao-zuo-xi-tong-ji-chu-zhi-shi.md)

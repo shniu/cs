@@ -12,7 +12,7 @@ description: Zero Copy 的实现需要依赖于 DMA 技术
 
 目前的存储器构成是分层的：
 
-![&#x5B58;&#x50A8;&#x5668;&#x5C42;&#x6B21;&#x7ED3;&#x6784;](../../../.gitbook/assets/image%20%2899%29.png)
+![&#x5B58;&#x50A8;&#x5668;&#x5C42;&#x6B21;&#x7ED3;&#x6784;](../../../.gitbook/assets/image%20%28102%29.png)
 
 
 

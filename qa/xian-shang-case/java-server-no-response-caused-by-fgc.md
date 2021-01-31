@@ -270,9 +270,9 @@ Heap
 
 通过 jvisualvm 来分析 dump 文件
 
-![&#x603B;&#x4F53;&#x89C6;&#x56FE;](../../.gitbook/assets/image%20%28101%29.png)
+![&#x603B;&#x4F53;&#x89C6;&#x56FE;](../../.gitbook/assets/image%20%28105%29.png)
 
-![&#x7C7B;&#x548C;&#x5B9E;&#x4F8B;&#x6570;&#x7684;&#x89C6;&#x56FE;](../../.gitbook/assets/image%20%28107%29.png)
+![&#x7C7B;&#x548C;&#x5B9E;&#x4F8B;&#x6570;&#x7684;&#x89C6;&#x56FE;](../../.gitbook/assets/image%20%28113%29.png)
 
 可以看到差不多 60% 左右的内存都被 ArrayList, JsoupTextNode, TextNode, JsoupAttributs 等占用了，我们可以根据这些信息进一步定位到代码，然后去分析代码做了什么事情。
 
