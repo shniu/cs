@@ -119,6 +119,7 @@ $ ./gradlew wrapper --gradle-version=6.2.1 --distribution-type=all
 * nc: [https://linuxize.com/post/netcat-nc-command-with-examples/](https://linuxize.com/post/netcat-nc-command-with-examples/)
 * [获取某个目录下的所有文件或者目录](https://www.cyberciti.biz/faq/linux-list-just-directories-or-directory-names/)
 * [Google 关于 shell 的规范](https://zh-google-styleguide.readthedocs.io/en/latest/google-shell-styleguide/comments/)
+* [echo 输出带颜色的内容](https://stackoverflow.com/questions/5947742/how-to-change-the-output-color-of-echo-in-linux)
 
 ```bash
 # 判断文件目录是否存在
