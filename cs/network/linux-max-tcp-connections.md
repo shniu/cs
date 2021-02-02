@@ -9,6 +9,21 @@ Linux 能支撑的最大连接数受到多个因素限制：
 * Linux 系统可打开的文件数限制，fs.file-max 来控制
 * Linux 指定用户可打开的文件数限制，/etc/security/limits.conf 来控制
 * Linux 单个进程可打开的文件数限制，fs.nr\_open 来控制
+
+```bash
+# 可以看到单个进程能够打开的最大文件句柄数量
+ulimit -n
+
+# 对于高并发、高负载的应用，就必须要调整这个系统参数，以适应处理并发处理大量连接的应用场景。
+# 可以通过ulimit来设置这两个参数
+ulimit -n  2000000  # 这只能临时生效
+
+# /etc/rc.local
+vim /etc/rc.local
+# Add
+ulimit -SHn 2000000
+```
+
 * 内存大小，每个 TCP 连接大约占用 3KB 左右的内存，这还不包括发送数据和接收数据要额外分配的内存
 
 ```bash
