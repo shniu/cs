@@ -4,6 +4,8 @@
 
 * [Learn Git Branching](https://github.com/pcottle/learnGitBranching)，含有动画演示，非常生动
 * [卧槽！小姐姐用动画图解 Git 命令，这也太秀了吧？！](http://mp.weixin.qq.com/s?__biz=MzAxOTcxNTIwNQ==&mid=2457919169&idx=2&sn=7514209811adbd09b6161093e8ae3eb4&chksm=8cb6bb2bbbc1323dc0cd1c9110fcc6a2a06774040586fc21a01db98129a03ece8ee4cdb73960&scene=21#wechat_redirect)
+* [寓教于乐，用玩游戏的方式学习 Git！](http://mp.weixin.qq.com/s?__biz=MzAxOTcxNTIwNQ==&mid=2457915797&idx=1&sn=7d44bcdb2bc42f695ca3b3b0b75afeb2&chksm=8cb6b47fbbc13d69c0298ef965e11318161b56a289e066518a94712df318e0ea6f1e40acf963&scene=21#wechat_redirect)
+* [https://ohshitgit.com/\#accidental-commit-wrong-branch](https://ohshitgit.com/#accidental-commit-wrong-branch)
 * [Linus 在 Google 分享了 Git 的设计思路，顺带怼了一大波人（视频）](https://mp.weixin.qq.com/s?__biz=MzAxOTcxNTIwNQ==&mid=2457915907&idx=1&sn=7f39b7943bf0e9ba4a2b12b47d4a70d7&scene=21#wechat_redirect)
 * [用好这几个工具，能大幅提升你的 Git/GitHub 操作效率！](https://mp.weixin.qq.com/s?__biz=MzAxOTcxNTIwNQ==&mid=2457915558&idx=1&sn=de0cdcb9fb199162ffe565e371b3dbf4&scene=21#wechat_redirect)
 * [强烈推荐下 GitHub 官方的这个教程](https://mp.weixin.qq.com/s?__biz=MzAxOTcxNTIwNQ==&mid=2457914680&idx=1&sn=0061f76dbd0e33468216a460c624c2b4&scene=21#wechat_redirect)
