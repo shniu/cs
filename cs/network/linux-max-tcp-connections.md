@@ -6,6 +6,7 @@ Linux 能支撑的最大连接数受到多个因素限制：
 
 四元组是 \(Source IP, Source Port, Target IP, Target Port\)，作为服务端 IP 和端口是确定的，所以最大是 2^32 \* 2^16，这个理论值是很大的
 
+* Linux 系统默认单个进程能打开的最大文件数是 1024，这个对于高并发场景是不够的
 * Linux 系统可打开的文件数限制，fs.file-max 来控制
 * Linux 指定用户可打开的文件数限制，/etc/security/limits.conf 来控制
 * Linux 单个进程可打开的文件数限制，fs.nr\_open 来控制
