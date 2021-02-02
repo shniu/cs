@@ -190,6 +190,36 @@ Susan Dalsass:[206] 654-6279:250:60
 Archie McNichol:[206] 548-1348:250:100
 ```
 
+* shell map
+
+```bash
+# https://stackoverflow.com/questions/6047648/associative-arrays-error-declare-a-invalid-option
+# 查看 bash 的版本
+bash --version
+
+# 使用 array 实现 hashmap 的功能
+# 在 bash v3 版本中不支持 hashmap 的声明
+array=(
+    'hello::world.'
+    'nice::to meet you'
+)
+
+for index in "${array[@]}" ; do
+    KEY="${index%%::*}"
+    VALUE="${index##*::}"
+    echo "$KEY - $VALUE"
+done
+
+# 在 bash v4 中支持 map
+declare -A hashmap
+hashmap["key"]="value"
+hashmap["key2"]="value2"
+echo -e "${hashmap[\"key\"]}"
+for key in ${!hashmap[@]}; do echo $key; done
+for value in ${hashmap[@]}; do echo $value; done
+
+```
+
 ### Java Libs
 
 #### Lombok
