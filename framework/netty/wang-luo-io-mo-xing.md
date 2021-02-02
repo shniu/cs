@@ -151,3 +151,10 @@ C 代码可以参考：[https://github.com/eliben/code-for-blog/blob/master/2017
 
 我们需要更加高性能的 IO 模型，可能意味着更加复杂；比如经常听说的 Reactor 模型、Proactor 模型。
 
+#### Reactor 模型
+
+Reactor 模式由 Reactor 反应器线程、Handlers处理器两大角色组成：
+
+1. Reactor反应器线程的职责：负责响应IO事件，并且分发到Handlers处理器。
+2. Handlers处理器的职责：非阻塞的执行业务处理逻辑。
+
