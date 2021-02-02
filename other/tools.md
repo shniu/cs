@@ -117,10 +117,11 @@ $ ./gradlew wrapper --gradle-version=6.2.1 --distribution-type=all
 ### Shell
 
 * [https://linuxcommand.org/lc3\_wss0120.php](https://linuxcommand.org/lc3_wss0120.php)
+* [shell 中的函数处理：入参、返回值等](https://bash.cyberciti.biz/guide/Pass_arguments_into_a_function)
 * [如何编写 shell 脚本](https://linuxcommand.org/lc3_writing_shell_scripts.php#contents)
 * nc: [https://linuxize.com/post/netcat-nc-command-with-examples/](https://linuxize.com/post/netcat-nc-command-with-examples/)
 * [获取某个目录下的所有文件或者目录](https://www.cyberciti.biz/faq/linux-list-just-directories-or-directory-names/)
-* [Google 关于 shell 的规范](https://zh-google-styleguide.readthedocs.io/en/latest/google-shell-styleguide/comments/)
+* [Google 关于 shell 的编码规范](https://zh-google-styleguide.readthedocs.io/en/latest/google-shell-styleguide/comments/)
 * [echo 输出带颜色的内容](https://stackoverflow.com/questions/5947742/how-to-change-the-output-color-of-echo-in-linux)
 
 ```bash
