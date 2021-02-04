@@ -60,4 +60,6 @@ ConcurrentLinkedQueue：基于链表形式的队列，通过compare and swap(�
    16. [https://juejin.im/post/6844903609591660552](https://juejin.im/post/6844903609591660552)
    17. [Disruptor 源码阅读](https://coderbee.net/index.php/open-source/20130812/400)
    18. [https://wiki.jikexueyuan.com/project/disruptor-getting-started/lmax-framework.html](https://wiki.jikexueyuan.com/project/disruptor-getting-started/lmax-framework.html)
+   19. [Axon 和 Disruptor 处理 1M TPS](http://ifeve.com/axon/)
+   20. [Disruptor Blogs and Articles](https://code.google.com/archive/p/disruptor/wikis/BlogsAndArticles.wiki)
 
