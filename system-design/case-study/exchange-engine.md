@@ -163,5 +163,12 @@ Stop Limit 和 Trailing Stop 比较有意思，他们是有效的风险控制工
 * [The Adaptive Radix Tree](https://db.in.tum.de/~leis/papers/ART.pdf)， [解析1](https://blog.csdn.net/matrixyy/article/details/70182527)
 * [Exchange core collections](https://github.com/shniu/collections)
 
+### 撮合引擎
+
+要设计撮合引擎，需要知道撮合引擎是如何工作的。
+
+* 交易系统设计：[https://www.youtube.com/watch?v=dUMWMZmMsVE](https://www.youtube.com/watch?v=dUMWMZmMsVE)
+* Risk Management 如何工作：[https://www1.nseindia.com/products/content/derivatives/equities/risk\_management.htm](https://www1.nseindia.com/products/content/derivatives/equities/risk_management.htm)
+
 
 
