@@ -41,4 +41,23 @@ ConcurrentLinkedQueue：基于链表形式的队列，通过compare and swap(�
 
 1. [你应该知道的高性能无锁队列 Disruptor](https://juejin.im/post/6844903648875528206#heading-10)
 2. [Disruptor Github](https://github.com/LMAX-Exchange/disruptor), [Disruptor wiki](https://github.com/LMAX-Exchange/disruptor/wiki)
+3. [Disruptor](https://lmax-exchange.github.io/disruptor/)
+   1. [你应该知道的高性能无锁队列 Disruptor](https://juejin.im/post/5b5f10d65188251ad06b78e3)
+   2. [The LAMX Architecture](https://martinfowler.com/articles/lmax.html) by Martin Fowler, [中文版翻译](http://ifeve.com/lmax/)
+   3. [https://lmax-exchange.github.io/disruptor/](https://lmax-exchange.github.io/disruptor/)
+   4. [https://github.com/shniu/disruptor.git](https://github.com/shniu/disruptor.git)
+   5. Introduction to the Disruptor
+   6. [高性能 Disruptor - 美团技术](https://tech.meituan.com/2016/11/18/disruptor.html)
+   7. [Disruptor wiki](https://github.com/LMAX-Exchange/disruptor/wiki/Introduction)
+   8. [极客专栏 - 队列](https://time.geekbang.org/column/article/41330)
+   9. [Low latency Trading Architecture at LMAX Exchange](https://www.infoq.com/presentations/lmax-trading-architecture/)
+   10. [Building Scalable Architecture](https://medium.com/koinex-crunch/building-scalable-architecture-85ea199aec67)
+   11. [Sharing data between threads without contention](http://ifeve.com/sharing-data-among-threads-without-contention-2/)
+   12. [Single Writer Principle](https://mechanical-sympathy.blogspot.com/2011/09/single-writer-principle.html)
+   13. [LSM Tree](https://medium.com/swlh/log-structured-merge-trees-9c8e2bea89e8)
+   14. [Disruptor 为什么这么快？](http://ifeve.com/locks-are-bad/)[汇总](https://coolshell.cn/articles/9169.html)
+   15. [https://juejin.im/post/6844903976924610574](https://juejin.im/post/6844903976924610574)
+   16. [https://juejin.im/post/6844903609591660552](https://juejin.im/post/6844903609591660552)
+   17. [Disruptor 源码阅读](https://coderbee.net/index.php/open-source/20130812/400)
+   18. [https://wiki.jikexueyuan.com/project/disruptor-getting-started/lmax-framework.html](https://wiki.jikexueyuan.com/project/disruptor-getting-started/lmax-framework.html)
 

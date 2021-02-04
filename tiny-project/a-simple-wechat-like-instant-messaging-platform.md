@@ -29,3 +29,11 @@ IM 系统中存在很多个客户端，客户端连接到服务端，发送消�
 
 所以 v1 版本只实现：1. 支持用户简单的注册和登录；2. 支持多个客户端连接到服务端；3. 支持某个客户端的用户发送消息给其他的客户端，其他客户端能收到并回复消息
 
+
+
+### IM 参考设计
+
+* [高并发 IM 架构设计与实现](https://www.cnblogs.com/crazymakercircle/p/10246934.html)
+* [搭建一个分布式 IM 系统](https://crossoverjie.top/JCSprout/#/netty/cim)
+* [设计一个百万级的消息推送系统](https://crossoverjie.top/2018/09/25/netty/million-sms-push/)
+
