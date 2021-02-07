@@ -227,6 +227,7 @@ FutureTask 虽然提供了用来检查任务是否执行完成、等待任务执
 参考：
 
 1. [FutureTask 源码解读](https://segmentfault.com/a/1190000016572591)
+2. [FutureTaks 的一个 Bug 修复过程](https://www.cnblogs.com/thisiswhy/p/13791966.html)
 
 ### CompletableFuture
 

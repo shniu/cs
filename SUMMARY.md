@@ -15,6 +15,7 @@
   * [进程管理](cs/os/02-jin-cheng-guan-li.md)
   * [Everything about Memory](cs/os/everything-about-memory.md)
   * [文件系统](cs/os/file-system.md)
+  * [并行编程](cs/os/bing-hang-bian-cheng.md)
   * [Linux](cs/os/linux/README.md)
     * [CPU](cs/os/linux/cpu.md)
     * [IO 多路复用](cs/os/linux/io-duo-lu-fu-yong.md)
