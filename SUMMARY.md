@@ -7,6 +7,7 @@
 
 * [Computer Organization](cs/computer-organization/README.md)
   * [CPU](cs/computer-organization/cpu.md)
+  * [二进制、电路、加法器、乘法器](cs/computer-organization/binary-plus.md)
   * [编译、链接、装载](cs/computer-organization/bian-yi-lian-jie-zhuang-zai.md)
   * [存储器](cs/computer-organization/cun-chu-qi.md)
   * [IO](cs/computer-organization/io.md)
