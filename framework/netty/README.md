@@ -39,5 +39,15 @@ description: 一个异步的基于事件驱动的高性能网络应用框架。
 * 灵活的 TCP 参数配置能力
 * 并发优化
 
+Todo:
+
+* Netty Bootstrap, EventLoop, EventLoopGroup etc.
+
+> 1. git clone [https://github.com/shniu/netty.git](https://github.com/shniu/netty.git) 
+> 2. git remote add upstream [https://github.com/netty/netty.git](https://github.com/netty/netty.git) 
+> 3. git remote -v git fetch upstream git checkout -b 4.1.55.Final 
+> 4. git pull upstream netty-4.1.55.Final
+> 5.  [https://git-scm.com/book](https://git-scm.com/book)
+
 
 

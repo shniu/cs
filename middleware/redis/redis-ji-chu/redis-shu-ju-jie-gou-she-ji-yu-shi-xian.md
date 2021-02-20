@@ -27,13 +27,19 @@ sdshdr5只负责存储小于32字节的字符串。一般情况下，小字符�
 
 SDS在涉及字符串修改处会调用sdsMakeroomFor函数进行检查，根据不同情况动态扩容，该操作对上层透明。
 
-### ziplist
+### Ziplist
 
 ziplist 本质上就是一个字节数组，是 Redis 为了节约内存而设计的一种线性数据结构，可以包含多个元素，每个元素可以是一个字节数组或一个整数。
 
 Redis 的有序集合、散列和列表都直接或者间接使用了压缩列表。当有序集合或散列表的元素个数比较少，且元素都是短字符串时，Redis便使用压缩列表作为其底层数据存储结构
 
-### hash
+### Hash
 
 字典又称散列表，是用来存储键值（key-value）对的一种数据结构
+
+
+
+### Reference
+
+* [Redis 数据结构设计实现 - beihai blog](https://wingsxdu.com/post/database/redis/struct/#gsc.tab=0)
 

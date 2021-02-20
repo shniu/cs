@@ -98,6 +98,7 @@
 ## 编程语言 <a id="language"></a>
 
 * [编程语言](language/language.md)
+* [C & C++](language/c-and-c++.md)
 * [Java](language/java/README.md)
   * [JVM](language/java/jvm.md)
   * [Java 核心技术](language/java/core-tech.md)
@@ -161,6 +162,7 @@
   * [应用案例 - Redis 数据结构](middleware/redis/redis-data-struct.md)
   * [应用案例 - Redis 缓存应用](middleware/redis/redis-cache.md)
   * [应用案例 - Redis 集群](middleware/redis/redis-cluster.md)
+  * [Redis 客户端](middleware/redis/redis-client.md)
   * [Redis 生产案例](middleware/redis/redis-sheng-chan-an-li/README.md)
     * [\[译\] 在 Redis 中存储数亿个简单键值对](middleware/redis/redis-sheng-chan-an-li/redis-store-billion-keys.md)
 * [MySQL](middleware/mysql/README.md)
