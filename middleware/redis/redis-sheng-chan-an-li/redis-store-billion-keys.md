@@ -32,5 +32,7 @@ HGET "mediabucket:1155" "1155315"
 
 via: [Storing hundreds of millions of simple key-value pairs in Redis](https://instagram-engineering.com/storing-hundreds-of-millions-of-simple-key-value-pairs-in-redis-1091ae80f74c), Translate: shaohan.niu
 
+本文结论：**在存储简单键值对时，如果少量的数据，无论使用 string 还是 hash，都是不错的选择；但是面对大量的数据时，比如上亿数据，这个时候我们就需要考虑存储空间了，我们使用 Redis 是为了提速，同时也要考虑占用的内存空间大小，这点很重要，使用 hash 就会节省很多内存空间。**
+
 **额外的思考：为什么两种方案占用的内存空间差异这么大呢？第一种方案是使用 String 数据结构直接存储；第二种方案是使用 Bucket + Hash 数据结构 ??**
 
