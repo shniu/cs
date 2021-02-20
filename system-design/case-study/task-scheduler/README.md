@@ -59,5 +59,9 @@ Spring Task 是 Spring 提供的轻量级任务调度框架，配置和使用都
 
 文档：[https://www.xuxueli.com/xxl-job](https://www.xuxueli.com/xxl-job)， Github: [https://github.com/xuxueli/xxl-job](https://github.com/xuxueli/xxl-job)
 
+* 调度中心：调度线程池做了拆分，分别是 fast 和 slow 两个线程池，慢任务进 slow 线程池，1分钟窗口期内任务耗时达500ms超过10次 被判定为慢任务
+
+服务器时间错误引起的问题。
+
 
 
