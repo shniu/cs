@@ -102,6 +102,7 @@
     * [Spring Task](system-design/case-study/task-scheduler/spring-task.md)
     * [Quartz](system-design/case-study/task-scheduler/quartz.md)
   * [交易系统](system-design/case-study/exchange-engine.md)
+  * [权限设计](system-design/case-study/quan-xian-she-ji.md)
 
 ## 编程语言 <a id="language"></a>
 
