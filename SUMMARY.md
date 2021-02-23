@@ -233,6 +233,8 @@
   * [树](blog/algorithm/tree.md)
 * [\#架构](blog/architecture/README.md)
   * [1- 通信](blog/architecture/1-mysql-protocol.md)
+* [Design & Dev & Opt](blog/design-and-dev-and-opt/README.md)
+  * [High Performance Data structure Design](blog/design-and-dev-and-opt/high-performance-data-structure-design.md)
 
 ## Tiny Project
 
