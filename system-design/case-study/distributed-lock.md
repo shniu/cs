@@ -51,6 +51,7 @@ Redisson
 
 
 * [如何设计更优的分布式锁](https://time.geekbang.org/column/article/125983)
+* [分布式锁的实现之 Redis 篇](https://xiaomi-info.github.io/2019/12/17/redis-distributed-lock/) - 小米信息技术部
 
 
 
