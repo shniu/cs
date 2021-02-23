@@ -170,5 +170,11 @@ Stop Limit 和 Trailing Stop 比较有意思，他们是有效的风险控制工
 * 交易系统设计：[https://www.youtube.com/watch?v=dUMWMZmMsVE](https://www.youtube.com/watch?v=dUMWMZmMsVE)
 * Risk Management 如何工作：[https://www1.nseindia.com/products/content/derivatives/equities/risk\_management.htm](https://www1.nseindia.com/products/content/derivatives/equities/risk_management.htm)
 
+### LMAX-Exchange
 
+* [Low latency Trading Architecture at LMAX Exchange](https://www.infoq.com/presentations/lmax-trading-architecture/)
+* [LMAX Architecture by Martin Fowler](https://martinfowler.com/articles/lmax.html)
+* Disruptor - A High Performance Inter-Thread Messaging Library
+
+   
 
