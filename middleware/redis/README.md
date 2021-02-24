@@ -64,6 +64,8 @@
 * [用 Redis 构建集群的最佳实践](https://time.geekbang.org/column/article/217590)
 * [缓存的最佳实践系列](https://time.geekbang.org/column/article/149899)
 * [https://github.com/JamzyWang/awesome-redis\#use-cases](https://github.com/JamzyWang/awesome-redis#use-cases)
+* [https://github.com/springside/springside4/wiki/redis](https://github.com/springside/springside4/wiki/redis) 
+* [海量数据和高并发下的 Redis 优化实践](https://juejin.cn/post/6844903873216249863#heading-0)
 
 #### Book
 
