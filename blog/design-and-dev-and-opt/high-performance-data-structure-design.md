@@ -228,5 +228,40 @@ private void cleanUp() {
 }
 ```
 
-这样优化之后的性能指标可以达到 46mOPS。使用 Single Writer 原则在设计上更加合理，可维护性更好
+这样优化之后的性能指标可以达到 46mOPS。使用 Single Writer 原则在设计上更加合理，可维护性更好。
+
+### V5 - 使用 lazySet 进一步提升性能
+
+在更新 lastRead, nextWrite, referenceArray set null 时都是使用的 volatile 来实现可见性，它的问题是每次都必须把 CPU cache 中的数据写回内存，这样一定程度上可能会影响性能；根据这几个变量的特点，即使晚几个 CPU 的时钟周期写回内存也是没有关系的，所以我们完全可以不强制使用 volatile，改用原子类的 lazySet，可以看这里的 [set 和 lazySet 的说明](https://blog.csdn.net/aitangyong/article/details/41577503).
+
+> lazySet: "作为可能是Mustang的最后一个小JSR166后续工作，我们为Atomic类（AtomicInteger、AtomicReference等）添加了一个 "懒惰设置 "方法。这是一个小众的方法，在使用非阻塞数据结构微调代码时有时会很有用。其语义是保证写的内容不会与之前的任何写的内容重新排序，但可能会与后续的操作重新排序（或者等价地，可能对其他线程不可见），直到其他一些易失性写或同步操作发生）。
+>
+> 主要的用例是仅仅为了避免长期的垃圾保留而将非阻塞数据结构中的节点的字段清空；它适用于如果其他线程在一段时间内看到非空值是无害的，但你想确保结构最终是GCable。在这种情况下，你可以通过避免空挥写的成本来获得更好的性能。沿着这样的思路，非基于引用的原子也有一些其他的用例，所以在所有的AtomicX类中都支持该方法。
+
+
+
+### Reference
+
+* [ Single Writer Principle](https://mechanical-sympathy.blogspot.com/2011/09/single-writer-principle.html) - 单一写入者原则
+
+在遇到多个写入者竞争共享资源时，一般有两种解决办法：一个是在竞争时使用互斥访问策略，一般是使用锁来实现；另外一种是使用乐观并发策略
+
+> 锁策略：Locking strategies require an arbitrator（仲裁）, usually the operating system kernel, to get involved when the contention occurs to decide who gains access and in what order.  This can be a very expensive process often requiring many more CPU cycles than the actual transaction to be applied to the business logic would use.  Those waiting to enter the [critical section](http://en.wikipedia.org/wiki/Critical_section)\(临界区\), in advance of performing the mutation must queue, and this queuing effect \([Little's Law](http://en.wikipedia.org/wiki/Little%27s_law)\) causes latency to become unpredictable and ultimately restricts throughput.
+
+Most locking strategies are composed from optimistic strategies for changing the lock state or mutual exclusion primitive. \(大多数的锁策略是由改变锁状态的乐观策略或互斥原语组成的\)
+
+好处：如果你的系统能够遵守这个单一写入者原则，那么每个执行上下文就可以把所有的时间和资源都用在处理目的逻辑上，而不会在处理争用问题上浪费周期和资源。 你也可以无限制的扩展，直到硬件饱和。 还有一个非常好的好处是，当在 x86/x64 这样的架构上工作时，在硬件层面上，他们有一个内存模型，据此，加载/存储内存操作有保留的顺序，因此，如果你严格遵守单作者原则，就不需要内存障碍。 **在x86/x64 上，根据内存模型，"加载可以与旧的存储重新排序"，因此当多个线程跨核修改突变相同的数据时，需要设置内存屏障。 单一写入者原则避免了这个问题，因为它永远不用处理写入一个数据项的最新版本，而这个数据项可能已经被另一个线程写入，或者正在另一个核的存储缓冲区中。**
+
+If a system is decomposed into components that keep their own relevant state model, without a central shared model, and all communication is achieved via message passing then you have a system without contention naturally. This type of system obeys the single writer principle if the messaging passing sub-system is not implemented as queues. If you cannot move straight to a model like this, but are finding scalability issues related to contention, then start by asking the question, “How do I change this code to preserve the Single Writer Principle and thus avoid the contention?”
+
+The Single Writer Principle is that for any item of data, or resource, that item of data should be owned by a single execution context for all mutations. \(单一写入者原则适用于任何一项数据或资源，该数据项的所有修改都应该由同一个执行上下文拥有\)
+
+* [Atomic\*.lazySet is a performance win for single writer](http://psy-lob-saw.blogspot.com/2012/12/atomiclazyset-is-performance-win-for.html)
+
+But if there is only a single writer we don't need to do that, as we know no one will ever change the data but us. And from that follows that strictly speaking lazySet is at the very least as correct as a volatile set for a single writer. \(如果只有一个单一写入者，也就是没有其他的人修改数据，只有我们自己；基于这个结论可以严格的说单一写入者模式下的 lazySet 和 volatile 具有同样正确的语义\)
+
+At this point the question is when \(if at all\) will the value set be made visible to other threads. \(基于这个点问题就变成了被修改的值何时被其他线程看到\)
+
+* [How is lazySet in Java's Atomic\* classes implemented ?](https://stackoverflow.com/questions/8381440/how-is-lazyset-in-javas-atomic-classes-implemented)
+* [AtomicLong lazySet vs set ](https://stackoverflow.com/questions/1468007/atomicinteger-lazyset-vs-set)
 
