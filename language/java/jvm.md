@@ -34,7 +34,7 @@ JVM 的 GC 概念多，控制 JVM 行为的参数也多，怎么在特定场景�
 3. 通过管理堆和世代大小以及控制应用程序的对象分配速率，可以减少出现暂停的频率。
 4. 可以通过同时运行GC和应用程序来减少大停顿的频率，有时会牺牲吞吐量。
 
-### [JVM 问题诊断快速入门](https://gitbook.cn/books/5d2d822f175a450263e945f9/index.html)
+### [JVM 问题诊断快速入门](https://gitbook.cn/books/5d2d822f175a450263e945f9/index.html) - GitChat
 
 ### 
 

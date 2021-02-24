@@ -66,6 +66,7 @@
 * [https://github.com/JamzyWang/awesome-redis\#use-cases](https://github.com/JamzyWang/awesome-redis#use-cases)
 * [https://github.com/springside/springside4/wiki/redis](https://github.com/springside/springside4/wiki/redis) 
 * [海量数据和高并发下的 Redis 优化实践](https://juejin.cn/post/6844903873216249863#heading-0)
+* [使用云数据库 Redis 的通用最佳实践](https://tech.antfin.com/docs/2/163173) aliyun Redis
 
 #### Book
 
