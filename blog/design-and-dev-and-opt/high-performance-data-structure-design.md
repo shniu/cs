@@ -228,17 +228,206 @@ private void cleanUp() {
 }
 ```
 
-这样优化之后的性能指标可以达到 46mOPS。使用 Single Writer 原则在设计上更加合理，可维护性更好。
+这样优化之后的性能指标可以达到 46mOPS。使用 Single Writer 原则在设计上更加合理，可维护性更好; 此外这种方式让修改只在一个线程中进行，避免因修改共享数据导致的多个 CPU Cache 中的数据失效问题，这样在处理数据时只需要本线程内修改数据后写会内存，而这个写回内存的操作不需要强制保证和其他线程的可见性，延迟可见就可以，所以这里也是一个优化点，使用具有 store-store 内存屏障语义的 lazySet 比使用具有 store-load 内存屏障语义的 volatile 在性能上更加好。
 
 ### V5 - 使用 lazySet 进一步提升性能
 
-在更新 lastRead, nextWrite, referenceArray set null 时都是使用的 volatile 来实现可见性，它的问题是每次都必须把 CPU cache 中的数据写回内存，这样一定程度上可能会影响性能；根据这几个变量的特点，即使晚几个 CPU 的时钟周期写回内存也是没有关系的，所以我们完全可以不强制使用 volatile，改用原子类的 lazySet，可以看这里的 [set 和 lazySet 的说明](https://blog.csdn.net/aitangyong/article/details/41577503).
+在更新 lastRead, nextWrite, referenceArray set null 时都是使用的 volatile 来实现可见性，它的问题是每次都必须把 CPU cache 中的数据写回内存，并把其他 CPU 核心中的 Cache 失效掉，这样一定程度上可能会影响性能；根据这几个变量的特点，即使晚几个 CPU 的时钟周期写回内存也是没有关系的，所以我们完全可以不强制使用 volatile，改用原子类的 lazySet，可以看这里的 [set 和 lazySet 的说明](https://blog.csdn.net/aitangyong/article/details/41577503).
 
-> lazySet: "作为可能是Mustang的最后一个小JSR166后续工作，我们为Atomic类（AtomicInteger、AtomicReference等）添加了一个 "懒惰设置 "方法。这是一个小众的方法，在使用非阻塞数据结构微调代码时有时会很有用。其语义是保证写的内容不会与之前的任何写的内容重新排序，但可能会与后续的操作重新排序（或者等价地，可能对其他线程不可见），直到其他一些易失性写或同步操作发生）。
+> lazySet: "作为可能是Mustang的最后一个小JSR166后续工作，我们为Atomic类（AtomicInteger、AtomicReference等）添加了一个 "lazySet "方法。这是一个小众的方法，在使用非阻塞数据结构微调代码时有时会很有用。其语义是保证写的内容不会与之前的任何写的内容重新排序，但可能会与后续的操作重新排序（或者等价地，可能对其他线程不可见），直到其他一些 volatile 写或 synchronize 操作发生）。
 >
 > 主要的用例是仅仅为了避免长期的垃圾保留而将非阻塞数据结构中的节点的字段清空；它适用于如果其他线程在一段时间内看到非空值是无害的，但你想确保结构最终是GCable。在这种情况下，你可以通过避免空挥写的成本来获得更好的性能。沿着这样的思路，非基于引用的原子也有一些其他的用例，所以在所有的AtomicX类中都支持该方法。
 
+最终版本：
 
+```java
+public final class CoalescingRingBuffer<K, V> implements CoalescingBuffer<K, V> {
+    // 可写的位置
+    private final AtomicLong nextWrite = new AtomicLong(1);
+    // the last index that was nulled out by the producer
+    // 我们需要清理掉已经被读取过的元素，我们使用了 Single Writer 原则，lastCleaned 用来
+    // 记录上次被清理的位置，所以 lastCleaned 只有 producer 线程会使用，不需要做并发控制
+    private long lastCleaned = 0; 
+    // 记录由于 buffer 满导致的拒绝添加的次数
+    private final AtomicLong rejectionCount = new AtomicLong(0);
+    // 记录 key 的数组
+    private final K[] keys;
+    // 记录 value 的数组，value 是被共享的数据，所以需要保证可见性，这里使用数组引用原子类
+    // 最终在 set 数据时用到了 volatile 
+    private final AtomicReferenceArray<V> values;
+
+    // 没有指定 key 的数据，默认使用这个作为 key
+    @SuppressWarnings("unchecked")
+    private final K nonCollapsibleKey = (K) new Object();
+    // 掩码，capacity - 1, 处于性能考虑，使用位运算计算位置索引时使用
+    private final int mask;
+    // 容量，为了性能考虑，capacity 都是 2 的 n 次方
+    private final int capacity;
+
+    // the oldest slot that is is safe to write to
+    // 第一个可以被安全写入的位置，会随着消费者的读取而变化
+    // 以这个位置开始，到 nextWrite 这中间的数据可以被替换
+    private volatile long firstWrite = 1;
+    // the newest slot that it is safe to overwrite
+    // 上次读取到的位置，这个位置之前的数据可以被覆盖
+    private final AtomicLong lastRead = new AtomicLong(0); 
+
+    @SuppressWarnings("unchecked")
+    public CoalescingRingBuffer(int capacity) {
+        this.capacity = nextPowerOfTwo(capacity);
+        this.mask = this.capacity - 1;
+
+        this.keys = (K[]) new Object[this.capacity];
+        this.values = new AtomicReferenceArray<V>(this.capacity);
+    }
+
+    private int nextPowerOfTwo(int value) {
+        return 1 << (32 - Integer.numberOfLeadingZeros(value - 1));
+    }
+
+    @Override
+    public int size() {
+        // loop until you get a consistent read of both volatile indices
+        while (true) {
+            long lastReadBefore     = lastRead.get();
+            long currentNextWrite   = this.nextWrite.get();
+            long lastReadAfter      = lastRead.get();
+            // 处于一致性的考虑，确保在读取到 nextWrite 时，lastRead 的值没有被修改
+            // 因为操作没有加锁，所以需要使用 spin 的方式进行检测
+            if (lastReadBefore == lastReadAfter) {
+                return (int) (currentNextWrite - lastReadBefore) - 1;
+            }
+        }
+    }
+
+    @Override
+    public int capacity() {
+        return capacity;
+    }
+
+    public long rejectionCount() {
+        return rejectionCount.get();
+    }
+
+    public long nextWrite() {
+        return nextWrite.get();
+    }
+
+    public long firstWrite() {
+        return firstWrite;
+    }
+
+    @Override
+    public boolean isEmpty() {
+        return firstWrite == nextWrite.get();
+    }
+
+    @Override
+    public boolean isFull() {
+        return size() == capacity;
+    }
+
+    @Override
+    public boolean offer(K key, V value) {
+        long nextWrite = this.nextWrite.get();
+        // firstWrite ~ nextWrite 之间的数据是可以被替换的
+        for (long updatePosition = firstWrite; updatePosition < nextWrite; updatePosition++) {
+            int index = mask(updatePosition);
+
+            if (key.equals(keys[index])) {
+                values.set(index, value);
+                // check that the reader has not read beyond our update point yet
+                if (updatePosition >= firstWrite) {  
+                    return true;
+                } else {
+                    break;
+                }
+            }
+        }
+
+        return add(key, value);
+    }
+
+    @Override
+    public boolean offer(V value) {
+        return add(nonCollapsibleKey, value);
+    }
+
+    private boolean add(K key, V value) {
+        // 如果已经满了，就拒绝添加
+        if (isFull()) {
+            rejectionCount.lazySet(rejectionCount.get() + 1);
+            return false;
+        }
+        // 遵循 Single Writer 原则，无用数据的清理也让 producer 线程来做，进一步提升性能
+        cleanUp();
+        // 存储到数组中
+        store(key, value);
+        return true;
+    }
+
+    private void cleanUp() {
+        long lastRead = this.lastRead.get();
+
+        if (lastRead == lastCleaned) {
+            return;
+        }
+
+        while (lastCleaned < lastRead) {
+            int index = mask(++lastCleaned);
+            keys[index] = null;
+            // lazySet 提高性能，不需要强制立即刷新回内存，并让其他 cpu cache 中的数据失效
+            // 这里只需要最终值被设置为 null 即可，晚一点没有关系
+            values.lazySet(index, null);
+        }
+    }
+
+    private void store(K key, V value) {
+        long nextWrite = this.nextWrite.get();
+        int index = mask(nextWrite);
+
+        keys[index] = key;
+        // 这里要使用 volatile 保证数据在 consumer 线程中也是可见的
+        values.set(index, value);
+
+        // 使用 lazySet 提高性能
+        this.nextWrite.lazySet(nextWrite + 1);
+    }
+
+    @Override
+    public int poll(Collection<? super V> bucket) {
+        return fill(bucket, nextWrite.get());
+    }
+
+    @Override
+    public int poll(Collection<? super V> bucket, int maxItems) {
+        // 计算可以取的最大位置
+        long claimUpTo = min(firstWrite + maxItems, nextWrite.get());
+        return fill(bucket, claimUpTo);
+    }
+
+    private int fill(Collection<? super V> bucket, long claimUpTo) {
+        // claimUpTo 是当次可取到数据的最大位置
+        firstWrite = claimUpTo;
+        long lastRead = this.lastRead.get();
+
+        for (long readIndex = lastRead + 1; readIndex < claimUpTo; readIndex++) {
+            int index = mask(readIndex);
+            bucket.add(values.get(index));
+            // values.set(index, null);
+        }
+
+        // 使用 lazySet 提高性能
+        this.lastRead.lazySet(claimUpTo - 1);
+        return (int) (claimUpTo - lastRead - 1);
+    }
+
+    private int mask(long value) {
+        return ((int) value) & mask;
+    }
+
+}
+```
 
 ### Reference
 
@@ -250,7 +439,7 @@ private void cleanUp() {
 
 Most locking strategies are composed from optimistic strategies for changing the lock state or mutual exclusion primitive. \(大多数的锁策略是由改变锁状态的乐观策略或互斥原语组成的\)
 
-好处：如果你的系统能够遵守这个单一写入者原则，那么每个执行上下文就可以把所有的时间和资源都用在处理目的逻辑上，而不会在处理争用问题上浪费周期和资源。 你也可以无限制的扩展，直到硬件饱和。 还有一个非常好的好处是，当在 x86/x64 这样的架构上工作时，在硬件层面上，他们有一个内存模型，据此，加载/存储内存操作有保留的顺序，因此，如果你严格遵守单作者原则，就不需要内存障碍。 **在x86/x64 上，根据内存模型，"加载可以与旧的存储重新排序"，因此当多个线程跨核修改突变相同的数据时，需要设置内存屏障。 单一写入者原则避免了这个问题，因为它永远不用处理写入一个数据项的最新版本，而这个数据项可能已经被另一个线程写入，或者正在另一个核的存储缓冲区中。**
+好处：如果你的系统能够遵守这个单一写入者原则，那么每个执行上下文就可以把所有的时间和资源都用在处理目的逻辑上，而不会在处理争用问题上浪费周期和资源。 你也可以无限制的扩展，直到硬件饱和。 还有一个非常好的好处是，当在 x86/x64 这样的架构上工作时，在硬件层面上，他们有一个内存模型，据此，加载/存储内存操作有保留的顺序，因此，如果你严格遵守单作者原则，就不需要内存障碍。 **在x86/x64 上，根据内存模型，"load 可以与旧的 store 重新排序"，因此当多个线程跨核修改相同的数据时，需要设置内存屏障。 单一写入者原则避免了这个问题，因为它永远不用处理写入一个数据项的最新版本，而这个数据项可能已经被另一个线程写入，或者正在另一个核的存储缓冲区中。**
 
 If a system is decomposed into components that keep their own relevant state model, without a central shared model, and all communication is achieved via message passing then you have a system without contention naturally. This type of system obeys the single writer principle if the messaging passing sub-system is not implemented as queues. If you cannot move straight to a model like this, but are finding scalability issues related to contention, then start by asking the question, “How do I change this code to preserve the Single Writer Principle and thus avoid the contention?”
 
