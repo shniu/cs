@@ -60,7 +60,7 @@ Chubby 的设计决策来自：
 Chubby 的系统架构![](//note.youdao.com/src/3D75B2BF17AD4DF38B5AC39417910555)有两个主要的组件，一个是 Chubby master，一个是 Chubby client  
 参考：[Chubby: A lock service for distributed coordination](https://medium.com/coinmonks/chubby-a-centralized-lock-service-for-distributed-applications-390571273052)[The Chubby lock service for loosely-coupled distributed system](https://static.googleusercontent.com/media/research.google.com/en//archive/chubby-osdi06.pdf) 论文[Chubby lock service 论文的翻译](https://blog.csdn.net/qq_38289815/article/details/103488701)[Chubby 的锁服务](http://catkang.github.io/2017/09/29/chubby.html) 读了一遍，没有读太懂
 
-![](../../.gitbook/assets/image%20%28126%29.png)
+![](../../.gitbook/assets/image%20%28127%29.png)
 
 #### zookeeper
 
