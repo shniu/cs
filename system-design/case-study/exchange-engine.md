@@ -126,6 +126,14 @@ Stop Limit 和 Trailing Stop 比较有意思，他们是有效的风险控制工
 * [Option](https://www.investopedia.com/terms/o/option.asp)  期权
 * [Limit Move ](https://www.investopedia.com/terms/l/limit-move.asp) 
 * [L2 Market](https://www.investopedia.com/terms/l/level2.asp) 和 [L2 Market Data](https://www.exegy.com/2019/03/level-2-market-data-what-level-supports-your-trading-strategy/)
+* [FOK](https://www.investopedia.com/terms/f/fok.asp) - The purpose of a fill or kill \(FOK\) order is to ensure that an entire position is executed at prevailing prices in a timely manner.
+* [Post only Order](https://www.delta.exchange/zh/blog/support/what-are-post-only-orders) - 只挂单的委托单。挂单是增加交易所的流动性的，而吃单是降低交易所流动性的，一般交易所会激励挂单，所以如果一个单子在下单时标记为 post only，就会只以挂单的方式执行，如果这个单子能被部分填充或者全部填充，会被立即取消掉
+
+1. Post only orders always receive maker fee on execution
+2. Only limit orders can be post-only. Since market orders execute immediately, they can’t be made post only
+3. If a post only order will partially or fully match against an existing order in the order book, then the post only order is cancelled.
+
+* [GTC](https://www.investopedia.com/terms/g/gtc.asp)
 
 ### 参考
 
