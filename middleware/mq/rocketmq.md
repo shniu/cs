@@ -189,4 +189,6 @@ org.apache.rocketmq.client.impl.producer.DefaultMQProducerImpl
 * [https://www.jianshu.com/p/7f772c3eccd6](https://www.jianshu.com/p/7f772c3eccd6) consumer 流程
 * [如何保证rocketmq不丢失消息](https://juejin.im/post/6844904102011338760)
 * [如何保证kafka不丢失消息](https://mp.weixin.qq.com/s/qttczGROYoqSulzi8FLXww)
+* [快手基于 RocketMQ 的在线消息系统建设实践](https://mp.weixin.qq.com/s/ljSktiZYh_5W93m3yB4M-g)
+* [RocketMQ 如何在双11下0故障](https://mp.weixin.qq.com/s/nkNT2CvPHiWZF95NWzd3Ug)
 
