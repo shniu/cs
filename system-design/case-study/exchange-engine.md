@@ -144,7 +144,8 @@ Stop Limit 和 Trailing Stop 比较有意思，他们是有效的风险控制工
 * [OkEx 委托类型说明](https://www.okex.com/support/hc/zh-cn/articles/360003100091)
 * [Currency futures](https://www.investopedia.com/terms/c/currencyfuture.asp) 货币期货
 * [Margin Trading](https://academy.binance.com/en/articles/what-is-margin-trading)  保证金交易
-* [Margin Definition](https://www.investopedia.com/terms/m/margin.asp) 保证金的定义
+* [Margin Definition](https://www.investopedia.com/terms/m/margin.asp) 保证金的定义, 保证金是从经纪公司借来的用于购买投资的钱。它是投资者账户中持有的证券总价值与经纪人贷款额之间的差额。保证金购买是借钱购买证券的行为。这种做法包括购买资产，其中买方仅支付资产价值的一部分，其余部分则从银行或经纪人那里借钱。经纪人充当贷方，投资者账户中的证券充当抵押物。
+* [Margin wiki](https://en.wikipedia.org/wiki/Margin_%28finance%29)
 * [Option](https://www.investopedia.com/terms/o/option.asp)  期权
 * [Limit Move ](https://www.investopedia.com/terms/l/limit-move.asp) 
 * [L2 Market](https://www.investopedia.com/terms/l/level2.asp) 和 [L2 Market Data](https://www.exegy.com/2019/03/level-2-market-data-what-level-supports-your-trading-strategy/)
@@ -156,6 +157,7 @@ Stop Limit 和 Trailing Stop 比较有意思，他们是有效的风险控制工
 3. If a post only order will partially or fully match against an existing order in the order book, then the post only order is cancelled.
 
 * [GTC](https://www.investopedia.com/terms/g/gtc.asp)
+* [Time In Force ](https://www.investopedia.com/terms/t/timeinforce.asp)- 有效时间是下单交易时使用的特殊指令，用于指示订单在执行或到期之前将保持有效状态的时间。
 
 ### 参考
 
