@@ -4,6 +4,19 @@
 分布式系统是一系列独立节点的集合，它们对外表现为一致的系统状态。
 {% endhint %}
 
+### 拜占庭将军问题
+
+[拜占庭将军问题](https://zh.wikipedia.org/wiki/%E6%8B%9C%E5%8D%A0%E5%BA%AD%E5%B0%86%E5%86%9B%E9%97%AE%E9%A2%98)是由[莱斯利·兰波特](https://zh.wikipedia.org/wiki/%E8%8E%B1%E6%96%AF%E5%88%A9%C2%B7%E5%85%B0%E6%B3%A2%E7%89%B9)在其同名[论文](https://zh.wikipedia.org/wiki/%E8%AE%BA%E6%96%87)中提出的[分布式对等网络](https://zh.wikipedia.org/wiki/%E5%AF%B9%E7%AD%89%E7%BD%91%E7%BB%9C)通信容错问题。
+
+在[分布式计算](https://zh.wikipedia.org/wiki/%E5%88%86%E5%B8%83%E5%BC%8F%E8%A8%88%E7%AE%97)中，不同的[计算机](https://zh.wikipedia.org/wiki/%E8%A8%88%E7%AE%97%E6%A9%9F)通过通讯交换信息达成共识而按照同一套协作策略行动。但有时候，系统中的成员计算机可能出错而发送错误的信息，用于传递信息的通讯网络也可能导致信息损坏，使得网络中不同的成员关于全体协作的策略得出不同结论[\[2\]](https://zh.wikipedia.org/wiki/%E6%8B%9C%E5%8D%A0%E5%BA%AD%E5%B0%86%E5%86%9B%E9%97%AE%E9%A2%98#cite_note-DriscollHall2004-2)，从而破坏系统一致性[\[3\]](https://zh.wikipedia.org/wiki/%E6%8B%9C%E5%8D%A0%E5%BA%AD%E5%B0%86%E5%86%9B%E9%97%AE%E9%A2%98#cite_note-DriscollHall2003-3)。拜占庭将军问题被认为是容错性问题中最难的问题类型之一。
+
+> 一组[拜占庭](https://zh.wikipedia.org/wiki/%E6%8B%9C%E5%8D%A0%E5%BA%AD%E5%B8%9D%E5%9C%8B)将军分别各率领一支军队共同围困一座城市。为了简化问题，将各支军队的行动策略限定为进攻或撤离两种。因为部分军队进攻部分军队撤离可能会造成灾难性后果，因此各位将军必须通过投票来达成一致策略，即所有军队一起进攻或所有军队一起撤离。因为各位将军分处城市不同方向，他们只能通过信使互相联系。在投票过程中每位将军都将自己投票给进攻还是撤退的信息通过信使分别通知其他所有将军，这样一来每位将军根据自己的投票和其他所有将军送来的信息就可以知道共同的投票结果而决定行动策略。
+
+1. [拜占庭将军问题论文英文版](https://web.archive.org/web/20170205142845/http://lamport.azurewebsites.net/pubs/byz.pdf), or [这里](http://www.microsoft.com/en-us/research/wp-content/uploads/2016/12/The-Byzantine-Generals-Problem.pdf)
+2. [拜占庭将军问题论文中文版](https://blog.csdn.net/weixin_40098405/article/details/105566437)
+3. [拜占庭容错算法 PBFT](http://yangzhe.me/2019/11/25/pbft/)
+4. [从拜占庭将军问题到 PBFT](https://my.oschina.net/u/4379065/blog/4526898)  \[Todo\]
+
 ### 分布式系统基础理论
 
 #### CAP 理论
@@ -64,4 +77,5 @@ ZAB 协议
 * [https://github.com/WangYangA9/MIT-6.824-2018](https://github.com/WangYangA9/MIT-6.824-2018)
 * [https://www.bilibili.com/video/av45207204/](https://www.bilibili.com/video/av45207204/)
 * [https://zhuanlan.zhihu.com/p/34680235](https://zhuanlan.zhihu.com/p/34680235)
+* [漫谈分布式系统、拜占庭将军问题和区块链](http://zhangtielei.com/posts/blog-consensus-byzantine-and-blockchain.html) \[Todo\]
 
