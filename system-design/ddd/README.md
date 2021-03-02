@@ -112,6 +112,7 @@ DDD 实践案例
 
 * [聊一聊聚合的持久化](https://zhuanlan.zhihu.com/p/87074950?utm_source=wechat_session&utm_medium=social&s_r=0)
 * [https://app.gitbook.com/@fuinorg/s/ddd-4-java/](https://app.gitbook.com/@fuinorg/s/ddd-4-java/)
+* [DDD 在爱奇艺打赏业务中的实践](https://mp.weixin.qq.com/s/9qSvOrOHZsZq5o0LVOZhlw)
 
 #### DDD 会议
 
