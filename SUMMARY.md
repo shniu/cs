@@ -78,6 +78,7 @@
   * [Kubernetes](system-design/microservice/kubernetes/README.md)
     * [Kubernetes - Mapping External Services](system-design/microservice/kubernetes/kubernetes-mapping-external-services.md)
   * [Istio](system-design/microservice/istio.md)
+  * [监控](system-design/microservice/jian-kong.md)
 * [分布式系统](system-design/distributed/README.md)
   * [分布式理论](system-design/distributed/fen-bu-shi-li-lun.md)
   * [分布式事务](system-design/distributed/fen-bu-shi-shi-wu.md)
@@ -204,6 +205,7 @@
   * [MySQL - Specified key was too long](qa/xian-shang-case/mysql-specified-key-was-too-long.md)
   * [Java 应用 CPU 100% 排查优化](qa/xian-shang-case/cpu-high-opt.md)
   * [频繁 GC 导致的 Java 服务不响应](qa/xian-shang-case/java-server-no-response-caused-by-fgc.md)
+  * [导出优化](qa/xian-shang-case/dao-chu-you-hua.md)
 
 ## 大数据 <a id="bigdata"></a>
 

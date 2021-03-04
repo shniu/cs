@@ -226,9 +226,11 @@ Stop Limit 和 Trailing Stop 比较有意思，他们是有效的风险控制工
 
 ### API
 
-* [https://docs.exberry.io/market-data](https://docs.exberry.io/market-data) Exchange API protocol
+* [https://docs.exberry.io/market-data](https://docs.exberry.io/market-data) Exchange API protocol，主要是基于 websocket 的数据推送等
 
+### 量化交易与高频交易
 
+* [The High-Frequency Trading Arms Race: Frequent Batch Auctions as a Market Design Response](https://academic.oup.com/qje/article/130/4/1547/1916146)
 
  
 
