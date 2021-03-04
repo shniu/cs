@@ -80,6 +80,7 @@
   * [Istio](system-design/microservice/istio.md)
 * [分布式系统](system-design/distributed/README.md)
   * [分布式理论](system-design/distributed/fen-bu-shi-li-lun.md)
+  * [分布式事务](system-design/distributed/fen-bu-shi-shi-wu.md)
 * [后端存储设计](system-design/backend-store/README.md)
   * [缓存设计](system-design/backend-store/cache-design.md)
   * [数据库架构设计](system-design/backend-store/database-arch-design.md)

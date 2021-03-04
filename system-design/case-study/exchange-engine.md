@@ -158,6 +158,7 @@ Stop Limit 和 Trailing Stop 比较有意思，他们是有效的风险控制工
 
 * [GTC](https://www.investopedia.com/terms/g/gtc.asp)
 * [Time In Force ](https://www.investopedia.com/terms/t/timeinforce.asp)- 有效时间是下单交易时使用的特殊指令，用于指示订单在执行或到期之前将保持有效状态的时间。
+* [期权交易介绍](https://www.okex.com/support/hc/zh-cn/articles/360037742911-%E4%BA%8C-%E6%9C%9F%E6%9D%83%E4%BA%A4%E6%98%93%E4%BB%8B%E7%BB%8D)
 
 ### 参考
 
@@ -220,6 +221,7 @@ Stop Limit 和 Trailing Stop 比较有意思，他们是有效的风险控制工
 * \*\*\*\*[**高并发、低 RT 的风控系统架构及技术架构的实现**](https://gitbook.cn/gitchat/activity/5cd91b637b22ef4d1f70c332)\*\*\*\*
 * \*\*\*\*[**https://cloud.tencent.com/developer/article/1476492**](https://cloud.tencent.com/developer/article/1476492)\*\*\*\*
 * [交易所架构开发学习](https://www.jianshu.com/p/4daba3bb413e) - [https://gitee.com/cexchange/CoinExchange](https://gitee.com/cexchange/CoinExchange)
+* [数字货币交易所架构设计](https://www.cnblogs.com/bizzan/p/12661279.html) - 可以重点看一下
 * [https://www.itbaizhan.cn/stages/id/33/phase/385](https://www.itbaizhan.cn/stages/id/33/phase/385)
 
 ### API
