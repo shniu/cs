@@ -197,6 +197,7 @@
   * [Kafka](middleware/mq/kafka.md)
   * [Pulsar](middleware/mq/pulsar.md)
   * [RocketMQ](middleware/mq/rocketmq.md)
+  * [NSQ](middleware/mq/nsq.md)
 
 ## 实际案例 <a id="qa"></a>
 

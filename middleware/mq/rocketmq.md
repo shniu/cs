@@ -1,7 +1,5 @@
 # RocketMQ
 
-
-
 ### 安装
 
 ### 基本使用
@@ -72,8 +70,6 @@ via: [https://github.com/apache/rocketmq/blob/master/docs/cn/architecture.md](ht
 * 网络模型：Reactor 多线程设计
 
 via: [https://github.com/apache/rocketmq/blob/master/docs/cn/design.md](https://github.com/apache/rocketmq/blob/master/docs/cn/design.md) （todo\)
-
-
 
 ### 实现
 
@@ -182,6 +178,14 @@ org.apache.rocketmq.client.impl.producer.DefaultMQProducerImpl
 
 生产者在发送消息时，会首先查找 `TopicPublishInfo` ，如果本地找不到就去 NameSrv 去请求，最后还是没有找到就会异常退出；`TopicPublishInfo` 包括了 MessageQueue 的列表、是否顺序消息、本地线程的索引计数器、Topic 路由数据等，可以从 `TopicPublishInfo` 来选择一个 MessageQueue，具体选择的策略有两种：一种是如果没有 enable latencyFaultTolerance，就用递增取模的方式选择。一种是如果 enable 了，在递增取模的基础上，再过滤掉 not available 的。这里所谓的 latencyFaultTolerance, 是指对之前失败的，按一定的时间做退避，如果上次请求的 latency 超过 550L ms, 就退避 3000L ms；超过 1000L，就退避 60000L。参考 `org.apache.rocketmq.client.latency.MQFaultStrategy`
 
+### 高级原理和核心源码
+
+
+
+#### Namesrv 设计
+
+* [谈谈 RocketMQ NameServer 的设计与实现](http://tinylcy.me/2019/rocketmq-nameserver/)
+
 ### Resource
 
 * [https://rocketmq.apache.org/](https://rocketmq.apache.org/)
@@ -191,4 +195,5 @@ org.apache.rocketmq.client.impl.producer.DefaultMQProducerImpl
 * [如何保证kafka不丢失消息](https://mp.weixin.qq.com/s/qttczGROYoqSulzi8FLXww)
 * [快手基于 RocketMQ 的在线消息系统建设实践](https://mp.weixin.qq.com/s/ljSktiZYh_5W93m3yB4M-g)
 * [RocketMQ 如何在双11下0故障](https://mp.weixin.qq.com/s/nkNT2CvPHiWZF95NWzd3Ug)
+* [DLedger 主从切换实现平滑升级的技巧](https://yq.aliyun.com/articles/720413)
 
