@@ -184,6 +184,14 @@ org.apache.rocketmq.client.impl.producer.DefaultMQProducerImpl
 
 #### Namesrv 设计
 
+Namesrv 作为 RocketMQ 的核心组件之一，承担了路由注册中心的作用。
+
+1. 有哪些信息注册到了 Namesrv ?
+2. Namesrv 一般是以集群部署，且集群中的各个节点不互通，那么 Namesrv 集群中各节点路由信息不一致时，RocketMQ 如何保证可用性？
+3. Broker 不可用后，Namesrv 并不会立即将变更后的注册信息推送至 Producer or Consumer，那 RocketMQ 是如何保证 Producer 和 Consumer 正常发送/消费消息的呢 ？
+
+
+
 * [谈谈 RocketMQ NameServer 的设计与实现](http://tinylcy.me/2019/rocketmq-nameserver/)
 
 ### Resource
@@ -196,4 +204,5 @@ org.apache.rocketmq.client.impl.producer.DefaultMQProducerImpl
 * [快手基于 RocketMQ 的在线消息系统建设实践](https://mp.weixin.qq.com/s/ljSktiZYh_5W93m3yB4M-g)
 * [RocketMQ 如何在双11下0故障](https://mp.weixin.qq.com/s/nkNT2CvPHiWZF95NWzd3Ug)
 * [DLedger 主从切换实现平滑升级的技巧](https://yq.aliyun.com/articles/720413)
+* [RocketMQ 概念和设计](http://qyb.cool/archives/rocketmq%E4%B8%80%E6%A6%82%E5%BF%B5%E5%92%8C%E8%AE%BE%E8%AE%A1#%E4%B8%80%E3%80%81%E6%A6%82%E5%BF%B5%E5%92%8C%E7%89%B9%E6%80%A7)
 
