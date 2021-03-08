@@ -10,6 +10,11 @@ description: About JVM
 * [ ] JVM 字节码文件分析
 * [ ] GC 算法和 GC 收集器
 * [ ] GC 调优实战
+* [ ] 对象引用类型以及应用场景：[https://www.baeldung.com/java-weak-reference](https://www.baeldung.com/java-weak-reference)
+* [ ] JVM 面试
+  * [ ] [https://www.cnblogs.com/crazymakercircle/p/14365820.html](https://www.cnblogs.com/crazymakercircle/p/14365820.html)
+  * [ ] [https://gitbook.cn/books/5d2d822f175a450263e945f9/index.html](https://gitbook.cn/books/5d2d822f175a450263e945f9/index.html)
+  * [ ] [https://www.jianshu.com/p/9d729c9c94c4](https://www.jianshu.com/p/9d729c9c94c4)
 
 ### 博客
 
