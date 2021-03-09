@@ -1,5 +1,17 @@
 # RocketMQ
 
+### 设计哲学
+
+RocketMQ 的设计追求简单与性能第一，主要体现为：
+
+* 因为Topic路由信息能容忍分钟级的不一致。所有RocketMQ的NameServer集群之间互不通信，降低了NameServer的复杂程度以及对网络的要求，同时性能比zookeeper有了极大的提升
+* 高效的IO存储机制，消息存储文件设计成文件组的概念，组内单个文件大小固定，方便引入内存映射机制，所有topic的消息存储基于顺序写，极大提升了消息的写性能，同时为了兼顾消息消费与消息查找，引入了消息消费队列文件与索引文件
+* 幂等性问题：RocketMQ不处理，留给用户处理
+
+### 
+
+### 
+
 ### 安装
 
 ### 基本使用
@@ -180,8 +192,6 @@ org.apache.rocketmq.client.impl.producer.DefaultMQProducerImpl
 
 ### 高级原理和核心源码
 
-
-
 #### Namesrv 设计
 
 Namesrv 作为 RocketMQ 的核心组件之一，承担了路由注册中心的作用。
@@ -190,7 +200,7 @@ Namesrv 作为 RocketMQ 的核心组件之一，承担了路由注册中心的�
 2. Namesrv 一般是以集群部署，且集群中的各个节点不互通，那么 Namesrv 集群中各节点路由信息不一致时，RocketMQ 如何保证可用性？
 3. Broker 不可用后，Namesrv 并不会立即将变更后的注册信息推送至 Producer or Consumer，那 RocketMQ 是如何保证 Producer 和 Consumer 正常发送/消费消息的呢 ？
 
-
+梳理的流程图等在 [Google  Drive](https://app.diagrams.net/#G1KnciHJxwyYAvI9d4CFO8EKCx3XKxxGLd) 上。
 
 * [谈谈 RocketMQ NameServer 的设计与实现](http://tinylcy.me/2019/rocketmq-nameserver/)
 

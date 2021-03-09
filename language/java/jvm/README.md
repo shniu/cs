@@ -32,6 +32,8 @@ description: About JVM
 
 有关字节码的东西比较多，使用另外的文件记录，看 [JVM Bytecode](jvm-bytecode.md) 。
 
+
+
 ### 博客
 
 #### [Java GC 精粹](https://mechanical-sympathy.blogspot.com/2013/07/java-garbage-collection-distilled.html)
