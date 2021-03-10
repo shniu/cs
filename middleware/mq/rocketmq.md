@@ -215,7 +215,7 @@ Namesrv 作为 RocketMQ 的核心组件之一，承担了路由注册中心的�
 
 梳理的流程图等在 [Google  Drive](https://app.diagrams.net/#G1KnciHJxwyYAvI9d4CFO8EKCx3XKxxGLd) 上。
 
-* [谈谈 RocketMQ NameServer 的设计与实现](http://tinylcy.me/2019/rocketmq-nameserver/)
+* [谈谈 RocketMQ NameServer 的设计与实现](http://tinylcy.me/2019/rocketmq-nameserver/) - 本文结合源码分析了 Namesrv 在设计上的权衡，追求简单高效、复杂度低、高性能的实现，而由于网络分区等问题引起的数据一致性问题交给了 Producer、Broker、Consumer 去解决；Namesrv 并不会把路由信息的变化主动推送给客户端，降低了技术实现复杂度，要靠客户端拉取来感知变化，当 broker 不可用时，使用重试和无效 Broker 规避的方式解决。
 
 ### Resource
 
