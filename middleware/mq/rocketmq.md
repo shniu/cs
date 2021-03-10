@@ -13,7 +13,17 @@ RocketMQ 的消息生产和消费消息的顺序性
 * 对于全局有序，所有消息需要进入同一个 Broker 的同一个 Topic 下的同一个 Queue，也就是单 Broker 单 Topic 单 Queue 的方式，这样就没有办法做到高可用，而且性能和吞吐量是有上限的；但是很少有场景是这样的
 * 局部有序，这个是大部分场景可能会遇到的；一般的做法是在 Producer 端投递消息时把需要保证顺序的消息投递到同一个 Queue 中
 
-### 
+RocketMQ的几个问题是如何解决的
+
+* Producer 里的 MessageQueue List 是如何构建的？因为在发送消息时要选择一个 MessageQueue
+
+Producer 在 send message 时，会先获取到 topicPublishInfo，这里边包含了两个重要的数据：topicRouteData 和 MessageQueueList，其中 topicRouteData 中包括了 topicData 的列表和 brokerData 的列表，而 MessageQueueList 的数据就是从 topicData 列表数据中转化而来的，如果一个 Topic 分布在两个 Broker 之上，而且读写队列是 4 的话，那么就会有 8 个 MessageQueue，分别对应到 broker1 的 0 1 2 3 这 4 个队列和 broker2 的 0 1 2 3 这 4 个队列。所以说，如果某个 Broker 挂掉，那么这个 Broker 上的队列都不能访问了，在我们举的例子中，就只剩下 4 个 Queue，在一个短暂的时间内，本来要发给某个 Queue 的数据需要发给另外的 Queue，即使我们使用了 id 取余的方式，也不能严格的保证局部顺序；当 Broker 端做了高可用的 DLedger 集群后，能缩短故障时间，并增加了自动恢复的能力，要么我们就需要牺牲一定的可用性，如果某个 id 投递到某个 Queue，把这个对应关系记下来，如果这个 Queue 不可用，就后面再发送，这无疑增加了系统实现的复杂度，而且还会影响吞吐量
+
+* 如果某个 Topic 分布在 3 个 Broker 上，Producer 从 Namesrv 中拉取到 3 个 Broker 的信息，这个时候发送消息默认情况下是通过 RoundRobin 的方式做的，但是如果某个 Broker 挂掉了，原本发往这个 Broker MessageQueue 上的消息可能发送到了其他的 Broker 上，如果是要保证局部顺序的场景下，会不会出现乱序的问题呢？怎么解决？这个问题还要看 Consumer 是如何消费的
+* Producer 发送消息的主要方式是同步发送、OneWay 发送、类似于 RPC 的请求-响应、异步发送+回调、事务消息发送、批量消息，各有什么优缺点以及适用场景
+* Namesrv
+* Broker
+* Consumer
 
 ### 安装
 
