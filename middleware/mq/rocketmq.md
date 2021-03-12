@@ -23,6 +23,13 @@ Producer 在 send message 时，会先获取到 topicPublishInfo，这里边包�
 * Producer 发送消息的主要方式是同步发送、OneWay 发送、类似于 RPC 的请求-响应、异步发送+回调、事务消息发送、批量消息，各有什么优缺点以及适用场景
 * Namesrv
 * Broker
+
+Broker 的核心是消息存储、消息转发和消息过滤等，最核心的设计理念是基于 commitLog 的，在 commitLog 上构建索引，把 commitLog 高效持久化和高效复制到 Slave Broker 上；然后就是实现 Broker 的高可用，自动 failover，这个用到了 DLedger，DLedger 是结合分布式一致性算法的带有选主能力的 commitLog 实现，解决了 Master Broker 挂掉后，无法自动替换 Broker 的问题。
+
+1. broker 的消息存储是怎么实现的
+2. broker 的 ha 是怎么实现的，怎么做故障切换
+3. broker 的消息过滤怎么实现的
+
 * Consumer
 
 ### 安装
@@ -216,6 +223,64 @@ Namesrv 作为 RocketMQ 的核心组件之一，承担了路由注册中心的�
 梳理的流程图等在 [Google  Drive](https://app.diagrams.net/#G1KnciHJxwyYAvI9d4CFO8EKCx3XKxxGLd) 上。
 
 * [谈谈 RocketMQ NameServer 的设计与实现](http://tinylcy.me/2019/rocketmq-nameserver/) - 本文结合源码分析了 Namesrv 在设计上的权衡，追求简单高效、复杂度低、高性能的实现，而由于网络分区等问题引起的数据一致性问题交给了 Producer、Broker、Consumer 去解决；Namesrv 并不会把路由信息的变化主动推送给客户端，降低了技术实现复杂度，要靠客户端拉取来感知变化，当 broker 不可用时，使用重试和无效 Broker 规避的方式解决。
+
+```text
+// Namesrv 上维护的路由信息
+// Topic 数据
+topicQueueTable: {
+    "topic1": [
+        {
+          "brokerName": "broker-a",
+          "readQueueNums": 4,
+          "writeQueueNums": 4,
+          "perm": 6,
+          "topicSysFlag": 0
+        },
+        {
+          "brokerName": "broker-b",
+          "readQueueNums": 4,
+          "writeQueueNums": 4,
+          "perm": 6,
+          "topicSysFlag": 0
+        }
+    ]
+}
+
+// Broker 数据
+brokerAddrTable: {
+    "broker-a": {
+      "cluster": "cluster1",
+      "brokerName": "broker-a",
+      "brokerAddrs": {
+        0: "192.168.1.100:10911",
+        1: "192.168.1.101:10911"
+      }
+    },
+    "broker-b": {
+      "cluster": "cluster1",
+      "brokerName": "broker-b",
+      "brokerAddrs": {
+        0: "192.168.1.102:10911",
+        1: "192.168.1.103:10911"
+      }
+    }
+}
+
+// Broker live info
+brokerLiveTable: {
+    "192.168.1.100:10911": {
+        "lastUpdateTimestamp": 1519082838232,
+        "dataVersion": dataVersionObj,
+        "channel": channelObj,
+        "haServerAddr": ""
+    }
+}
+
+// Cluster addr
+clusterAddrTable: {
+  "cluster1": ["broker-a", "broker-b"]
+}
+```
 
 ### Resource
 
