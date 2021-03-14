@@ -282,6 +282,12 @@ clusterAddrTable: {
 }
 ```
 
+#### Broker
+
+* MessageStore 服务的设计
+
+RocketMQ 的 Broker 其中一个非常重要的功能是消息存储，MessageStore 是 Broker 中定义的接口规范，对于消息的存储做了抽象，RocketMQ 给出了一个默认的 Store 实现，我们完全可以根据规范实现自己的 Store 引擎，比如 DLedger 就可以替换掉 DefaultMessageStore，从而做到自动选主。
+
 ### Resource
 
 * [https://rocketmq.apache.org/](https://rocketmq.apache.org/)
