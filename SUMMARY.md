@@ -197,7 +197,8 @@
   * [高性能内存队列 Disruptor](middleware/mq/disruptor.md)
   * [Kafka](middleware/mq/kafka.md)
   * [Pulsar](middleware/mq/pulsar.md)
-  * [RocketMQ](middleware/mq/rocketmq.md)
+  * [RocketMQ](middleware/mq/rocketmq/README.md)
+    * [Broker 的设计与实现](middleware/mq/rocketmq/broker-de-she-ji-yu-shi-xian.md)
   * [NSQ](middleware/mq/nsq.md)
 
 ## 实际案例 <a id="qa"></a>
