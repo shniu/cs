@@ -167,7 +167,7 @@ Stop Limit 和 Trailing Stop 比较有意思，他们是有效的风险控制工
 * [交易系统如何确保账簿 100% 正确](https://www.liaoxuefeng.com/article/1256044879924224)
 * [交易系统的消息服务如何保证 100% 可靠](https://www.liaoxuefeng.com/article/1255966635024608)
 * [撮合系统设计](https://mp.weixin.qq.com/s/sU7C2Bs-tqezdMHPD8xSjw)
-* [撮合引擎系统设计升级版](https://mp.weixin.qq.com/s/PFIQYbVoSdtkJXZItL_rsw)
+* [撮合引擎系统设计升级版](https://mp.weixin.qq.com/s/PFIQYbVoSdtkJXZItL_rsw) - 山哥的撮合系统设计
 * [撮合引擎系列 - 开篇](https://mp.weixin.qq.com/s/y_gcu-pIZFOMZ4QDz9P2Pg)
 * [撮合引擎系列 - MVP](https://mp.weixin.qq.com/s/D_p-eMSwx-oXlSLTWwgumw)
 * [撮合引擎系列 - 核心数据结构](https://mp.weixin.qq.com/s/MxiGXK7WjbsuK6Le-eNTDg)
