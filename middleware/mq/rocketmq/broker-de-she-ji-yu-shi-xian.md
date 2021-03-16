@@ -23,5 +23,16 @@ RocketMQ Broker 的消息存储设计采取了当前 Broker 上的所有 Message
 
 Producer 发送一条消息时指定了 broker、topic、queueId 以及 Message 本身
 
+MessageStore 抽象的接口可以分为四类
+
+* Store 管理类接口：start, shutdown, destroy, load, getBrokerStatusManager, isOSPageCacheBusy
+* Store 写接口：putMessage, asyncPutMessage, flush, appendToCommitLog
+* Store 查询类接口：getMessage, lookMessageByOffset, selectOneMessageByOffset，queryMessage
+* Store 计数类接口：getMessageTotalInTopic, getEarliestTimestamp
+
+
+
+
+
 
 
