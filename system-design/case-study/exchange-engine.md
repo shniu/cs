@@ -160,6 +160,16 @@ Stop Limit 和 Trailing Stop 比较有意思，他们是有效的风险控制工
 * [Time In Force ](https://www.investopedia.com/terms/t/timeinforce.asp)- 有效时间是下单交易时使用的特殊指令，用于指示订单在执行或到期之前将保持有效状态的时间。
 * [期权交易介绍](https://www.okex.com/support/hc/zh-cn/articles/360037742911-%E4%BA%8C-%E6%9C%9F%E6%9D%83%E4%BA%A4%E6%98%93%E4%BB%8B%E7%BB%8D)
 
+### 交易类型
+
+#### 期货合约
+
+期货合约是一种在未来的特定时间，以预定的价格买卖商品、货币或其他资产的协议。与现货市场不同，期货市场中的交易不会立刻被结算，买卖双方交易的是一个规定了在未来某个确定时间结算的合约。
+
+* [什么是期货合约](https://academy.binance.com/zh/articles/what-are-perpetual-futures-contracts)
+* [什么是对冲](https://baike.baidu.com/item/%E5%AF%B9%E5%86%B2) 
+* 头寸：空头（空头头寸，卖出期货合约所持有的）和多头（多头头寸，买入期货合约所持有的）
+
 ### 参考
 
 * [证券交易系统设计与开发](https://www.liaoxuefeng.com/article/1185272483766752)
