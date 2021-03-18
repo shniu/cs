@@ -12,7 +12,13 @@ TCC 事务，即 Try-Confirm-Cancel，它由 3 部分组成：
 * Confirm 阶段，全局的事务管理器会收到 try 阶段的反馈，如果最终决定提交，commit 阶段会去执行应用服务的 confirm 操作，这部分执行的提交操作由可能会失败，这个需要做事务补偿
 * Cancel 阶段，当TCC事务管理器决定 rollback 全局事务时，就会逐个执行 **Try** 操作指定的 **Cancel** 操作，将 **Try** 操作已完成的事项全部撤回。
 
+### SAGAS
 
+* [sagas paper](https://www.cs.cornell.edu/andru/cs711/2002fa/reading/sagas.pdf)
+* [Microservice Pattern: saga](https://microservices.io/patterns/data/saga.html)
+* [https://dimosr.github.io/saga-transactions/](https://dimosr.github.io/saga-transactions/)
+* [https://blog.couchbase.com/saga-pattern-implement-business-transactions-using-microservices-part/](https://blog.couchbase.com/saga-pattern-implement-business-transactions-using-microservices-part/)
+* [https://blog.couchbase.com/saga-pattern-implement-business-transactions-using-microservices-part-2/](https://blog.couchbase.com/saga-pattern-implement-business-transactions-using-microservices-part-2/)
 
 ### Reference
 

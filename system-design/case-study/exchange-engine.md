@@ -206,6 +206,10 @@ Stop Limit 和 Trailing Stop 比较有意思，他们是有效的风险控制工
 
 系统进行撮合交易与交易所的交易深度息息相关。进行深度撮合之后，会产生一系列的清算划转的账目，最后交易完成。**撮合服务是一个输入、输出都严格定义了的状态机。撮合服务采用了状态机的设计，所以在输入模块，一次只处理一个订单。自身的状态严格的根据当前的挂单深度，买单、卖单的价格分别是多少进行排序。输出就是清算结果，所以说撮合是输入、输出都定义了的状态机。**
 
+### Hazelcast
+
+* \*\*\*\*[**内存格系统 Hazelcast 在交易系统中的应用**](https://gitbook.cn/books/5cfe0ab2c73a7a7d077d0c05/index.html)  **- TODO**
+
 ### LMAX-Exchange
 
 * [Low latency Trading Architecture at LMAX Exchange](https://www.infoq.com/presentations/lmax-trading-architecture/)
