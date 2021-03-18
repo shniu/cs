@@ -32,6 +32,46 @@ Broker 的核心是消息存储、消息转发和消息过滤等，最核心的�
 
 * Consumer
 
+
+
+全方位总结 RocketMQ
+
+* MQ 通用性问题：MQ 使用场景，怎么保证消息不丢失，怎么处理重复消息问题，消息积压了怎么办，怎么选择消息队列产品并做个比较，怎么保证消息的顺序性
+* MQ 的使用经验问题：你在项目中使用 MQ 具体解决什么问题？使用过程中有没有遇到过什么坑？结合你的应用场景来分析一下引入 MQ 后提升了哪些地方？
+  * 用 MQ 怎么解决分布式事务问题？
+  * 怎么解决双写问题？写 DB 和写 MQ
+* MQ 的技术细节问题
+  * RocketMQ 的整体介绍、技术架构、部署架构等
+  * Producer 方面的问题
+  * Broker 方面的问题
+    * 消息存储设计和实现
+    * 刷盘方式
+    * HA 设计和实现，同步方式
+    * 消息转发设计和实现
+    * 延迟消息设计和实现
+    * 事务消息设计和实现
+  * Consumer 方面的问题
+  * Namesrv 方面的问题
+  * HA 怎么实现的？高吞吐和高并发怎么实现的？低延迟是怎么实现的？
+  * 从而引入更底层的问题
+    * OS 方面的问题，如内存管理，mmap，堆外内存和零拷贝，磁盘顺序写和随机写，文件系统和 IO 调度算法等
+    * 网络方面的问题，如 Netty，线程模型，高性能 IO 模型，tcp/ip 协议，tls/https 等
+    * JVM 方面的问题，Namesrv 和 Broker 用了什么 GC 算法，有没有对 Broker 做 GC 调优等
+    * DLedger 方面的问题，如 raft 协议，其他的分布式一致性算法等
+  * 调优
+  * 基准测试和性能测试
+    * [https://blog.csdn.net/zshake/article/details/64594139](https://blog.csdn.net/zshake/article/details/64594139)
+    * [https://cloud.tencent.com/developer/article/1456397](https://cloud.tencent.com/developer/article/1456397)
+* MQ 运维，云原生方向
+
+
+
+
+
+
+
+
+
 ### 安装
 
 ### 基本使用
