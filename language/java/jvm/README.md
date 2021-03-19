@@ -61,5 +61,9 @@ JVM 的 GC 概念多，控制 JVM 行为的参数也多，怎么在特定场景�
 
 ### [JVM 问题诊断快速入门](https://gitbook.cn/books/5d2d822f175a450263e945f9/index.html) - GitChat
 
-### 
+
+
+### Reference
+
+* [JVM 参数有哪些](https://docs.oracle.com/javase/8/docs/technotes/tools/unix/java.html)
 

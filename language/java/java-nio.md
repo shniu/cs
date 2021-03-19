@@ -8,11 +8,138 @@ description: 关于 Java NIO
 * [ ] [Java 中的两种 IO 模型](https://xie.infoq.cn/article/e8ab7c9020253b83355c10661)
 * [ ] [多种IO模型](https://xie.infoq.cn/article/1f44643161e1666b6a30b85e7)
 * [ ] [彻底看破Java NIO](https://xie.infoq.cn/article/b9baa25c9d506e4a1cb459fe0?y=qun0522)
-* [ ] [搞懂 Buffer](https://xie.infoq.cn/article/9e57819677d77f9a34852f6e9)
+* [x] [搞懂 Buffer](https://xie.infoq.cn/article/9e57819677d77f9a34852f6e9)
 
 ### ByteBuffer
 
-Buffer 在 Java 里表示一块缓冲区，是一个线性的、指定原始类型的有限元素序列；Buffer 的本质是：capacity, limit, position。可以这么理解 Buffer 是在 Java 中实现的对一块连续内存的读写封装，它提供了一些列的接口来操作这块内存，这个内存在 Java 里可以抽象的理解为一个字节数组 `byte[]` 。
+Buffer 在 Java 里表示一块缓冲区，是一个线性的、指定原始类型的有限元素序列；Buffer 的本质是：capacity, limit, position。可以这么理解 Buffer 是在 Java 中实现的对一块连续内存的读写封装，它提供了一些列的接口来操作这块内存，这个内存在 Java 里可以抽象的理解为一个原始类型的数组，如 ByteBuffer 是对字节数组 `byte[]` 的封装。
+
+要更深入的理解 Buffer，还需要下钻到操作系统层面，也就是 Buffer 如何分配内存以及该部分内存如何被回收，在抽象类 `Buffer` 中并没有定义，需要看具体的子类实现，也就是说 Buffer 的抽象并不关心是堆内存还是直接内存，依赖于具体的实现，Buffer 只关注它自己要做的事情（就是维护一块内存区域可读可写的范围、位置和上限等）， `Buffer` 中重要的接口：
+
+```java
+public abstract class Buffer {
+    public final int position() {...}
+    public final Buffer position(int newPosition){...}
+    public final Buffer limit(int newLimit) {...}
+    public final Buffer mark() {...}
+    public final Buffer reset() {...}
+    public final Buffer clear() {...}
+    public final Buffer flip() {...}
+    ...
+}
+```
+
+ByteBuffer 是 Buffer 中的诸多实现中使用频率最高的。它同时扩展了 Buffer，提供了读写 Buffer 的接口
+
+```text
+public abstract byte get();
+public abstract byte get(int index);
+public abstract ByteBuffer put(byte b);
+public abstract ByteBuffer put(byte b);
+...
+```
+
+在 ByteBuffer 的实现中，有两类实现：堆内存 Buffer 和直接内存 Buffer
+
+* 堆内存就不说了，直接在堆上分配，受 JVM 的垃圾回收机制管理，也同样占用堆内存的大小
+* 直接内存，也叫堆外内存，可以通过 JVM 参数 `-XX:MaxDirectMemorySize` 来限制，**默认堆外内存大小是-Xmx减去一个Survivor区的内存量**
+
+使用堆外内存有两个点需要关注，如何分配堆外内存和如何回收对外内存
+
+```java
+// 分配堆外内存
+ByteBuffer.allocateDirect(capacity);
+
+// 调用下面的方法
+public static ByteBuffer allocateDirect(int capacity) {
+    return new DirectByteBuffer(capacity);
+}
+
+// DirectByteBuffer 的构造函数里
+DirectByteBuffer() {
+    // ....
+    try {
+        // 调用 unsafe.allocateMemory 直接分配内存
+        // 这里调用了 OS 提供的接口，在 Linux 下是 malloc 系统调用函数
+        base = unsafe.allocateMemory(size);
+    } catch (OutOfMemoryError x) {
+        Bits.unreserveMemory(size, cap);
+        throw x;
+    }
+    
+    // ...
+
+}
+```
+
+关于 unsafe 可以参考 [Java 源码阅读/Unsafe](../read-java-source-code/unsafe.md).
+
+但是在回收堆外内存时，使用了 Cleaner，这里比较有意思，最终 Cleaner 是被 Reference Handler 线程监控，去调用 cleaner.clean\(\) 方法，clean 方法中调用的是 trunk.run\(\)，在 DirectByteBuffer 的场景里就是 Deallocator.run\(\)，Deallocator 实现了 Runnable 接口
+
+```java
+// 在 DirectByteBuffer 的构造函数里有如下定义
+cleaner = Cleaner.create(this, new Deallocator(base, size, cap));
+
+// 在 Reference.java 中启动了一个 Reference Handler 线程
+public abstract class Reference<T> {
+     static {
+         Thread handler = new ReferenceHandler(tg, "Reference Handler");
+        /* If there were a special system-only priority greater than
+         * MAX_PRIORITY, it would be used here
+         */
+        handler.setPriority(Thread.MAX_PRIORITY);
+        handler.setDaemon(true);
+        handler.start();
+     }
+}
+
+// ReferenceHandler.java
+public void run() {
+    while (true) {
+        tryHandlePending(true);
+    }
+}
+
+static boolean tryHandlePending(boolean waitForNotify) {
+    //...
+    // Fast path for cleaners
+    if (c != null) {
+        c.clean();
+        return true;
+    }
+    //...
+}
+
+// Cleaner.clean()
+try {
+    // thunk 就是创建 Cleaner 对象时的 Runnable 实例
+    this.thunk.run();
+} ....
+
+// Deallocator
+class Deallocator {
+    public void run() {
+        if (address == 0) {
+            // Paranoia
+            return;
+        }
+        // 调用 unsafe 的 freeMemory
+        unsafe.freeMemory(address);
+        address = 0;
+        Bits.unreserveMemory(size, capacity);
+    }
+}
+```
+
+从整个过程来看，堆外内存的回收由 ReferenceHandler 线程来控制，当然我们也可以手动回收 `directByteBuffer.getCleaner().clean()` 。
+
+总结
+
+ByteBuffer 没有什么神秘的，不管是堆内还是堆外，对于 Buffer 本身而言只是被 JVM 管理的方式不同，以及占用的内存区域是不一样的；此外，堆外内存和堆内的一个不同是在使用时，在 read 和 write 时可能会少一些内存 copy，比如 fileChannel 的 transferTo 和 transferFrom
+
+### FileChannel
+
+
 
 ### MappedByteBuffer
 
