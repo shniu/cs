@@ -10,6 +10,10 @@ description: 关于 Java NIO
 * [ ] [彻底看破Java NIO](https://xie.infoq.cn/article/b9baa25c9d506e4a1cb459fe0?y=qun0522)
 * [ ] [搞懂 Buffer](https://xie.infoq.cn/article/9e57819677d77f9a34852f6e9)
 
+### ByteBuffer
+
+Buffer 在 Java 里表示一块缓冲区，是一个线性的、指定原始类型的有限元素序列；Buffer 的本质是：capacity, limit, position。可以这么理解 Buffer 是在 Java 中实现的对一块连续内存的读写封装，它提供了一些列的接口来操作这块内存，这个内存在 Java 里可以抽象的理解为一个字节数组 `byte[]` 。
+
 ### MappedByteBuffer
 
 > A direct byte buffer whose content is a memory-mapped region of a file. \(一个直接的字节缓冲区，其内容是文件的内存映射区域。\)
