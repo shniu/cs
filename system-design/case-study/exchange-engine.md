@@ -169,6 +169,8 @@ Stop Limit 和 Trailing Stop 比较有意思，他们是有效的风险控制工
 * [什么是期货合约](https://academy.binance.com/zh/articles/what-are-perpetual-futures-contracts)
 * [什么是对冲](https://baike.baidu.com/item/%E5%AF%B9%E5%86%B2) 
 * 头寸：空头（空头头寸，卖出期货合约所持有的）和多头（多头头寸，买入期货合约所持有的）
+* [OKEx 期权合约](https://www.okex.com/support/hc/zh-cn/articles/360037777411-%E6%AC%A7%E6%98%93OKEx%E6%9C%9F%E6%9D%83%E5%90%88%E7%BA%A6%E7%94%A8%E6%88%B7%E4%BD%BF%E7%94%A8%E5%8D%8F%E8%AE%AE)
+* [币安现货交易和合约交易](https://www.binance.com/zh-CN/support/faq/360033162052)
 
 ### 参考
 
