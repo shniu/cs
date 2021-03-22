@@ -1,6 +1,36 @@
 # RocketMQ
 
-### 设计哲学
+总结 RocketMQ
+
+* MQ 通用性问题：MQ 使用场景，怎么保证消息不丢失，怎么处理重复消息问题，消息积压了怎么办，怎么选择消息队列产品并做个比较，怎么保证消息的顺序性
+* MQ 的使用经验问题：你在项目中使用 MQ 具体解决什么问题？使用过程中有没有遇到过什么坑？结合你的应用场景来分析一下引入 MQ 后提升了哪些地方？
+  * 用 MQ 怎么解决分布式事务问题？
+  * 怎么解决双写问题？写 DB 和写 MQ
+* MQ 的技术细节问题
+  * RocketMQ 的整体介绍、技术架构、部署架构等
+  * Producer 方面的问题
+  * Broker 方面的问题
+    * 消息存储设计和实现
+    * 刷盘方式
+    * HA 设计和实现，同步方式
+    * 消息转发设计和实现
+    * 延迟消息设计和实现
+    * 事务消息设计和实现
+  * Consumer 方面的问题
+  * Namesrv 方面的问题
+  * HA 怎么实现的？高吞吐和高并发怎么实现的？低延迟是怎么实现的？
+  * 从而引入更底层的问题
+    * OS 方面的问题，如内存管理，mmap，堆外内存和零拷贝，磁盘顺序写和随机写，文件系统和 IO 调度算法等
+    * 网络方面的问题，如 Netty，线程模型，高性能 IO 模型，tcp/ip 协议，tls/https 等
+    * JVM 方面的问题，Namesrv 和 Broker 用了什么 GC 算法，有没有对 Broker 做 GC 调优等
+    * DLedger 方面的问题，如 raft 协议，其他的分布式一致性算法等
+  * 调优
+  * 基准测试和性能测试
+    * [https://blog.csdn.net/zshake/article/details/64594139](https://blog.csdn.net/zshake/article/details/64594139)
+    * [https://cloud.tencent.com/developer/article/1456397](https://cloud.tencent.com/developer/article/1456397)
+* MQ 运维，云原生方向
+
+### RocketMQ 的设计原则
 
 RocketMQ 的设计追求简单与性能第一，主要体现为：
 
@@ -31,40 +61,6 @@ Broker 的核心是消息存储、消息转发和消息过滤等，最核心的�
 3. broker 的消息过滤怎么实现的
 
 * Consumer
-
-
-
-全方位总结 RocketMQ
-
-* MQ 通用性问题：MQ 使用场景，怎么保证消息不丢失，怎么处理重复消息问题，消息积压了怎么办，怎么选择消息队列产品并做个比较，怎么保证消息的顺序性
-* MQ 的使用经验问题：你在项目中使用 MQ 具体解决什么问题？使用过程中有没有遇到过什么坑？结合你的应用场景来分析一下引入 MQ 后提升了哪些地方？
-  * 用 MQ 怎么解决分布式事务问题？
-  * 怎么解决双写问题？写 DB 和写 MQ
-* MQ 的技术细节问题
-  * RocketMQ 的整体介绍、技术架构、部署架构等
-  * Producer 方面的问题
-  * Broker 方面的问题
-    * 消息存储设计和实现
-    * 刷盘方式
-    * HA 设计和实现，同步方式
-    * 消息转发设计和实现
-    * 延迟消息设计和实现
-    * 事务消息设计和实现
-  * Consumer 方面的问题
-  * Namesrv 方面的问题
-  * HA 怎么实现的？高吞吐和高并发怎么实现的？低延迟是怎么实现的？
-  * 从而引入更底层的问题
-    * OS 方面的问题，如内存管理，mmap，堆外内存和零拷贝，磁盘顺序写和随机写，文件系统和 IO 调度算法等
-    * 网络方面的问题，如 Netty，线程模型，高性能 IO 模型，tcp/ip 协议，tls/https 等
-    * JVM 方面的问题，Namesrv 和 Broker 用了什么 GC 算法，有没有对 Broker 做 GC 调优等
-    * DLedger 方面的问题，如 raft 协议，其他的分布式一致性算法等
-  * 调优
-  * 基准测试和性能测试
-    * [https://blog.csdn.net/zshake/article/details/64594139](https://blog.csdn.net/zshake/article/details/64594139)
-    * [https://cloud.tencent.com/developer/article/1456397](https://cloud.tencent.com/developer/article/1456397)
-* MQ 运维，云原生方向
-
-
 
 ### RocketMQ 基本使用
 
@@ -134,7 +130,7 @@ via: [https://github.com/apache/rocketmq/blob/master/docs/cn/architecture.md](ht
 
 via: [https://github.com/apache/rocketmq/blob/master/docs/cn/design.md](https://github.com/apache/rocketmq/blob/master/docs/cn/design.md) （todo\)
 
-### 源码实现
+### RocketMQ 源码实现
 
 #### 存储模块实现 \(rocketmq/store 模块\)
 
@@ -314,9 +310,13 @@ clusterAddrTable: {
 
 #### Broker
 
+TODO: Broker 的整体处理流程，从接收到生产者的消息到消息被消费者消费掉，这中间涉及到很多的环节
+
 * MessageStore 服务的设计
 
 RocketMQ 的 Broker 其中一个非常重要的功能是消息存储，MessageStore 是 Broker 中定义的接口规范，对于消息的存储做了抽象，RocketMQ 给出了一个默认的 Store 实现，我们完全可以根据规范实现自己的 Store 引擎，比如 DLedger 就可以替换掉 DefaultMessageStore，从而做到自动选主。
+
+CommitLog 涉及到的深层知识：内存映射，顺序写盘，堆外内存与堆内内存，FileChannel
 
 ### Reference
 
