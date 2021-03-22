@@ -1,6 +1,8 @@
 # MQ
 
-Message Queue 是目前微服务架构中应用非常广泛的中间件，主要用来做异步处理、服务解耦、流量削峰等。一个高性能、低延迟、高可用、高可靠的消息队列在互联网业务中是非常必要的。而在多数互联网公司中使用的 MQ 中间件产品有：
+Message Queue \(简称 MQ\) 是目前微服务架构中应用非常广泛的中间件，主要用来做异步处理、服务解耦、流量削峰等。一个高性能、低延迟、高可用、高可靠的消息队列在互联网业务中是非常必要的。
+
+而在多数互联网公司中使用的 MQ 中间件产品有：
 
 * Kafka
   * [nakadi](https://github.com/zalando/nakadi) - A distributed event bus that implements a RESTful API abstraction on top of Kafka-like queues
@@ -30,29 +32,186 @@ Message Queue 是目前微服务架构中应用非常广泛的中间件，主要
 2. 使用了 MQ 会把原本直接调用的方式转为异步的模式，这无形中增加了延迟，因为消息要经过 MQ 的 Broker 才能到达消费方，消费方成功消费后才能把结果反馈出来
 3. 在整个的消息处理的过程中，可能会带来数据的不一致，比如订单创建成功了，但是可能还没有生成发货的订单，但这种不一致我们是可以接受的
 
-### MQ 的几个关键问题
+上面讨论了引入 MQ 带来的一些好处和一些问题，一般情况下，当我们的业务到达一定阶段的时候，这个时候大泥球式的单体架构无法满足业务发展，开发的复杂度也会日益增加，开发效率日益下降，势必会做业务服务拆分，分开治理和独立演化，此外由于数据量的增加，需要将数据分发到大数据平台做离线或者实时的分析，到达这个阶段时 MQ 就是一个非常重要基础组件，同样的我们也要承受引入 MQ 带来的问题，那么引入 MQ 会带来哪些具体的问题呢？
 
-1. 项目中使用 MQ 解决什么问题？为什么要选择这个 MQ 产品？
-2. 你了解的这个 MQ 产品的技术架构、部署架构是怎样的？它的设计做了哪些权衡？
-3. MQ 怎么解决消息丢失问题？
-4. MQ 怎么解决消息重复问题？
-5. MQ 怎么解决消息积压问题？
-6. 有没有使用过 MQ 的事务消息，怎么实现的？为什么使用？
-7. MQ 的顺序消费如何实现？
-8. 在生产环境中有什么好的实践来提升 MQ 的可靠性吗？在实际场景中是如何权衡消息可靠、低延迟等需要的？
-9. 说一下你们公司的 MQ 的处理消息数，比如日处理消息多少，多少台机器，怎么部署的，有没有做过一些优化配置等等（实际使用运维压测经验）
-10. MQ 实现的一些技术细节
-    1. 消息传输协议、序列化与反序列化、内存管理、高性能网络 IO、异步设计、数据压缩
-    2. 消息存储：Zero Copy、顺序写、WAL
-    3. 消息索引：索引结构、高性能索引
-    4. 并发控制：高性能锁设计、CAS、减少数据共享
-    5. 分布式：Broker 的高可用设计、服务发现和注册、服务协调、生产和消费负载均衡、broker 间消息同步（数据一致性）
+1. 如何选择 MQ 产品？自研还是开源方案？为什么要这么选择？
+2. 使用 MQ 后如何应对和解决消息丢失问题？
+3. 使用 MQ，如何解决消息重复问题？
+4. 使用 MQ，如何解决消息积压问题？
+5. 使用 MQ，如何实现分布式事务？什么是事务消息？适合用在什么场景下？
+6. MQ 的顺序消息如何保证？局部有序 or 全局有序？
+7. 针对 MQ 本身
+   1. MQ 的技术架构、部署架构等？有哪些设计亮点，适合用在什么场景下？
+   2. 如何实现高可用？多副本，日志复制，自动 failover
+   3. 如何实现高性能？低延迟和高吞吐的权衡
+   4. MQ 间的数据一致性
+   5. MQ 服务注册和发现
+   6. MQ 治理，消息监控（如堆积 \(lag\) 情况）、Broker 监控等
+   7. 实现 MQ 时用到的一些底层技术
+      1. 消息传输协议、序列化与反序列化、内存管理、高性能网络 IO、异步设计、数据压缩
+      2. 消息存储：Zero Copy、顺序写、WAL
+      3. 消息索引：索引结构、高性能索引
+      4. 并发控制：高性能锁设计、CAS、减少数据共享
+      5. 分布式：Broker 的高可用设计、服务发现和注册、服务协调、生产和消费负载均衡、broker 间消息同步（数据一致性）
+8. MQ 生产实践
+   1. 在生产环境中有什么好的实践来提升 MQ 的可靠性吗？在实际场景中是如何权衡消息可靠、低延迟等需要的？
+   2. 说一下你们公司的 MQ 的处理消息数，比如日处理消息多少，多少台机器，怎么部署的，有没有做过一些优化配置等等（实际使用运维压测经验）
+   3. MQ 调优
+9. 如何设计一个 MQ？\(要先和需求方沟通 MQ 的基本需求，要使用的场景，充分了解了业务，然后再给出一些解决方案，可能有些场景需要低延迟高可靠，有些场景需要高吞吐可容忍数据在极端情况下的丢失等\)
+10. ...
+
+接下来重点去分析引入 MQ 需要关注的这些问题，该如何解决。 
+
+### MQ 通用性问题
+
+这类问题是所有 MQ 产品都需要面对的通用问题，所以更加注重解决问题的方法、思想和权衡等。
+
+#### 如何选择 MQ
+
+在需要用 MQ 时，我们面临诸多选择，第一想到的肯定是看一下目前已经存在的 MQ 产品中是否有满足当前需求而且也能为未来留有空间的产品；如果找不到，那只能借鉴已有的 MQ 产品的一些特性做自研，当然选择自研一定要慎重，需要团队有深厚的技术实力。横向对比一下常用的 MQ 产品：
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align:left">&#x7279;&#x6027;</th>
+      <th style="text-align:left">RocketMQ</th>
+      <th style="text-align:left">Kafka</th>
+      <th style="text-align:left">Pulsar</th>
+      <th style="text-align:left">RabbitMQ</th>
+      <th style="text-align:left">NSQ</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align:left">&#x5355;&#x673A;&#x541E;&#x5410;&#x91CF;</td>
+      <td style="text-align:left"></td>
+      <td style="text-align:left"></td>
+      <td style="text-align:left"></td>
+      <td style="text-align:left"></td>
+      <td style="text-align:left"></td>
+    </tr>
+    <tr>
+      <td style="text-align:left">&#x65F6;&#x6548;(&#x5EF6;&#x8FDF;) ms</td>
+      <td style="text-align:left"></td>
+      <td style="text-align:left"></td>
+      <td style="text-align:left"></td>
+      <td style="text-align:left"></td>
+      <td style="text-align:left"></td>
+    </tr>
+    <tr>
+      <td style="text-align:left">&#x53EF;&#x7528;&#x6027;</td>
+      <td style="text-align:left"></td>
+      <td style="text-align:left"></td>
+      <td style="text-align:left"></td>
+      <td style="text-align:left"></td>
+      <td style="text-align:left"></td>
+    </tr>
+    <tr>
+      <td style="text-align:left">
+        <p>Topic &#x6570;&#x91CF;</p>
+        <p>&#x5BF9;&#x541E;&#x5410;&#x7684;&#x5F71;&#x54CD;</p>
+      </td>
+      <td style="text-align:left"></td>
+      <td style="text-align:left"></td>
+      <td style="text-align:left"></td>
+      <td style="text-align:left"></td>
+      <td style="text-align:left"></td>
+    </tr>
+    <tr>
+      <td style="text-align:left">&#x6D88;&#x606F;&#x53EF;&#x9760;&#x6027;</td>
+      <td style="text-align:left"></td>
+      <td style="text-align:left"></td>
+      <td style="text-align:left"></td>
+      <td style="text-align:left"></td>
+      <td style="text-align:left"></td>
+    </tr>
+    <tr>
+      <td style="text-align:left">&#x6269;&#x5C55;&#x6027;</td>
+      <td style="text-align:left"></td>
+      <td style="text-align:left"></td>
+      <td style="text-align:left"></td>
+      <td style="text-align:left"></td>
+      <td style="text-align:left"></td>
+    </tr>
+    <tr>
+      <td style="text-align:left">&#x529F;&#x80FD;&#x652F;&#x6301;</td>
+      <td style="text-align:left"></td>
+      <td style="text-align:left"></td>
+      <td style="text-align:left"></td>
+      <td style="text-align:left"></td>
+      <td style="text-align:left"></td>
+    </tr>
+    <tr>
+      <td style="text-align:left">
+        <p>&#x5468;&#x8FB9;&#x914D;&#x5957;(&#x5982;</p>
+        <p>SDK, &#x76D1;&#x63A7;&#x65B9;&#x6848;,</p>
+        <p>&#x6D88;&#x606F;&#x7BA1;&#x7406;, Example&#x7B49;)</p>
+      </td>
+      <td style="text-align:left"></td>
+      <td style="text-align:left"></td>
+      <td style="text-align:left"></td>
+      <td style="text-align:left"></td>
+      <td style="text-align:left"></td>
+    </tr>
+    <tr>
+      <td style="text-align:left">&#x8FD0;&#x7EF4;&#x96BE;&#x5EA6;</td>
+      <td style="text-align:left"></td>
+      <td style="text-align:left"></td>
+      <td style="text-align:left"></td>
+      <td style="text-align:left"></td>
+      <td style="text-align:left"></td>
+    </tr>
+    <tr>
+      <td style="text-align:left">&#x4E91;&#x539F;&#x751F;&#x652F;&#x6301;</td>
+      <td style="text-align:left"></td>
+      <td style="text-align:left"></td>
+      <td style="text-align:left"></td>
+      <td style="text-align:left"></td>
+      <td style="text-align:left"></td>
+    </tr>
+    <tr>
+      <td style="text-align:left">&#x793E;&#x533A;</td>
+      <td style="text-align:left"></td>
+      <td style="text-align:left"></td>
+      <td style="text-align:left"></td>
+      <td style="text-align:left"></td>
+      <td style="text-align:left"></td>
+    </tr>
+  </tbody>
+</table>
+
+**总结**
+
+根据如上的对比分析，可以得出一些指导性的原则，当然还是需要根据实际场景来选择。
+
+1. TODO
+2. TODO
 
 
 
-### MQ 相关文章汇总
+### MQ 开源产品 - RocketMQ
 
-[MQ 消息中间件分析](https://mp.weixin.qq.com/s/lqFGnIUtqTFZ_GHp46z48Q)
+TODO
+
+### MQ 开源产品 - Kafka
+
+TODO
+
+### MQ 开源产品 - NSQ
+
+TODO
+
+### MQ 开源产品 - Pulsar
+
+TODO
+
+### 如何设计实现一个 MQ ？
+
+TODO
+
+### MQ Reference
+
+#### [MQ 消息中间件分析](https://mp.weixin.qq.com/s/lqFGnIUtqTFZ_GHp46z48Q)
 
 * 为什么使用 MQ？
 * MQ 有什么优缺点？

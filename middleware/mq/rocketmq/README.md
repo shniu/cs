@@ -66,19 +66,16 @@ Broker 的核心是消息存储、消息转发和消息过滤等，最核心的�
 
 
 
-### 安装
+### RocketMQ 基本使用
 
-### 基本使用
+#### 理解 RocketMQ 的基本概念和特性
 
+1. [MQ 中涉及到的概念看这里](https://github.com/apache/rocketmq/blob/master/docs/cn/concept.md)
+2. [RocketMQ 的功能特性看这里](https://github.com/apache/rocketmq/blob/master/docs/cn/features.md)
 
+### RocketMQ 的架构设计
 
-### 基本概念和特性
-
-via: [https://github.com/apache/rocketmq/blob/master/docs/cn/concept.md](https://github.com/apache/rocketmq/blob/master/docs/cn/concept.md)
-
-via: [https://github.com/apache/rocketmq/blob/master/docs/cn/features.md](https://github.com/apache/rocketmq/blob/master/docs/cn/features.md)
-
-### 技术架构
+#### 技术架构
 
 ![RocketMQ &#x6280;&#x672F;&#x67B6;&#x6784;](../../../.gitbook/assets/image%20%2877%29.png)
 
@@ -96,7 +93,7 @@ via: [https://github.com/apache/rocketmq/blob/master/docs/cn/features.md](https:
 
 ![Broker &#x67B6;&#x6784;](../../../.gitbook/assets/image%20%2879%29.png)
 
-### 部署架构
+#### 部署架构
 
 ![RocketMQ &#x90E8;&#x7F72;&#x67B6;&#x6784;](../../../.gitbook/assets/image%20%2878%29.png)
 
@@ -115,7 +112,7 @@ via: [https://github.com/apache/rocketmq/blob/master/docs/cn/features.md](https:
 
 via: [https://github.com/apache/rocketmq/blob/master/docs/cn/architecture.md](https://github.com/apache/rocketmq/blob/master/docs/cn/architecture.md)
 
-### 设计
+### RocketMQ 的功能设计
 
 #### 消息存储设计
 
@@ -137,17 +134,18 @@ via: [https://github.com/apache/rocketmq/blob/master/docs/cn/architecture.md](ht
 
 via: [https://github.com/apache/rocketmq/blob/master/docs/cn/design.md](https://github.com/apache/rocketmq/blob/master/docs/cn/design.md) （todo\)
 
-### 实现
+### 源码实现
 
 #### 存储模块实现 \(rocketmq/store 模块\)
 
-存储模块的实现依赖于 `io.openmessaging.storage:dledger` , 有关 DLedger 的解读看：[阿里数据一致性实践：DLedger 技术在消息领域的应用](https://www.infoq.cn/article/f6y4QRiDitBN6uRKp*fq) 和 [DLedger - 基于 raft 协议的 commitlog 存储库](https://juejin.im/post/6844903913045360654)， [https://yq.aliyun.com/articles/718344](https://yq.aliyun.com/articles/718344)
+存储模块的实现依赖于 `io.openmessaging.storage:dledger` , 有关 DLedger 的解读看：
 
-代码仓库：[https://github.com/openmessaging/openmessaging-storage-dledger](https://github.com/openmessaging/openmessaging-storage-dledger)
+1. [阿里数据一致性实践：DLedger 技术在消息领域的应用](https://www.infoq.cn/article/f6y4QRiDitBN6uRKp*fq) 
+2. [DLedger - 基于 raft 协议的 CommitLog 存储库](https://juejin.im/post/6844903913045360654)
+3. [https://yq.aliyun.com/articles/718344](https://yq.aliyun.com/articles/718344)
+4. 代码仓库: [https://github.com/openmessaging/openmessaging-storage-dledger](https://github.com/openmessaging/openmessaging-storage-dledger)
 
-
-
-### 基础模块 - remoting
+#### 基础模块 - remoting
 
 remoting 对服务端和客户端通信做了抽象，提供了 `RemotingClient` 和 `RemotingServer` 两个接口，RocketMQ 的网络相关的功能都由该模块承担。
 
@@ -219,7 +217,7 @@ public interface RemotingServer extends RemotingService {
 
 
 
-### Client - Producer 实现
+#### Client - Producer 实现
 
 
 
@@ -244,9 +242,7 @@ org.apache.rocketmq.client.impl.producer.DefaultMQProducerImpl
 
 生产者在发送消息时，会首先查找 `TopicPublishInfo` ，如果本地找不到就去 NameSrv 去请求，最后还是没有找到就会异常退出；`TopicPublishInfo` 包括了 MessageQueue 的列表、是否顺序消息、本地线程的索引计数器、Topic 路由数据等，可以从 `TopicPublishInfo` 来选择一个 MessageQueue，具体选择的策略有两种：一种是如果没有 enable latencyFaultTolerance，就用递增取模的方式选择。一种是如果 enable 了，在递增取模的基础上，再过滤掉 not available 的。这里所谓的 latencyFaultTolerance, 是指对之前失败的，按一定的时间做退避，如果上次请求的 latency 超过 550L ms, 就退避 3000L ms；超过 1000L，就退避 60000L。参考 `org.apache.rocketmq.client.latency.MQFaultStrategy`
 
-### 高级原理和核心源码
-
-#### Namesrv 设计
+#### Namesrv 设计与实现
 
 Namesrv 作为 RocketMQ 的核心组件之一，承担了路由注册中心的作用。
 
@@ -322,7 +318,7 @@ clusterAddrTable: {
 
 RocketMQ 的 Broker 其中一个非常重要的功能是消息存储，MessageStore 是 Broker 中定义的接口规范，对于消息的存储做了抽象，RocketMQ 给出了一个默认的 Store 实现，我们完全可以根据规范实现自己的 Store 引擎，比如 DLedger 就可以替换掉 DefaultMessageStore，从而做到自动选主。
 
-### Resource
+### Reference
 
 * [https://rocketmq.apache.org/](https://rocketmq.apache.org/)
 * [RocketMQ 官方中文架构文档](https://github.com/apache/rocketmq/tree/master/docs/cn)
