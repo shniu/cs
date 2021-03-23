@@ -323,6 +323,65 @@ CommitLog 涉及到的深层知识：内存映射，顺序写盘，堆外内存�
 
 TODO：延伸到操作系统层面的实现原理
 
+* [谈谈 RocketMQ 的消息存储设计](http://tinylcy.me/2019/the-design-of-rocketmq-message-storage-system/)
+
+### 性能调优
+
+#### 关于刷盘策略
+
+> A spin lock is recommended for asynchronous disk flush, a reentrant lock is recommended for synchronous disk flush, configuration item is `useReentrantLockWhenPutMessage`, default is false; Enable `TransientStorePoolEnable` is recommended when use asynchronous disk flush; Recommend to close `transferMsgByHeap` to improve fetch efficiency; Set a little larger `sendMessageThreadPoolNums`, when use synchronous disk flush.
+>
+> 异步刷盘建议使用自旋锁，同步刷盘建议使用重入锁，调整Broker配置项`useReentrantLockWhenPutMessage`，默认为false；异步刷盘建议开启`TransientStorePoolEnable`；建议关闭transferMsgByHeap，提高拉消息效率；同步刷盘建议适当增大`sendMessageThreadPoolNums`，具体配置需要经过压测。
+
+为什么在异步刷盘下关闭 transferMsgByHeap 呢？异步刷盘模式下，是建议开启 transientStorePoolEnable 的，这个时候在写 CommitLog 时使用的是堆外内存 + FileChannel 的方式，如果在开启transferMsgByHeap 时，需要将数据复制到堆内后，然后再发送出去，至少多了两次的内存拷贝，性能会有所下降，关闭后确实会提高拉取消息的效率。
+
+```java
+// PullMessageProcessor.java
+// ...
+final GetMessageResult getMessageResult =
+            this.brokerController.getMessageStore().getMessage(requestHeader.getConsumerGroup(), requestHeader.getTopic(),
+                requestHeader.getQueueId(), requestHeader.getQueueOffset(), requestHeader.getMaxMsgNums(), messageFilter);
+
+// org.apache.rocketmq.store.DefaultMessageStore#getMessage
+public GetMessageResult getMessage(final String group, final String topic, final int queueId, final long offset,
+        final int maxMsgNums,
+        final MessageFilter messageFilter) {
+    // ...
+    SelectMappedBufferResult selectResult = this.commitLog.getMessage(offsetPy, sizePy);
+    // ...
+    getResult.addMessage(selectResult);
+    
+    getResult.setStatus(status);
+    getResult.setNextBeginOffset(nextBeginOffset);
+    getResult.setMaxOffset(maxOffset);
+    getResult.setMinOffset(minOffset);
+    return getResult;
+}
+
+// org.apache.rocketmq.store.CommitLog#getMessage
+public SelectMappedBufferResult getMessage(final long offset, final int size) {
+    MappedFile mappedFile = this.mappedFileQueue.findMappedFileByOffset(offset, offset == 0);
+    if (mappedFile != null) {
+        int pos = (int) (offset % mappedFileSize);
+        return mappedFile.selectMappedBuffer(pos, size);
+    }
+    // ...
+}
+
+// org.apache.rocketmq.store.MappedFile#selectMappedBuffer(int, int)
+public SelectMappedBufferResult selectMappedBuffer(int pos, int size) {
+    ByteBuffer byteBuffer = this.mappedByteBuffer.slice();
+    byteBuffer.position(pos);
+    ByteBuffer byteBufferNew = byteBuffer.slice();
+    byteBufferNew.limit(size);
+    return new SelectMappedBufferResult(this.fileFromOffset + pos, byteBufferNew, size, this);
+}
+
+
+```
+
+在消费者拉取消息时，消息是从 MessageStore 中获取的，这个实现是在 DefaultMessageStore 中的，在这里会从 commitLog 中拉取需要的消息，然后返回消息的结果 GetMessageResult；在 CommitLog 中返回的是 SelectMappedBufferResult，这个数据是从 mappedFile 中获取的；而 SelectMappedBufferResult 中两个重要的属性 byteBuffer 和 mappedFile 都是和当前的 mappedFile 实例相关的，而 mappedFile 是对内存映射的封装，mappedByteBuffer 就是内存映射的那块可以直接操作的内存，也就是说，最终返回的 GetMessageResult 是一块或者多块被内存映射的内存区域，因为这些数据是磁盘上的文件和虚拟内存之间的直接映射，并且可以被用户态程序直接访问，所以不需要内存拷贝就可以直接写数据进去，也可以读数据出来；如果开启 transferMsgByHeap，就会将 pageCache 中的数据 copy 到堆内存中，然后发送到 socket buffer 中，这样就至少多了2次的内存 copy；如果不开启 transferMsgByHeap 就会使用 Zero-Copy 的方式，利用 DMA 直接把数据发送到网卡。
+
 ### Reference
 
 * [https://rocketmq.apache.org/](https://rocketmq.apache.org/)
@@ -334,4 +393,8 @@ TODO：延伸到操作系统层面的实现原理
 * [RocketMQ 如何在双11下0故障](https://mp.weixin.qq.com/s/nkNT2CvPHiWZF95NWzd3Ug)
 * [DLedger 主从切换实现平滑升级的技巧](https://yq.aliyun.com/articles/720413)
 * [RocketMQ 概念和设计](http://qyb.cool/archives/rocketmq%E4%B8%80%E6%A6%82%E5%BF%B5%E5%92%8C%E8%AE%BE%E8%AE%A1#%E4%B8%80%E3%80%81%E6%A6%82%E5%BF%B5%E5%92%8C%E7%89%B9%E6%80%A7)
+
+性能测试
+
+* [RocketMQ vs Kafka](https://alibaba-cloud.medium.com/kafka-vs-rocketmq-multiple-topic-stress-test-results-d27b8cbb360f)
 
