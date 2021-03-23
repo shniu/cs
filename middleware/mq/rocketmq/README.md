@@ -1,9 +1,9 @@
 # RocketMQ
 
-总结 RocketMQ
+### 纲要
 
 * MQ 通用性问题：MQ 使用场景，怎么保证消息不丢失，怎么处理重复消息问题，消息积压了怎么办，怎么选择消息队列产品并做个比较，怎么保证消息的顺序性
-* MQ 的使用经验问题：你在项目中使用 MQ 具体解决什么问题？使用过程中有没有遇到过什么坑？结合你的应用场景来分析一下引入 MQ 后提升了哪些地方？
+* MQ 的使用经验问题：在项目中使用 MQ 具体解决什么问题？使用过程中有没有遇到过什么坑？结合你的应用场景来分析一下引入 MQ 后提升了哪些地方？
   * 用 MQ 怎么解决分布式事务问题？
   * 怎么解决双写问题？写 DB 和写 MQ
 * MQ 的技术细节问题
@@ -38,29 +38,13 @@ RocketMQ 的设计追求简单与性能第一，主要体现为：
 * 高效的 IO 存储机制，消息存储文件设计成文件组的概念，组内单个文件大小固定，方便引入内存映射机制，所有 topic 的消息存储基于顺序写，极大提升了消息的写性能，同时为了兼顾消息消费与消息查找，引入了消息消费队列文件与索引文件
 * 幂等性问题：RocketMQ 不处理，留给用户处理
 
-RocketMQ 的消息生产和消费消息的顺序性
+### MQ 通用性问题 
+
+#### RocketMQ 的消息生产和消息消费的顺序性问题
 
 * 对于全局有序，所有消息需要进入同一个 Broker 的同一个 Topic 下的同一个 Queue，也就是单 Broker 单 Topic 单 Queue 的方式，这样就没有办法做到高可用，而且性能和吞吐量是有上限的；但是很少有场景是需要这样的
-* 局部有序，这个是大部分场景可能会遇到的；一般的做法是在 Producer 端投递消息时把需要保证顺序的消息投递到同一个 Queue 中；这里还要再看一下 Consumer 是如何消费的
-
-RocketMQ的几个问题是如何解决的
-
-* Producer 里的 MessageQueue List 是如何构建的？因为在发送消息时要选择一个 MessageQueue
-
-Producer 在 send message 时，会先获取到 topicPublishInfo，这里边包含了两个重要的数据：topicRouteData 和 MessageQueueList，其中 topicRouteData 中包括了 topicData 的列表和 brokerData 的列表，而 MessageQueueList 的数据就是从 topicData 列表数据中转化而来的，如果一个 Topic 分布在两个 Broker 之上，而且读写队列是 4 的话，那么就会有 8 个 MessageQueue，分别对应到 broker1 的 0 1 2 3 这 4 个队列和 broker2 的 0 1 2 3 这 4 个队列。所以说，如果某个 Broker 挂掉，那么这个 Broker 上的队列都不能访问了，在我们举的例子中，就只剩下 4 个 Queue，在一个短暂的时间内，本来要发给某个 Queue 的数据需要发给另外的 Queue，即使我们使用了 id 取余的方式，也不能严格的保证局部顺序；当 Broker 端做了高可用的 DLedger 集群后，能缩短故障时间，并增加了自动恢复的能力，要么我们就需要牺牲一定的可用性，如果某个 id 投递到某个 Queue，把这个对应关系记下来，如果这个 Queue 不可用，就后面再发送，这无疑增加了系统实现的复杂度，而且还会影响吞吐量
-
-* 如果某个 Topic 分布在 3 个 Broker 上，Producer 从 Namesrv 中拉取到 3 个 Broker 的信息，这个时候发送消息默认情况下是通过 RoundRobin 的方式做的，但是如果某个 Broker 挂掉了，原本发往这个 Broker MessageQueue 上的消息可能发送到了其他的 Broker 上，如果是要保证局部顺序的场景下，会不会出现乱序的问题呢？怎么解决？这个问题还要看 Consumer 是如何消费的
-* Producer 发送消息的主要方式是同步发送、OneWay 发送、类似于 RPC 的请求-响应、异步发送+回调、事务消息发送、批量消息，各有什么优缺点以及适用场景
-* Namesrv
-* Broker
-
-Broker 的核心是消息存储、消息转发和消息过滤等，最核心的设计理念是基于 commitLog 的，在 commitLog 上构建索引，把 commitLog 高效持久化和高效复制到 Slave Broker 上；然后就是实现 Broker 的高可用，自动 failover，这个用到了 DLedger，DLedger 是结合分布式一致性算法的带有选主能力的 commitLog 实现，解决了 Master Broker 挂掉后，无法自动替换 Broker 的问题。
-
-1. broker 的消息存储是怎么实现的
-2. broker 的 ha 是怎么实现的，怎么做故障切换
-3. broker 的消息过滤怎么实现的
-
-* Consumer
+* 局部有序，这个是大部分场景可能会遇到的；一般的做法是在 Producer 端投递消息时把需要保证顺序的消息投递到同一个 Queue 中；在消费时由一个消费者顺序进行消费；但是值得注意的是：**在严格局部顺序的场景下，要保证 Broker 的可用性，如果需要投递到某个 Broker 的 Queue 上，在超时或者服务无法访问时需要等待重发，这个时候可能需要牺牲掉一定的可用性**
+* 并发无序，有些时候我们并不在意消息的顺序性，这个就比较灵活了
 
 ### RocketMQ 基本使用
 
@@ -215,7 +199,12 @@ public interface RemotingServer extends RemotingService {
 
 #### Client - Producer 实现
 
+* Producer 里的 MessageQueue List 是如何构建的？因为在发送消息时要选择一个 MessageQueue
 
+Producer 在 send message 时，会先获取到 topicPublishInfo，这里边包含了两个重要的数据：topicRouteData 和 MessageQueueList，其中 topicRouteData 中包括了 topicData 的列表和 brokerData 的列表，而 MessageQueueList 的数据就是从 topicData 列表数据中转化而来的，如果一个 Topic 分布在两个 Broker 之上，而且读写队列是 4 的话，那么就会有 8 个 MessageQueue，分别对应到 broker1 的 0 1 2 3 这 4 个队列和 broker2 的 0 1 2 3 这 4 个队列。所以说，如果某个 Broker 挂掉，那么这个 Broker 上的队列都不能访问了，在我们举的例子中，就只剩下 4 个 Queue，在一个短暂的时间内，本来要发给某个 Queue 的数据需要发给另外的 Queue，即使我们使用了 id 取余的方式，也不能严格的保证局部顺序；当 Broker 端做了高可用的 DLedger 集群后，能缩短故障时间，并增加了自动恢复的能力，要么我们就需要牺牲一定的可用性，如果某个 id 投递到某个 Queue，把这个对应关系记下来，如果这个 Queue 不可用，就后面再发送，这无疑增加了系统实现的复杂度，而且还会影响吞吐量
+
+* 如果某个 Topic 分布在 3 个 Broker 上，Producer 从 Namesrv 中拉取到 3 个 Broker 的信息，这个时候发送消息默认情况下是通过 RoundRobin 的方式做的，但是如果某个 Broker 挂掉了，原本发往这个 Broker MessageQueue 上的消息可能发送到了其他的 Broker 上，如果是要保证局部顺序的场景下，会不会出现乱序的问题呢？怎么解决？这个问题还要看 Consumer 是如何消费的
+* Producer 发送消息的主要方式是同步发送、OneWay 发送、类似于 RPC 的请求-响应、异步发送+回调、事务消息发送、批量消息，各有什么优缺点以及适用场景
 
 ```text
 org.apache.rocketmq.client.impl.producer.DefaultMQProducerImpl
@@ -240,17 +229,23 @@ org.apache.rocketmq.client.impl.producer.DefaultMQProducerImpl
 
 #### Namesrv 设计与实现
 
-Namesrv 作为 RocketMQ 的核心组件之一，承担了路由注册中心的作用。
+Namesrv 作为 RocketMQ 的核心组件之一，承担了路由注册中心的作用。而 Namesrv 的设计和实现追求简单和高效，多个 Namesrv 之间不需要同步状态，也不需要有任何的通信，一般情况下为了可用性的考虑都会在生产环境中部署多个 Namesrv（3 ～5个），Producer 和 Counsmer 会从其中一个 Namesrv 上拉取路由信息等，Broker 会把自己注册到所有的 Namesrv 上；Namesrv 的整体结构如下：
 
-1. 有哪些信息注册到了 Namesrv ?
-2. Namesrv 一般是以集群部署，且集群中的各个节点不互通，那么 Namesrv 集群中各节点路由信息不一致时，RocketMQ 如何保证可用性？
-3. Broker 不可用后，Namesrv 并不会立即将变更后的注册信息推送至 Producer or Consumer，那 RocketMQ 是如何保证 Producer 和 Consumer 正常发送/消费消息的呢 ？
+![Namesrv &#x7684;&#x7ED3;&#x6784;&#x56FE;](../../../.gitbook/assets/image%20%28136%29.png)
+
+从上图看，可以把 Namesrv 分为两层，一层是基础的网络通信层，这一层包括对 Netty 的封装使用、命令协议的实现、长连接的维护管理、心跳的实现；再上一层是 Namesrv 的路由信息管理，这也是 Namesrv 的主要业务逻辑，它主要实现在 `RouteInfoManager` 中；此外，在启动 Namesrv 时会把 NettyServer 启动起来，并初始化 RouteInfo 相关的信息，根据配置初始化一些后台线程池等
+
+回答下面几个问题：
+
+1. 有哪些信息注册到了 Namesrv ?  **主要有 Topic 数据，Broker 数据、Cluster 信息、Broker Live 数据等，详细的看下面的路由信息**
+2. Namesrv 一般是以集群部署，且集群中的各个节点不互通，那么 Namesrv 集群中各节点路由信息不一致时，RocketMQ 如何保证可用性？**路由信息不一致时交给 Producer 或者 Customer 自己去解决，简化了 Namesrv 的实现难度，比如 Broker 挂掉了，Client 没有及时获取到这个信息，做了请求，Client 会采取重试和无效 Broker 规避的方式，而在 Customer 端需要使用幂等处理来消除掉可能的重复消息**
+3. Broker 不可用后，Namesrv 并不会立即将变更后的注册信息推送至 Producer or Consumer，那 RocketMQ 是如何保证 Producer 和 Consumer 正常发送/消费消息的呢 ？**采用重试的策略，在 Producer 端遇到无效的 Broker 会暂时规避掉**
 
 梳理的流程图等在 [Google  Drive](https://app.diagrams.net/#G1KnciHJxwyYAvI9d4CFO8EKCx3XKxxGLd) 上。
 
 * [谈谈 RocketMQ NameServer 的设计与实现](http://tinylcy.me/2019/rocketmq-nameserver/) - 本文结合源码分析了 Namesrv 在设计上的权衡，追求简单高效、复杂度低、高性能的实现，而由于网络分区等问题引起的数据一致性问题交给了 Producer、Broker、Consumer 去解决；Namesrv 并不会把路由信息的变化主动推送给客户端，降低了技术实现复杂度，要靠客户端拉取来感知变化，当 broker 不可用时，使用重试和无效 Broker 规避的方式解决。
 
-```text
+```java
 // Namesrv 上维护的路由信息
 // Topic 数据
 topicQueueTable: {
@@ -308,15 +303,25 @@ clusterAddrTable: {
 }
 ```
 
-#### Broker
+#### Broker 设计与实现
 
-TODO: Broker 的整体处理流程，从接收到生产者的消息到消息被消费者消费掉，这中间涉及到很多的环节
+TODO: Broker 的整体处理流程，从接收到生产者的消息到消息被消费者消费掉，这中间涉及到很多的环节。
+
+Broker 的核心是消息存储、消息转发和消息过滤等，最核心的设计理念是基于 commitLog 的，在 commitLog 上构建索引，把 commitLog 高效持久化和高效复制到 Slave Broker 上；然后就是实现 Broker 的高可用，自动 failover，这个用到了 DLedger，DLedger 是结合分布式一致性算法的带有选主能力的 commitLog 实现，解决了 Master Broker 挂掉后，无法自动替换 Broker 的问题。
+
+Broker 是整个 RocketMQ 的核心，至少重点了解如下内容：
+
+1. broker 的消息存储是怎么实现的
+2. broker 的 ha 是怎么实现的，怎么做故障切换
+3. broker 的消息过滤怎么实现的
 
 * MessageStore 服务的设计
 
 RocketMQ 的 Broker 其中一个非常重要的功能是消息存储，MessageStore 是 Broker 中定义的接口规范，对于消息的存储做了抽象，RocketMQ 给出了一个默认的 Store 实现，我们完全可以根据规范实现自己的 Store 引擎，比如 DLedger 就可以替换掉 DefaultMessageStore，从而做到自动选主。
 
 CommitLog 涉及到的深层知识：内存映射，顺序写盘，堆外内存与堆内内存，FileChannel
+
+TODO：延伸到操作系统层面的实现原理
 
 ### Reference
 
