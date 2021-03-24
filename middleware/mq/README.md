@@ -14,6 +14,7 @@ Message Queue \(简称 MQ\) 是目前微服务架构中应用非常广泛的中�
 * qmq
 * NSQ
 * Redis, 其实 Redis 并不能算一个 MQ 产品，它只是提供了一些 Queue 的能力，Pub/Sub 的能力
+* 适用于 IoT 的 [emqx](https://github.com/emqx/emqx) - [https://www.emqx.cn/](https://www.emqx.cn/)
 
 我们需要明白一个道理，**不存在一个完美的东西可以解决所有问题，往往是在引入一个新的东西时解决了我们的痛点，但是同样会引入其他复杂度，而这个引入的复杂度是否能被接受要看具体的场景进行权衡**；这个道理同样适用于 MQ，所以 MQ 不是银弹。
 
@@ -209,13 +210,22 @@ TODO
 
 TODO
 
-### MQ Reference
+### Reference
 
-#### [MQ 消息中间件分析](https://mp.weixin.qq.com/s/lqFGnIUtqTFZ_GHp46z48Q)
+#### 经典必读
 
-* 为什么使用 MQ？
-* MQ 有什么优缺点？
-* 几种 MQ 产品的对比，以及适用场景
+* [日志：每个软件工程师都应该知道的有关实时数据的统一概念](https://www.kancloud.cn/kancloud/log-real-time-datas-unifying/58708) - 经典必读， [英文版](https://engineering.linkedin.com/distributed-systems/log-what-every-software-engineer-should-know-about-real-time-datas-unifying)，[另外一个中文版地址](https://github.com/oldratlee/translations/tree/master/log-what-every-software-engineer-should-know-about-real-time-datas-unifying)
+* [消息队列通用问题](https://github.com/doocs/advanced-java#%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97) - 面试必备
+* [Twitter 高性能分布式日志系统架构解析](https://mp.weixin.qq.com/s/g36Lf_0lMfuNYkzEwbvo7g)
+  * [https://conferences.oreilly.com/strata/strata-ca-2018/public/schedule/speaker/267620.html](https://conferences.oreilly.com/strata/strata-ca-2018/public/schedule/speaker/267620.html)
+  * 
+
+#### 其他
+
+* [MQ 消息中间件分析](https://mp.weixin.qq.com/s/lqFGnIUtqTFZ_GHp46z48Q)
+  * 为什么使用 MQ？
+  * MQ 有什么优缺点？
+  * 几种 MQ 产品的对比，以及适用场景
 
 
 

@@ -18,6 +18,7 @@
 * [https://www.educative.io/edpresso/how-to-delete-remote-branches-in-git](https://www.educative.io/edpresso/how-to-delete-remote-branches-in-git)
 * [https://devconnected.com/how-to-delete-local-and-remote-tags-on-git/](https://devconnected.com/how-to-delete-local-and-remote-tags-on-git/)
 * [github fork 后如何 sync](https://www.jianshu.com/p/199733864fe7)
+* [GitHub 项目 fork 后同步最新的代码到自己的仓库中](https://docs.github.com/en/github/collaborating-with-issues-and-pull-requests/working-with-forks)
 
 ```bash
 // --- 回退 merge
