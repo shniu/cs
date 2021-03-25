@@ -199,6 +199,18 @@ public interface RemotingServer extends RemotingService {
 
 #### Client - Producer 实现
 
+Note: 以设计和实现 Producer 的角度去总结。
+
+在 RocketMQ 的设计和实现中有很多共用的东西，比如 remoting 就是一个共用模块，其中实现了通信双方的 client 和 server，也实现了基本的通信协议（编解码、序列化反序列化、命令等），解决了网络通信问题。
+
+Producer 是作为客户端存在去主动连接 Namesrv 和 Broker，建立一个全双工的  TCP 长连接。
+
+Producer 实现
+
+RocketMQ 在实现时使用了门面设计模式，为用户使用提供了简单易操作的接口，屏蔽了 Producer 内部的复杂实现，但是在实际调用某些功能时委托给内部的实现进行处理。
+
+
+
 * Producer 里的 MessageQueue List 是如何构建的？因为在发送消息时要选择一个 MessageQueue
 
 Producer 在 send message 时，会先获取到 topicPublishInfo，这里边包含了两个重要的数据：topicRouteData 和 MessageQueueList，其中 topicRouteData 中包括了 topicData 的列表和 brokerData 的列表，而 MessageQueueList 的数据就是从 topicData 列表数据中转化而来的，如果一个 Topic 分布在两个 Broker 之上，而且读写队列是 4 的话，那么就会有 8 个 MessageQueue，分别对应到 broker1 的 0 1 2 3 这 4 个队列和 broker2 的 0 1 2 3 这 4 个队列。所以说，如果某个 Broker 挂掉，那么这个 Broker 上的队列都不能访问了，在我们举的例子中，就只剩下 4 个 Queue，在一个短暂的时间内，本来要发给某个 Queue 的数据需要发给另外的 Queue，即使我们使用了 id 取余的方式，也不能严格的保证局部顺序；当 Broker 端做了高可用的 DLedger 集群后，能缩短故障时间，并增加了自动恢复的能力，要么我们就需要牺牲一定的可用性，如果某个 id 投递到某个 Queue，把这个对应关系记下来，如果这个 Queue 不可用，就后面再发送，这无疑增加了系统实现的复杂度，而且还会影响吞吐量

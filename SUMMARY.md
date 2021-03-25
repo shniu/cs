@@ -31,6 +31,7 @@
   * [DHCP 工作原理](cs/network/dhcp-gong-zuo-yuan-li.md)
 * [Data Structure and Algorithm](cs/data-structure-and-algorithm/README.md)
   * [题目列表](cs/data-structure-and-algorithm/99-chang-jian-ti-mu-lie-biao.md)
+  * [做题笔记](cs/data-structure-and-algorithm/zuo-ti-bi-ji.md)
   * [Summarize](cs/data-structure-and-algorithm/summarize/README.md)
     * [方法总结](cs/data-structure-and-algorithm/summarize/fang-fa-zong-jie.md)
     * [算法中的复杂度分析](cs/data-structure-and-algorithm/summarize/suan-fa-zhong-de-fu-za-du-fen-xi.md)
