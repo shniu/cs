@@ -394,6 +394,12 @@ public SelectMappedBufferResult selectMappedBuffer(int pos, int size) {
 
 在消费者拉取消息时，消息是从 MessageStore 中获取的，这个实现是在 DefaultMessageStore 中的，在这里会从 commitLog 中拉取需要的消息，然后返回消息的结果 GetMessageResult；在 CommitLog 中返回的是 SelectMappedBufferResult，这个数据是从 mappedFile 中获取的；而 SelectMappedBufferResult 中两个重要的属性 byteBuffer 和 mappedFile 都是和当前的 mappedFile 实例相关的，而 mappedFile 是对内存映射的封装，mappedByteBuffer 就是内存映射的那块可以直接操作的内存，也就是说，最终返回的 GetMessageResult 是一块或者多块被内存映射的内存区域，因为这些数据是磁盘上的文件和虚拟内存之间的直接映射，并且可以被用户态程序直接访问，所以不需要内存拷贝就可以直接写数据进去，也可以读数据出来；如果开启 transferMsgByHeap，就会将 pageCache 中的数据 copy 到堆内存中，然后发送到 socket buffer 中，这样就至少多了2次的内存 copy；如果不开启 transferMsgByHeap 就会使用 Zero-Copy 的方式，利用 DMA 直接把数据发送到网卡。
 
+
+
+#### 在 RocketMQ 的 Broker 中关闭偏向锁，可以提升性能
+
+
+
 ### Reference
 
 * [https://rocketmq.apache.org/](https://rocketmq.apache.org/)

@@ -237,6 +237,10 @@ CompletableFuture 是一个可以通过编程方式显式地设置计算结果�
 * 所有异步的方法在没有显式指定Executor参数的情形下都是复用ForkJoinPool. commonPool\(\)线程池来执行
 * 所有CompletionStage方法的实现都是相互独立的，以便一个方法的行为不会因为重载了其他方法而受影响
 
+参考：
+
+1. [Java CompletableFuture 详解](https://colobu.com/2016/02/29/Java-CompletableFuture/)
+
 RxJava
 
 ### 参考
