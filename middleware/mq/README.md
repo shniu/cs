@@ -208,7 +208,26 @@ TODO
 
 ### 如何设计实现一个 MQ ？
 
-TODO
+#### 单机下百万队列存储设计 \(天池复赛题目）
+
+题面描述很简单：使用 Java 或者 C++ 实现一个进程内的队列引擎，单机可支持 100 万队列以上
+
+```java
+public abstract class QueueStore {
+    abstract void put(String queueName, byte[] message);
+    abstract Collection<byte[]> get(String queueName, long offset, long num);
+}
+```
+
+编写如上接口的实现。
+
+put 方法将一条消息写入一个队列，这个接口需要是线程安全的，评测程序会并发调用该接口进行 put，每个 queue 中的内容按发送顺序存储消息（可以理解为 Java 中的 List），同时每个消息会有一个索引，索引从 0 开始，不同 queue 中的内容，相互独立，互不影响，queueName 代表队列的名称，message 代表消息的内容，评测时内容会随机产生，大部分长度在 58 字节左右，会有少量消息在 1k 左右。
+
+get 方法从一个队列中读出一批消息，读出的消息要按照发送顺序来，这个接口需要是线程安全的，也即评测程序会并发调用该接口进行 get，返回的 Collection 会被并发读，但不涉及写，因此只需要是线程读安全就可以了，queueName 代表队列的名字，offset 代表消息的在这个队列中的起始索引，num 代表读取的消息的条数，如果消息足够，则返回 num 条，否则只返回已有的消息即可，若消息不足，则返回一个空的集合。
+
+参考：
+
+1. [https://www.cnkirito.moe/mq-million-queue/](https://www.cnkirito.moe/mq-million-queue/)
 
 ### Reference
 

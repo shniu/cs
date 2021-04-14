@@ -411,6 +411,8 @@ public SelectMappedBufferResult selectMappedBuffer(int pos, int size) {
 * [RocketMQ 如何在双11下0故障](https://mp.weixin.qq.com/s/nkNT2CvPHiWZF95NWzd3Ug)
 * [DLedger 主从切换实现平滑升级的技巧](https://yq.aliyun.com/articles/720413)
 * [RocketMQ 概念和设计](http://qyb.cool/archives/rocketmq%E4%B8%80%E6%A6%82%E5%BF%B5%E5%92%8C%E8%AE%BE%E8%AE%A1#%E4%B8%80%E3%80%81%E6%A6%82%E5%BF%B5%E5%92%8C%E7%89%B9%E6%80%A7)
+* [文件 IO 操作的一些最佳实践](https://www.cnkirito.moe/file-io-best-practise/)
+* [天池中间件大赛百万队列存储设计总结](https://www.cnkirito.moe/mq-million-queue/)
 
 性能测试
 
