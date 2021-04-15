@@ -228,6 +228,10 @@ get 方法从一个队列中读出一批消息，读出的消息要按照发送�
 参考：
 
 1. [https://www.cnkirito.moe/mq-million-queue/](https://www.cnkirito.moe/mq-million-queue/)
+2. [http://www.wangyapu.com/2018/08/01/tianchi-mq/](http://www.wangyapu.com/2018/08/01/tianchi-mq/)
+3. [https://code.aliyun.com/18868106990/queuerace2018/tree/thread](https://code.aliyun.com/18868106990/queuerace2018/tree/thread)
+4. [https://developer.aliyun.com/article/742917](https://developer.aliyun.com/article/742917)
+5. [https://github.com/HelloYym/queue-race](https://github.com/HelloYym/queue-race)
 
 ### Reference
 
