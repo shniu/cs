@@ -232,6 +232,8 @@ get 方法从一个队列中读出一批消息，读出的消息要按照发送�
 3. [https://code.aliyun.com/18868106990/queuerace2018/tree/thread](https://code.aliyun.com/18868106990/queuerace2018/tree/thread)
 4. [https://developer.aliyun.com/article/742917](https://developer.aliyun.com/article/742917)
 5. [https://github.com/HelloYym/queue-race](https://github.com/HelloYym/queue-race)
+6. [https://www.cnkirito.moe/dubboMesh/](https://www.cnkirito.moe/dubboMesh/)
+7. [https://www.cnkirito.moe/file-io-best-practise/](https://www.cnkirito.moe/file-io-best-practise/)
 
 ### Reference
 
