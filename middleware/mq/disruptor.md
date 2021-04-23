@@ -37,6 +37,8 @@ ConcurrentLinkedQueue：基于链表形式的队列，通过compare and swap(�
 
 每个生产者或者消费者线程，会先申请可以操作的元素在数组中的位置，申请到之后，直接在该位置写入或者读取数据
 
+* 优先考虑遵循 Single Writer Principle \(单一写入者原则\)
+
 ### 参考资料
 
 1. [你应该知道的高性能无锁队列 Disruptor](https://juejin.im/post/6844903648875528206#heading-10)

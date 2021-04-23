@@ -431,7 +431,7 @@ public final class CoalescingRingBuffer<K, V> implements CoalescingBuffer<K, V> 
 
 ### Reference
 
-* [ Single Writer Principle](https://mechanical-sympathy.blogspot.com/2011/09/single-writer-principle.html) - 单一写入者原则
+#### [ Single Writer Principle](https://mechanical-sympathy.blogspot.com/2011/09/single-writer-principle.html) - 单一写入者原则
 
 在遇到多个写入者竞争共享资源时，一般有两种解决办法：一个是在竞争时使用互斥访问策略，一般是使用锁来实现；另外一种是使用乐观并发策略
 
@@ -445,12 +445,13 @@ If a system is decomposed into components that keep their own relevant state mod
 
 The Single Writer Principle is that for any item of data, or resource, that item of data should be owned by a single execution context for all mutations. \(单一写入者原则适用于任何一项数据或资源，该数据项的所有修改都应该由同一个执行上下文拥有\)
 
-* [Atomic\*.lazySet is a performance win for single writer](http://psy-lob-saw.blogspot.com/2012/12/atomiclazyset-is-performance-win-for.html)
+#### [Atomic\*.lazySet is a performance win for single writer](http://psy-lob-saw.blogspot.com/2012/12/atomiclazyset-is-performance-win-for.html)
 
 But if there is only a single writer we don't need to do that, as we know no one will ever change the data but us. And from that follows that strictly speaking lazySet is at the very least as correct as a volatile set for a single writer. \(如果只有一个单一写入者，也就是没有其他的人修改数据，只有我们自己；基于这个结论可以严格的说单一写入者模式下的 lazySet 和 volatile 具有同样正确的语义\)
 
 At this point the question is when \(if at all\) will the value set be made visible to other threads. \(基于这个点问题就变成了被修改的值何时被其他线程看到\)
 
-* [How is lazySet in Java's Atomic\* classes implemented ?](https://stackoverflow.com/questions/8381440/how-is-lazyset-in-javas-atomic-classes-implemented)
-* [AtomicLong lazySet vs set ](https://stackoverflow.com/questions/1468007/atomicinteger-lazyset-vs-set)
+#### [How is lazySet in Java's Atomic\* classes implemented ?](https://stackoverflow.com/questions/8381440/how-is-lazyset-in-javas-atomic-classes-implemented)
+
+#### [AtomicLong lazySet vs set ](https://stackoverflow.com/questions/1468007/atomicinteger-lazyset-vs-set)
 
