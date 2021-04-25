@@ -36,6 +36,8 @@ description: '#数据结构 #算法'
   * Big Data
 * [Deliberate Practice](practice-topics/) \(刻意练习\)
 
+自己总结的博客地址：xie.infoq.cn 
+
 ### 如何能学好
 
 知乎上关于[如何学好数据结构？](https://www.zhihu.com/question/21318658)有非常多的回答，都很实用。总结一下就是：
