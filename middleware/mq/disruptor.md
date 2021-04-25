@@ -6,11 +6,17 @@ Disruptor 是一个高性能的队列，核心的业务逻辑处理器是在内�
 
 LMAX 是一个面向全球的交易所，而交易所对延迟是很敏感的，因为订单之间的撮合要非常快，才不至于影响后面订单的撮合，也就是说在高并发情况下，交易所要尽可能低延迟的提高成交数量。据开源 Disruptor 的团队介绍它每秒可以处理千万级以上的消息，并且消息的平均延迟在 50 纳秒（很牛的性能数据）。之所以有这么高的性能，Disruptor 的团队探索了很多影响性能的因素，最终选择了：
 
-1. Cache line 与硬件友好性设计，避免了伪共享
+1. Cache line 与硬件友好性设计，避免了伪共享，\(**Disruptor 是如何来避免伪共享的 ?**\)
 2. 内存预先分配，降低运行时的 GC，使用了 RingBuffer 这个数据结构，空间是预先分配好的且运行时不需要回收
 3. 缓存友好性，利用 RingBuffer 环形数组，尽可能提高 CPU 的缓存命中率
 4. 使用 CPU 级别的原子操作 CAS，运用无锁算法来提高并发操作的性能，CAS 的无锁操作比内核级别的 Lock 代价要小很多
 5. 模式和框架上的创新，摒弃了传统的并发队列的做法，使用 producer sequencing 和 consumer sequencing, 并且 consumer 之间可以形成 dependency graph
+
+### Disruptor 介绍
+
+1. 没有竞争的数据结构和工作流
+2. 非常快速的消息传递
+3. 让你体验真正的并行
 
 ### 核心设计原理
 
@@ -37,7 +43,18 @@ ConcurrentLinkedQueue：基于链表形式的队列，通过compare and swap(�
 
 每个生产者或者消费者线程，会先申请可以操作的元素在数组中的位置，申请到之后，直接在该位置写入或者读取数据
 
-* 优先考虑遵循 Single Writer Principle \(单一写入者原则\)
+* 优先考虑遵循 [Single Writer Principle](../../blog/design-and-dev-and-opt/high-performance-data-structure-design.md#single-writer-principle-dan-yi-xie-ru-zhe-yuan-ze) \(单一写入者原则\)
+
+### 调优
+
+Disruptor 的调优方向有：单写入者多写入者的选择、等待策略的选择等
+
+* 根据单一写入者原则，在保证只有一个 Producer 线程写入时，可能会获得额外的性能提升，通过性能测试结果观察，[性能差距还是很明显的](https://github.com/LMAX-Exchange/disruptor/wiki/Getting-Started#single-vs-multiple-producers)。
+* 等待策略，当 RingBuffer 满时，默认的策略是阻塞等待。内部 BlockingWaitStrategy 使用典型的锁和条件变量来处理线程唤醒；其他的等待策略还有：SleepingWaitStrategy, YieldingWaitStrategy, BusySpinWaitStrategy等，不同场景下对等待策略的要求是不一样的
+  * BlockingWaitStrategy 是最常使用的策略，它利用锁和等待-通知机制的方式来实现，所以她在 CPU 使用方面是最小的，但是它需要多线程之间的通信，所以可能也是最慢的（原因可能是需要唤醒，然后竞争，依赖线程调度，还有可能竞争失败，重新竞争）
+  * SleepingWaitStrategy 这个策略是在 while loop 中 sleep\(1\), 在 Linux 系统中这会让线程大概睡眠 60 微秒，它的好处是，生产线程不需要采取任何行动，只需要增加适当的计数器，并且不需要信号条件变量的成本。然而，在生产者和消费者线程之间移动事件的平均延迟会更高。在不需要低延迟，但希望对生产线程有低影响的情况下，它的效果最好。一个常见的用例是用于异步日志。
+  * YieldingWaitStrategy 可用于低延迟系统，在该系统中可以选择燃烧 CPU 周期，以改善延迟。YieldingWaitStrategy将忙于旋转，等待序列增量到适当的值。在循环的主体中，Thread.yield\(\)将被调用，允许其他排队的线程运行。当需要非常高的性能，并且事件处理程序线程的数量少于逻辑核心的总数时，例如，你启用了超线程，这是推荐的等待策略。它比 BusySpin 的方式更容易放弃 CPU
+  * BusySpinWaitStrategy 是性能最高的等待策略，但对部署环境的限制也最高。只有当事件处理程序线程的数量小于物理核心数量时，才应使用这种等待策略。例如，超线程应被禁用。
 
 ### 参考资料
 
@@ -64,4 +81,5 @@ ConcurrentLinkedQueue：基于链表形式的队列，通过compare and swap(�
    18. [https://wiki.jikexueyuan.com/project/disruptor-getting-started/lmax-framework.html](https://wiki.jikexueyuan.com/project/disruptor-getting-started/lmax-framework.html)
    19. [Axon 和 Disruptor 处理 1M TPS](http://ifeve.com/axon/)
    20. [Disruptor Blogs and Articles](https://code.google.com/archive/p/disruptor/wikis/BlogsAndArticles.wiki)
+   21. PPT: [Concurrent Programming using the Disruptor](https://www.slideshare.net/trishagee/a-users-guide-to-the-disruptor)
 

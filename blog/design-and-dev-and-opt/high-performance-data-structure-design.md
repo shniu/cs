@@ -433,7 +433,7 @@ public final class CoalescingRingBuffer<K, V> implements CoalescingBuffer<K, V> 
 
 #### [ Single Writer Principle](https://mechanical-sympathy.blogspot.com/2011/09/single-writer-principle.html) - 单一写入者原则
 
-在遇到多个写入者竞争共享资源时，一般有两种解决办法：一个是在竞争时使用互斥访问策略，一般是使用锁来实现；另外一种是使用乐观并发策略
+在遇到多个写入者竞争共享资源时，一般有两种解决办法：一个是在竞争时使用互斥访问策略，一般是使用锁来实现，比如互斥量等；另外一种是使用乐观并发策略，比如 Compare-And-Swap
 
 > 锁策略：Locking strategies require an arbitrator（仲裁）, usually the operating system kernel, to get involved when the contention occurs to decide who gains access and in what order.  This can be a very expensive process often requiring many more CPU cycles than the actual transaction to be applied to the business logic would use.  Those waiting to enter the [critical section](http://en.wikipedia.org/wiki/Critical_section)\(临界区\), in advance of performing the mutation must queue, and this queuing effect \([Little's Law](http://en.wikipedia.org/wiki/Little%27s_law)\) causes latency to become unpredictable and ultimately restricts throughput.
 
