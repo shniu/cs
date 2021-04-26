@@ -215,4 +215,5 @@ Disruptor 的调优方向有：单写入者多写入者的选择、等待策略�
    19. [Axon 和 Disruptor 处理 1M TPS](http://ifeve.com/axon/)
    20. [Disruptor Blogs and Articles](https://code.google.com/archive/p/disruptor/wikis/BlogsAndArticles.wiki)
    21. PPT: [Concurrent Programming using the Disruptor](https://www.slideshare.net/trishagee/a-users-guide-to-the-disruptor)
+   22. [基于 Disruptor 实现动态消费者](https://github.com/Rookiexu/disruptorDynamicConsumer)
 
