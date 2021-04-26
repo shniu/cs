@@ -26,7 +26,7 @@ Disruptor 是我们研究和测试的结果。我们发现，CPU 级别的缓存
 
 Lock 以一种顺序的方式保证了互斥和变更的可见性。**锁是非常昂贵的，因为它们在争夺时需要仲裁。**这种仲裁是通过向操作系统内核切换上下文来实现的，操作系统内核将暂停在锁上等待的线程，直到它被释放。在这样的上下文切换过程中，以及向操作系统释放控制权的过程中，执行上下文可能会丢失之前缓存的数据和指令，而操作系统可能会决定在它拥有控制权的时候做其他的内部管理任务。这对现代处理器的性能会产生严重的影响。可以采用快速用户模式锁，但是这些锁只有在不争夺的情况下才会有真正的好处。
 
-![](../../.gitbook/assets/image%20%28137%29.png)
+![](../../.gitbook/assets/image%20%28139%29.png)
 
 #### CAS 的代价
 
@@ -132,6 +132,24 @@ LMAX 是一个面向全球的交易所，而交易所对延迟是很敏感的，
 6.  1. 没有竞争的数据结构和工作流
    2. 非常快速的消息传递
    3. 让你体验真正的并行
+
+### Disruptor 编程模型
+
+![Disruptor &#x5E76;&#x53D1;&#x7F16;&#x7A0B;&#x6A21;&#x578B;&#x4EE5;&#x53CA;&#x5DE5;&#x4F5C;&#x6D41;](../../.gitbook/assets/image%20%28138%29.png)
+
+#### Disruptor publish event 流程
+
+1. sequencer.next\(\) 申请 event 被放置的位置（每个 RingBuffer 会关联一个 sequencer），申请的方式是 Spin + CAS, 并 cache sequence 和解决 wrap point 的问题，申请位置的逻辑涉及到空间不足的问题，因为消费太慢，生产太快会引发这个问题，在 next\(\) 实现中会考虑这种情况，如果空间不足就会阻塞生产者线程
+2. 执行 translator.translateTo\(...\), 这个是由用户自定义的，用来 get\(sequence\) 后，对这个自定义的事件进行修改 ，因为 RingBuffer 里的对象是预先分配好的，所以需要用 translate 对时间做更新填充，在申请位置时已经保证了只有一个线程会操作特定位置的对象，所以这个操作是安全的
+3. 执行 publish, 让 sequence 位置的事件可用
+
+可见，整个流程就是申请位置成功后，更新事件的内容，最后让这个位置的事件可用，**有点两阶段提交的思想**，先 prepare, 然后 commit；此外，在 publish 时，如果申请不到位置，会被阻塞，如果使用的是 tryPublish 会返回 false。
+
+#### Disruptor 的核心类与关系
+
+![&#x6838;&#x5FC3;&#x7C7B;](../../.gitbook/assets/image%20%28137%29.png)
+
+其实 Disruptor 类不是必须要使用的，只是利用它可以很方便的利用 Disruptor 这个框架进行开发，其中 RingBuffer 是整个核心的部分，Sequencer/SequenceBarrier/EventProcessor/WaitStrategy 等都是核心的组成部分；而 Event 和 EventHandler 的是需要我们根据业务自己去实现的部分，从实现来看，Disruptor 的整体实现还是非常不错的，类和功能的划分职责清晰，也能提供很好的编程接口，对于内部的复杂实现也做了很好的隐藏，同时又预留了不错的扩展性，比如可以定制 WaitStrategy, 可以实现自己的 EventProcessor, 也可以基于 Disruptor 去扩展功能。
 
 ### 核心设计原理
 
