@@ -149,7 +149,7 @@ LMAX 是一个面向全球的交易所，而交易所对延迟是很敏感的，
 
 ![&#x6838;&#x5FC3;&#x7C7B;](../../.gitbook/assets/image%20%28137%29.png)
 
-其实 Disruptor 类不是必须要使用的，只是利用它可以很方便的利用 Disruptor 这个框架进行开发，其中 RingBuffer 是整个核心的部分，Sequencer/SequenceBarrier/EventProcessor/WaitStrategy 等都是核心的组成部分；而 Event 和 EventHandler 的是需要我们根据业务自己去实现的部分，从实现来看，Disruptor 的整体实现还是非常不错的，类和功能的划分职责清晰，也能提供很好的编程接口，对于内部的复杂实现也做了很好的隐藏，同时又预留了不错的扩展性，比如可以定制 WaitStrategy, 可以实现自己的 EventProcessor, 也可以基于 Disruptor 去扩展功能。
+其实 Disruptor 类不是必须要使用的，只是利用它可以很方便的利用 Disruptor 这个框架进行开发，其中 RingBuffer 是整个核心的部分，Sequencer/SequenceBarrier/EventProcessor/WaitStrategy 等都是核心的组成部分；而 Event 和 EventHandler 的是需要我们根据业务自己去实现的部分，从实现来看，Disruptor 的整体实现还是非常不错的，类和功能的划分职责清晰，也能提供很好的编程接口，对于内部的复杂实现也做了很好的隐藏，同时又预留了不错的扩展性，比如可以定制 WaitStrategy, 可以实现自己的 EventProcessor, 也可以基于 Disruptor 去扩展功能。很多地方都体现了面向抽象编程，面向接口而非实现。
 
 ### 核心设计原理
 
