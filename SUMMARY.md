@@ -33,7 +33,6 @@
   * [题目列表](cs/data-structure-and-algorithm/99-chang-jian-ti-mu-lie-biao.md)
   * [Summarize](cs/data-structure-and-algorithm/summarize/README.md)
     * [方法总结](cs/data-structure-and-algorithm/summarize/fang-fa-zong-jie.md)
-    * [算法中的复杂度分析](cs/data-structure-and-algorithm/summarize/suan-fa-zhong-de-fu-za-du-fen-xi.md)
     * [二分思想](cs/data-structure-and-algorithm/summarize/er-fen-si-xiang.md)
     * [树的演化](cs/data-structure-and-algorithm/summarize/02-you-yi-ban-hua-dao-te-shu-hua-yan-bian-de-shu.md)
     * [算法思想总结](cs/data-structure-and-algorithm/summarize/algorithm-ideas-summary.md)
