@@ -234,7 +234,7 @@ Stop Limit 和 Trailing Stop 比较有意思，他们是有效的风险控制工
 * [交易所架构解析](https://mp.weixin.qq.com/s/iObYqbCZDIJH9ruz6316ow)
 * [数字货币交易所架构初探](https://mp.weixin.qq.com/s/RCND9QEiVtKxHHzBAGqB7A)
 * [交易风险控制](https://mp.weixin.qq.com/s/KMyTsfwMXnZcjNXeQLS00w)
-* \*\*\*\*[**高并发、低 RT 的风控系统架构及技术架构的实现**](https://gitbook.cn/gitchat/activity/5cd91b637b22ef4d1f70c332)\*\*\*\*
+* \*\*\*\*[**高并发、低 RT 的风控系统架构及技术架构的实现**](https://gitbook.cn/books/5ceb4d8c41662676cf0f0265/index.html)\*\*\*\*
 * \*\*\*\*[**https://cloud.tencent.com/developer/article/1476492**](https://cloud.tencent.com/developer/article/1476492)\*\*\*\*
 * [交易所架构开发学习](https://www.jianshu.com/p/4daba3bb413e) - [https://gitee.com/cexchange/CoinExchange](https://gitee.com/cexchange/CoinExchange)
 * [数字货币交易所架构设计](https://www.cnblogs.com/bizzan/p/12661279.html) - 可以重点看一下
