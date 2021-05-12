@@ -148,7 +148,6 @@
 * [Netty](framework/netty/README.md)
   * [网络 IO 模型](framework/netty/wang-luo-io-mo-xing.md)
   * [Netty 生产问题](framework/netty/netty-sheng-chan-wen-ti.md)
-* [Dubbo](framework/dubbo.md)
 * [Apache Tomcat](framework/apache-tomcat.md)
 * [MyBatis](framework/mybatis.md)
 * [限流框架](framework/rate-limiter.md)
