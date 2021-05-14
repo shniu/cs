@@ -161,7 +161,6 @@
   * [Ribbon](framework/spring-cloud-netflix/ribbon.md)
   * [Eurake](framework/spring-cloud-netflix/eurake.md)
   * [Spring Cloud Config](framework/spring-cloud-netflix/spring-cloud-config.md)
-  * [Spring Cloud Alibaba](framework/spring-cloud-netflix/spring-cloud-alibaba.md)
 * [FixJ](framework/fixj.md)
 * [Metrics](framework/metrics.md)
 * [Vert.x](framework/vert.x.md)
