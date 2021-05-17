@@ -154,7 +154,6 @@
 * [Spring Framework](framework/spring-framework/README.md)
   * [Spring Core](framework/spring-framework/spring-core.md)
   * [Spring 事务管理](framework/spring-framework/spring-transaction.md)
-  * [RestTemplate 设计](framework/spring-framework/resttemplate-design.md)
 * [Spring Boot](framework/spring-boot.md)
 * [Spring Cloud](framework/spring-cloud-netflix/README.md)
   * [Feign & OpenFeign](framework/spring-cloud-netflix/feign-and-openfeign.md)
