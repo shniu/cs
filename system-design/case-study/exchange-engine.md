@@ -240,6 +240,7 @@ Stop Limit 和 Trailing Stop 比较有意思，他们是有效的风险控制工
 * [数字货币交易所架构设计](https://www.cnblogs.com/bizzan/p/12661279.html) - 可以重点看一下
 * [https://www.itbaizhan.cn/stages/id/33/phase/385](https://www.itbaizhan.cn/stages/id/33/phase/385)
 * [低延迟交易系统设计](http://www.huayunsoft.com/NewsStd_589.html) 
+* [币安技术栈首揭秘](https://www.infoq.cn/article/avv1hbrgwnxq8ag4u9de)
 
 ### API
 
